@@ -1,0 +1,210 @@
+/* =========================
+   Footer
+========================= */
+
+.footer {
+    width: 100%;
+    background: #f7f7f7;
+    color: #64748b;
+}
+
+.footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 50px 20px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+}
+
+
+/* =========================
+   Footer Left
+========================= */
+
+.footer-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.footer-logo {
+    margin-bottom: 34px;
+}
+
+.footer-logo a {
+    display: inline-block;
+
+    color: #1e293b;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+/* 이용약관 / 개인정보처리방침 */
+
+.footer-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+.footer-menu li {
+    position: relative;
+}
+
+.footer-menu li+li::before {
+    content: "";
+    position: absolute;
+
+    left: -10px;
+    top: 50%;
+
+    width: 1px;
+    height: 12px;
+
+    background: #cbd5e1;
+
+    transform: translateY(-50%);
+}
+
+.footer-menu a {
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    text-decoration: none;
+
+    transition: color 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #1e293b;
+}
+
+
+/* 안내 문구 */
+
+.footer-desc {
+    max-width: 760px;
+
+    margin-bottom: 22px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* 회사 정보 */
+
+.footer-info {
+    margin-bottom: 4px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+    line-height: 1.7;
+
+    font-style: normal;
+}
+
+
+/* copyright */
+
+.copyright {
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   Footer Right
+========================= */
+
+.footer-right {
+    width: 350px;
+
+    flex-shrink: 0;
+}
+
+
+/* 고객센터 */
+
+.footer-customer {
+    margin-top: 16px;
+}
+
+.customer-title {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    margin-bottom: 10px;
+}
+
+.customer-title span {
+    color: #1e293b;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.customer-title strong {
+    color: #1e293b;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.footer-customer p {
+    margin-top: 7px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   SNS
+========================= */
+
+.footer-sns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 48px;
+}
+
+.footer-sns a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+    height: 26px;
+
+    color: #64748b;
+
+    font-size: 0;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s,
+        opacity 0.3s;
+}
+
+.footer-sns a:hover {
+    transform: translateY(-3px);
+    opacity: 0.7;
+}
