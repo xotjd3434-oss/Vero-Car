@@ -1,3 +1,29 @@
+console.log('common.js 연결 성공');
+
+// footer
+fetch('components/footer.html')
+    .then((response) => {
+        console.log('footer 응답:', response);
+
+        return response.text();
+    })
+    .then((data) => {
+        console.log('footer 내용:', data);
+
+        document.querySelector('#footer').innerHTML = data;
+    })
+    .catch((error) => {
+        console.error('footer 불러오기 실패:', error);
+    });
+
+
+
+
+
+
+
+
+
 let mainData = [];
 
 // JSON 데이터 가져오기
