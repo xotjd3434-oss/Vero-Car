@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>차량 카드 확인</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: Arial, sans-serif;
+      background: #f5f6f8;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    #carList {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .car-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .car-info {
+      padding: 20px;
+    }
+
+    .car-brand {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .car-name {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .car-detail {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .car-price {
+      margin-top: 16px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>차량 목록</h1>
+
+  <div id="carList"></div>
+
+  <script>
+    const carList = document.querySelector('#carList');
+
+    fetch('./assets/data/cars.json')
+      .then(response => response.json())
+      .then(data => {
+
+        console.log(data);
+
+        data.forEach(car => {
+
+          carList.innerHTML += `
+            <div class="car-card">
+
+              <img 
+                src="./assets/${car.thumbnail}"
+                alt="${car.modelName}"
+              >
+
+              <div class="car-info">
+
+                <p class="car-brand">
+                  ${car.brand}
+                </p>
+
+                <h2 class="car-name">
+                  ${car.modelName}
+                </h2>
+
+                <div class="car-detail">
+                  ${car.modelYear}년식<br>
+                  ${car.mileage.toLocaleString()}km<br>
+                  ${car.fuel}<br>
+                  ${car.region}
+                </div>
+
+                <p class="car-price">
+                  ${car.price.toLocaleString()}만원
+                </p>
+
+              </div>
+
+            </div>
+          `;
+
+        });
+
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+  </script>
+
+</body>
+
+</html>
