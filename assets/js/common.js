@@ -1,26 +1,28 @@
 console.log('common.js 연결 성공');
 
 // footer
-fetch('components/footer.html')
+fetch('../../components/footer.html')
     .then((response) => {
         console.log('footer 응답:', response);
+
+        if (!response.ok) {
+            throw new Error('footer를 불러오지 못했습니다.');
+        }
 
         return response.text();
     })
     .then((data) => {
         console.log('footer 내용:', data);
 
-        document.querySelector('#footer').innerHTML = data;
+        const footer = document.querySelector('#footer');
+
+        if (footer) {
+            footer.innerHTML = data;
+        }
     })
     .catch((error) => {
         console.error('footer 불러오기 실패:', error);
     });
-
-
-
-
-
-
 
 
 
