@@ -1,33 +1,82 @@
 <!DOCTYPE html>
-<html lang='ko'>
+<html lang="ko">
 
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>VERO CAR</title>
 
-    <!-- 공통 -->
-    <link rel='stylesheet' href='assets/css/reset.css'>
-    <link rel='stylesheet' href='../../assets/css/common.css'>
-
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../assets/css/fonts.css">
+    <link rel="stylesheet" href="../../assets/css/common.css">
     <!-- 페이지 -->
-    <link rel='stylesheet' href='assets/css/pages/rent.css'>
+    <link rel='stylesheet' href='../../assets/css/pages/rent.css'>
 </head>
 
 <body>
+    <header class="header">
+        <div class="header-inner">
+
+            <h1 class="logo">
+                <a href="#">
+                    <img src="../../assets/img/header-img/logo.png" alt="VERO CAR">
+                </a>
+            </h1>
+
+            <nav class="gnb">
+                <ul class="gnb-list">
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">내차사기</a>
+                    </li>
+
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">내차팔기</a>
+                    </li>
+
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">렌트</a>
+                    </li>
+
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">리스</a>
+                    </li>
+
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">이벤트</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-util">
+                <a href="#" class="util-link" aria-label="마이페이지">
+                    <img src="../../assets/img/header-img/User.png" alt="">
+                </a>
+
+                <a href="#" class="util-link" aria-label="관심차량">
+                    <img src="../../assets/img/header-img/Heart.png" alt="">
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <!--  =====================================================
+  
+                                  입력하시면됩니다 
+
+              ======================================================= -->
 
     <footer class="footer">
         <div class="footer-inner">
 
             <div class="footer-left">
                 <h2 class="footer-logo">
-                    <a href="../index.html">VERO CAR</a>
+                    <a href="#"><img src="../../assets/img/footer-img/베로카로고.png" alt=""></a>
                 </h2>
 
                 <ul class="footer-menu">
                     <li><a href="#">이용약관</a></li>
-                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#" class="menu-privacy">개인정보처리방침</a></li>
                 </ul>
 
                 <p class="footer-desc">
@@ -49,8 +98,8 @@
                 </p>
             </div>
 
-
             <div class="footer-right">
+
                 <div class="footer-customer">
                     <div class="customer-title">
                         <span>고객센터</span>
@@ -63,24 +112,34 @@
 
                 <ul class="footer-sns">
                     <li>
-                        <a href="#" aria-label="인스타그램">Instagram</a>
+                        <a href="#" aria-label="인스타그램">
+                            <img src="../../assets/img/footer-img/Instagram.png" alt="">
+                        </a>
                     </li>
                     <li>
-                        <a href="#" aria-label="카카오톡">Kakao</a>
+                        <a href="#" aria-label="카카오톡">
+                            <img src="../../assets/img/footer-img/Kakaokalk.png" alt="">
+                        </a>
                     </li>
                     <li>
-                        <a href="#" aria-label="유튜브">YouTube</a>
+                        <a href="#" aria-label="유튜브">
+                            <img src="../../assets/img/footer-img/Youtube.png" alt="">
+                        </a>
                     </li>
                     <li>
-                        <a href="#" aria-label="페이스북">Facebook</a>
+                        <a href="#" aria-label="페이스북">
+                            <img src="../../assets/img/footer-img/Facebook.png" alt="">
+                        </a>
                     </li>
+
                 </ul>
+
             </div>
 
         </div>
     </footer>
-    <script src="assets/js/common.js"></script>
-    <script src="assets/js/pages/rent.js"></script>
+    <script src="../../assets/js/common.js" defer></script>
+    <script src="../../assets/js/pages/rent.js" defer></script>
 </body>
 
 </html>
