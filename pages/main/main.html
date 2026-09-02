@@ -71,21 +71,21 @@
                 <div class="recent-car-list">
 
                     <div class="recent-car-card">
-                        <img src="../assets/img/quick-menu-img/벤츠.png" alt="벤츠 E클래스">
+                        <img src="../../assets/img/quick-menu-img/벤츠.png" alt="벤츠 E클래스">
                         <strong>벤츠 E클래스 E350 AMG</strong>
                         <span>22년식 / 12,367km</span>
                         <b>6,700만원</b>
                     </div>
 
                     <div class="recent-car-card">
-                        <img src="../assets/img/quick-menu-img/제네시스.png" alt="제네시스 G80">
+                        <img src="../../assets/img/quick-menu-img/제네시스.png" alt="제네시스 G80">
                         <strong>제네시스 G80 2.5 터보</strong>
                         <span>22년식 / 10,215km</span>
                         <b>5,240만원</b>
                     </div>
 
                     <div class="recent-car-card">
-                        <img src="../assets/img/quick-menu-img/아우디.png" alt="아우디 Q5">
+                        <img src="../../assets/img/quick-menu-img/아우디.png" alt="아우디 Q5">
                         <strong>아우디 Q5 45</strong>
                         <span>22년식 / 12,914km</span>
                         <b>5,120만원</b>
@@ -105,7 +105,7 @@
 
             <!-- 최근 본 차량 버튼 -->
             <button type="button" class="quick-recent">
-                <img src="../assets/img/quick-menu-img/최근본차량아이콘.png" alt="">
+                <img src="../../assets/img/quick-menu-img/최근본차량아이콘.png" alt="">
                 <span>최근 본 차량</span>
             </button>
 
@@ -119,12 +119,537 @@
         </button>
 
     </aside>
-    <!--  =====================================================
-  
-                                  입력하시면됩니다 
+    <!DOCTYPE html>
+    <html lang="ko">
 
-              ======================================================= -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <title>VERO CAR</title>
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer>
+        </script>
+
+        <script src="js/main.js" defer></script>
+    </head>
+
+    <body>
+        <!-- ========================================
+       Main Visual
+  ========================================= -->
+        <section class="main-visual">
+            <div class="swiper main-swiper">
+                <div class="swiper-wrapper">
+
+                    <!-- slide 01 -->
+                    <div class="swiper-slide main-slide slide01">
+                        <div class="visual-content">
+                            <h2>내 렌트료,<br><strong>차값</strong>에서 빼드립니다</h2>
+                            <p>6개월 타보고 구매하면 그동안 낸 렌트료가<br>
+                                차량 대금으로 적립 안사도 위약금 제로</p>
+                            <a href="#" class="detail-btn">
+                                자세히 보기
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- slide 02 -->
+                    <div class="swiper-slide main-slide slide02">
+                        <div class="visual-content">
+                            <h2>믿을 수 있는 거래, <br><strong>VEROCAR</strong>에서<br>시작하세요</h2>
+                            <p>다양한 차량을 한눈에 비교하고<br>내게 딱 맞는 차량을 찾아보세요.</p>
+                            <a href="#" class="detail-btn">자세히 보기
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- slide 03 -->
+                    <div class="swiper-slide main-slide slide03">
+                        <div class="visual-content">
+                            <h2>하루도, 3년도<br><strong>한 곳</strong>에서</h2>
+                            <p>단기, 월, 장기렌트부터 리스, 법인, 매매까지<br>상황이 바뀌면 조건만 바꾸면 됩니다.</p>
+                            <a href="#" class="detail-btn">자세히 보기
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 이전 버튼 -->
+                <div class="swiper-button-prev"></div>
+                <!-- 다음 버튼 -->
+                <div class="swiper-button-next"></div>
+                <!-- 페이지 점 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- ========================================
+       Search Filter
+  ========================================= -->
+        <section class="car-search">
+            <div class="search-box">
+                <!-- 차량 구분 -->
+                <div class="filter-item">
+                    <button type="button" class="filter-btn" aria-expanded="false">
+                        <img src="../../assets/img/main-img/icon-area.png" alt="" class="filter-icon">
+                        차량 구분
+                        <img src="../../assets/img/main-img/CaretUp.png" alt="" class="arrow-icon">
+                    </button>
+                    <ul class="filter-menu">
+                        <li>
+                            <button type="button">전체</button>
+                        </li>
+                        <li>
+                            <button type="button">국산차</button>
+                        </li>
+                        <li>
+                            <button type="button">수입차</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 차종 -->
+                <div class="filter-item">
+                    <button type="button" class="filter-btn" aria-expanded="false">
+                        <img src="../../assets/img/main-img/CarProfile.png" alt="" class="filter-icon">
+                        차종
+                        <img src="../../assets/img/main-img/CaretUp.png" alt="" class="arrow-icon">
+                    </button>
+                    <ul class="filter-menu">
+                        <li>
+                            <button type="button">전체</button>
+                        </li>
+                        <li>
+                            <button type="button">소형차</button>
+                        </li>
+                        <li>
+                            <button type="button">중형차</button>
+                        </li>
+                        <li>
+                            <button type="button">대형차</button>
+                        </li>
+                        <li>
+                            <button type="button">전기차</button>
+                        </li>
+                        <li>
+                            <button type="button">화물차</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 브랜드 -->
+                <div class="filter-item">
+
+                    <button type="button" class="filter-btn" aria-expanded="false">
+                        <img src="../../assets/img/main-img/OpenAiLogo.png" alt="" class="filter-icon">
+                        브랜드
+                        <img src="../../assets/img/main-img/CaretUp.png" alt="" class="arrow-icon">
+                    </button>
+
+                    <ul class="filter-menu">
+                        <li>
+                            <button type="button">전체</button>
+                        </li>
+                        <li>
+                            <button type="button">현대</button>
+                        </li>
+                        <li>
+                            <button type="button">기아</button>
+                        </li>
+                        <li>
+                            <button type="button">KGM</button>
+                        </li>
+                        <li>
+                            <button type="button">르노삼성</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 주행거리 -->
+                <div class="filter-item">
+                    <button type="button" class="filter-btn" aria-expanded="false">
+                        <img src="../../assets/img/main-img/게이지.png" alt="" class="filter-icon">
+                        주행거리
+                        <img src="../../assets/img/main-img/CaretUp.png" alt="" class="arrow-icon">
+                    </button>
+
+                    <ul class="filter-menu">
+
+                        <li>
+                            <button type="button">전체</button>
+                        </li>
+                        <li>
+                            <button type="button">10000KM ↓</button>
+                        </li>
+                        <li>
+                            <button type="button">20000KM ↓</button>
+                        </li>
+                        <li>
+                            <button type="button">30000KM ↓</button>
+                        </li>
+                        <li>
+                            <button type="button">40000KM ↓</button>
+                        </li>
+                        <li>
+                            <button type="button">50000KM ↓</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 가격 -->
+                <div class="filter-item">
+                    <button type="button" class="filter-btn" aria-expanded="false">
+                        <img src="../../assets/img/main-img/CreditCard.png" alt="" class="filter-icon">
+                        가격
+                        <img src="../../assets/img/main-img/CaretUp.png" alt="" class="arrow-icon">
+                    </button>
+                    <ul class="filter-menu">
+                        <li><button type="button">전체</button></li>
+                        <li><button type="button">1천만원 ↓</button></li>
+                        <li><button type="button">2천만원 ↓</button></li>
+                        <li><button type="button">3천만원 ↓</button></li>
+                        <li><button type="button">4천만원 ↓</button></li>
+                        <li><button type="button">5천만원 ↓</button></li>
+                    </ul>
+                </div>
+                <!-- 검색 -->
+                <button type="button" class="search-btn">🔍검색하기</button>
+            </div>
+        </section>
+        <!-- ========================================
+     차량 카테고리
+========================================= -->
+        <section class="car-category">
+            <div class="car-category-list">
+                <!-- 국산차 -->
+                <button type="button" class="car-category-btn" data-category="domestic">
+                    <img src="../../assets/img/main-img/국산차.png" alt="">
+                    <span>국산차</span>
+                </button>
+
+                <!-- 수입차 -->
+                <button type="button" class="car-category-btn" data-category="import">
+                    <img src="../../assets/img/main-img/ico_수입차.png" alt="">
+                    <span>수입차</span>
+                </button>
+
+                <!-- 전기차 -->
+                <button type="button" class="car-category-btn" data-category="electric">
+                    <img src="../../assets/img/main-img/ico_전기차.png" alt="">
+                    <span>전기차</span>
+                </button>
+
+                <!-- 대형차 -->
+                <button type="button" class="car-category-btn" data-category="large">
+                    <img src="../../assets/img/main-img/ico_대형차.png" alt="">
+                    <span>대형차</span>
+                </button>
+
+                <!-- 소형차 -->
+                <button type="button" class="car-category-btn" data-category="small">
+                    <img src="../../assets/img/main-img/ico_소형차.png" alt="">
+                    <span>소형차</span>
+                </button>
+
+                <!-- 화물차 -->
+                <button type="button" class="car-category-btn" data-category="truck">
+                    <img src="../../assets/img/main-img/ico_화물차 (1).png" alt="">
+                    <span>화물차</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================
+     구매 / 렌트 / 리스
+========================================= -->
+        <section class="service-section">
+            <div class="service-list">
+                <!-- 구매 -->
+                <article class="service-card service-buy">
+                    <div class="service-content">
+                        <h2>구매</h2>
+                        <p class="service-subtitle">원하는 차량을<br>가장 쉽게</p>
+                        <p class="service-desc">검증된 차량을 비교하고<br>받을 수 있는 거래를 시작하세요.</p>
+                        <a href="pages/Buy/buy.html" class="service-btn">자세히 보기
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+                <!-- 렌트 -->
+                <article class="service-card service-rent">
+                    <div class="service-content">
+                        <h2>렌트</h2>
+                        <p class="service-subtitle">필요한 만큼<br>자유롭게</p>
+                        <p class="service-desc">단기부터 장기까지<br>합리적인 렌트를 만나보세요.</p>
+                        <a href="pages/Rent/rent.html" class="service-btn">자세히 보기
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 리스 -->
+                <article class="service-card service-lease">
+                    <div class="service-content">
+                        <h2>리스</h2>
+                        <p class="service-subtitle">부담은 줄이고<br>만족은 높이고
+                        </p>
+                        <p class="service-desc">초기 비용 없이<br>합리적인 리스를 시작하세요.
+                        </p>
+                        <a href="pages/lease/lease.html" class="service-btn">자세히 보기
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========================================
+     차량 비교 / AI 차량 분석
+========================================= -->
+        <section class="compare-ai-section">
+            <div class="compare-ai-list">
+                <!-- 차량 비교 -->
+                <article class="compare-ai-card compare-card">
+                    <div class="compare-ai-content">
+                        <h2>차량 비교</h2>
+                        <p>가격부터 주요 조건까지<br>한눈에 비교하고,<br>더 쉽게 선택하세요.</p>
+                        <a href="#" class="compare-ai-btn">자세히 보기
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- AI 차량 분석 -->
+                <article class="compare-ai-card ai-card">
+                    <div class="compare-ai-content">
+                        <h2>AI 차량 분석</h2>
+                        <p>취향과 라이프스타일을 분석해<br>나에게 꼭 맞는 차량을<br>분석해드립니다.</p>
+                        <a href="#" class="compare-ai-btn">자세히 보기
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- ========================================
+     차량 추천
+========================================= -->
+        <section class="recommend-section">
+            <div class="recommend-inner">
+                <!-- 제목 -->
+                <div class="recommend-title">
+                    <h2>차량추천</h2>
+                    <p>고객님의 라이프스타일에 맞는 차량을 추천해드립니다.</p>
+                </div>
+
+                <!-- 차량 카드 -->
+                <div class="recommend-list">
+
+                    <!-- 01 쏘렌토 -->
+                    <article class="recommend-card recommend-sorento">
+                        <div class="recommend-badge">
+                            <img src="../../assets/img/main-img/ico-area.png" alt="">
+                            AI BEST MATCH
+                        </div>
+                        <div class="recommend-content">
+                            <div class="recommend-name-row">
+                                <h3>쏘렌토 하이브리드</h3>
+                                <a href="#" class="recommend-detail-btn">
+                                    자세히 보기
+                                    <span>→</span>
+                                </a>
+                            </div>
+                            <p class="recommend-desc">넓은 실내공간과 뛰어난 효율성의<br>패밀리 SUV</p>
+
+                            <div class="recommend-info">
+                                <span>
+                                    <img src="../../assets/img/main-img/GasPump.png" alt="">
+                                    하이브리드
+                                </span>
+
+                                <span>
+                                    <img src="../../assets/img/main-img/Users.png" alt="">
+                                    5인승
+                                </span>
+
+                                <span>
+                                    <img src="../../assets/img/main-img/Gauge.png" alt="">
+                                    15.7km/ℓ
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 02 투싼 -->
+                    <article class="recommend-card recommend-tucson">
+                        <div class="recommend-badge">
+                            <img src="../../assets/img/main-img/Briefcase.png" alt="">
+                            출퇴근 추천
+                        </div>
+
+                        <div class="recommend-content">
+                            <div class="recommend-name-row">
+                                <h3>투싼</h3>
+                                <a href="#" class="recommend-detail-btn">
+                                    자세히 보기
+                                    <span>→</span>
+                                </a>
+                            </div>
+
+                            <p class="recommend-desc">도심 주행에 최적화된 크기와<br>뛰어난 연비</p>
+
+                            <div class="recommend-info">
+                                <span>
+                                    <img src="../../assets/img/main-img/GasPump.png" alt="">
+                                    가솔린
+                                </span>
+
+                                <span>
+                                    <img src="../../assets/img/main-img/Users.png" alt="">
+                                    5인승
+                                </span>
+
+                                <span>
+                                    <img src="../../assets/img/main-img/Gauge.png" alt="">
+                                    13.8km/ℓ
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 03 G80 -->
+                    <article class="recommend-card recommend-g80">
+                        <div class="recommend-badge">
+                            <img src="../../assets/img/main-img/Crown.png" alt="">
+                            프리미엄 추천
+                        </div>
+
+                        <div class="recommend-content">
+                            <div class="recommend-name-row">
+                                <h3>제네시스 G80</h3>
+                                <a href="#" class="recommend-detail-btn">
+                                    자세히 보기
+                                    <span>→</span>
+                                </a>
+                            </div>
+
+                            <p class="recommend-desc">고급스러운 디자인과 편안한 승차감의<br>프리미엄 세단
+                            </p>
+
+                            <div class="recommend-info">
+                                <span>
+                                    <img src="../../assets/img/main-img/GasPump.png" alt="">
+                                    가솔린
+                                </span>
+
+                                <span>
+                                    <img src="../../assets/img/main-img/Users.png" alt="">
+                                    5인승
+                                </span>
+
+                                <span>
+                                    <img src="../../assets/img/main-img/Gauge.png" alt="">
+                                    11.2km/ℓ
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+     WHY VERO CAR
+========================================= -->
+        <section class="why-section">
+            <div class="why-inner">
+                <!-- 왼쪽 설명 -->
+                <div class="why-title">
+                    <span class="why-label">
+                        WHY VERO CAR
+                    </span>
+                    <h2>베로카는</h2>
+                    <p>
+                        복잡한 과정을 간소화하고,<br>
+                        신뢰할 수 있는 정보만 제공합니다.
+                    </p>
+                </div>
+
+                <!-- 오른쪽 카드 -->
+                <div class="why-list">
+
+                    <!-- 01 -->
+                    <article class="why-card">
+                        <div class="why-image">
+                            <span class="why-number">
+                                01
+                            </span>
+                            <img src="../../assets/img/main-img/Frame 744.png" alt="">
+                        </div>
+                        <div class="why-content">
+                            <h3>검증된 차량만</h3>
+                            <p>사고이력, 성능, 권리관계를<br>꼼꼼하게 확인한 차량만 등록합니다.</p>
+                        </div>
+                    </article>
+
+                    <!-- 02 -->
+                    <article class="why-card">
+                        <div class="why-image">
+                            <span class="why-number">
+                                02
+                            </span>
+                            <img src="../../assets/img/main-img/Frame 747.png" alt="">
+                        </div>
+                        <div class="why-content">
+                            <h3>하나의 기준으로 비교</h3>
+                            <p>매매, 렌트, 리스를 동일한 기준으로<br>비교하여 가장 합리적인 선택을 돕습니다.</p>
+                        </div>
+                    </article>
+
+                    <!-- 03 -->
+                    <article class="why-card">
+                        <div class="why-image">
+                            <span class="why-number">
+                                03
+                            </span>
+                            <img src="../../assets/img/main-img/Frame 746.png" alt="">
+                        </div>
+                        <div class="why-content">
+                            <h3>나에게 맞는 차량 추천</h3>
+                            <p>AI가 운전 습관과 라이프스타일을 분석해<br>최적의 차량을 추천해드립니다.</p>
+                        </div>
+                    </article>
+
+                    <!-- 04 -->
+                    <article class="why-card">
+                        <div class="why-image">
+                            <span class="why-number">
+                                04
+                            </span>
+                            <img src="../../assets/img/main-img/Frame 745.png" alt="">
+                        </div>
+                        <div class="why-content">
+                            <h3>선택부터 이용까지 안심</h3>
+                            <p>계약, 출고, 사후관리까지<br>전 과정에서 투명하게 지원합니다.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    </html>
     <footer class="footer">
         <div class="footer-inner">
 

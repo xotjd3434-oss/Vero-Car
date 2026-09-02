@@ -1,0 +1,1013 @@
+@charset "utf-8";
+
+/* =========================================
+   Main Visual
+========================================= */
+
+.main-visual {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+
+.main-swiper {
+  width: 100%;
+  height: 713px;
+}
+
+
+/* 슬라이드 공통 */
+
+.main-slide {
+  position: relative;
+
+  width: 100%;
+  height: 713px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* 각 슬라이드 이미지 */
+
+.slide01 {
+  background-image: url('../../img/main-img/img_1.png');
+}
+
+.slide02 {
+  background-image: url('../../img/main-img/img_2.png');
+}
+
+.slide03 {
+  background-image: url('../../img/main-img/img_3.png');
+}
+
+
+/* 어두운 그라데이션 */
+
+.main-slide::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.45) 35%,
+      rgba(0, 0, 0, 0) 65%);
+}
+
+
+/* 텍스트 */
+
+.visual-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1440px;
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: #fff;
+}
+
+
+.visual-content h2 {
+  margin-bottom: 28px;
+
+  font-size: 54px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+
+.visual-content h2 strong {
+  color: #e86f00;
+}
+
+
+.visual-content p {
+  margin-bottom: 35px;
+
+  color: #ddd;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+.detail-btn {
+  width: 170px;
+  height: 50px;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+
+  color: #fff;
+  font-size: 14px;
+
+  transition: 0.3s;
+}
+
+
+.detail-btn:hover {
+  background: #fff;
+  color: #111;
+}
+
+
+/* Swiper 화살표 */
+
+.main-swiper .swiper-button-prev,
+.main-swiper .swiper-button-next {
+  color: #fff;
+}
+
+
+.main-swiper .swiper-button-prev {
+  left: 45px;
+}
+
+
+.main-swiper .swiper-button-next {
+  right: 45px;
+}
+
+
+/* 기본 화살표 크기 */
+
+.main-swiper .swiper-button-prev::after,
+.main-swiper .swiper-button-next::after {
+  font-size: 32px;
+}
+
+
+/* pagination */
+
+.main-swiper .swiper-pagination {
+  bottom: 25px;
+}
+
+
+.main-swiper .swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+
+  background: #fff;
+  opacity: 1;
+}
+
+
+.main-swiper .swiper-pagination-bullet-active {
+  background: #f59e0b;
+}
+
+
+
+/* =========================================
+   Search Filter
+========================================= */
+
+.car-search {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.search-box {
+  width: calc(100% - 200px);
+  max-width: 1440px;
+  height: 96px;
+  margin: 0 auto;
+  padding: 20px 48px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow:
+    0 4px 20px rgba(217, 217, 217, 0.5);
+}
+
+
+
+/* =========================================
+   Filter
+========================================= */
+
+.filter-item {
+  position: relative;
+
+  flex: 1;
+}
+
+.filter-icon {
+  width: 24px;
+  height: 24px;
+}
+
+
+.filter-btn {
+  width: 100%;
+  height: 50px;
+
+  padding: 0 20px;
+
+  background: #fff;
+
+  border: 1px solid #eee;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: #222;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: #4f46e5;
+}
+
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  margin-left: auto;
+  transition: transform 0.3s;
+}
+
+/* 메뉴가 열렸을 때 아래 방향 */
+.filter-btn[aria-expanded="true"] .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   Dropdown
+========================================= */
+
+.filter-menu {
+  display: none;
+
+  position: absolute;
+
+  top: 58px;
+  left: 0;
+
+  z-index: 100;
+
+  width: 100%;
+
+  padding: 8px;
+
+  background: #fff;
+
+  border: 1px solid #eee;
+  border-radius: 10px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+.filter-item.is-open .filter-menu {
+  display: block;
+}
+
+
+.filter-menu button {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  background: #fff;
+
+  border: 0;
+
+  text-align: left;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+
+.filter-menu button:hover {
+  background: #f5f5f5;
+
+  color: #4f46e5;
+}
+
+
+
+/* =========================================
+   Search Button
+========================================= */
+
+.search-btn {
+  flex: 1;
+
+  height: 50px;
+
+  background: #4f46e5;
+
+  border: 0;
+  border-radius: 10px;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.search-btn:hover {
+  background: #3730a3;
+}
+
+/* =========================================
+   차량 카테고리
+========================================= */
+
+.car-category {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 150px;
+}
+
+
+.car-category-list {
+  max-width: 1440px;
+  height: 200px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 48px;
+}
+
+
+/* 버튼 하나 */
+
+.car-category-btn {
+  position: relative;
+
+  width: 200px;
+  height: 200px;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+
+/* 차량 이미지 */
+
+.car-category-btn img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* 글씨 */
+
+.car-category-btn span {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  color: #000;
+  white-space: nowrap;
+}
+
+/* hover */
+.car-category-btn:hover img {
+  transform: translateY(-5px);
+}
+
+.car-category-btn:hover span {
+  color: #4f46e5;
+}
+
+/* 선택된 버튼 */
+
+.car-category-btn.active span {
+  color: #4f46e5;
+  font-weight: 700;
+}
+
+/* =========================================
+   구매 / 렌트 / 리스
+========================================= */
+
+.service-section {
+  width: 100%;
+  margin-bottom: 150px;
+  background: #fff;
+}
+
+.service-list {
+  max-width: 1440px;
+  height: 305px;
+  margin: 0 auto;
+  display: flex;
+  gap: 50px;
+}
+
+/* =========================================
+   카드 공통
+========================================= */
+.service-card {
+  position: relative;
+  flex: 1;
+  height: 305px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+/* =========================================
+   각 카드 이미지
+========================================= */
+.service-buy {
+  background-image:
+    url('../../img/main-img/Main_카테고리UI.png');
+}
+
+.service-rent {
+  background-image:
+    url('../../img/main-img/Main_카테고리UI\ \(2\).png');
+}
+
+.service-lease {
+  background-image:
+    url('../../img/main-img/Main_카테고리UI\ \(3\).png');
+}
+
+/* =========================================
+   카드 내용
+========================================= */
+.service-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 40px 50px;
+  color: #fff;
+}
+
+/* 구매 / 렌트 / 리스 */
+.service-content h2 {
+  margin-bottom: 12px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* 두 번째 문구 */
+
+.service-subtitle {
+  margin-bottom: 15px;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* 설명 */
+.service-desc {
+  margin-bottom: 25px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================
+   자세히 보기 버튼
+========================================= */
+.service-btn {
+  width: 130px;
+  height: 40px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #fff;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.service-btn span {
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+/* =========================================
+   hover
+========================================= */
+.service-card:hover::before {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.service-card:hover .service-btn {
+  background: #fff;
+  color: #111;
+}
+
+.service-card:hover .service-btn span {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   차량 비교 / AI 차량 분석
+========================================= */
+.compare-ai-section {
+  width: 100%;
+  height: 700px;
+  margin-bottom: 150px;
+  display: flex;
+  align-items: center;
+  background-image:
+    url('../../img/main-img/카드UI-area.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* =========================================
+   안쪽 1440 영역
+========================================= */
+.compare-ai-list {
+  width: 1440px;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+}
+
+/* =========================================
+   카드 공통
+========================================= */
+.compare-ai-card {
+  position: relative;
+  width: 700px;
+  height: 500px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 차량 비교 */
+.compare-card {
+  background-image:
+    url('../../img/main-img/very\ outside.png');
+}
+
+/* AI 차량 분석 */
+.ai-card {
+  background-image:
+    url('../../img/main-img/very\ outside\ \(2\).png');
+}
+
+/* =========================================
+   카드 내용
+========================================= */
+.compare-ai-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+/* 제목 */
+.compare-ai-content h2 {
+  margin-bottom: 24px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* 피그마에 있는 주황색 짧은 선 */
+.compare-ai-content h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 14px auto 0;
+  background: #e87817;
+}
+
+/* 설명 */
+.compare-ai-content p {
+  margin-bottom: 35px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================
+   자세히 보기 버튼
+========================================= */
+.compare-ai-btn {
+  width: 200px;
+  height: 50px;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 500;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+/* 화살표 */
+.compare-ai-btn span {
+  font-size: 17px;
+  transition: transform 0.3s;
+}
+
+/* =========================================
+   버튼 Hover - 반전
+========================================= */
+.compare-ai-btn:hover {
+  background: #1e293b;
+  border-color: #1e293b;
+  color: #fff;
+}
+
+.compare-ai-btn:hover span {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   차량 추천
+========================================= */
+.recommend-section {
+  width: 100%;
+  margin-bottom: 150px;
+  background: #fff;
+}
+
+.recommend-inner {
+  width: calc(100% - 200px);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   제목
+========================================= */
+.recommend-title {
+  margin-bottom: 55px;
+}
+
+.recommend-title h2 {
+  margin-bottom: 12px;
+  color: #111;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.recommend-title p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   카드 리스트
+========================================= */
+.recommend-list {
+  width: 100%;
+  display: flex;
+  gap: 45px;
+}
+
+/* =========================================
+   카드
+========================================= */
+.recommend-card {
+  position: relative;
+  width: 450px;
+  height: 700px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 카드별 이미지 */
+.recommend-sorento {
+  background-image:
+    url('../../img/main-img/차량추천_하이브리드.png');
+}
+
+.recommend-tucson {
+  background-image:
+    url('../../img/main-img/차량추천_투싼.png');
+}
+
+.recommend-g80 {
+  background-image:
+    url('../../img/main-img/차량추천_제네시스\ G80.png');
+}
+
+/* =========================================
+   하단 그라데이션
+========================================= */
+.recommend-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 35%,
+      rgba(0, 0, 0, 0.15) 55%,
+      rgba(0, 0, 0, 0.8) 100%);
+  z-index: 1;
+}
+
+/* =========================================
+   추천 배지
+========================================= */
+.recommend-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  padding: 8px 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #1e293b;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.recommend-badge img {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================
+   카드 내용
+========================================= */
+.recommend-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  padding: 0 20px 25px;
+  color: #fff;
+}
+
+/* 차량명 + 버튼 */
+.recommend-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.recommend-name-row h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* =========================================
+   설명
+========================================= */
+.recommend-desc {
+  min-height: 50px;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   자세히 보기
+========================================= */
+.recommend-detail-btn {
+  min-width: 133px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.recommend-detail-btn span {
+  transition: 0.3s;
+}
+
+/* hover 반전 */
+.recommend-detail-btn:hover {
+  background: #fff;
+  color: #1e293b;
+}
+
+.recommend-detail-btn:hover span {
+  transform: translateX(3px);
+}
+
+/* =========================================
+   하단 차량정보
+========================================= */
+.recommend-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.recommend-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.recommend-info span img {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================
+   WHY VERO CAR
+========================================= */
+.why-section {
+  width: 100%;
+  height: 600px;
+  margin-bottom: 200px;
+  background: #e9eff6;
+  display: flex;
+  align-items: center;
+}
+
+.why-inner {
+  width: calc(100% - 200px);
+  max-width: 1720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 67px;
+}
+
+/* =========================================
+   왼쪽 제목
+========================================= */
+.why-title {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.why-label {
+  display: block;
+  margin-bottom: 20px;
+  color: #e86f00;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.why-title h2 {
+  margin-bottom: 20px;
+  color: #111;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.why-title p {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   카드 리스트
+========================================= */
+.why-list {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+}
+
+/* =========================================
+   카드
+========================================= */
+.why-card {
+  width: 340px;
+  height: 453px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* =========================================
+   카드 이미지
+========================================= */
+.why-image {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.why-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* 번호 */
+.why-number {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   카드 텍스트
+========================================= */
+.why-content {
+  padding-top: 22px;
+}
+
+.why-content h3 {
+  margin-bottom: 16px;
+  color: #111;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.why-content p {
+  color: #444;
+  font-size: 13px;
+  line-height: 1.7;
+}
