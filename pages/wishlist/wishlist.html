@@ -9,15 +9,326 @@
 
     <!-- 공통 -->
     <link rel='stylesheet' href='../../assets/css/reset.css'>
+    <link rel="stylesheet" href="../../assets/css/fonts.css">
     <link rel='stylesheet' href='../../assets/css/common.css'>
 
     <!-- 페이지 -->
-    <link rel='stylesheet' href='assets/css/pages/wishlist.css'>
+    <link rel='stylesheet' href='../../assets/css/pages/wishlist.css'>
 </head>
 
 <body>
+    <header class="header">
+        <div class="header-inner">
+
+            <h1 class="logo">
+                <a href="#">
+                    <img src="../../assets/img/header-img/logo.png" alt="VERO CAR">
+                </a>
+            </h1>
+
+            <nav class="gnb">
+                <ul class="gnb-list">
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">내차사기</a>
+                    </li>
+
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">내차팔기</a>
+                    </li>
+
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">렌트</a>
+                    </li>
+
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">리스</a>
+                    </li>
+
+                    <li class="gnb-item">
+                        <a href="#" class="gnb-link">이벤트</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-util">
+                <a href="#" class="util-link" aria-label="마이페이지">
+                    <img src="../../assets/img/header-img/User.png" alt="">
+                </a>
+
+                <a href="#" class="util-link" aria-label="관심차량">
+                    <img src="../../assets/img/header-img/Heart.png" alt="">
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <div id="main">
+        <h2 id="title">관심목록</h2>
+        <!-- 버튼 -->
+        <div id="wishlistBtnArea" class="wishlist-btn-area">
+            <button class="wishlistbtn active" data-target="saved">찜한 차량</button>
+            <button class="wishlistbtn" data-target="recent">최근 본 차량</button>
+            <button class="wishlistbtn" data-target="compare">비교하기</button>
+        </div>
+
+        <div class="content">
+            <!-- 찜한 차량 -->
+            <section id="SavedArea">
+                <h3 id="SavedTitle">찜한 차량</h3>
+                <div id="SavedCards">
+                    <!-- JS가 차량카드를 넣을 자리 -->
+                </div>
+            </section>
+            <!-- 최근 본 차량 -->
+            <section id="RecentArea">
+                <h3 id="RecentTitle">최근 본 차량</h3>
+                <div id="RecentCards">
+                    <!-- JS가 차량카드를 넣을 자리 -->
+                </div>
+            </section>
+
+            <!-- 비교하기 -->
+            <section id="CompareArea">
+                <!-- 차량 선택 팝업 -->
+                <div id="carSelectModal" class="car-select-modal">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h3>차량 선택</h3>
+                            <button class="modal-close"><img src="../../assets/img/wishlist-img/X.png" alt=""></button>
+                        </div>
+
+                        <div class="recent-car-list">
+                            <!-- JS가 최근 본 차량을 넣음 -->
+                        </div>
+
+                        <button class="modal-compare-btn">
+                            선택한 차량 비교하기
+                        </button>
+
+                    </div>
+
+                </div>
+                <div id="CompareList">
+                    <div class="compare-car" data-slot="0">
+                        <!-- 차량이 없을 때 -->
+                        <div class="empty-compare">
+                            <button class="add-car">
+                                <span><img src="../../assets/img/wishlist-img/plus.png" alt=""></span>
+                                <p>비교할 차량을<br>등록해주세요.</p>
+                            </button>
+                        </div>
+
+                        <!-- 차량 이미지 -->
+                        <div class="compare-image">
+                            <button class="delete-car"><img src="../../assets/img/wishlist-img/X.png" alt=""></button>
+                            <img src="" alt="">
+                        </div>
+
+                        <!-- 차량 정보 -->
+                        <div class="car-info">
+
+                            <div class="info-row">
+                                <span class="info-title">차량명</span>
+                                <span class="info-value"></span>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="info-title">차종</span>
+                                <span class="info-value"></span>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="info-title">가격</span>
+                                <span class="info-value"></span>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="info-title">연식</span>
+                                <span class="info-value"></span>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="info-title">주행거리</span>
+                                <span class="info-value"></span>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="info-title">연료/배기량</span>
+                                <span class="info-value"></span>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="info-title">색상</span>
+                                <span class="info-value"></span>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="info-title">사고유무</span>
+                                <span class="info-value"></span>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="info-title">판매위치</span>
+                                <span class="info-value"></span>
+                            </div>
+
+                        </div>
+
+                        <!-- 옵션정보 -->
+                        <div class="option-area">
+                            <div class="option-tabs">
+                                <button class="active">외관</button>
+                                <button>내장</button>
+                                <button>안전</button>
+                                <button>편의</button>
+                            </div>
+
+                            <!-- 외관 옵션들 -->
+                            <ul class="option-list">
+                                <li>
+                                    <img src="../../assets/img/wishlist-img/CheckCircle.png" class="check active">
+                                    <img src="../../assets/img/wishlist-img/CheckCircle회색.png" class="check disabled">
+                                    <div class="option-name">LED 헤드 라이트</div>
+                                </li>
+                                <li>
+                                    <img src="../../assets/img/wishlist-img/CheckCircle.png" class="check active">
+                                    <img src="../../assets/img/wishlist-img/CheckCircle회색.png" class="check disabled">
+                                    <div class="option-name">HID 헤드 라이트</div>
+                                </li>
+                                <li>
+                                    <img src="../../assets/img/wishlist-img/CheckCircle.png" class="check active">
+                                    <img src="../../assets/img/wishlist-img/CheckCircle회색.png" class="check disabled">
+                                    <div class="option-name">전동접이 사이드미러</div>
+                                </li>
+                                <li>
+                                    <img src="../../assets/img/wishlist-img/CheckCircle.png" class="check active">
+                                    <img src="../../assets/img/wishlist-img/CheckCircle회색.png" class="check disabled">
+                                    <div class="option-name">어댑티브 헤드램프</div>
+                                </li>
+                                <li>
+                                    <img src="../../assets/img/wishlist-img/CheckCircle.png" class="check active">
+                                    <img src="../../assets/img/wishlist-img/CheckCircle회색.png" class="check disabled">
+                                    <div class="option-name">선루프</div>
+                                </li>
+                                <li>
+                                    <img src="../../assets/img/wishlist-img/CheckCircle.png" class="check active">
+                                    <img src="../../assets/img/wishlist-img/CheckCircle회색.png" class="check disabled">
+                                    <div class="option-name">루프랙</div>
+                                </li>
+                                <li>
+                                    <img src="../../assets/img/wishlist-img/CheckCircle.png" class="check active">
+                                    <img src="../../assets/img/wishlist-img/CheckCircle회색.png" class="check disabled">
+                                    <div class="option-name">알루미늄 휠</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="compare-car" data-slot="1">
+                        <!-- 차량이 없을 때 -->
+                        <div class="empty-compare">
+                            <button class="add-car">
+                                <span><img src="../../assets/img/wishlist-img/plus.png" alt=""></span>
+                                <p>비교하실 차량을<br>등록해주세요.</p>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="compare-car" data-slot="2">
+                        <!-- 차량이 없을 때 -->
+                        <div class="empty-compare">
+                            <button class="add-car">
+                                <span><img src="../../assets/img/wishlist-img/plus.png" alt=""></span>
+                                <p>비교할 차량을<br>등록해주세요.</p>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="footer-inner">
+
+            <div class="footer-left">
+                <h2 class="footer-logo">
+                    <a href="#"><img src="../../assets/img/footer-img/베로카로고.png" alt=""></a>
+                </h2>
+
+                <ul class="footer-menu">
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#" class="menu-privacy">개인정보처리방침</a></li>
+                </ul>
+
+                <p class="footer-desc">
+                    VERO CAR가 제공하는 서비스는 온라인 거래정보 및 기타 부가정보 제공에 한하며,
+                    실제 거래의 모든 책임은 판매자와 구매자에게 있음을 안내드립니다.
+                    <br>
+                    본 사이트/앱 상의 모든 정보, 콘텐츠, UI 등에 대한 무단 복제, 배포,
+                    스크래핑 등의 행위는 법에 의하여 엄격히 금지됩니다.
+                </p>
+
+                <address class="footer-info">
+                    주소: 서울특별시 강남구 테헤란로 123, 10층<br>
+                    대표이사: 김베로<br>
+                    사업자등록번호: 123-45-67890
+                </address>
+
+                <p class="copyright">
+                    COPYRIGHT VEROCAR. ALL RIGHTS RESERVED.
+                </p>
+            </div>
+
+            <div class="footer-right">
+
+                <div class="footer-customer">
+                    <div class="customer-title">
+                        <span>고객센터</span>
+                        <strong>1544-0000</strong>
+                    </div>
+
+                    <p>주말 및 공휴일 휴무</p>
+                    <p>평일 09:00 - 18:00 | 점심 12:00 - 13:00</p>
+                </div>
+
+                <ul class="footer-sns">
+                    <li>
+                        <a href="#" aria-label="인스타그램">
+                            <img src="../../assets/img/footer-img/Instagram.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="카카오톡">
+                            <img src="../../assets/img/footer-img/Kakaokalk.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="유튜브">
+                            <img src="../../assets/img/footer-img/Youtube.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="페이스북">
+                            <img src="../../assets/img/footer-img/Facebook.png" alt="">
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </footer>
     <script src="assets/js/common.js" defer></script>
-    <script src="assets/js/pages/wishlist.js" defer></script>
+    <script src="../../assets/js/pages/wishlist.js" defer></script>
 </body>
 
 </html>
