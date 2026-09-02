@@ -1,3 +1,7 @@
+body {
+    font-family: 'Pretendard', sans-serif;
+}
+
 /* =========================
    Footer
 ========================= */
@@ -207,10 +211,6 @@
     width: 100%;
 }
 
-.footer-sns a:hover {
-    transform: translateY(-3px);
-    opacity: 0.7;
-}
 
 
 
@@ -288,9 +288,9 @@
 
 .gnb-link {
     display: block;
-
     color: #fff;
-
+    font-family: 'GmarketSans', sans-serif;
+    font-weight: 500;
     font-size: 16px;
     font-weight: 600;
     line-height: 1;
