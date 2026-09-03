@@ -1,6 +1,10 @@
 @charset "utf-8";
 
-body {
+body,
+button,
+input,
+select,
+textarea {
   font-family: 'Pretendard', sans-serif;
 }
 
@@ -454,13 +458,15 @@ body {
   height: 40px;
   border: 1px solid #fff;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 47px 10px 10px;
   white-space: nowrap;
   color: #fff;
   font-size: 15px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+
   transition: 0.3s;
 }
 
@@ -558,24 +564,24 @@ body {
 /* 제목 */
 .compare-ai-content h2 {
   margin-bottom: 24px;
-  font-size: 30px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 600;
 }
 
 /* 피그마에 있는 주황색 짧은 선 */
 .compare-ai-content h2::after {
   content: "";
   display: block;
-  width: 60px;
+  width: 120px;
   height: 2px;
-  margin: 14px auto 0;
+  margin: 10px auto 0;
   background: #e87817;
 }
 
 /* 설명 */
 .compare-ai-content p {
-  margin-bottom: 35px;
-  font-size: 16px;
+  margin-bottom: 50px;
+  font-size: 20px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -592,10 +598,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
   color: #1e293b;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   transition:
     background 0.3s,
     color 0.3s,
@@ -603,9 +609,9 @@ body {
 }
 
 /* 화살표 */
-.compare-ai-btn span {
-  font-size: 17px;
-  transition: transform 0.3s;
+.compare-ai-btn img {
+  width: 20px;
+  height: 20px;
 }
 
 /* =========================================
