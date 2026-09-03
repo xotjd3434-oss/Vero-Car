@@ -3,129 +3,108 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>차량 카드 확인</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>차량 데이터 테스트</title>
 
   <style>
-    body {
+    * {
       margin: 0;
-      padding: 40px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background: #f5f5f5;
       font-family: Arial, sans-serif;
-      background: #f5f6f8;
-    }
-
-    h1 {
-      margin-bottom: 30px;
-    }
-
-    #carList {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
     }
 
     .car-card {
+      width: 500px;
+      margin: 0 auto;
+      padding: 30px;
       background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
     }
 
     .car-card img {
       width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
+      height: 250px;
+      object-fit: contain;
+      background: #eee;
     }
 
-    .car-info {
-      padding: 20px;
+    .car-card h2 {
+      margin: 20px 0;
+      font-size: 22px;
     }
 
-    .car-brand {
-      font-size: 13px;
-      color: #777;
-      margin-bottom: 8px;
+    .car-card p {
+      margin-bottom: 10px;
+      line-height: 1.6;
     }
 
-    .car-name {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 14px;
+    .car-card ul {
+      margin: 10px 0 20px 20px;
     }
 
-    .car-detail {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.7;
-    }
-
-    .car-price {
-      margin-top: 16px;
-      font-size: 20px;
-      font-weight: 700;
+    .car-card li {
+      margin-bottom: 5px;
     }
   </style>
-
 </head>
 
 <body>
-
-  <h1>차량 목록</h1>
 
   <div id="carList"></div>
 
   <script>
     const carList = document.querySelector('#carList');
 
-    fetch('./assets/data/cars.json')
+    fetch('../../assets/data/cars-100.json')
       .then(response => response.json())
-      .then(data => {
+      .then(cars => {
 
-        console.log(data);
+        // 1번 차량만 가져오기
+        const car = cars[0];
 
-        data.forEach(car => {
+        carList.innerHTML = `
+          <div class="car-card">
 
-          carList.innerHTML += `
-            <div class="car-card">
+            <img src="${car.thumbnail}" alt="${car.model}">
 
-              <img 
-                src="./assets/${car.thumbnail}"
-                alt="${car.modelName}"
-              >
+            <h2>${car.modelName}</h2>
 
-              <div class="car-info">
+            <p>id : ${car.id}</p>
+            <p>카테고리 : ${car.category}</p>
+            <p>국산 / 수입 : ${car.origin}</p>
+            <p>브랜드 : ${car.brand}</p>
+            <p>모델 : ${car.model}</p>
+            <p>차종 : ${car.bodyType}</p>
+            <p>연료 : ${car.fuel}</p>
+            <p>등록일 : ${car.regDate}</p>
+            <p>연식 : ${car.modelYear}</p>
+            <p>주행거리 : ${car.mileage.toLocaleString()}km</p>
+            <p>가격 : ${car.price.toLocaleString()}만원</p>
+            <p>월 납입금 : ${car.monthlyPayment.toLocaleString()}원</p>
 
-                <p class="car-brand">
-                  ${car.brand}
-                </p>
+            <h3>태그</h3>
+            <ul>
+              ${car.tags.map(tag => `<li>${tag}</li>`).join('')}
+            </ul>
 
-                <h2 class="car-name">
-                  ${car.modelName}
-                </h2>
+            <h3>옵션</h3>
+            <ul>
+              ${car.options.map(option => `<li>${option}</li>`).join('')}
+            </ul>
 
-                <div class="car-detail">
-                  ${car.modelYear}년식<br>
-                  ${car.mileage.toLocaleString()}km<br>
-                  ${car.fuel}<br>
-                  ${car.region}
-                </div>
-
-                <p class="car-price">
-                  ${car.price.toLocaleString()}만원
-                </p>
-
-              </div>
-
-            </div>
-          `;
-
-        });
+          </div>
+        `;
 
       })
       .catch(error => {
-        console.log(error);
+        console.log('에러:', error);
       });
-
   </script>
 
 </body>
