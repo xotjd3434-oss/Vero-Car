@@ -60,6 +60,7 @@
 
     </div>
   </header>
+<<<<<<< HEAD
   <aside class="quick-menu">
 
     <div class="recent-wrap">
@@ -122,8 +123,246 @@
   <!--  =====================================================
   
                                   입력하시면됩니다 
+=======
+>>>>>>> ai
 
-              ======================================================= -->
+  <main class="ai-analysis">
+    <h2 id="title">AI 차량 분석</h2>
+    <!-- 차량 기본 정보 -->
+    <section class="ai-car-info">
+      <div class="car-image">
+        <img src="../../assets/img/AI-analysis-img/쏘렌토 흰색 4.png" alt="신형쏘렌토 하이브리드">
+      </div>
+
+      <div class="car-info">
+        <h3>신형쏘렌토 하이브리드(MQ4) 1.6 HEV 4WD 노블레스</h3>
+
+        <dl>
+          <div>
+            <dt>연식</dt>
+            <dd>2022</dd>
+          </div>
+          <div>
+            <dt>연료</dt>
+            <dd>가솔린 + 전기</dd>
+          </div>
+          <div>
+            <dt>구동 방식</dt>
+            <dd>4WD</dd>
+          </div>
+          <div>
+            <dt>주행거리</dt>
+            <dd>75,000km</dd>
+          </div>
+          <div>
+            <dt>변속기</dt>
+            <dd>자동</dd>
+          </div>
+          <div>
+            <dt>차량형태</dt>
+            <dd>SUV</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 사고 이력 분석 전체 -->
+    <section class="accident-analysis-row">
+
+      <!-- 왼쪽 -->
+      <article class="accident-analysis">
+
+        <h3 class="ai-title">사고 이력 분석</h3>
+
+        <div class="accident-graph">
+
+          <img src="../../assets/img/AI-analysis-img/그래프이미지.png" alt="" class="graph-pic">
+
+          <div class="graph-label label-top">
+            <strong>사고 이력</strong>
+            <span>95</span>
+          </div>
+
+          <div class="graph-label label-right">
+            <strong>침수 이력</strong>
+            <span>93</span>
+          </div>
+
+          <div class="graph-label label-bottom-right">
+            <strong>주행 상태</strong>
+            <span>88</span>
+          </div>
+
+          <div class="graph-label label-bottom-left">
+            <strong>장비이력</strong>
+            <span>92</span>
+          </div>
+
+          <div class="graph-label label-left">
+            <strong>소모품 상태</strong>
+            <span>90</span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 오른쪽 -->
+      <article class="total-score">
+
+        <div class="score-circle" data-score="95">
+
+          <svg viewBox="0 0 120 120">
+
+            <circle class="score-bg" cx="60" cy="60" r="50">
+            </circle>
+
+            <circle class="score-progress" cx="60" cy="60" r="50">
+            </circle>
+
+          </svg>
+
+          <div class="score-text">
+            <strong>95</strong>
+            <span>/100</span>
+          </div>
+
+        </div>
+
+
+        <div class="score-info">
+
+          <p>
+            <strong>사고 이력</strong>
+            <span>이상 없음</span>
+          </p>
+
+          <p>
+            <strong>침수 이력</strong>
+            <span>이상 없음</span>
+          </p>
+
+          <p>
+            <strong>주행 상태</strong>
+            <span>양호</span>
+          </p>
+
+          <p>
+            <strong>정비 이력</strong>
+            <span>양호</span>
+          </p>
+
+          <p>
+            <strong>소모품 상태</strong>
+            <span>양호</span>
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+    <div class="analysis-middle-row">
+
+      <!-- 사고 분석 -->
+      <section class="accident-detail">
+        <h3 class="ai-title">사고 분석</h3>
+
+        <div class="inner">
+          <img src="../../assets/img/AI-analysis-img/사고분석-차.png" alt="" class="car-pic">
+
+          <div class="text">
+            <h4 class="accident">사고 이력 없음</h4>
+            <p>본 차량은 보험처리 이력이 없는<br>무사고 차량입니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 주행 상태 분석 -->
+      <section class="driving-analysis">
+        <h3 class="ai-title">주행 상태 분석</h3>
+
+        <article class="total-score">
+          <div class="score-circle" data-score="90">
+
+            <svg viewBox="0 0 120 120">
+              <circle class="score-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="score-progress" cx="60" cy="60" r="50"></circle>
+            </svg>
+
+            <div class="score-text">
+              <strong>90</strong>
+              <span>/100</span>
+            </div>
+          </div>
+
+          <div class="score-info">
+            <p><strong>배터리 성능</strong><span>양호</span></p>
+            <p><strong>모터 성능</strong><span>양호</span></p>
+            <p><strong>제품 성능</strong><span>양호</span></p>
+            <p><strong>하부 상태</strong><span>양호</span></p>
+            <p><strong>주행 안전성</strong><span>양호</span></p>
+          </div>
+        </article>
+      </section>
+
+    </div>
+
+    <div class="analysis-bottom-row">
+      <!-- 시세 분석 -->
+      <section class="price-analysis">
+        <h3 class="ai-title">시세 분석</h3>
+        <div class="inner">
+          <div class="price-text">
+            <div class="ai-analysis">
+              <p class="ai-price-text">AI 시세 예측</p>
+              <p class="ai-price">2,280 <span>만원</span></p>
+            </div>
+            <div class="price-range">
+              <p class="price-range-text">적정 시세 범위</p>
+              <p class="range-price">2,180 ~ 3,200 만원</p>
+            </div>
+            <div class="price-right">
+              <p class="price-right-text">시세 적합성</p>
+              <p class="analysis-right">적정</p>
+            </div>
+          </div>
+          <img src="../../assets/img/AI-analysis-img/시세분석-그래프.png" alt="" class="analysis-pic">
+        </div>
+      </section>
+
+      <!-- 정비 이력 분석 -->
+      <section class="maintenance-analysis">
+        <h3 class="ai-title">정비 이력 분석</h3>
+        <div class="inner">
+          <ul>
+            <li>
+              <div>2026.07.13</div>
+              <div>8,405km</div>
+              <div>차량 점검</div>
+            </li>
+            <li>
+              <div>2026.02.02</div>
+              <div>10,500km</div>
+              <div>에어컨 필터 교환</div>
+            </li>
+            <li>
+              <div>2025.11.08</div>
+              <div>17,560km</div>
+              <div>타이어 교환</div>
+            </li>
+            <li>
+              <div>2025.08.11</div>
+              <div>21,140km</div>
+              <div>브레이크 패드 교환</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
 
   <footer class="footer">
     <div class="footer-inner">
