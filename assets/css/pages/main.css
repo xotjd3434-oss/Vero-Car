@@ -17,26 +17,21 @@ textarea {
   margin-bottom: 40px;
 }
 
-
 .main-swiper {
   width: 100%;
   height: 713px;
 }
 
-
 /* 슬라이드 공통 */
 
 .main-slide {
   position: relative;
-
   width: 100%;
   height: 713px;
-
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 /* 각 슬라이드 이미지 */
 
@@ -52,22 +47,18 @@ textarea {
   background-image: url('../../img/main-img/img_3.png');
 }
 
-
 /* 어두운 그라데이션 */
 
 .main-slide::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
   background:
     linear-gradient(90deg,
       rgba(0, 0, 0, 0.8) 0%,
       rgba(0, 0, 0, 0.45) 35%,
       rgba(0, 0, 0, 0) 65%);
 }
-
 
 /* 텍스트 */
 
@@ -97,7 +88,7 @@ textarea {
 }
 
 .visual-content h2 .slide2 {
-  color: #1e293b;
+  color: #0f172a;
   font-family: 'Heiroflight';
   font-weight: 700;
 }
@@ -230,7 +221,6 @@ textarea {
   height: 16px;
   object-fit: contain;
   margin-left: auto;
-  transition: transform 0.3s;
 }
 
 /* 메뉴가 열렸을 때 아래 방향 */
@@ -263,12 +253,17 @@ textarea {
 
 .filter-menu button {
   width: 100%;
-  padding: 15px 98px 15px 54px;
+
+  padding: 15px 48px;
+
   background: #fff;
   border: 0;
+
   text-align: left;
   border-radius: 6px;
+
   font-size: 16px;
+
   cursor: pointer;
   white-space: nowrap;
 }
@@ -289,12 +284,19 @@ textarea {
   border: 0;
   border-radius: 10px;
   color: #fff;
+  font-size: 16px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   transition: 0.3s;
 }
 
-.search-btn:hover {
-  background: #3730a3;
+.search-btn img {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 
 /* =========================================
@@ -453,6 +455,7 @@ textarea {
 /* =========================================
    자세히 보기 버튼
 ========================================= */
+
 .service-btn {
   width: 130px;
   height: 40px;
@@ -466,29 +469,32 @@ textarea {
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-
-  transition: 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
 }
 
-.service-btn span {
-  font-size: 17px;
-  transition: 0.3s;
+/* 화살표 이미지 */
+.service-btn img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  transition: filter 0.3s;
 }
 
 /* =========================================
-   hover
+   버튼 자체 hover
 ========================================= */
-.service-card:hover::before {
-  background: rgba(0, 0, 0, 0.5);
-}
 
-.service-card:hover .service-btn {
+.service-btn:hover {
   background: #fff;
-  color: #111;
+  border-color: #fff;
+  color: #0f172a;
 }
 
-.service-card:hover .service-btn span {
-  transform: translateX(4px);
+.service-btn:hover img {
+  filter: brightness(0);
 }
 
 /* =========================================
@@ -511,7 +517,8 @@ textarea {
    안쪽 1440 영역
 ========================================= */
 .compare-ai-list {
-  width: 1440px;
+  width: calc(100% - 200px);
+  max-width: 1440px;
   height: 500px;
   margin: 0 auto;
   display: flex;
@@ -563,7 +570,7 @@ textarea {
 
 /* 제목 */
 .compare-ai-content h2 {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   font-size: 32px;
   font-weight: 600;
 }
@@ -580,10 +587,11 @@ textarea {
 
 /* 설명 */
 .compare-ai-content p {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   font-size: 20px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  color: #fff;
 }
 
 /* =========================================
@@ -599,7 +607,7 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  color: #1e293b;
+  color: #0f172a;
   font-size: 16px;
   font-weight: 400;
   transition:
@@ -612,19 +620,23 @@ textarea {
 .compare-ai-btn img {
   width: 20px;
   height: 20px;
+  transition:
+    transform 0.3s,
+    filter 0.3s;
 }
 
 /* =========================================
    버튼 Hover - 반전
 ========================================= */
+
 .compare-ai-btn:hover {
-  background: #1e293b;
-  border-color: #1e293b;
+  background: #0f172a;
+  border-color: #0f172a;
   color: #fff;
 }
 
-.compare-ai-btn:hover span {
-  transform: translateX(4px);
+.compare-ai-btn:hover img {
+  filter: brightness(0) invert(1);
 }
 
 /* =========================================
@@ -729,7 +741,7 @@ textarea {
   display: flex;
   align-items: center;
   gap: 5px;
-  background: #1e293b;
+  background: #0f172a;
   border-radius: 8px;
   color: #fff;
   font-size: 12px;
@@ -775,7 +787,8 @@ textarea {
   min-height: 50px;
   margin-bottom: 30px;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 1.6;
 }
 
@@ -783,35 +796,39 @@ textarea {
    자세히 보기
 ========================================= */
 .recommend-detail-btn {
-  min-width: 133px;
-  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 37px;
   padding: 0 12px;
   border: 1px solid #fff;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
   color: #fff;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
   transition: 0.3s;
 }
 
-.recommend-detail-btn span {
+.recommend-detail-btn img {
+  display: block;
+  width: 20px;
+  height: 20px;
   transition: 0.3s;
 }
 
-/* hover 반전 */
+/* 버튼에 hover 했을 때만 */
 .recommend-detail-btn:hover {
   background: #fff;
-  color: #1e293b;
+  color: #111;
 }
 
-.recommend-detail-btn:hover span {
-  transform: translateX(3px);
+.recommend-detail-btn:hover img {
+  filter: brightness(0);
 }
 
-/* =========================================
+/* =======================================
    하단 차량정보
 ========================================= */
 .recommend-info {
@@ -827,7 +844,7 @@ textarea {
   align-items: center;
   gap: 6px;
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -851,7 +868,7 @@ textarea {
 .why-inner {
   width: calc(100% - 200px);
   max-width: 1720px;
-  margin: 0 auto;
+  margin: 0 50px;
   display: flex;
   align-items: center;
   gap: 67px;
@@ -867,23 +884,25 @@ textarea {
 
 .why-label {
   display: block;
+  font-family: 'Heiroflight';
   margin-bottom: 20px;
   color: #e86f00;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 600;
 }
 
 .why-title h2 {
   margin-bottom: 20px;
   color: #111;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 600;
 }
 
 .why-title p {
-  color: #333;
-  font-size: 15px;
-  line-height: 1.7;
+  font-family: h;
+  color: #111;
+  font-size: 20px;
+  line-height: 1.6;
 }
 
 /* =========================================
@@ -891,6 +910,7 @@ textarea {
 ========================================= */
 .why-list {
   display: flex;
+  margin: 0 50px;
   align-items: stretch;
   gap: 20px;
 }
@@ -901,7 +921,7 @@ textarea {
 .why-card {
   width: 340px;
   height: 453px;
-  padding: 15px;
+  padding: 20px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -912,8 +932,9 @@ textarea {
 ========================================= */
 .why-image {
   position: relative;
-  width: 100%;
-  height: 280px;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -941,18 +962,20 @@ textarea {
    카드 텍스트
 ========================================= */
 .why-content {
-  padding-top: 22px;
+  margin-top: 20px;
 }
 
 .why-content h3 {
-  margin-bottom: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   color: #111;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .why-content p {
-  color: #444;
-  font-size: 13px;
-  line-height: 1.7;
+  color: #111;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
 }

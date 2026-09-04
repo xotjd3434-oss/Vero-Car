@@ -207,44 +207,9 @@
                         <img src="../../assets/img/main-img/CaretUp.png" alt="" class="arrow-icon">
                     </button>
                     <ul class="filter-menu">
-                        <li>
-                            <button type="button">전체</button>
-                        </li>
-                        <li>
-                            <button type="button">국산차</button>
-                        </li>
-                        <li>
-                            <button type="button">수입차</button>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- 차종 -->
-                <div class="filter-item">
-                    <button type="button" class="filter-btn" aria-expanded="false">
-                        <img src="../../assets/img/main-img/CarProfile.png" alt="" class="filter-icon">
-                        차종
-                        <img src="../../assets/img/main-img/CaretUp.png" alt="" class="arrow-icon">
-                    </button>
-                    <ul class="filter-menu">
-                        <li>
-                            <button type="button">전체</button>
-                        </li>
-                        <li>
-                            <button type="button">소형차</button>
-                        </li>
-                        <li>
-                            <button type="button">중형차</button>
-                        </li>
-                        <li>
-                            <button type="button">대형차</button>
-                        </li>
-                        <li>
-                            <button type="button">전기차</button>
-                        </li>
-                        <li>
-                            <button type="button">화물차</button>
-                        </li>
+                        <li><button type="button">전체</button></li>
+                        <li><button type="button">국산차</button></li>
+                        <li><button type="button">수입차</button></li>
                     </ul>
                 </div>
 
@@ -258,21 +223,28 @@
                     </button>
 
                     <ul class="filter-menu">
-                        <li>
-                            <button type="button">전체</button>
-                        </li>
-                        <li>
-                            <button type="button">현대</button>
-                        </li>
-                        <li>
-                            <button type="button">기아</button>
-                        </li>
-                        <li>
-                            <button type="button">KGM</button>
-                        </li>
-                        <li>
-                            <button type="button">르노삼성</button>
-                        </li>
+                        <li><button type="button">전체</button></li>
+                        <li><button type="button">현대</button></li>
+                        <li><button type="button">기아</button></li>
+                        <li><button type="button">KGM</button></li>
+                        <li><button type="button">르노삼성</button></li>
+                    </ul>
+                </div>
+
+                <!-- 차종 -->
+                <div class="filter-item">
+                    <button type="button" class="filter-btn" aria-expanded="false">
+                        <img src="../../assets/img/main-img/CarProfile.png" alt="" class="filter-icon">
+                        차종
+                        <img src="../../assets/img/main-img/CaretUp.png" alt="" class="arrow-icon">
+                    </button>
+                    <ul class="filter-menu">
+                        <li><button type="button">전체</button></li>
+                        <li><button type="button">소형차</button></li>
+                        <li><button type="button">중형차</button></li>
+                        <li><button type="button">대형차</button></li>
+                        <li><button type="button">전기차</button></li>
+                        <li><button type="button">화물차</button></li>
                     </ul>
                 </div>
 
@@ -285,25 +257,12 @@
                     </button>
 
                     <ul class="filter-menu">
-
-                        <li>
-                            <button type="button">전체</button>
-                        </li>
-                        <li>
-                            <button type="button">10000KM ↓</button>
-                        </li>
-                        <li>
-                            <button type="button">20000KM ↓</button>
-                        </li>
-                        <li>
-                            <button type="button">30000KM ↓</button>
-                        </li>
-                        <li>
-                            <button type="button">40000KM ↓</button>
-                        </li>
-                        <li>
-                            <button type="button">50000KM ↓</button>
-                        </li>
+                        <li><button type="button">전체</button></li>
+                        <li><button type="button">10000KM ~</button></li>
+                        <li><button type="button">20000KM ~</button></li>
+                        <li><button type="button">30000KM ~</button></li>
+                        <li><button type="button">40000KM ~</button></li>
+                        <li><button type="button">50000KM ~</button></li>
                     </ul>
                 </div>
 
@@ -316,17 +275,20 @@
                     </button>
                     <ul class="filter-menu">
                         <li><button type="button">전체</button></li>
-                        <li><button type="button">1천만원 ↓</button></li>
-                        <li><button type="button">2천만원 ↓</button></li>
-                        <li><button type="button">3천만원 ↓</button></li>
-                        <li><button type="button">4천만원 ↓</button></li>
-                        <li><button type="button">5천만원 ↓</button></li>
+                        <li><button type="button">1천만원 ~</button></li>
+                        <li><button type="button">2천만원 ~</button></li>
+                        <li><button type="button">3천만원 ~</button></li>
+                        <li><button type="button">4천만원 ~</button></li>
+                        <li><button type="button">5천만원 ~</button></li>
                     </ul>
                 </div>
                 <!-- 검색 -->
-                <button type="button" class="search-btn">🔍검색하기</button>
+                <button type="button" class="search-btn">
+                    <img src="../../assets/img/main-img/검색버튼.png" alt="">검색하기
+                </button>
             </div>
         </section>
+
         <!-- ========================================
      차량 카테고리
 ========================================= -->
@@ -382,7 +344,9 @@
                         <p class="service-subtitle">원하는 차량을<br>가장 쉽게</p>
                         <p class="service-desc">검증된 차량을 비교하고<br>받을 수 있는 거래를 시작하세요.</p>
                         <a href="pages/Buy/buy.html" class="service-btn">자세히 보기
-                            <span>→</span>
+                            <span>
+                                <img src="../../assets/img/main-img/Vector.png" alt="">
+                            </span>
                         </a>
                     </div>
                 </article>
@@ -393,7 +357,9 @@
                         <p class="service-subtitle">필요한 만큼<br>자유롭게</p>
                         <p class="service-desc">단기부터 장기까지<br>합리적인 렌트를 만나보세요.</p>
                         <a href="pages/Rent/rent.html" class="service-btn">자세히 보기
-                            <span>→</span>
+                            <span>
+                                <img src="../../assets/img/main-img/Vector.png" alt="">
+                            </span>
                         </a>
                     </div>
                 </article>
@@ -407,7 +373,9 @@
                         <p class="service-desc">초기 비용 없이<br>합리적인 리스를 시작하세요.
                         </p>
                         <a href="pages/lease/lease.html" class="service-btn">자세히 보기
-                            <span>→</span>
+                            <span>
+                                <img src="../../assets/img/main-img/Vector.png" alt="">
+                            </span>
                         </a>
                     </div>
                 </article>
@@ -467,7 +435,9 @@
                                 <h3>쏘렌토 하이브리드</h3>
                                 <a href="#" class="recommend-detail-btn">
                                     자세히 보기
-                                    <span>→</span>
+                                    <span>
+                                        <img src="../../assets/img/main-img/Vector.png" alt="">
+                                    </span>
                                 </a>
                             </div>
                             <p class="recommend-desc">넓은 실내공간과 뛰어난 효율성의<br>패밀리 SUV</p>
@@ -503,7 +473,9 @@
                                 <h3>투싼</h3>
                                 <a href="#" class="recommend-detail-btn">
                                     자세히 보기
-                                    <span>→</span>
+                                    <span>
+                                        <img src="../../assets/img/main-img/Vector.png" alt="">
+                                    </span>
                                 </a>
                             </div>
 
@@ -540,13 +512,12 @@
                                 <h3>제네시스 G80</h3>
                                 <a href="#" class="recommend-detail-btn">
                                     자세히 보기
-                                    <span>→</span>
+                                    <span>
+                                        <img src="../../assets/img/main-img/Vector.png" alt="">
+                                    </span>
                                 </a>
                             </div>
-
-                            <p class="recommend-desc">고급스러운 디자인과 편안한 승차감의<br>프리미엄 세단
-                            </p>
-
+                            <p class="recommend-desc">고급스러운 디자인과 편안한 승차감의<br>프리미엄 세단</p>
                             <div class="recommend-info">
                                 <span>
                                     <img src="../../assets/img/main-img/GasPump.png" alt="">
