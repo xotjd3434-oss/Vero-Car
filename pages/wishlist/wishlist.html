@@ -62,6 +62,65 @@
 
         </div>
     </header>
+    <aside class="quick-menu">
+
+        <div class="recent-wrap">
+
+            <!-- 호버 시 나타나는 전체 영역 -->
+            <div class="recent-hover-box">
+
+                <!-- 차량 목록 -->
+                <div class="recent-car-list">
+
+                    <div class="recent-car-card">
+                        <img src="../../assets/img/quick-menu-img/벤츠.png" alt="벤츠 E클래스">
+                        <strong>벤츠 E클래스 E350 AMG</strong>
+                        <span>22년식 / 12,367km</span>
+                        <b>6,700만원</b>
+                    </div>
+
+                    <div class="recent-car-card">
+                        <img src="../../assets/img/quick-menu-img/제네시스.png" alt="제네시스 G80">
+                        <strong>제네시스 G80 2.5 터보</strong>
+                        <span>22년식 / 10,215km</span>
+                        <b>5,240만원</b>
+                    </div>
+
+                    <div class="recent-car-card">
+                        <img src="../../assets/img/quick-menu-img/아우디.png" alt="아우디 Q5">
+                        <strong>아우디 Q5 45</strong>
+                        <span>22년식 / 12,914km</span>
+                        <b>5,120만원</b>
+                    </div>
+
+                </div>
+
+
+                <!-- 왼쪽 아래 버튼 -->
+                <div class="recent-buttons">
+                    <button type="button">시작화면</button>
+                    <button type="button">비교하기</button>
+                </div>
+
+            </div>
+
+
+            <!-- 최근 본 차량 버튼 -->
+            <button type="button" class="quick-recent">
+                <img src="../../assets/img/quick-menu-img/최근본차량아이콘.png" alt="">
+                <span>최근 본 차량</span>
+            </button>
+
+        </div>
+
+
+        <!-- TOP 버튼 -->
+        <button type="button" class="quick-top">
+            <span class="top-icon">↑</span>
+            <span>TOP</span>
+        </button>
+
+    </aside>
 
     <div id="main">
         <h2 id="title">관심목록</h2>
@@ -100,7 +159,7 @@
                             <button class="modal-close"><img src="../../assets/img/wishlist-img/X.png" alt=""></button>
                         </div>
 
-                        <div class="recent-car-list">
+                        <div class="modal-recent-car-list">
                             <!-- JS가 최근 본 차량을 넣음 -->
                         </div>
 
@@ -112,6 +171,22 @@
 
                 </div>
                 <div id="CompareList">
+                    <!-- 비교 항목 제목 -->
+                    <div class="compare-labels">
+                        <div class="compare-label-image-space"></div>
+
+                        <div class="compare-label">차량명</div>
+                        <div class="compare-label">차종</div>
+                        <div class="compare-label">가격</div>
+                        <div class="compare-label">연식</div>
+                        <div class="compare-label">주행거리</div>
+                        <div class="compare-label">연료/배기량</div>
+                        <div class="compare-label">색상</div>
+                        <div class="compare-label">사고유무</div>
+                        <div class="compare-label">판매위치</div>
+
+                        <div class="compare-option-title">주요 옵션</div>
+                    </div>
                     <div class="compare-car" data-slot="0">
                         <!-- 차량이 없을 때 -->
                         <div class="empty-compare">
@@ -327,7 +402,7 @@
 
         </div>
     </footer>
-    <script src="assets/js/common.js" defer></script>
+    <script src="../../assets/js/common.js" defer></script>
     <script src="../../assets/js/pages/wishlist.js" defer></script>
 </body>
 
