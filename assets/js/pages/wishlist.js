@@ -1034,39 +1034,11 @@ function renderCompareCars() {
 
 
                 <div class="option-area">
-
-
-                    <div class="option-tabs">
-
-                        <button
-                            type="button"
-                            class="active"
-                        >
-                            외관
-                        </button>
-
-                        <button type="button">
-                            내장
-                        </button>
-
-                        <button type="button">
-                            안전
-                        </button>
-
-                        <button type="button">
-                            편의
-                        </button>
-
-                    </div>
-
-
                     <ul class="option-list">
 
                         ${createCompareOptions(car)}
 
                     </ul>
-
-
                 </div>
             `;
 

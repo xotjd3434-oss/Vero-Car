@@ -328,6 +328,7 @@
 }
 
 #CompareList {
+    position: relative;
     width: 1440px;
 
     display: grid;
@@ -342,12 +343,21 @@
 ========================================================= */
 
 .compare-labels {
+    position: relative;
     width: 120px;
     min-height: 715px;
 
-    border-right: 1px solid #F5F5F4;
-
     box-sizing: border-box;
+}
+
+.compare-labels::before {
+    position: absolute;
+    height: 600px;
+    width: 1px;
+    top: 280px;
+    left: 145px;
+    background: #F5F5F4;
+    content: '';
 }
 
 
@@ -379,17 +389,20 @@
 /* 주요 옵션 */
 
 .compare-option-title {
-    width: 100%;
+    width: 120px;
     height: 35px;
 
-    margin-top: 15px;
+    margin-top: 70px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    box-sizing: border-box;
+
     font-size: 18px;
     font-weight: 400;
+    white-space: nowrap;
 
     color: #000;
 }
@@ -441,9 +454,8 @@
 
 .delete-car {
     position: absolute;
-
     top: 10px;
-    right: 20px;
+    right: 50px;
 
     width: 24px;
     height: 24px;
@@ -462,8 +474,8 @@
 .delete-car img {
     display: block;
 
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 
     object-fit: contain;
 }
@@ -609,44 +621,51 @@
 
     width: 440px;
 
-    margin-top: 15px;
+    margin-top: 180px;
     padding-top: 0;
-
-    border-top: 1px solid #F5F5F4;
 
     box-sizing: border-box;
 }
-
-
-/* 기존 ::before 제목 사용하지 않음 */
 
 .option-area::before {
     display: none;
 }
 
+#CompareList::after {
+    content: "";
+    position: absolute;
+    left: 120px;
+    top: 885px;
+    left: 150px;
+    width: 1200px;
+    height: 1px;
+    background: #F5F5F4;
+}
 
 /* =========================================================
    옵션 탭
 ========================================================= */
 
-.option-tabs {
-    width: 100%;
+.compare-option-tabs {
+    position: absolute;
 
-    margin: 0;
-    padding-left: 100px;
-
-    box-sizing: border-box;
+    top: 930px;
+    left: 220px;
 
     display: flex;
     align-items: center;
-
     gap: 35px;
+
+    margin: 0;
+    padding: 0;
+
+    z-index: 20;
 }
 
+.compare-option-tabs button {
+    position: relative;
+    z-index: 21;
 
-/* 버튼 70 × 35 */
-
-.option-tabs button {
     width: 70px;
     height: 35px;
 
@@ -654,8 +673,6 @@
 
     margin: 0;
     padding: 0;
-
-    box-sizing: border-box;
 
     border: 1px solid #CBD5E1;
     background: #fff;
@@ -669,8 +686,13 @@
     cursor: pointer;
 }
 
+.compare-option-tabs button:hover {
+    background: #4D45D8;
+    color: #F5F3FF;
+}
 
-.option-tabs button.active {
+
+.compare-option-tabs button.active {
     border-color: #4D45D8;
     background: #4D45D8;
 
@@ -685,7 +707,7 @@
 .option-list {
     width: 340px;
 
-    margin: 20px 0 0 100px;
+    margin: 0 0 0 100px;
     padding: 0;
 
     list-style: none;
@@ -694,12 +716,43 @@
 
 .option-list li {
     width: 100%;
-    min-height: 50px;
 
     display: flex;
     align-items: center;
+    gap: 25px;
+
+    margin-bottom: 35px;
 
     box-sizing: border-box;
+}
+
+.option-list li:last-child {
+    margin-bottom: 0;
+}
+
+.option-list .check {
+    width: 23px;
+    height: 23px;
+
+    flex: 0 0 23px;
+
+    object-fit: contain;
+}
+
+.option-list .check.active {
+    display: none;
+}
+
+.option-list .check.disabled {
+    display: block;
+}
+
+.option-list li.has-option .check.active {
+    display: block;
+}
+
+.option-list li.has-option .check.disabled {
+    display: none;
 }
 
 
