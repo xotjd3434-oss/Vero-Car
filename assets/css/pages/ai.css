@@ -1,0 +1,831 @@
+@charset "utf-8";
+
+.ai-analysis {
+    width: 1440px;
+    margin: 0 auto;
+    margin-top: 160px;
+    margin-bottom: 200px;
+}
+
+/* =========================================================
+   인트로
+========================================================= */
+#title {
+    margin-bottom: 150px;
+
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* 차량 기본 정보 */
+
+.ai-car-info {
+    width: 1440px;
+    margin: 0 auto 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+.ai-title {
+    font-size: 32px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+/* 차량 이미지 */
+.car-image {
+    width: 577px;
+    height: 384px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 차량 정보 */
+.car-info {
+    width: 600px;
+    flex: none;
+    text-align: left;
+}
+
+.car-info h3 {
+    margin: 0 0 100px;
+
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.car-info dl {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.car-info dl>div {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.car-info dt {
+    width: 72px;
+    flex-shrink: 0;
+
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.car-info dd {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* =========================================================
+   사고 이력 분석 전체
+========================================================= */
+
+.accident-analysis-row {
+    position: relative;
+
+    width: 1440px;
+    height: 500px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 720px 720px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   왼쪽
+========================================================= */
+
+.accident-analysis {
+    position: relative;
+
+    width: 720px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* 제목은 그래프 정렬에 영향 주지 않게 */
+.accident-analysis .ai-title {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   레이더 그래프
+========================================================= */
+
+.accident-graph {
+    position: relative;
+
+    width: 373px;
+    height: 322px;
+
+    margin: 0;
+}
+
+
+.graph-pic {
+    position: absolute;
+
+    width: 226px;
+    height: 223px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+.graph-label {
+    position: absolute;
+    text-align: center;
+}
+
+
+.graph-label strong {
+    display: block;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    color: #000;
+}
+
+
+.graph-label span {
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    color: #000;
+}
+
+
+/* 위 */
+.label-top {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* 오른쪽 */
+.label-right {
+    top: 80px;
+    right: 15px;
+}
+
+
+/* 오른쪽 아래 */
+.label-bottom-right {
+    right: 70px;
+    bottom: 10px;
+}
+
+
+/* 왼쪽 아래 */
+.label-bottom-left {
+    left: 70px;
+    bottom: 10px;
+}
+
+
+/* 왼쪽 */
+.label-left {
+    top: 80px;
+    left: 10px;
+}
+
+
+/*오른쪽 */
+
+.total-score {
+    width: 720px;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 150px;
+}
+
+
+/*  원형 그래프*/
+
+.score-circle {
+    position: relative;
+
+    width: 210px;
+    height: 210px;
+
+    flex-shrink: 0;
+}
+
+
+.score-circle svg {
+    width: 100%;
+    height: 100%;
+
+    transform: rotate(-30deg) scaleY(-1);
+}
+
+
+.score-bg {
+    fill: none;
+
+    stroke: #DBDBDB;
+    stroke-width: 8;
+}
+
+
+.score-progress {
+    fill: none;
+
+    stroke: #0F172A;
+    stroke-width: 8;
+
+    stroke-linecap: round;
+
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+
+    transition: stroke-dashoffset 1.8s ease;
+}
+
+
+/*점수*/
+
+.score-text {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    line-height: 1;
+}
+
+
+.score-text strong {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+
+.score-text span {
+    margin-top: 8px;
+
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+/* 설명*/
+
+.score-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 50px;
+}
+
+
+.score-info p {
+    display: grid;
+
+    grid-template-columns: 100px auto;
+
+    /* strong ↔ span 40px */
+    column-gap: 40px;
+
+    align-items: center;
+
+    margin: 0;
+}
+
+
+.score-info strong {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+.score-info span {
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #64748B;
+}
+
+/* =========================================================
+   사고 분석 + 주행 상태 분석 전체 한 줄
+========================================================= */
+
+.analysis-middle-row {
+    width: 1440px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 720px 720px;
+    align-items: center;
+
+    margin-top: 150px;
+}
+
+
+/* =========================================================
+   사고분석
+========================================================= */
+
+.accident-detail,
+.driving-analysis {
+    width: 720px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* 제목 */
+
+.accident-detail .ai-title,
+.driving-analysis .ai-title {
+    width: 100%;
+    margin: 0 0 50px 0;
+}
+
+/* 사고 분석 제목 */
+.accident-detail .ai-title {
+    width: 100%;
+    margin: 0 0 50px 0;
+}
+
+
+/* 주행 상태 분석 제목 */
+.driving-analysis .ai-title {
+    width: 620px;
+
+    margin: 0 0 50px 0;
+
+    /* 오른쪽 620px 기준으로 정렬 */
+    align-self: flex-end;
+}
+
+/* 사고 분석 - 왼쪽*/
+
+.accident-detail .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.car-pic {
+    width: 148px;
+    height: 341px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* 선 + 텍스트 박스 */
+.accident-detail .text {
+    min-height: 380px;
+
+    margin-left: 50px;
+    padding-left: 50px;
+
+    border-left: 1px solid #BFBFBF;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.accident-detail .accident {
+    margin: 0 0 16px 0;
+
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.4;
+}
+
+.accident-detail .text p {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: #64748B;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   주행 상태 분석 - 오른쪽
+========================================================= */
+.driving-analysis .total-score {
+    width: 720px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 150px;
+    /* 원과 설명 사이 */
+}
+
+
+/* 원형 그래프*/
+
+.score-circle {
+    position: relative;
+    width: 210px;
+    height: 210px;
+    flex-shrink: 0;
+}
+
+.score-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-30deg) scaleY(-1);
+}
+
+.score-bg {
+    fill: none;
+    stroke: #DBDBDB;
+    stroke-width: 8;
+}
+
+.score-progress {
+    fill: none;
+    stroke: #0F172A;
+    stroke-width: 8;
+    stroke-linecap: round;
+
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+
+    transition: stroke-dashoffset 1.8s ease;
+}
+
+
+/* 가운데 점수*/
+
+.score-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    line-height: 1;
+}
+
+.score-text strong {
+    font-size: 32px;
+    font-weight: 500;
+    color: #000;
+}
+
+.score-text span {
+    margin-top: 8px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+}
+
+
+/*  오른쪽 설명 */
+
+.score-info {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.score-info p {
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 120px auto;
+    column-gap: 40px;
+
+    align-items: center;
+}
+
+.score-info strong {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+}
+
+.score-info span {
+    font-size: 16px;
+    font-weight: 400;
+    color: #64748B;
+}
+
+/* ==================================================
+   시세 분석 + 정비 이력 분석
+================================================== */
+
+.analysis-bottom-row {
+    width: 1440px;
+    margin: 150px auto 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+/* ==================================================
+   시세 분석
+================================================== */
+
+.price-analysis {
+    flex: 0 0 auto;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    /* ai-title과 콘텐츠 사이 */
+    gap: 50px;
+}
+
+
+/* 시세분석 콘텐츠 */
+.price-analysis>.inner {
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    /* 글과 그래프 사이 */
+    gap: 50px;
+}
+
+
+/* 왼쪽 텍스트 전체 */
+.price-text {
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    /* 3개 묶음 사이 */
+    gap: 20px;
+
+    flex: 0 0 auto;
+}
+
+
+/* AI 시세 / 적정 범위 / 시세 적합성 */
+.price-analysis .ai-analysis,
+.price-analysis .price-range,
+.price-analysis .price-right {
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    /* 제목과 값 사이 */
+    gap: 10px;
+
+    flex: none;
+}
+
+
+/* 시세분석 p 기본 여백 제거 */
+.price-analysis p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* AI 시세 예측 */
+.ai-price-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #64748b;
+}
+
+
+/* 2,280 */
+.ai-price {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1;
+    color: #0f172a;
+}
+
+
+/* 만원 */
+.ai-price span {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+/* 적정 시세 범위 */
+.price-range-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #64748b;
+}
+
+
+/* 2,180 ~ 3,200 만원 */
+.range-price {
+    font-size: 18px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+
+/* 시세 적합성 */
+.price-right-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #64748b;
+}
+
+
+/* 적정 */
+.analysis-right {
+    font-size: 18px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+
+/* 시세분석 그래프 */
+.analysis-pic {
+    display: block;
+
+    width: 371px;
+    height: 238px;
+
+    object-fit: contain;
+    flex: 0 0 371px;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==================================================
+   정비 이력 분석
+================================================== */
+
+.maintenance-analysis {
+    width: 620px;
+    flex: 0 0 620px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    /* ai-title과 콘텐츠 사이 */
+    gap: 50px;
+}
+
+
+/* 정비 콘텐츠 */
+.maintenance-analysis>.inner {
+    width: 620px;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 목록 전체 */
+.maintenance-analysis ul {
+    width: 620px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+
+/* 정비 한 줄 */
+.maintenance-analysis li {
+    width: 620px;
+    height: 65px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #EFEFEF;
+    color: #64748B;
+}
+
+
+/* 날짜 */
+.maintenance-analysis li div:nth-child(1) {
+    width: 120px;
+    text-align: left;
+}
+
+
+/* 키로수 */
+.maintenance-analysis li div:nth-child(2) {
+    width: 100px;
+    margin-left: 50px;
+    text-align: left;
+}
+
+
+/* 정비내용 */
+.maintenance-analysis li div:nth-child(3) {
+    width: 160px;
+    margin-left: 50px;
+    text-align: left;
+}
+
+.maintenance-analysis li div:first-child {
+    margin-left: 45px;
+}
