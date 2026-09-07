@@ -96,8 +96,8 @@
 
         <!-- 왼쪽 아래 버튼 -->
         <div class="recent-buttons">
-          <button type="button">시작화면</button>
-          <button type="button">비교하기</button>
+          <button type="button" class="quick-ai-btn">AI차량추천</button>
+          <button type="button" class="quick-compare-btn">비교하기</button>
         </div>
 
       </div>
@@ -124,8 +124,8 @@
     <h2 id="title">마이페이지</h2>
     <side id="side-gnb">
       <ul class="active-list">
-        <li class="active-list-title">나의 활동 목록</li>
-        <li class="on">관심 차량</li>
+        <li class="active-list-title">나의 활동 목록 </li>
+        <li class="on">관심 차량 <img src="../../assets/img/mypage-img/sidegnbarrow.png" alt=""></li>
         <li>최근 본 차량</li>
         <li>비교하기</li>
         <li>이용후기</li>
@@ -139,6 +139,8 @@
         <li>오시는 길</li>
       </ul>
     </side>
+
+    <!-- 프로필 -->
     <section id="profile">
       <div class="profile-left">
         <img src="../../assets/img/mypage-img/Ellipse 5.png" alt="">
@@ -168,10 +170,15 @@
         </ul>
       </div>
     </section>
+
+    <!-- 관심차량 -->
     <section id="cars-list">
       <div class="list-title-area">
         <h3 id="list-title">관심 차량</h3>
-        <p class="more">더보기</p>
+        <div class="list-title-etc">
+          <p class="more">더보기</p>
+          <img src="../../assets/img/mypage-img/morearrow.png" alt="">
+        </div>
       </div>
       <div class="car-cards">
         <!-- json data 들어감 -->
