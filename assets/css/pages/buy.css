@@ -6,7 +6,8 @@
 
 .buy-page {
   width: 100%;
-  padding-top: 70px;
+  padding-top: 100px;
+  /* 헤더 80px + 여백 20px */
   color: #0f172a;
   font-family: 'Pretendard', sans-serif;
 }
@@ -25,27 +26,21 @@
 
 /* ==================================================
    검색창
-   차량상세페이지와 동일
 ================================================== */
 
 .buy-search {
   width: 500px;
   height: 50px;
-
-  margin: 37px auto 55px;
-
+  margin: 0 auto 20px;
   display: flex;
-
   border: 1px solid #94a3b8;
   border-radius: 25px;
-
   background: #fff;
-
   overflow: hidden;
 }
 
 .buy-search input {
-  width: 450px;
+  width: 500px;
   height: 50px;
 
   padding: 0 25px;
@@ -155,15 +150,13 @@
 
 .filter-panel {
   width: 343px;
-  min-height: 1837px;
-
+  height: fit-content;
+  min-height: 0;
   border-radius: 30px;
-
   background: #fff;
-
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.08);
-
   overflow: hidden;
+  align-self: flex-start;
 }
 
 
@@ -204,9 +197,6 @@
 
   cursor: pointer;
 
-  transition:
-    font-size 0.2s ease,
-    font-weight 0.2s ease;
 }
 
 
@@ -465,40 +455,73 @@
    주행거리 / 연식 입력
 ================================================== */
 
+/* ==================================================
+   주행거리 / 연식 입력
+================================================== */
+
 .range-dropdown {
   align-items: center;
-
-  gap: 7px;
+  justify-content: center;
+  gap: 14px;
+  padding: 22px 28px;
 }
 
 .filter-group.open .range-dropdown {
   display: flex;
 }
 
-.range-dropdown input {
-  width: 90px;
-  height: 34px;
-
+.range-box {
+  width: 120px;
+  height: 35px;
   padding: 0 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f5f4;
+}
 
-  border: 1px solid #e2e8f0;
+.range-label {
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+}
 
+.range-box input {
+  width: 48px;
+  padding: 0;
+  border: 0;
   outline: 0;
-
-  font-size: 13px;
-
-  text-align: center;
-}
-
-.range-dropdown input:focus {
-  border-color: #1e293b;
-}
-
-.range-dropdown span {
-  font-size: 13px;
+  background: transparent;
   color: #64748b;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 13px;
+  text-align: right;
 }
 
+.range-box input::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.range-wave {
+  flex-shrink: 0;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* number 화살표 제거 */
+.range-box input::-webkit-outer-spin-button,
+.range-box input::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.range-box input[type='number'] {
+  -moz-appearance: textfield;
+}
 
 /* ==================================================
    RIGHT RESULT
@@ -527,23 +550,17 @@
 .sort-btn {
   width: 100px;
   height: 20px;
-
   padding: 0;
-
   border: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: transparent;
-
   color: #64748b;
-
   font-size: 16px;
   font-weight: 400;
-
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .sort-btn:hover,
@@ -706,33 +723,21 @@
 
 .heart-btn {
   position: absolute;
-
   top: 20px;
   right: 20px;
-
-  z-index: 5;
-
-  width: 48px;
-  height: 48px;
-
+  width: 32px;
+  height: 32px;
   padding: 0;
-
   border: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   background: transparent;
-
-  color: #64748b;
-
-  font-size: 42px;
-  font-weight: 300;
-
-  line-height: 1;
-
   cursor: pointer;
+}
+
+.heart-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 .heart-btn.active {
@@ -875,52 +880,56 @@
 ================================================== */
 
 .pagination {
+  position: relative;
   width: fit-content;
   height: 50px;
-
-  margin: 50px auto 0;
-
+  margin: 43px auto 0;
   display: flex;
   align-items: center;
-
   gap: 20px;
 }
 
 .page-btn {
   min-width: 20px;
   height: 50px;
-
   padding: 0;
-
   border: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: transparent;
-
   color: #000;
-
-  font-size: 18px;
-  font-weight: 400;
-
+  font-size: 20px;
+  font-weight: 500;
   cursor: pointer;
 }
 
 .page-btn.active {
-  width: 40px;
-
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
   border-radius: 50%;
-
-  background: #eef2ff;
-
-  color: #1e293b;
+  background: #E0E7FF;
+  color: #111;
 }
 
 .page-next {
-  font-size: 30px;
-  font-weight: 300;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+}
+
+.page-next img {
+  width: 9px;
+  height: 17px;
+  display: block;
+  object-fit: contain;
 }
 
 
