@@ -1,0 +1,804 @@
+@charset "utf-8";
+
+/* ==================================================
+   차량 상세 페이지
+================================================== */
+
+.car-detail {
+  padding: 70px 0 150px;
+  color: #0f172a;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.car-detail * {
+  box-sizing: border-box;
+}
+
+.car-detail button,
+.car-detail input {
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* ==================================================
+   검색창
+================================================== */
+
+.detail-search {
+  width: 500px;
+  height: 50px;
+  margin: 37px auto 55px;
+  display: flex;
+  border: 1px solid #94a3b8;
+  border-radius: 25px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.detail-search input {
+  width: 500px;
+  height: 50px;
+  padding: 0 25px;
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #0f172a;
+}
+
+.detail-search input::placeholder {
+  color: #94a3b8;
+}
+
+.detail-search button {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.search-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.detail-layout {
+  width: 1547px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1055px 420px;
+  column-gap: 72px;
+  align-items: start;
+}
+
+/* ==================================================
+   왼쪽 전체 콘텐츠
+================================================== */
+
+.detail-left {
+  width: 1055px;
+}
+
+.detail-section {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* ==================================================
+   차량 이미지
+================================================== */
+
+.car-left {
+  width: 1055px;
+}
+
+.car-image {
+  width: 1055px;
+  height: 553px;
+  overflow: hidden;
+}
+
+.car-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ==================================================
+   차량 이미지 아래 기본정보
+================================================== */
+
+.car-summary {
+  width: 1055px;
+  margin-top: 4px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.car-summary li {
+  padding: 10px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.car-summary strong {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.car-summary span {
+  font-size: 16px;
+  font-weight: 400;
+  color: #94a3b8;
+}
+
+/* ==================================================
+   오른쪽 구매 카드
+================================================== */
+
+.purchase-card {
+  position: sticky;
+  top: 100px;
+  width: 420px;
+  height: 466px;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  align-self: start;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+}
+
+.purchase-title h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* 가격 */
+
+.price {
+  margin-top: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.price strong {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.price span {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* 예상 구매 비용 */
+
+.total-price {
+  margin: 10px 0 0;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.total-price strong {
+  font-weight: 600;
+}
+
+/* 바로 예약 */
+
+.buy-btn {
+  width: 360px;
+  height: 50px;
+  margin-top: 50px;
+  padding: 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #3730a3;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.buy-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buy-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+/* 시승 / 견적 */
+
+.purchase-sub-btns {
+  margin-top: 15px;
+  display: flex;
+  gap: 5px;
+}
+
+.purchase-sub-btns button {
+  width: 177px;
+  height: 48px;
+  padding: 0;
+  border-radius: 10px;
+  background: #f5f5f5;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* 찜 공유 비교 */
+.purchase-utils {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+
+.purchase-utils button {
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.purchase-util-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.purchase-util-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ==================================================
+   주요 옵션
+================================================== */
+
+.option-section {
+  margin-top: 212px;
+}
+
+/* 제목 + 옵션 전체보기 */
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.option-more {
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #64748b;
+}
+
+/* 주요 옵션 목록 */
+
+.option-list {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 66px;
+  row-gap: 35px;
+}
+
+.option-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.check-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* ==================================================
+   구분선
+================================================== */
+
+.detail-line {
+  width: 100%;
+  height: 1px;
+  margin-left: 0;
+  margin-right: 0;
+  background: #e5e7eb;
+}
+
+/* 주요옵션 → 구분선 */
+
+.option-line {
+  margin-top: 104px;
+}
+
+/* ==================================================
+   차량 상세 정보
+================================================== */
+
+.vehicle-info-section {
+  margin-top: 93px;
+}
+
+.vehicle-info-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 98px;
+}
+
+.vehicle-info-grid dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.vehicle-info-grid dl>div {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  align-items: center;
+}
+
+.vehicle-info-grid dt {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.vehicle-info-grid dd {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #a2acb9;
+}
+
+/* 차량상세 → 구분선 */
+.vehicle-line {
+  margin-top: 109px;
+}
+
+/* ==================================================
+   주요 과거이력 및 보험이력
+================================================== */
+
+.history-section {
+  margin-top: 100px;
+}
+
+.history-list {
+  margin-top: 50px;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.history-list li {
+  width: 163px;
+  text-align: center;
+}
+
+.history-img img {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+}
+
+.history-list strong {
+  display: block;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 과거이력 → 구분선 */
+
+.history-line {
+  margin-top: 100px;
+}
+
+/* ==================================================
+   관리 상태
+================================================== */
+
+.management-section {
+  margin-top: 100px;
+}
+
+.management-table {
+  width: 100%;
+  margin-top: 50px;
+}
+
+/* 표 제목 */
+
+.management-head {
+  min-height: 50px;
+  display: grid;
+  grid-template-columns:
+    140px 150px 1fr 130px 180px;
+  align-items: center;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.management-head span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* 표 내용 */
+
+.management-row {
+  min-height: 65px;
+  display: grid;
+  grid-template-columns:
+    140px 150px 1fr 130px 180px;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.management-row span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 전체 이력 보기 */
+
+.history-more-btn {
+  width: 200px;
+  height: 50px;
+  margin: 10px auto 0;
+  display: block;
+  border: 1px solid #0f172a;
+  background: #fff;
+  color: #0f172a;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.history-more-btn:hover {
+  background: #0f172a;
+  color: #fff;
+}
+
+/* 관리상태 → 구분선 */
+
+.management-line {
+  margin-top: 97px;
+}
+
+/* ==================================================
+   판매자 정보 / 차량소개
+================================================== */
+
+.seller-intro {
+  width: 100%;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 520px 419px;
+  column-gap: 116px;
+}
+
+/* ==================================================
+   판매자 정보
+================================================== */
+
+.seller-info {
+  width: 520px;
+}
+
+/* 딜러 프로필 */
+
+.dealer-profile {
+  margin-top: 45px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+/* 인증딜러 이미지 */
+
+.dealer-image {
+  width: 88px;
+  height: 81px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+
+/* 이미지 오른쪽 전체 텍스트 */
+
+.dealer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 베로카 인증 딜러 + 파란 뱃지 */
+
+.dealer-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dealer-title strong {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* 파란 체크 뱃지 */
+
+.dealer-badge {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dealer-badge img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* 김성민 딜러 / 후기 88개 */
+
+.dealer-detail {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.dealer-review {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #94a3b8;
+}
+
+.dealer-review::before {
+  content: "";
+  width: 2px;
+  height: 16px;
+  background: #e5e7eb;
+}
+
+/* 인증 / 만족도 / 응답시간 */
+
+.dealer-benefit {
+  margin-top: 50px;
+  padding: 0;
+  display: flex;
+  gap: 78px;
+}
+
+.dealer-benefit li {
+  width: 90px;
+  text-align: center;
+}
+
+.benefit-circle {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eff6ff;
+}
+
+.benefit-circle img {
+  width: 50px;
+  height: 50px;
+}
+
+.dealer-benefit strong {
+  display: block;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dealer-benefit span {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+/* 전화 / 문의 */
+
+.dealer-buttons {
+  margin-top: 50px;
+  display: flex;
+  gap: 44px;
+}
+
+.dealer-buttons a,
+.dealer-buttons button {
+  width: 220px;
+  height: 50px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #0f172a;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.dealer-buttons a {
+  background: #14224D;
+  color: #fff;
+}
+
+.dealer-buttons button {
+  background: #fff;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+.Inquire-button:hover {
+  background: #14224D;
+  color: #fff;
+}
+
+.Inquire-button:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.dealer-buttons span img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* 상담 가능 시간 */
+
+.consult-time {
+  margin: 30px 0 0;
+  display: flex;
+  align-items: center;
+  color: #14224D;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.consult-time span img {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==================================================
+   차량소개
+================================================== */
+
+.vehicle-intro {
+  width: 419px;
+}
+
+.vehicle-intro p {
+  margin: 50px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ==================================================
+   QUICK MENU
+================================================== */
+
+.quick-menu-detail {
+  position: fixed;
+  top: 720px;
+  right: 30px;
+  width: 80px;
+  z-index: 1000;
+}
+
+.quick-menu-detail button {
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.quick-menu-detail button+button {
+  margin-top: 10px;
+}
+
+.quick-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}

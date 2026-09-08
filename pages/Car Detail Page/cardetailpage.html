@@ -4,9 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>VERO CAR</title>
-
   <link rel="stylesheet" href="../../assets/css/reset.css">
   <link rel="stylesheet" href="../../assets/css/fonts.css">
   <link rel="stylesheet" href="../../assets/css/common.css">
@@ -71,21 +69,21 @@
         <div class="recent-car-list">
 
           <div class="recent-car-card">
-            <img src="../assets/img/quick-menu-img/벤츠.png" alt="벤츠 E클래스">
+            <img src="../../assets/img/quick-menu-img/벤츠.png" alt="벤츠 E클래스">
             <strong>벤츠 E클래스 E350 AMG</strong>
             <span>22년식 / 12,367km</span>
             <b>6,700만원</b>
           </div>
 
           <div class="recent-car-card">
-            <img src="../assets/img/quick-menu-img/제네시스.png" alt="제네시스 G80">
+            <img src="../../assets/img/quick-menu-img/제네시스.png" alt="제네시스 G80">
             <strong>제네시스 G80 2.5 터보</strong>
             <span>22년식 / 10,215km</span>
             <b>5,240만원</b>
           </div>
 
           <div class="recent-car-card">
-            <img src="../assets/img/quick-menu-img/아우디.png" alt="아우디 Q5">
+            <img src="../../assets/img/quick-menu-img/아우디.png" alt="아우디 Q5">
             <strong>아우디 Q5 45</strong>
             <span>22년식 / 12,914km</span>
             <b>5,120만원</b>
@@ -105,7 +103,7 @@
 
       <!-- 최근 본 차량 버튼 -->
       <button type="button" class="quick-recent">
-        <img src="../assets/img/quick-menu-img/최근본차량아이콘.png" alt="">
+        <img src="../../assets/img/quick-menu-img/최근본차량아이콘.png" alt="">
         <span>최근 본 차량</span>
       </button>
 
@@ -119,12 +117,437 @@
     </button>
 
   </aside>
-  <!--  =====================================================
-  
-                                  입력하시면됩니다 
 
-              ======================================================= -->
+  <main class="car-detail">
+    <!-- =========================
+             검색
+        ========================== -->
+    <div class="detail-search">
+      <input type="text" placeholder="'그랜저'를 검색해보세요">
+      <button type="button" aria-label="검색">
+        <span class="search-icon">
+          <img src="../../assets/img/cardetailpage-img/돋보기.png" alt="">
+        </span>
+      </button>
+    </div>
 
+    <div class="detail-layout">
+      <!-- ==================================================
+                 왼쪽 전체 콘텐츠
+            =================================================== -->
+      <div class="detail-left">
+        <!-- =========================
+                     차량 이미지
+                ========================== -->
+        <section class="car-left">
+          <div class="car-image">
+            <img src="../../assets/img/cars-json-img/투싼 흰색.png" alt="현대 투싼">
+          </div>
+
+          <ul class="car-summary">
+            <li>
+              <strong>연식</strong>
+              <span>2022.06</span>
+            </li>
+
+            <li>
+              <strong>주행거리</strong>
+              <span>28,450km</span>
+            </li>
+
+            <li>
+              <strong>연료</strong>
+              <span>가솔린</span>
+            </li>
+
+            <li>
+              <strong>변속기</strong>
+              <span>자동</span>
+            </li>
+
+            <li>
+              <strong>배기량</strong>
+              <span>1,598cc</span>
+            </li>
+
+            <li>
+              <strong>색상</strong>
+              <span>화이트</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- =========================
+                     주요 옵션
+                ========================== -->
+        <section class="detail-section option-section">
+          <div class="section-heading">
+            <h2 class="section-title">주요 옵션</h2>
+            <a href="#" class="option-more">옵션 전체보기</a>
+          </div>
+
+          <ul class="option-list">
+            <li>
+              <span class="check-icon">✓</span>
+              <span>LED 헤드램프</span>
+            </li>
+
+            <li>
+              <span class="check-icon">✓</span>
+              <span>전동접이 사이드미러</span>
+            </li>
+
+            <li>
+              <span class="check-icon">✓</span>
+              <span>선루프</span>
+            </li>
+
+            <li>
+              <span class="check-icon">✓</span>
+              <span>어댑티브 헤드램프</span>
+            </li>
+
+            <li>
+              <span class="check-icon">✓</span>
+              <span>주차거리 경보</span>
+            </li>
+
+            <li>
+              <span class="check-icon">✓</span>
+              <span>버튼시동 스마트키</span>
+            </li>
+
+            <li>
+              <span class="check-icon">✓</span>
+              <span>360° 카메라</span>
+            </li>
+
+            <li>
+              <span class="check-icon">✓</span>
+              <span>HUD</span>
+            </li>
+          </ul>
+        </section>
+
+        <div class="detail-line option-line"></div>
+        <!-- =========================
+                     차량 상세 정보
+                ========================== -->
+        <section class="detail-section vehicle-info-section">
+          <h2 class="section-title">차량 상세 정보</h2>
+          <div class="vehicle-info-grid">
+            <dl>
+              <div>
+                <dt>차량 구분</dt>
+                <dd>SUV</dd>
+              </div>
+
+              <div>
+                <dt>연식</dt>
+                <dd>2022</dd>
+              </div>
+
+              <div>
+                <dt>주행거리</dt>
+                <dd>28,450km</dd>
+              </div>
+
+              <div>
+                <dt>연료</dt>
+                <dd>가솔린</dd>
+              </div>
+
+              <div>
+                <dt>번호판</dt>
+                <dd>15가 4200</dd>
+              </div>
+            </dl>
+
+            <dl>
+              <div>
+                <dt>차량 색상</dt>
+                <dd>화이트</dd>
+              </div>
+
+              <div>
+                <dt>최초 등록</dt>
+                <dd>2022.06</dd>
+              </div>
+
+              <div>
+                <dt>차대번호</dt>
+                <dd>KMHJ12IR879NFG</dd>
+              </div>
+
+              <div>
+                <dt>등록 번호</dt>
+                <dd>123가4567</dd>
+              </div>
+
+              <div>
+                <dt>배출가스</dt>
+                <dd>양호</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <div class="detail-line vehicle-line"></div>
+        <!-- =========================
+                     주요 과거이력 / 보험이력
+                ========================== -->
+        <section class="detail-section history-section">
+          <h2 class="section-title">
+            주요 과거이력 및 보험이력
+          </h2>
+          <ul class="history-list">
+
+            <li>
+              <div class="history-img">
+                <img src="../../assets/img/cardetailpage-img/무사고.png" alt="">
+              </div>
+              <strong>무사고</strong>
+            </li>
+
+            <li>
+              <div class="history-img">
+                <img src="../../assets/img/cardetailpage-img/침수이력없음 1.png" alt="">
+              </div>
+              <strong>침수 이력 없음</strong>
+            </li>
+
+            <li>
+              <div class="history-img">
+                <img src="../../assets/img/cardetailpage-img/주행거리정상 1.png" alt="">
+              </div>
+              <strong>주행거리 정상</strong>
+            </li>
+
+            <li>
+              <div class="history-img">
+                <img src="../../assets/img/cardetailpage-img/보험이력없음 1.png" alt="">
+              </div>
+              <strong>보험이력 없음</strong>
+            </li>
+
+            <li>
+              <div class="history-img">
+                <img src="../../assets/img/cardetailpage-img/용도이력없음 1.png" alt="">
+              </div>
+              <strong>용도 이력 없음</strong>
+            </li>
+
+            <li>
+              <div class="history-img">
+                <img src="../../assets/img/cardetailpage-img/1인신조 1.png" alt="">
+              </div>
+              <strong>1인신조</strong>
+            </li>
+          </ul>
+        </section>
+
+        <div class="detail-line history-line"></div>
+
+        <!-- =========================
+                     관리 상태
+                ========================== -->
+        <section class="detail-section management-section">
+          <h2 class="section-title">관리 상태</h2>
+          <div class="management-table">
+            <div class="management-head">
+              <span>일자</span>
+              <span>주행거리</span>
+              <span>점검/정비 내용</span>
+              <span>상태</span>
+              <span>작업장</span>
+            </div>
+
+            <div class="management-row">
+              <span>2026.06.24</span>
+              <span>35,400km</span>
+              <span>엔진오일, 에어필터 교환</span>
+              <span>정기점검</span>
+              <span>현대모터스 강서점</span>
+            </div>
+
+            <div class="management-row">
+              <span>2026.02.10</span>
+              <span>27,100km</span>
+              <span>타이어 및 브레이크 점검</span>
+              <span>정기점검</span>
+              <span>현대모터스 강서점</span>
+            </div>
+
+            <div class="management-row">
+              <span>2025.11.12</span>
+              <span>19,500km</span>
+              <span>엔진오일 및 필터 교환</span>
+              <span>정기점검</span>
+              <span>현대모터스 강서점</span>
+            </div>
+
+          </div>
+          <button type="button" class="history-more-btn">
+            전체 이력 보기
+          </button>
+        </section>
+
+        <div class="detail-line management-line"></div>
+
+        <!-- =========================
+                     판매자 / 차량소개
+                ========================== -->
+        <section class="seller-intro">
+          <!-- 판매자 정보 -->
+          <div class="seller-info">
+            <h2 class="section-title">판매자 정보</h2>
+            <div class="dealer-profile">
+              <img class="dealer-image" src="../../assets/img/cardetailpage-img/인증딜러.png" alt="베로카 인증 딜러">
+              <div class="dealer-info">
+                <div class="dealer-title">
+                  <strong>베로카 인증 딜러</strong>
+                  <span class="dealer-badge">
+                    <img src="../../assets/img/cardetailpage-img/체크뱃지.png" alt="">
+                  </span>
+                </div>
+
+                <div class="dealer-detail">
+                  <span>김성민 딜러</span>
+                  <span class="dealer-review">후기 88개</span>
+                </div>
+              </div>
+            </div>
+
+            <ul class="dealer-benefit">
+              <li>
+                <div class="benefit-circle">
+                  <img src="../../assets/img/cardetailpage-img/보안.png" alt="">
+                </div>
+                <strong>베로카 인증</strong>
+                <span>엄격한 심사</span>
+              </li>
+
+              <li>
+                <div class="benefit-circle">
+                  <img src="../../assets/img/cardetailpage-img/메달.png" alt="">
+                </div>
+                <strong>거래 만족도</strong>
+                <span>95%</span>
+              </li>
+
+              <li>
+                <div class="benefit-circle">
+                  <img src="../../assets/img/cardetailpage-img/채팅말풍선.png" alt="">
+                </div>
+                <strong>평균 응답시간</strong>
+                <span>10분 이내</span>
+              </li>
+            </ul>
+
+            <div class="dealer-buttons">
+              <a href="tel:01037165079">
+                <span>
+                  <img src="../../assets/img/cardetailpage-img/전화기.png" alt="">
+                </span>
+                010-3716-5079
+              </a>
+
+              <button type="button" class="Inquire-button">
+                <span>
+                  <img src="../../assets/img/cardetailpage-img/Vector.png" alt="">
+                </span>
+                문의하기
+              </button>
+            </div>
+
+            <p class="consult-time">
+              <span>
+                <img src="../../assets/img/cardetailpage-img/시계.png" alt="">
+              </span>
+              상담 가능시간 09:00 - 18:00
+            </p>
+          </div>
+
+          <!-- 차량 소개 -->
+          <div class="vehicle-intro">
+
+            <h2 class="section-title">
+              차량소개
+            </h2>
+            <p>
+              완전 무사고 차량으로 관리된 차량입니다.<br>
+              차량 상태가 매우 우수하며 정기적으로 관리된 차량입니다.<br>
+              실내외 상태가 매우 깔끔하며 입고 후 정밀 점검까지<br>
+              모두 완료했습니다.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- ==================================================
+                 오른쪽 구매 카드
+            =================================================== -->
+      <aside class="purchase-card">
+        <div class="purchase-title">
+          <h2>
+            더 올 뉴 투싼<br>
+            1.6 터보 2WD 모던
+          </h2>
+        </div>
+
+        <div class="price">
+          <strong>2,450</strong>
+          <span>만원</span>
+        </div>
+
+        <p class="total-price">
+          총 구매 예상 비용
+          <strong>2,380만원</strong>
+        </p>
+
+        <button type="button" class="buy-btn">
+          <span class="buy-icon">
+            <img src="../../assets/img/cardetailpage-img/번개.png" alt="">
+          </span>
+          바로 구매예약
+        </button>
+
+        <div class="purchase-sub-btns">
+          <button type="button">
+            견적 내기
+          </button>
+
+          <button type="button">
+            시승 예약
+          </button>
+        </div>
+
+        <div class="purchase-utils">
+
+          <button type="button">
+            <span class="purchase-util-icon">
+              <img src="../../assets/img/cardetailpage-img/ico-찜하기.png" alt="">
+            </span>
+            <span>관심목록</span>
+          </button>
+
+          <button type="button">
+            <span class="purchase-util-icon">
+              <img src="../../assets/img/cardetailpage-img/ico-공유하기.png" alt="">
+            </span>
+            <span>공유하기</span>
+          </button>
+
+          <button type="button">
+            <span class="purchase-util-icon">
+              <img src="../../assets/img/cardetailpage-img/ico-비교하기.png" alt="">
+            </span>
+            <span>비교하기</span>
+          </button>
+        </div>
+      </aside>
+    </div>
+  </main>
   <footer class="footer">
     <div class="footer-inner">
 
