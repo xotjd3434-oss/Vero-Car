@@ -4,21 +4,10 @@
    BUY PAGE
 ================================================== */
 
-:root {
-  --buy-main: #1e293b;
-  --buy-text: #0f172a;
-  --buy-sub: #64748b;
-  --buy-line: #e2e8f0;
-  --buy-tag: #f5f5f5;
-
-  /* 체크박스 호버 색상 - 나중에 여기만 변경 */
-  --filter-hover-color: #1e293b;
-}
-
 .buy-page {
   width: 100%;
   padding-top: 70px;
-  color: var(--buy-text);
+  color: #0f172a;
   font-family: 'Pretendard', sans-serif;
 }
 
@@ -67,7 +56,7 @@
   font-size: 16px;
   font-weight: 400;
 
-  color: var(--buy-text);
+  color: #0f172a;
 }
 
 .buy-search input::placeholder {
@@ -119,6 +108,7 @@
   display: block;
 
   object-fit: cover;
+  object-position: center 80%;
 }
 
 .buy-hero h2 {
@@ -191,7 +181,7 @@
 
   grid-template-columns: repeat(3, 1fr);
 
-  border-bottom: 1px solid var(--buy-line);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .origin-tab {
@@ -207,7 +197,7 @@
 
   background: transparent;
 
-  color: var(--buy-text);
+  color: #0f172a;
 
   font-size: 18px;
   font-weight: 400;
@@ -286,7 +276,7 @@
   padding: 0 28px;
 
   border: 0;
-  border-bottom: 1px solid var(--buy-line);
+  border-bottom: 1px solid #e2e8f0;
 
   display: flex;
   align-items: center;
@@ -295,7 +285,7 @@
 
   background: #fff;
 
-  color: var(--buy-text);
+  color: #0f172a;
 
   font-size: 18px;
   font-weight: 400;
@@ -326,7 +316,7 @@
 .filter-group {
   width: 100%;
 
-  border-bottom: 1px solid var(--buy-line);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .filter-title {
@@ -343,7 +333,7 @@
 
   background: #fff;
 
-  color: var(--buy-text);
+  color: #0f172a;
 
   font-size: 18px;
   font-weight: 400;
@@ -358,8 +348,8 @@
   width: 10px;
   height: 10px;
 
-  border-right: 2px solid var(--buy-text);
-  border-bottom: 2px solid var(--buy-text);
+  border-right: 2px solid #0f172a;
+  border-bottom: 2px solid #0f172a;
 
   transform: rotate(45deg);
 
@@ -397,11 +387,8 @@
   min-height: 36px;
 
   display: grid;
-
-  grid-template-columns: 16px 1fr auto;
-
+  grid-template-columns: 24px 1fr auto;
   align-items: center;
-
   column-gap: 10px;
 
   cursor: pointer;
@@ -409,32 +396,38 @@
 
 .check-row input {
   position: absolute;
-
   opacity: 0;
-
   pointer-events: none;
 }
 
 .fake-check {
-  width: 14px;
-  height: 14px;
+  position: relative;
+
+  width: 18px;
+  height: 18px;
 
   border-radius: 50%;
-
-  background: #dbe3ec;
-
-  transition: background 0.15s ease;
+  background: #CBD5E5;
 }
 
+.fake-check::after {
+  content: '';
 
-/* 여기 색상은 위 변수만 바꾸면 됨 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
 
-.check-row:hover .fake-check {
-  background: var(--filter-hover-color);
+  width: 5px;
+  height: 9px;
+
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+
+  transform: translate(-50%, -60%) rotate(45deg);
 }
 
 .check-row input:checked+.fake-check {
-  background: var(--filter-hover-color);
+  background: #4F4625;
 }
 
 .check-name,
@@ -444,9 +437,8 @@
 }
 
 .check-count {
-  color: var(--buy-sub);
+  color: #64748b;
 }
-
 
 /* ==================================================
    브랜드 제목
@@ -489,7 +481,7 @@
 
   padding: 0 10px;
 
-  border: 1px solid var(--buy-line);
+  border: 1px solid #e2e8f0;
 
   outline: 0;
 
@@ -499,12 +491,12 @@
 }
 
 .range-dropdown input:focus {
-  border-color: var(--buy-main);
+  border-color: #1e293b;
 }
 
 .range-dropdown span {
   font-size: 13px;
-  color: var(--buy-sub);
+  color: #64748b;
 }
 
 
@@ -546,7 +538,7 @@
 
   background: transparent;
 
-  color: var(--buy-sub);
+  color: #64748b;
 
   font-size: 16px;
   font-weight: 400;
@@ -556,7 +548,7 @@
 
 .sort-btn:hover,
 .sort-btn.active {
-  color: var(--buy-text);
+  color: #0f172a;
 }
 
 
@@ -600,26 +592,111 @@
 }
 
 
-/* 사진 */
+/* ==================================================
+   카드 이미지 + 외부/내부 갤러리
+================================================== */
 
 .car-card-image {
   position: relative;
-
   width: 618px;
   height: 416px;
-
   background: #f8fafc;
-
   overflow: hidden;
 }
 
-.car-card-image>img {
+/* 큰 차량 이미지 */
+.car-main-image {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
+}
+
+/* 외부 / 내부 버튼 */
+.gallery-tabs {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  z-index: 10;
+
+  transform: translateX(-50%);
+
+  width: 120px;
+  height: 40px;
+  padding: 4px;
+
+  display: flex;
+
+  border-radius: 25px;
+  background: #fff;
+}
+
+.gallery-tab {
+  width: 56px;
+  height: 32px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 20px;
+
+  background: transparent;
+  color: #64748b;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.gallery-tab.active {
+  background: #1e293b;
+  color: #fff;
+}
+
+/* 오른쪽 작은 사진 */
+.gallery-thumbs {
+  position: absolute;
+  top: 80px;
+  right: 15px;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.gallery-thumb {
+  width: 65px;
+  height: 55px;
+
+  padding: 0;
+
+  border: 2px solid transparent;
+  border-radius: 8px;
+
+  background: #fff;
+
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-thumb.active {
+  border-color: #1e293b;
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* 사진 배열이 없는 차량은 숨김 */
+.gallery-tabs.hidden,
+.gallery-thumbs.hidden {
+  display: none;
 }
 
 
@@ -770,7 +847,7 @@
 
   background: #f5f5f5;
 
-  color: var(--buy-text);
+  color: #0f172a;
 
   font-size: 16px;
   font-weight: 700;
@@ -778,24 +855,20 @@
   white-space: nowrap;
 }
 
-.car-tag-color {
+/* 시트 색상 태그 */
+.seat-tag {
   display: inline-flex;
   align-items: center;
-
   gap: 8px;
 }
 
-.car-tag-color::before {
-  content: "";
-
-  width: 14px;
-  height: 14px;
-
+.seat-color {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border: 1px solid #ddd;
   border-radius: 50%;
-
-  background: var(--tag-color, #111);
 }
-
 
 /* ==================================================
    PAGINATION
