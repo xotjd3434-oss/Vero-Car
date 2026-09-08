@@ -1,28 +1,20 @@
 /* ==================================================
    HTML
 ================================================== */
-
 const carGrid = document.querySelector('#carGrid');
 const carCount = document.querySelector('#carCount');
 const pagination = document.querySelector('#pagination');
-
 const originTabs = document.querySelectorAll('.origin-tab');
 const filterTitles = document.querySelectorAll('.filter-title');
 const filterChecks = document.querySelectorAll('.check-row input');
-
 const mileageMin = document.querySelector('#mileageMin');
 const mileageMax = document.querySelector('#mileageMax');
-
 const yearMin = document.querySelector('#yearMin');
 const yearMax = document.querySelector('#yearMax');
-
 const filterReset = document.querySelector('#filterReset');
-
 const sortButtons = document.querySelectorAll('.sort-btn');
-
 const carSearch = document.querySelector('#carSearch');
 const searchBtn = document.querySelector('#searchBtn');
-
 
 /* ==================================================
    상태
@@ -30,18 +22,13 @@ const searchBtn = document.querySelector('#searchBtn');
 
 let cars = [];
 let filteredCars = [];
-
 let selectedOrigin = 'all';
-
 let currentPage = 1;
-
 const pageSize = 10;
-
 let sortState = {
   type: 'date',
   direction: 'desc'
 };
-
 
 /* ==================================================
    테스트용 fallback 데이터
@@ -257,7 +244,7 @@ function normalizeCar(car) {
   return {
     id: car.id,
 
-    origin: car.origin || '국산',
+    origin: String(car.origin || '국산').trim(),
 
     brand: car.brand || '',
 
@@ -663,26 +650,60 @@ filterTitles.forEach(button => {
    국산 / 수입
 ================================================== */
 
-originTabs.forEach(tab => {
+function normalizeOrigin(value) {
+  if (!value) return 'all';
 
+  const origin = String(value).trim();
+
+  if (
+    origin === 'all' ||
+    origin === '전체'
+  ) {
+    return 'all';
+  }
+
+  if (
+    origin === '국산' ||
+    origin === '국산차' ||
+    origin === 'domestic'
+  ) {
+    return '국산';
+  }
+
+  if (
+    origin === '수입' ||
+    origin === '수입차' ||
+    origin === 'import'
+  ) {
+    return '수입';
+  }
+
+  return origin;
+}
+
+originTabs.forEach(tab => {
   tab.addEventListener('click', () => {
 
+    /* 국산/수입 버튼 중 기존 선택 제거 */
     originTabs.forEach(item => {
       item.classList.remove('active');
     });
 
-
+    /* 지금 누른 버튼만 선택 */
     tab.classList.add('active');
 
-
     selectedOrigin =
-      tab.dataset.origin;
+      normalizeOrigin(tab.dataset.origin);
 
+    /* 국산 → 수입 변경 시 기존 브랜드 선택 해제 */
+    document
+      .querySelectorAll('input[name="brand"]')
+      .forEach(input => {
+        input.checked = false;
+      });
 
     applyFilters();
-
   });
-
 });
 
 
@@ -692,13 +713,28 @@ originTabs.forEach(tab => {
 
 filterChecks.forEach(input => {
 
-  input.addEventListener(
-    'change',
-    applyFilters
-  );
+  input.addEventListener('change', () => {
+
+    if (input.checked) {
+
+      const sameGroup =
+        document.querySelectorAll(
+          `input[name="${input.name}"]`
+        );
+
+      sameGroup.forEach(item => {
+
+        if (item !== input) {
+          item.checked = false;
+        }
+
+      });
+    }
+
+    applyFilters();
+  });
 
 });
-
 
 /* ==================================================
    RANGE
