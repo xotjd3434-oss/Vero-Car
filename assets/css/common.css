@@ -513,3 +513,254 @@ body {
     font-size: 11px;
     font-weight: 500;
 }
+
+/* ==================================================
+   Mobile Header
+================================================== */
+
+.mobile-menu-btn,
+.mobile-menu,
+.mobile-menu-dim {
+    display: none;
+}
+
+@media (max-width: 393px) {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 60px;
+
+        background: linear-gradient(180deg,
+                #fff 0%,
+                #aaa 50%,
+                #000 100%);
+
+        z-index: 1000;
+    }
+
+    .header-inner {
+        position: relative;
+        z-index: 1002;
+
+        width: 100%;
+        height: 60px;
+
+        padding: 0 20px;
+        margin: 0;
+
+        box-sizing: border-box;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* 로고 */
+    .logo {
+        margin: 0;
+        padding: 0;
+    }
+
+    .logo a {
+        display: block;
+        width: 60px;
+        height: 50px;
+    }
+
+    .logo img {
+        display: block;
+        width: 60px;
+        height: 50px;
+        object-fit: contain;
+    }
+
+    /* PC 메뉴 숨김 */
+    .gnb,
+    .header-util {
+        display: none;
+    }
+
+    /* 햄버거 / X */
+    .mobile-menu-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 24px;
+        height: 24px;
+
+        padding: 0;
+        border: 0;
+        background: transparent;
+
+        cursor: pointer;
+    }
+
+    .mobile-menu-btn img {
+        display: block;
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    /* ==================================================
+       메뉴 전체
+    ================================================== */
+
+    .mobile-menu {
+        position: fixed;
+
+        /* 중요: 60px 아래가 아니라 화면 맨 위부터 */
+        top: 0;
+        left: 0;
+
+        display: block;
+
+        width: 100%;
+        height: 620px;
+
+        box-sizing: border-box;
+
+        background: linear-gradient(180deg,
+                #fff 0%,
+                #d9d9d9 25%,
+                #8c8c8c 50%,
+                #333 75%,
+                #000 100%);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(-20px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+
+        z-index: 1001;
+    }
+
+    .mobile-menu.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* 메뉴 목록은 헤더 60px 밑에서 시작 */
+    .mobile-menu-list {
+        position: absolute;
+        top: 60px;
+        left: 0;
+
+        width: 100%;
+        height: 560px;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .mobile-menu-list li {
+        width: 100%;
+        height: 80px;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .mobile-menu-list a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 80px;
+
+        color: #fff;
+
+        font-family: 'Pretendard', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+
+        text-decoration: none;
+    }
+
+    /* 메뉴 바깥 클릭 영역 */
+    .mobile-menu-dim {
+        position: fixed;
+        top: 620px;
+        left: 0;
+        right: 0;
+
+        display: block;
+
+        width: auto;
+        height: calc(100vh - 620px);
+
+        background: transparent;
+
+        opacity: 0;
+        visibility: hidden;
+
+        z-index: 999;
+    }
+
+    .mobile-menu-dim.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    .quick-menu {
+        display: none;
+    }
+
+    /* ==================================================
+       푸터 전체
+    ================================================== */
+    .footer {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer-inner {
+        width: 100%;
+        margin: 0;
+        padding: 40px 20px;
+
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 40px;
+    }
+
+    .footer-left,
+    .footer-right {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .footer-right {
+        height: auto;
+    }
+
+    .footer-desc {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .footer-menu {
+        flex-wrap: wrap;
+    }
+
+    .footer-sns {
+        margin-top: 30px;
+        justify-content: flex-start;
+    }
+}
