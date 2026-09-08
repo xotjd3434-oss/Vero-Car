@@ -282,16 +282,25 @@ function normalizeCar(car) {
     thumbnail:
       resolveImagePath(car.thumbnail),
 
+    exteriorImages:
+      Array.isArray(car.exteriorImages)
+        ? car.exteriorImages.map(resolveImagePath)
+        : [],
+
+    interiorImages:
+      Array.isArray(car.interiorImages)
+        ? car.interiorImages.map(resolveImagePath)
+        : [],
+
     exteriorColor:
       car.exteriorColor ||
       car.color ||
       '검정',
 
-    owners:
-      Number(car.owners) || 1,
-
-    accidentFree:
-      car.accidentFree !== false
+    tags:
+      Array.isArray(car.tags)
+        ? car.tags
+        : []
   };
 }
 
@@ -361,108 +370,118 @@ function renderCars() {
 
     card.className = 'car-card';
 
-
-    const ownerTag =
-      car.owners === 1
-        ? '1인 신조'
-        : `${car.owners}인 소유`;
-
-
-    const insuranceTag =
-      car.accidentFree
-        ? '보험 이력 없음'
-        : '보험 이력 있음';
-
-
     card.innerHTML = `
-            <div class="car-card-image">
+  <div class="car-card-image" data-id="${car.id}">
 
-                <img
-                    src="${car.thumbnail}"
-                    alt="${car.modelName}"
-                >
+    <img
+      src="${car.thumbnail}"
+      alt="${car.modelName}"
+      class="car-main-image"
+    >
 
-                <button
-                    type="button"
-                    class="heart-btn"
-                    data-id="${car.id}"
-                    aria-label="관심차량"
-                >
-                    ♡
-                </button>
+    <button
+      type="button"
+      class="heart-btn"
+      data-id="${car.id}"
+      aria-label="관심차량"
+    >
+      ♡
+    </button>
 
-            </div>
+    <!-- 외부 / 내부 -->
+    <div class="gallery-tabs ${car.exteriorImages.length === 0 &&
+        car.interiorImages.length === 0
+        ? 'hidden'
+        : ''
+      }">
+      <button
+        type="button"
+        class="gallery-tab"
+        data-gallery="exterior"
+      >
+        외부
+      </button>
 
+      <button
+        type="button"
+        class="gallery-tab"
+        data-gallery="interior"
+      >
+        내부
+      </button>
+    </div>
 
-            <a
-                href="../Car%20Detail%20Page/cardetailpage.html?id=${car.id}"
-                class="car-card-link"
-            >
+    <!-- 처음에는 숨김 -->
+    <div class="gallery-thumbs hidden"></div>
 
-                <div class="car-card-body">
+  </div>
 
-                    <h3 class="car-name">
-                        ${car.modelName}
-                    </h3>
+  <a
+    href="../Car%20Detail%20Page/cardetailpage.html?id=${car.id}"
+    class="car-card-link"
+  >
+    <div class="car-card-body">
 
-                    <p class="car-meta">
-                        ${String(car.regDate).slice(2, 7).replace('-', '/')}년식
-                        (${String(car.modelYear).slice(2)}년형)
-                        ${numberFormat(car.mileage)}km
-                        ${car.region}
-                    </p>
+      <h3 class="car-name">
+        ${car.modelName}
+      </h3>
 
+      <p class="car-meta">
+        ${String(car.regDate).slice(2, 7).replace('-', '/')}년식
+        (${String(car.modelYear).slice(2)}년형)
+        ${numberFormat(car.mileage)}km
+        ${car.region}
+      </p>
 
-                    <div class="car-price-box">
+      <div class="car-price-box">
 
-                        <div class="car-price">
-                            <strong>
-                                ${numberFormat(car.price)}
-                            </strong>
+        <div class="car-price">
+          <strong>
+            ${numberFormat(car.price)}
+          </strong>
+          <span>만원</span>
+        </div>
 
-                            <span>
-                                만원
-                            </span>
-                        </div>
+        <p class="car-monthly">
+          60개월시 월
+          ${numberFormat(car.monthlyPayment)}원
+        </p>
 
-                        <p class="car-monthly">
-                            60개월시 월
-                            ${numberFormat(car.monthlyPayment)}원
-                        </p>
+      </div>
 
-                    </div>
+      <div class="car-tags">
+        ${car.tags.map(tag => {
+        const isSeat = tag.includes('시트');
 
+        const seatColor = isSeat
+          ? tag.replace(' 시트', '')
+          : '';
 
-                    <div class="car-tags">
+        return `
+            <span class="car-tag ${isSeat ? 'seat-tag' : ''}">
+              ${isSeat
+            ? `<span
+                      class="seat-color"
+                      style="background:${getTagColor(seatColor)}"
+                    ></span>`
+            : ''
+          }
+              ${tag}
+            </span>
+          `;
+      }).join('')}
+      </div>
 
-                        <span
-                            class="car-tag car-tag-color"
-                            style="--tag-color:${getTagColor(car.exteriorColor)}"
-                        >
-                            ${car.exteriorColor} 시트
-                        </span>
-
-                        <span class="car-tag">
-                            ${ownerTag}
-                        </span>
-
-                        <span class="car-tag">
-                            ${insuranceTag}
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-        `;
-
+    </div>
+  </a>
+`;
 
     carGrid.appendChild(card);
   });
 
 
   bindHeartButtons();
+  bindGallery();
 }
 
 
@@ -962,7 +981,12 @@ function sortCars() {
     return 0;
 
   });
+  const tucsonIndex = filteredCars.findIndex(car => car.id === 1);
 
+  if (tucsonIndex > 0) {
+    const tucson = filteredCars.splice(tucsonIndex, 1)[0];
+    filteredCars.unshift(tucson);
+  }
 }
 
 
@@ -1061,6 +1085,133 @@ function bindHeartButtons() {
         button.classList.contains('active')
           ? '♥'
           : '♡';
+
+    });
+
+  });
+
+}
+/* ==================================================
+   외부 / 내부 이미지 갤러리
+================================================== */
+
+function bindGallery() {
+
+  const imageAreas =
+    document.querySelectorAll('.car-card-image');
+
+  imageAreas.forEach(area => {
+
+    const carId =
+      Number(area.dataset.id);
+
+    const car =
+      filteredCars.find(car => car.id === carId);
+
+    if (!car) return;
+
+    const mainImage =
+      area.querySelector('.car-main-image');
+
+    const tabs =
+      area.querySelectorAll('.gallery-tab');
+
+    const thumbArea =
+      area.querySelector('.gallery-thumbs');
+
+    if (!mainImage || !thumbArea) return;
+
+
+    /* 오른쪽 썸네일 만들기 */
+    function renderThumbs(images) {
+
+      thumbArea.innerHTML = '';
+
+      if (images.length === 0) {
+        thumbArea.classList.add('hidden');
+        return;
+      }
+
+      thumbArea.classList.remove('hidden');
+
+      images.forEach((image, index) => {
+
+        const button =
+          document.createElement('button');
+
+        button.type = 'button';
+
+        button.className =
+          index === 0
+            ? 'gallery-thumb active'
+            : 'gallery-thumb';
+
+        button.innerHTML = `
+          <img src="${image}" alt="">
+        `;
+
+        button.addEventListener('click', event => {
+
+          event.preventDefault();
+          event.stopPropagation();
+
+          mainImage.src = image;
+
+          thumbArea
+            .querySelectorAll('.gallery-thumb')
+            .forEach(item => {
+              item.classList.remove('active');
+            });
+
+          button.classList.add('active');
+
+        });
+
+        thumbArea.appendChild(button);
+
+      });
+
+      mainImage.src = images[0];
+    }
+
+
+    /* 외부 / 내부 버튼 클릭 */
+    tabs.forEach(tab => {
+
+      tab.addEventListener('click', event => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        tabs.forEach(item => {
+          item.classList.remove('active');
+        });
+
+        tab.classList.add('active');
+
+
+        /* 외부 */
+        if (tab.dataset.gallery === 'exterior') {
+
+          renderThumbs(
+            car.exteriorImages.length > 0
+              ? car.exteriorImages
+              : [car.thumbnail]
+          );
+
+        }
+
+
+        /* 내부 */
+        if (tab.dataset.gallery === 'interior') {
+
+          renderThumbs(
+            car.interiorImages
+          );
+
+        }
+
+      });
 
     });
 
