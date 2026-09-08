@@ -26,189 +26,12 @@ let selectedOrigin = 'all';
 let currentPage = 1;
 const pageSize = 10;
 let sortState = {
-  type: 'date',
-  direction: 'desc'
+  type: null,
+  direction: 'default'
 };
 
-/* ==================================================
-   테스트용 fallback 데이터
-================================================== */
 
-const fallbackCars = [
-  {
-    id: 1,
-    origin: '국산',
-    brand: '현대',
-    modelName: '더 올 뉴 투싼 1.6 터보 2WD 모던',
-    bodyType: 'SUV',
-    modelYear: 2022,
-    regDate: '2022-06-01',
-    mileage: 28450,
-    region: '경기',
-    price: 2450,
-    monthlyPayment: 540000,
-    thumbnail: '../../assets/img/cars-json-img/투싼 흰색.png',
-    exteriorColor: '검정',
-    owners: 1,
-    accidentFree: true
-  },
-  {
-    id: 2,
-    origin: '수입',
-    brand: '벤츠',
-    modelName: '벤츠 E클래스 (W213) E350 4매틱 AMG 라인',
-    bodyType: '중형차',
-    modelYear: 2022,
-    regDate: '2022-09-01',
-    mileage: 36400,
-    region: '경기',
-    price: 6700,
-    monthlyPayment: 1276688,
-    thumbnail: '../../assets/img/cars-json-img/e클래스검정.png',
-    exteriorColor: '검정',
-    owners: 1,
-    accidentFree: true
-  },
-  {
-    id: 3,
-    origin: '수입',
-    brand: '아우디',
-    modelName: '아우디 A6 45 TFSI 콰트로 프리미엄',
-    bodyType: '중형차',
-    modelYear: 2022,
-    regDate: '2022-09-01',
-    mileage: 41200,
-    region: '서울',
-    price: 4180,
-    monthlyPayment: 700000,
-    thumbnail: '../../assets/img/cars-json-img/a6 흰색.png',
-    exteriorColor: '검정',
-    owners: 1,
-    accidentFree: true
-  },
-  {
-    id: 4,
-    origin: '국산',
-    brand: '현대',
-    modelName: '현대 아반떼 (CN7) 1.6 가솔린 인스퍼레이션',
-    bodyType: '준중형차',
-    modelYear: 2022,
-    regDate: '2022-06-01',
-    mileage: 37200,
-    region: '인천',
-    price: 1780,
-    monthlyPayment: 300000,
-    thumbnail: '../../assets/img/cars-json-img/아반떼 검정.png',
-    exteriorColor: '검정',
-    owners: 1,
-    accidentFree: true
-  },
-  {
-    id: 5,
-    origin: '국산',
-    brand: '현대',
-    modelName: '현대 팰리세이드 3.8 가솔린 8인승 캘리그래피',
-    bodyType: 'SUV',
-    modelYear: 2022,
-    regDate: '2022-04-01',
-    mileage: 61800,
-    region: '서울',
-    price: 4180,
-    monthlyPayment: 700000,
-    thumbnail: '../../assets/img/cars-json-img/현대 팰리세이드.png',
-    exteriorColor: '브라운',
-    owners: 1,
-    accidentFree: true
-  },
-  {
-    id: 6,
-    origin: '국산',
-    brand: '현대',
-    modelName: '현대 그랜저 (GN7) 2.5 가솔린 캘리그래피',
-    bodyType: '대형차',
-    modelYear: 2024,
-    regDate: '2023-09-01',
-    mileage: 18600,
-    region: '서울',
-    price: 4290,
-    monthlyPayment: 720000,
-    thumbnail: '../../assets/img/cars-json-img/그랜저신형 검정.png',
-    exteriorColor: '검정',
-    owners: 1,
-    accidentFree: true
-  },
-  {
-    id: 7,
-    origin: '국산',
-    brand: '기아',
-    modelName: '기아 쏘렌토 (MQ4) 1.6 터보 하이브리드 시그니처',
-    bodyType: 'SUV',
-    modelYear: 2023,
-    regDate: '2023-10-01',
-    mileage: 38500,
-    region: '경기',
-    price: 3890,
-    monthlyPayment: 650000,
-    thumbnail: '../../assets/img/cars-json-img/쏘렌토 흰색.png',
-    exteriorColor: '검정',
-    owners: 1,
-    accidentFree: true
-  },
-  {
-    id: 8,
-    origin: '국산',
-    brand: '현대',
-    modelName: '현대 캐스퍼 1.0 터보 인스퍼레이션',
-    bodyType: '경차',
-    modelYear: 2023,
-    regDate: '2023-06-01',
-    mileage: 12800,
-    region: '대전',
-    price: 1590,
-    monthlyPayment: 270000,
-    thumbnail: '../../assets/img/cars-json-img/캐스퍼아이보리.png',
-    exteriorColor: '그레이',
-    owners: 1,
-    accidentFree: true
-  },
-  {
-    id: 9,
-    origin: '수입',
-    brand: '테슬라',
-    modelName: '테슬라 모델 3 롱레인지 AWD',
-    bodyType: '중형차',
-    modelYear: 2023,
-    regDate: '2022-11-01',
-    mileage: 42300,
-    region: '서울',
-    price: 3880,
-    monthlyPayment: 650000,
-    thumbnail: '../../assets/img/cars-json-img/테슬라모델3 네이비.png',
-    exteriorColor: '검정',
-    owners: 1,
-    accidentFree: true
-  },
-  {
-    id: 10,
-    origin: '국산',
-    brand: '기아',
-    modelName: '기아 K5 1.6 터보 노블레스',
-    bodyType: '중형차',
-    modelYear: 2022,
-    regDate: '2022-03-01',
-    mileage: 43700,
-    region: '대전',
-    price: 2480,
-    monthlyPayment: 410000,
-    thumbnail: '../../assets/img/cars-json-img/k5 흰색.png',
-    exteriorColor: '그레이',
-    owners: 1,
-    accidentFree: true
-  }
-];
-
-
-/* ==================================================
+/* * ==================================================
    JSON 데이터
 ================================================== */
 
@@ -223,6 +46,8 @@ function loadCars() {
     })
     .then(data => {
       cars = data.map(normalizeCar);
+
+      updateFilterCounts(cars);
 
       applyFilters();
     })
@@ -303,7 +128,50 @@ function normalizeCar(car) {
         : []
   };
 }
+/* ==================================================
+   차종 / 제조사 차량 개수
+================================================== */
 
+function updateFilterCounts(carData) {
+
+  /* 차종 개수 */
+  document
+    .querySelectorAll('input[name="bodyType"]')
+    .forEach(input => {
+
+      const row = input.closest('.check-row');
+      const countText = row.querySelector('.check-count');
+
+      if (!countText) return;
+
+      const count = carData.filter(car =>
+        car.bodyType === input.value
+      ).length;
+
+      countText.textContent = `${count}대`;
+
+    });
+
+
+  /* 제조사 개수 */
+  document
+    .querySelectorAll('input[name="brand"]')
+    .forEach(input => {
+
+      const row = input.closest('.check-row');
+      const countText = row.querySelector('.check-count');
+
+      if (!countText) return;
+
+      const count = carData.filter(car =>
+        car.brand === input.value
+      ).length;
+
+      countText.textContent = `${count}대`;
+
+    });
+
+}
 
 /* ==================================================
    이미지 경로
@@ -379,14 +247,18 @@ function renderCars() {
       class="car-main-image"
     >
 
-    <button
-      type="button"
-      class="heart-btn"
-      data-id="${car.id}"
-      aria-label="관심차량"
-    >
-      ♡
-    </button>
+    <button 
+  type="button" 
+  class="heart-btn" 
+  data-id="${car.id}" 
+  aria-label="관심차량" 
+> 
+  <img 
+    src="../../assets/img/buy-img/heart-off.png" 
+    alt="찜하기" 
+    class="heart-icon"
+  >
+</button>
 
     <!-- 외부 / 내부 -->
     <div class="gallery-tabs ${car.exteriorImages.length === 0 &&
@@ -800,53 +672,98 @@ carSearch.addEventListener(
    정렬
 ================================================== */
 
-sortButtons.forEach(button => {
+const sortLabels = {
+  date: '등록일',
+  price: '가격',
+  mileage: '주행거리',
+  year: '연식'
+};
 
+
+/* 정렬 버튼을 처음 상태로 되돌리는 함수 */
+function resetSortButtons() {
+  sortButtons.forEach(button => {
+    button.classList.remove('active');
+    button.textContent = sortLabels[button.dataset.sort];
+  });
+
+  document
+    .querySelector('[data-sort="date"]')
+    .classList.add('active');
+}
+
+
+/* 정렬 버튼 클릭 */
+sortButtons.forEach(button => {
   button.addEventListener('click', () => {
 
-    const type =
-      button.dataset.sort;
+    const type = button.dataset.sort;
 
 
-    /* 같은 버튼 다시 누르면 방향 변경 */
-
-    if (sortState.type === type) {
-
-      sortState.direction =
-        sortState.direction === 'desc'
-          ? 'asc'
-          : 'desc';
-
-    } else {
-
+    /* 다른 버튼을 처음 클릭했을 때 */
+    if (
+      sortState.type !== type ||
+      button.textContent === sortLabels[type]
+    ) {
       sortState.type = type;
-
       sortState.direction = 'desc';
-
     }
 
 
+    /* 같은 버튼을 다시 클릭했을 때 */
+    else {
+      if (sortState.direction === 'desc') {
+        sortState.direction = 'asc';
+      }
+
+      else if (sortState.direction === 'asc') {
+
+        /* 3번째 클릭 → 처음 상태로 복귀 */
+        sortState.type = 'date';
+        sortState.direction = 'desc';
+
+        resetSortButtons();
+
+        sortCars();
+
+        currentPage = 1;
+
+        renderCars();
+
+        renderPagination();
+
+        return;
+      }
+    }
+
+
+    /* active 초기화 */
     sortButtons.forEach(item => {
       item.classList.remove('active');
     });
 
 
+    /* 현재 누른 버튼 active */
     button.classList.add('active');
 
 
+    /* 버튼 글씨 변경 */
     changeSortText(button);
 
 
+    /* 실제 차량 정렬 */
     sortCars();
 
+
+    /* 정렬하면 1페이지로 */
     currentPage = 1;
+
 
     renderCars();
 
     renderPagination();
 
   });
-
 });
 
 
@@ -856,69 +773,47 @@ sortButtons.forEach(button => {
 
 function changeSortText(button) {
 
+  /* 다른 버튼들은 기본 글씨로 */
   sortButtons.forEach(item => {
-
     if (item !== button) {
-
-      const labels = {
-        date: '등록일',
-        price: '가격',
-        mileage: '주행거리',
-        year: '연식'
-      };
-
-      item.textContent =
-        labels[item.dataset.sort];
-
+      item.textContent = sortLabels[item.dataset.sort];
     }
-
   });
 
 
-  const type =
-    sortState.type;
-
-  const direction =
-    sortState.direction;
+  const type = sortState.type;
+  const direction = sortState.direction;
 
 
   if (type === 'date') {
-
     button.textContent =
       direction === 'desc'
         ? '최신순'
         : '오래된순';
-
   }
 
 
   if (type === 'price') {
-
     button.textContent =
       direction === 'desc'
-        ? '높은순'
-        : '낮은순';
-
+        ? '가격 높은순'
+        : '가격 낮은순';
   }
 
 
   if (type === 'mileage') {
-
     button.textContent =
       direction === 'desc'
-        ? '많은순'
-        : '적은순';
-
+        ? '주행거리 많은순'
+        : '주행거리 적은순';
   }
 
 
   if (type === 'year') {
-
     button.textContent =
       direction === 'desc'
         ? '최근연식순'
         : '오래된연식순';
-
   }
 
 }
@@ -939,54 +834,54 @@ function sortCars() {
   filteredCars.sort((a, b) => {
 
     if (sortState.type === 'date') {
-
       return (
         new Date(a.regDate) -
         new Date(b.regDate)
       ) * direction;
-
     }
 
 
     if (sortState.type === 'price') {
-
       return (
         a.price -
         b.price
       ) * direction;
-
     }
 
 
     if (sortState.type === 'mileage') {
-
       return (
         a.mileage -
         b.mileage
       ) * direction;
-
     }
 
 
     if (sortState.type === 'year') {
-
       return (
         a.modelYear -
         b.modelYear
       ) * direction;
-
     }
 
 
     return 0;
 
   });
-  const tucsonIndex = filteredCars.findIndex(car => car.id === 1);
+
+
+  /* 투싼 id 1은 항상 맨 앞 */
+  const tucsonIndex =
+    filteredCars.findIndex(car => car.id === 1);
+
 
   if (tucsonIndex > 0) {
-    const tucson = filteredCars.splice(tucsonIndex, 1)[0];
+    const tucson =
+      filteredCars.splice(tucsonIndex, 1)[0];
+
     filteredCars.unshift(tucson);
   }
+
 }
 
 
@@ -1000,12 +895,10 @@ filterReset.addEventListener('click', () => {
 
 
   originTabs.forEach(tab => {
-
     tab.classList.toggle(
       'active',
       tab.dataset.origin === 'all'
     );
-
   });
 
 
@@ -1015,81 +908,55 @@ filterReset.addEventListener('click', () => {
 
 
   mileageMin.value = '';
-
   mileageMax.value = '';
 
   yearMin.value = '';
-
   yearMax.value = '';
 
   carSearch.value = '';
 
 
+  /* 정렬도 처음 상태 */
   sortState = {
     type: 'date',
     direction: 'desc'
   };
 
 
-  sortButtons.forEach(button => {
-
-    button.classList.remove('active');
-
-    const labels = {
-      date: '등록일',
-      price: '가격',
-      mileage: '주행거리',
-      year: '연식'
-    };
+  resetSortButtons();
 
 
-    button.textContent =
-      labels[button.dataset.sort];
-
-  });
-
-
-  document
-    .querySelector('[data-sort="date"]')
-    .classList.add('active');
+  currentPage = 1;
 
 
   applyFilters();
 
 });
 
-
 /* ==================================================
    HEART
 ================================================== */
 
 function bindHeartButtons() {
-
   const heartButtons =
     document.querySelectorAll('.heart-btn');
 
-
   heartButtons.forEach(button => {
-
     button.addEventListener('click', event => {
-
       event.preventDefault();
-
       event.stopPropagation();
-
 
       button.classList.toggle('active');
 
+      const heartIcon =
+        button.querySelector('.heart-icon');
 
-      button.textContent =
+      heartIcon.src =
         button.classList.contains('active')
-          ? '♥'
-          : '♡';
-
+          ? '../../assets/img/buy-img/heart-on.png'
+          : '../../assets/img/buy-img/heart-off.png';
     });
-
   });
-
 }
 /* ==================================================
    외부 / 내부 이미지 갤러리
@@ -1308,8 +1175,8 @@ function renderPagination() {
       'page-btn page-next';
 
 
-    nextButton.textContent =
-      '›';
+    nextButton.innerHTML = `
+         <img src="../../assets/img/buy-img/다음페이지.png" alt="다음 페이지">`;
 
 
     nextButton.addEventListener('click', () => {
