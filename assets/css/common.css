@@ -714,53 +714,202 @@ body {
     }
 
 
+    /* ==================================================
+       퀵메뉴 없애기
+    ================================================== */
     .quick-menu {
         display: none;
     }
+}
 
-    /* ==================================================
-       푸터 전체
-    ================================================== */
+/* ==================================================
+   Mobile Footer
+================================================== */
+@media (max-width: 393px) {
     .footer {
         width: 100%;
         height: auto;
+        min-height: 428px;
+        background: #F5F5F4;
+        color: #64748B;
     }
 
     .footer-inner {
         width: 100%;
+        height: auto;
+        min-height: 428px;
         margin: 0;
-        padding: 40px 20px;
-
+        padding: 0 20px 60px;
         box-sizing: border-box;
 
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-
-        gap: 40px;
+        align-items: stretch;
+        justify-content: flex-start;
     }
 
-    .footer-left,
-    .footer-right {
+    /* =========================
+       Footer Left
+    ========================= */
+    .footer-left {
         width: 100%;
         min-width: 0;
     }
 
-    .footer-right {
-        height: auto;
+    .footer-logo {
+        width: 120px;
+        height: 80px;
+        margin: 0 0 10px;
+        padding: 0;
+    }
+
+    .footer-logo a {
+        display: block;
+        width: 120px;
+        height: 80px;
+    }
+
+    .footer-logo a img {
+        display: block;
+        width: 120px;
+        height: 80px;
+        object-fit: contain;
+    }
+
+    .footer-menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin: 0 0 10px;
+        padding: 0;
+    }
+
+    .footer-menu a {
+        color: #64748B;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        text-decoration: none;
+    }
+
+    .footer-menu a.menu-privacy {
+        color: #000;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .footer-menu li+li::before {
+        left: -10px;
+        width: 1px;
+        height: 12px;
+        background: #CBD5E1;
     }
 
     .footer-desc {
         width: 100%;
-        max-width: 100%;
+        max-width: none;
+        margin: 0 0 10px;
+        color: #64748B;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
     }
 
-    .footer-menu {
-        flex-wrap: wrap;
+    .footer-info {
+        width: 100%;
+        margin: 0;
+        color: #64748B;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+        font-style: normal;
     }
 
+    .copyright {
+        margin: 0;
+        color: #64748B;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    /* =========================
+       Footer Right
+    ========================= */
+    .footer-right {
+        width: 260px;
+        height: auto;
+        margin-top: 20px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-customer {
+        width: 260px;
+        margin: 0;
+    }
+
+    .customer-title {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin: 0 0 6px;
+    }
+
+    .customer-title span,
+    .customer-title strong {
+        margin: 0;
+        color: #000;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    .footer-customer p {
+        margin: 0;
+        color: #64748B;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    .footer-customer p+p {
+        margin-top: 6px;
+    }
+
+    /* =========================
+       SNS
+    ========================= */
     .footer-sns {
-        margin-top: 30px;
-        justify-content: flex-start;
+        width: 260px;
+        height: 25px;
+        margin: 20px 0 0;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .footer-sns li {
+        width: 25px;
+        height: 25px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-sns a {
+        display: block;
+        width: 25px;
+        height: 25px;
+    }
+
+    .footer-sns a img {
+        display: block;
+        width: 25px;
+        height: 25px;
+        object-fit: contain;
     }
 }

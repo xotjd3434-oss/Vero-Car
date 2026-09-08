@@ -337,7 +337,7 @@ function createCarCard(car) {
 
     ]
         .filter(Boolean)
-        .join(" / ");
+        .join("  ");
 
 
     return `

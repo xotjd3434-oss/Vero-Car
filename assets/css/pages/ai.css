@@ -829,3 +829,642 @@
 .maintenance-analysis li div:first-child {
     margin-left: 45px;
 }
+
+/* ==================================================
+   AI Analysis Mobile - 393px
+================================================== */
+@media (max-width: 393px) {
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    /* ==================================================
+       전체
+    ================================================== */
+    main.ai-analysis {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 30px 20px 200px;
+    }
+
+    /* 메인 제목 */
+    #title {
+        width: 100%;
+        margin: 0 0 40px;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    /* 모든 섹션 제목 */
+    .ai-title {
+        width: 100%;
+        margin: 0 0 40px;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #000;
+    }
+
+    /* ==================================================
+       차량 기본 정보
+    ================================================== */
+    .ai-car-info {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0 0 150px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 40px;
+    }
+
+    /* 차량 이미지 353 × 229 */
+    .car-image {
+        width: 353px;
+        max-width: 100%;
+        height: 229px;
+        margin: 0 auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .car-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* 차량 정보 */
+    .car-info {
+        width: 100%;
+        min-width: 0;
+        flex: none;
+        text-align: left;
+    }
+
+    /* 차량명 */
+    .car-info h3 {
+        width: 100%;
+        margin: 0 0 40px;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    /* 차량 설명 */
+    .car-info dl {
+        width: 260px;
+        margin: 0 auto;
+        padding: 20px 15px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .car-info dl>div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .car-info dt {
+        width: 80px;
+        flex-shrink: 0;
+
+        font-size: 16px;
+        font-weight: 500;
+        text-align: right;
+    }
+
+    .car-info dd {
+        flex: 1;
+        margin: 0;
+
+        font-size: 14px;
+        font-weight: 400;
+        text-align: left;
+    }
+
+    /* ==================================================
+       사고 이력 분석
+    ================================================== */
+    .accident-analysis-row {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 100px;
+    }
+
+    .accident-analysis {
+        position: relative;
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .accident-analysis .ai-title {
+        position: static;
+        width: 100%;
+        margin: 0 0 40px;
+    }
+
+    /* 레이더 그래프 전체 영역 */
+    .accident-graph {
+        position: relative;
+        width: 353px;
+        max-width: 100%;
+        height: 280px;
+        margin: 0 auto;
+    }
+
+    /* 그래프 이미지 210 × 200 */
+    .graph-pic {
+        position: absolute;
+        width: 210px;
+        height: 200px;
+        max-width: none;
+
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+        object-fit: contain;
+    }
+
+    .graph-label {
+        position: absolute;
+        text-align: center;
+    }
+
+    .graph-label strong {
+        display: block;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #000;
+    }
+
+    .graph-label span {
+        display: block;
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #000;
+    }
+
+    .label-top {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .label-right {
+        top: 70px;
+        right: 0;
+    }
+
+    .label-bottom-right {
+        right: 50px;
+        bottom: 0;
+    }
+
+    .label-bottom-left {
+        left: 50px;
+        bottom: 0;
+    }
+
+    .label-left {
+        top: 70px;
+        left: 0;
+    }
+
+    /* ==================================================
+       원형 점수 공통
+    ================================================== */
+    .total-score,
+    .driving-analysis .total-score {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        gap: 48px;
+    }
+
+    /* 원 그래프 160 × 160 */
+    .score-circle {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        flex: 0 0 160px;
+    }
+
+    .score-circle svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-30deg) scaleY(-1);
+    }
+
+    .score-bg {
+        fill: none;
+        stroke: #DBDBDB;
+        stroke-width: 8;
+    }
+
+    .score-progress {
+        fill: none;
+        stroke: #0F172A;
+        stroke-width: 8;
+        stroke-linecap: round;
+
+        stroke-dasharray: 314;
+        stroke-dashoffset: 314;
+
+        transition: stroke-dashoffset 1.8s ease;
+    }
+
+    /* 원 안 숫자 */
+    .score-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1;
+    }
+
+    .score-text strong {
+        font-size: 24px;
+        font-weight: 500;
+        color: #000;
+    }
+
+    .score-text span {
+        margin-top: 8px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #000;
+    }
+
+    /* 오른쪽 설명 */
+    .score-info {
+        width: 145px;
+        flex: 0 0 145px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .score-info p {
+        width: 100%;
+        margin: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .score-info strong {
+        flex-shrink: 0;
+
+        font-size: 16px;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    .score-info span {
+        flex-shrink: 0;
+
+        font-size: 14px;
+        font-weight: 400;
+        white-space: nowrap;
+        color: #64748B;
+    }
+
+    /* ==================================================
+       사고 분석 + 주행 상태 분석
+    ================================================== */
+    .analysis-middle-row {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 150px 0 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 150px;
+    }
+
+    .accident-detail,
+    .driving-analysis {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .accident-detail .ai-title,
+    .driving-analysis .ai-title {
+        width: 100%;
+        margin: 0 0 40px;
+        align-self: auto;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    /* ==================================================
+       사고 분석
+    ================================================== */
+    .accident-detail .inner {
+        width: 100%;
+        min-width: 0;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* 사고분석 차량 140 × 242 */
+    .car-pic {
+        display: block;
+        width: 140px;
+        height: 242px;
+        flex-shrink: 0;
+        object-fit: contain;
+    }
+
+    /* 사진 ↔ 선 17px / 선 길이 240px */
+    .accident-detail .text {
+        width: auto;
+        min-width: 0;
+        height: 240px;
+        min-height: 240px;
+
+        margin: 0 0 0 17px;
+        padding: 0 0 0 17px;
+
+        border-left: 1px solid #BFBFBF;
+
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .accident-detail .accident {
+        margin: 0 0 16px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #000;
+    }
+
+    .accident-detail .text p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #64748B;
+    }
+
+    /* ==================================================
+       주행 상태 분석
+    ================================================== */
+    .driving-analysis .total-score {
+        width: 100%;
+        gap: 48px;
+    }
+
+    /* ==================================================
+       시세 분석 + 정비 이력 분석
+    ================================================== */
+    .analysis-bottom-row {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 150px 0 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 150px;
+    }
+
+    /* ==================================================
+       시세 분석
+    ================================================== */
+    .price-analysis {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        flex: none;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .price-analysis .ai-title {
+        margin: 0 0 40px;
+    }
+
+    .price-analysis>.inner {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .price-text {
+        width: auto;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .price-analysis .ai-analysis,
+    .price-analysis .price-range,
+    .price-analysis .price-right {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .price-analysis p {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* AI시세예측 / 적정 시세범위 / 시세 적합성 */
+    .ai-price-text,
+    .price-range-text,
+    .price-right-text {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #64748B;
+    }
+
+    /* 시세예측 숫자 */
+    .ai-price {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.2;
+        color: #0F172A;
+    }
+
+    .ai-price span {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    /* 적정 시세 범위 / 적정 */
+    .range-price,
+    .analysis-right {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #0F172A;
+    }
+
+    /* 시세 그래프 160 × 100 */
+    .analysis-pic {
+        display: block;
+        width: 160px;
+        height: 100px;
+        flex: 0 0 160px;
+        margin: 0;
+        padding: 0;
+        object-fit: contain;
+    }
+
+    /* ==================================================
+       정비 이력 분석
+    ================================================== */
+    .maintenance-analysis {
+        width: 100%;
+    }
+
+    .maintenance-analysis .ai-title {
+        width: 100%;
+        margin: 0 0 40px;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .maintenance-analysis>.inner {
+        width: 100%;
+    }
+
+    .maintenance-analysis ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .maintenance-analysis li {
+        width: 100%;
+        height: 60px;
+        margin: 0;
+        padding-left: 15px;
+
+        display: grid;
+        grid-template-columns: 90px 70px 120px;
+        justify-content: center;
+        align-items: center;
+        column-gap: 15px;
+
+        background: #EFEFEF;
+    }
+
+    .maintenance-analysis li div {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: left;
+    }
+
+    .maintenance-analysis li div:nth-child(1),
+    .maintenance-analysis li div:nth-child(2),
+    .maintenance-analysis li div:nth-child(3) {
+        width: auto;
+        margin-left: 0;
+        text-align: left;
+    }
+}
