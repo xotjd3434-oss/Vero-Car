@@ -1414,6 +1414,7 @@
     ================================================== */
     .maintenance-analysis {
         width: 100%;
+        flex: none;
     }
 
     .maintenance-analysis .ai-title {
