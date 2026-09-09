@@ -1,0 +1,477 @@
+@charset "utf-8";
+
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Pretendard', sans-serif;
+
+  color: #111;
+
+  background: #fff;
+}
+
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+button,
+input {
+  font-family: 'Pretendard', sans-serif;
+}
+
+
+img {
+  display: block;
+}
+
+
+
+/* ==================================================
+   전체 페이지
+================================================== */
+
+.sell-page {
+  width: 100%;
+}
+
+
+
+/* ==================================================
+   1. 메인 영역
+
+   콘텐츠 : 1440px
+   차량 이미지 : 739 × 493px
+================================================== */
+
+.sell-hero {
+  width: 1440px;
+  height: 493px;
+  margin: 80px auto 50px;
+  display: flex;
+  align-items: center;
+}
+
+/* ==================================================
+   메인 왼쪽 텍스트
+================================================== */
+
+.sell-hero-text {
+  width: 50%;
+}
+
+.sell-hero-text h2 {
+  margin-bottom: 24px;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.sell-hero-text p {
+  font-size: 20px;
+
+  font-weight: 400;
+
+  line-height: 1.6;
+}
+
+/* ==================================================
+   메인 차량
+================================================== */
+
+.sell-hero-car {
+  width: 50%;
+  height: 493px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sell-hero-car img {
+  width: 739px;
+  height: 493px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.sell-stats {
+  width: 1440px;
+  height: 200px;
+  margin: 0 auto;
+  display: flex;
+  background: #1e293b;
+}
+
+/* 지표 하나 */
+
+.stat-item {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #64748b;
+  color: #fff;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+/* 지표 아이콘 */
+
+.stat-item img {
+  width: 65px;
+  height: 65px;
+  margin-bottom: 14px;
+  object-fit: contain;
+}
+
+/* 이름 */
+
+.stat-item p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* 수치 */
+
+.stat-item strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sell-estimate {
+  width: 100%;
+  margin-top: 300px;
+}
+
+/* 피그마 512 × 386 */
+
+.estimate-inner {
+  width: 512px;
+  height: 386px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.estimate-inner h2 {
+  margin-bottom: 30px;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.estimate-inner>p {
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: #475569;
+}
+
+/* ==================================================
+   차량번호 입력창
+================================================== */
+
+.car-number-box {
+  position: relative;
+  width: 512px;
+  height: 70px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #94a3b8;
+  border-radius: 35px;
+  background: #fff;
+}
+
+/* 가운데 */
+
+.number-input {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* ==================================================
+   돋보기
+================================================== */
+
+.search-icon {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 5px solid #94a3b8;
+  border-radius: 50%;
+}
+
+.search-icon::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  bottom: -7px;
+  width: 18px;
+  height: 5px;
+  border-radius: 5px;
+  background: #94a3b8;
+  transform: rotate(45deg);
+}
+
+/* ==================================================
+   차량번호
+   Pretendard Regular 32
+================================================== */
+
+.car-number-box input {
+  width: 190px;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.car-number-box input::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+/* ==================================================
+   좌 / 우 원
+================================================== */
+
+.number-circle {
+  position: absolute;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+  box-shadow:
+    0 5px 8px rgba(0, 0, 0, 0.12);
+}
+
+.left-circle {
+  left: 28px;
+}
+
+.right-circle {
+  right: 28px;
+}
+
+/* ==================================================
+   견적 버튼
+   Pretendard Regular 28
+================================================== */
+
+.estimate-btn {
+  width: 512px;
+  height: 60px;
+  border: none;
+  background: #f5f5f5;
+  color: #111;
+  font-size: 28px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.sell-reason {
+  width: 1440px;
+  margin: 300px auto 0;
+}
+
+.sell-reason>h2 {
+  margin-bottom: 50px;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+/* ==================================================
+   장점 아이콘 5개
+================================================== */
+
+.reason-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.reason-item {
+  width: 240px;
+  text-align: center;
+}
+
+/* 아이콘 */
+
+.reason-item img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  object-fit: contain;
+}
+
+/* 장점 제목 */
+
+.reason-item strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 장점 설명 */
+
+.reason-item p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.sell-review {
+  width: 1440px;
+  margin: 200px auto 0;
+  padding-bottom: 250px;
+}
+
+/* ==================================================
+   제목
+================================================== */
+
+.review-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.review-head h2 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+/* 더보기 */
+
+.review-more {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.review-more img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ==================================================
+   후기 카드 4개
+================================================== */
+
+.review-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 315px);
+  justify-content: space-between;
+}
+
+/* 카드 */
+
+.review-card {
+  width: 315px;
+  min-width: 0;
+}
+
+.review-car-img {
+  width: 315px;
+  height: 210px;
+  margin-bottom: 12px;
+  object-fit: contain;
+  background: #f7f7f7;
+}
+
+/* ==================================================
+   날짜 / ID
+================================================== */
+
+.review-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+/* ==================================================
+   차량명
+================================================== */
+
+.review-card h3 {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==================================================
+   별점
+================================================== */
+
+.review-score {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.review-score img {
+  width: auto;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* ==================================================
+   후기 문구
+================================================== */
+
+.review-text {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
