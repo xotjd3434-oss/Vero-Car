@@ -754,6 +754,7 @@ body {
     .footer-left {
         width: 100%;
         min-width: 0;
+        margin-bottom: 30px;
     }
 
     .footer-logo {
