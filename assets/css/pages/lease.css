@@ -1,7 +1,6 @@
 /* ==================================================
    RESET
 ================================================== */
-
 * {
   margin: 0;
   padding: 0;
@@ -57,7 +56,6 @@ img {
 /* ==================================================
    메인 비주얼
 ================================================== */
-
 .lease-visual {
   position: relative;
   width: 100%;
@@ -69,10 +67,8 @@ img {
   top: 0;
   left: 0;
   z-index: 0;
-
   width: 100%;
-  height: 100%;
-
+  height: 600px;
   object-fit: cover;
   object-position: center;
 }
@@ -81,7 +77,6 @@ img {
   position: absolute;
   inset: 0;
   z-index: 1;
-
   background: rgba(0, 0, 0, 0.22);
 }
 
@@ -90,216 +85,214 @@ img {
   top: 50%;
   left: 50%;
   z-index: 2;
-
-  width: 710px;
-
+  width: 100%;
   color: #fff;
   text-align: center;
-
   transform: translate(-50%, -50%);
 }
 
 .visual-en {
   display: block;
-  font-family: 'Ramsina';
   margin-bottom: 15px;
-  color: #f5a623;
+  color: #f59e0b;
+  font-family: "Ramsina", sans-serif;
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
-.visual-text h1 {
+.visual-title {
   margin-bottom: 20px;
+  color: #fff;
   font-size: 60px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .visual-text strong {
   display: block;
   margin-bottom: 20px;
-  font-size: 19px;
+  color: #fff;
+  font-size: 24px;
   font-weight: 800;
 }
 
 .visual-text p {
-  color: rgba(255, 255, 255, 0.92);
+  color: #fff;
   font-size: 16px;
   line-height: 1.6;
   font-weight: 600;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 
 /* ==================================================
    검색 영역
 ================================================== */
-
 .lease-search {
   position: absolute;
   left: 50%;
-  bottom: -42px;
+  bottom: -48px;
   z-index: 10;
-
-  width: 1440px;
-  height: 84px;
-  padding: 0 90px;
-
+  width: 1220px;
+  height: 96px;
+  padding: 0 50px;
   display: flex;
   align-items: center;
-  gap: 40px;
-
+  gap: 45px;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-
+  box-shadow: 0 4px 20px rgba(217, 217, 217, 0.5);
   transform: translateX(-50%);
 }
 
 .search-filter {
   position: relative;
-
-  flex: 1;
-
-  height: 100%;
+  flex: none;
+  width: 180px;
+  height: 50px;
 }
 
 .filter-btn {
-  width: 100%;
-  height: 100%;
-
+  width: 180px;
+  height: 50px;
+  padding: 0 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  border: 1px solid #f5f5f4;
+  border-radius: 10px;
   color: #111827;
+  background: #fff;
 }
 
 .filter-left {
   display: flex;
   align-items: center;
-
-  gap: 14px;
+  gap: 10px;
 }
 
 .filter-left img {
+  flex: none;
   width: 24px;
   height: 24px;
-
   object-fit: contain;
 }
 
 .filter-value {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
+
+/* 화살표 전체 영역 15 × 15 */
 .arrow {
-  width: 8px;
-  height: 8px;
-
-  margin-left: 12px;
-
-  border-right: 1.5px solid #111;
-  border-bottom: 1.5px solid #111;
-
-  transform: rotate(45deg) translateY(-2px);
+  position: relative;
+  flex: none;
+  width: 15px;
+  height: 15px;
 }
 
-.search-filter.active .arrow {
-  transform: rotate(225deg) translate(-2px, -2px);
+.arrow::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid #111;
+  border-bottom: 1px solid #111;
+  transform: rotate(45deg);
 }
 
+.search-filter.active .arrow::before {
+  top: 6px;
+  transform: rotate(225deg);
+}
+
+
+/* 드롭다운 */
 .filter-list {
   position: absolute;
-  top: 72px;
+  top: 60px;
   left: 0;
-
   z-index: 100;
-
   display: none;
-
-  width: 100%;
-
-  padding: 10px 0;
-
+  width: 180px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #f5f5f4;
+  border-radius: 10px;
   background: #fff;
-
-  border: 1px solid #e5e7eb;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(217, 217, 217, 0.5);
 }
 
 .search-filter.active .filter-list {
   display: block;
 }
 
+.filter-list li {
+  width: 180px;
+  height: 50px;
+}
+
 .filter-list button {
-  width: 100%;
-
-  padding: 12px 16px;
-
-  color: #374151;
-
-  font-size: 13px;
+  width: 180px;
+  height: 50px;
+  padding-left: 52px;
+  color: #111827;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 400;
   text-align: left;
 }
 
 .filter-list button:hover {
-  background: #f5f5f5;
+  background: #f5f5f4;
 }
 
+
+/* 검색 버튼 */
 .search-submit {
   flex: none;
-
-  width: 250px;
+  width: 220px;
   height: 50px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 10px;
-
-  border-radius: 8px;
-
-  background: #5549e8;
+  border-radius: 10px;
+  background: #4f46e5;
   color: #fff;
-
-  transition: 0.2s;
-}
-
-.search-submit:hover {
-  background: #4338ca;
 }
 
 .search-submit img {
-  width: 22px;
-  height: 22px;
-
+  width: 24px;
+  height: 24px;
   object-fit: contain;
 }
 
 .search-submit span {
-  font-size: 14px;
-  font-weight: 500;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
 }
 
-
 /* ==================================================
-   공통 제목
+   모든 SECTION TITLE
 ================================================== */
-
 .section-title {
-  font-size: 26px;
+  color: #111827;
+  font-size: 32px;
   line-height: 1.4;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 
 /* ==================================================
    리스 이용 장점
 ================================================== */
-
 .lease-benefit {
-  padding: 200px 0 150px;
+  padding-top: 200px;
+  margin-bottom: 200px;
 }
 
 .lease-benefit .section-title {
@@ -309,22 +302,19 @@ img {
 .benefit-list {
   width: 1440px;
   height: 400px;
-
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-
+  grid-template-columns: repeat(2, 720px);
+  grid-template-rows: repeat(2, 200px);
   border-top: 1px solid #cbd5e1;
   border-bottom: 1px solid #cbd5e1;
 }
 
 .benefit-item {
+  padding: 35px 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  padding: 0 50px;
-
+  gap: 20px;
   border-bottom: 1px solid #cbd5e1;
 }
 
@@ -337,399 +327,874 @@ img {
   border-bottom: 0;
 }
 
+
+/* 회색 원 34 × 34 / 실제 아이콘 24 × 24 */
 .benefit-icon {
+  flex: none;
   width: 34px;
   height: 34px;
-
-  margin-bottom: 18px;
-
+  padding: 5px;
+  border-radius: 50%;
+  background: #ececec;
   object-fit: contain;
 }
 
-.benefit-text h3 {
-  margin-bottom: 16px;
+.benefit-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-  font-size: 19px;
-  line-height: 1.4;
-  font-weight: 600;
+.benefit-text h3 {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 500;
 }
 
 .benefit-text p {
-  color: #94a3b8;
-
-  font-size: 13px;
-  line-height: 1.6;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.4;
   font-weight: 400;
 }
 
 
 /* ==================================================
-   렌트 vs 리스 비교
+   렌트 VS 리스 비교
 ================================================== */
-
 .lease-compare {
   position: relative;
   width: 100%;
   height: 900px;
+  margin-bottom: 200px;
   overflow: hidden;
 }
 
 .compare-bg {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(rgba(15, 15, 15, 0.28),
-      rgba(15, 15, 15, 0.28)),
-    url(../../img/Iease-img/차뒷배경.png) center center / cover no-repeat;
+  width: 100%;
+  height: 900px;
+  background: url("../../img/Iease-img/차뒷배경.png") center center / cover no-repeat;
 }
 
 .compare-inner {
   position: relative;
   z-index: 2;
-
   padding-top: 150px;
 }
 
 .compare-title {
   margin-bottom: 50px;
-
-  color: #111827;
 }
 
 .compare-box {
-  width: 1380px;
-
+  width: 1390px;
+  height: 500px;
   margin: 0 auto;
-
-  padding: 25px 80px 45px;
-
-  border-radius: 38px;
-
-  background: rgba(255, 255, 255, 0.62);
-
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.8),
-    0 8px 30px rgba(0, 0, 0, 0.08);
-
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  padding: 20px 80px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 1px 4px rgba(12, 12, 13, 0.05);
 }
 
+
+/* 비교 상단 */
 .compare-head {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  margin-bottom: 22px;
+  grid-template-columns: 1fr 610px 1fr;
+  align-items: start;
+  margin-bottom: 30px;
 }
 
-.compare-type {
+/* 왼쪽 RENT 박스 */
+.compare-type:first-child {
+  grid-column: 1;
+  text-align: center;
+}
+
+/* 오른쪽 LEASE 박스 */
+.compare-type:last-child {
+  grid-column: 3;
   text-align: center;
 }
 
 .compare-en {
   display: block;
-
-  margin-bottom: 3px;
-
-  color: #d97706;
-
-  font-size: 10px;
-  line-height: 1;
+  margin-bottom: 5px;
+  color: #b45309;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 0.2em;
 }
 
 .compare-type h3 {
-  margin-bottom: 4px;
-
-  font-size: 21px;
-  line-height: 1.3;
+  margin-bottom: 10px;
+  font-size: 24px;
   font-weight: 700;
 }
 
 .compare-type p {
-  color: #94a3b8;
-
-  font-size: 11px;
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 400;
 }
 
-.compare-row {
-  min-height: 90px;
 
+/* 비교 행 */
+.compare-row {
   display: grid;
-  grid-template-columns: 1fr 360px 1fr;
+  grid-template-columns: 1fr 610px 1fr;
   align-items: center;
+}
+
+.compare-row:not(:last-child) {
+  margin-bottom: 70px;
 }
 
 .compare-answer {
-  color: #1f2937;
-
-  font-size: 13px;
-  line-height: 1.5;
-  font-weight: 500;
-  text-align: center;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 400;
 }
 
-.compare-line {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+.compare-answer.left {
+  text-align: right;
+}
 
-  gap: 20px;
+.compare-answer.right {
+  text-align: left;
+}
+
+
+/* 가운데 선 + 제목 */
+.compare-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
 .compare-line span {
+  flex: none;
+  width: 200px;
   height: 1px;
-
-  border-top: 1px dashed #94a3b8;
+  background: repeating-linear-gradient(to right,
+      #64748b 0,
+      #64748b 5px,
+      transparent 5px,
+      transparent 10px);
 }
 
 .compare-line strong {
-  min-width: 58px;
-
-  font-size: 12px;
+  flex: none;
+  width: 70px;
+  color: #111827;
+  font-size: 16px;
   font-weight: 600;
   text-align: center;
 }
-
 
 /* ==================================================
    인기 리스 차량
 ================================================== */
 
 .popular-lease {
-  padding: 240px 0 350px;
+  padding-bottom: 200px;
 }
 
 .popular-title-row {
   margin-bottom: 50px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.popular-title-row .section-title {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+
+/* 더보기 */
 .more-btn {
   display: flex;
   align-items: center;
-
   gap: 8px;
 
   color: #64748b;
 }
 
 .more-btn span {
-  font-size: 13px;
-  font-weight: 400;
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .more-btn img {
-  width: 18px;
-  height: 18px;
-
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
+
+/* 차량 목록 */
 .car-list {
+  width: 1440px;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 60px;
+  grid-template-columns: repeat(4, 315px);
+  justify-content: space-between;
 }
 
-.car-card a {
+
+/* 카드 */
+.car-card {
+  width: 315px;
+  height: 360px;
+}
+
+.car-card>a {
   display: block;
+  width: 100%;
+  height: 100%;
 }
 
+
+/* 차량 이미지 */
 .car-image {
-  width: 100%;
+  width: 315px;
   height: 220px;
 
   margin-bottom: 20px;
 
   overflow: hidden;
-
   background: #f4f4f4;
 }
 
 .car-image img {
-  width: 100%;
-  height: 100%;
+  width: 315px;
+  height: 220px;
 
   object-fit: cover;
 
   transition: transform 0.3s;
 }
 
-.car-card:hover .car-image img {
-  transform: scale(1.03);
+/* 차량 정보 */
+.car-info {
+  padding: 0 10px;
 }
 
 .car-info h3 {
-  min-height: 42px;
+  min-height: 0;
 
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.2;
   font-weight: 600;
 }
 
 .car-detail {
-  margin-bottom: 24px;
+  margin-bottom: 15px;
 
   color: #64748b;
 
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
 }
 
+
+/* 가격 */
 .car-price {
   display: flex;
   align-items: baseline;
   justify-content: flex-end;
 
-  gap: 4px;
+  gap: 15px;
 
   color: #111827;
 }
 
-.car-price span {
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
+.price-month {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
 }
 
-.car-price strong {
-  font-size: 26px;
+
+/* 월 / 만원 */
+.price-month span {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* 45 / 40 / 75 / 60 */
+.price-month strong {
+  font-size: 30px;
   line-height: 1;
   font-weight: 700;
 }
 
-.car-price em {
-  margin-left: 10px;
 
-  font-size: 13px;
+/* 48 */
+.car-price em {
+  font-size: 20px;
+  line-height: 1;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
 }
 
+
+/* 개월 */
+.car-price em span {
+  font-size: 16px;
+  font-weight: 700;
+}
 
 /* ==================================================
-   반응형
+   MOBILE - 393px
 ================================================== */
+@media (max-width: 393px) {
 
-@media (max-width: 1500px) {
-
-  .inner {
-    width: calc(100% - 80px);
-  }
-
-  .lease-search {
-    width: calc(100% - 80px);
-
-    padding: 0 50px;
-  }
-
-  .benefit-list {
+  /* =========================
+     전체
+  ========================= */
+  html,
+  body {
     width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden !important;
   }
 
-  .compare-box {
-    width: calc(100% - 40px);
+  body {
+    position: relative;
+    font-family: "Pretendard", sans-serif;
   }
-}
 
+  main {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 60px;
+    padding-bottom: 200px;
+    overflow-x: hidden;
+  }
 
-@media (max-width: 900px) {
+  main>section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
   .inner {
-    width: calc(100% - 40px);
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 20px;
   }
 
+
+  /* =========================
+   공통 제목
+========================= */
+  .section-title {
+    margin: 0 0 40px;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+
+
+  /* ==================================================
+     비주얼
+  ================================================== */
   .lease-visual {
-    height: 600px;
+    position: relative;
+
+    width: 100%;
+    height: 150px;
+
+    /* 헤더 바로 아래 붙이기 */
+    margin: 0;
+
+    overflow: hidden;
+  }
+
+  .lease-video {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 150px;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .visual-dim {
+    position: absolute;
+    inset: 0;
   }
 
   .visual-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
     width: calc(100% - 40px);
+
+    text-align: center;
+
+    transform: translate(-50%, -50%);
   }
 
-  .visual-text h1 {
-    font-size: 38px;
+  .visual-en {
+    margin-bottom: 5px;
+
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  .visual-title {
+    margin-bottom: 8px;
+
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+
+  .visual-text strong {
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 400;
   }
 
   .visual-text p {
-    font-size: 12px;
+    display: none;
   }
 
   .lease-search {
-    position: relative;
-    left: 20px;
-    bottom: auto;
-
-    width: calc(100% - 40px);
-    height: auto;
-
-    padding: 15px;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 10px;
-
-    transform: none;
+    display: none;
   }
 
-  .search-filter {
-    height: 60px;
-  }
 
-  .search-submit {
-    width: 100%;
-  }
-
+  /* ==================================================
+     리스 이용 장점
+     비주얼 끝 ~ 섹션 시작 150px
+  ================================================== */
   .lease-benefit {
-    padding-top: 180px;
+    width: 100%;
+
+    margin: 150px 0 0;
+    padding: 0;
+  }
+
+  .lease-benefit .section-title {
+    margin-bottom: 40px;
   }
 
   .benefit-list {
+    width: 100%;
     height: auto;
 
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 35px;
+
+    border: 0;
   }
 
   .benefit-item {
-    min-height: 180px;
-
-    border-right: 0 !important;
-    border-bottom: 1px solid #cbd5e1 !important;
-  }
-
-  .benefit-item:last-child {
-    border-bottom: 0 !important;
-  }
-
-  .lease-compare {
+    width: 100%;
+    min-width: 0;
     height: auto;
+    min-height: 0;
 
-    padding-bottom: 100px;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    border: 0 !important;
+
+    text-align: center;
   }
 
+  .benefit-icon {
+    width: 34px;
+    height: 34px;
+
+    margin: 0;
+    padding: 5px;
+
+    border-radius: 50%;
+    background: #ececec;
+
+    object-fit: contain;
+  }
+
+  .benefit-text {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5px;
+
+    text-align: center;
+  }
+
+  .benefit-text h3 {
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+
+    text-align: center;
+  }
+
+  .benefit-text p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    text-align: center;
+  }
+
+
+  /* ==================================================
+   렌트 VS 리스 비교
+================================================== */
+  .lease-compare {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 150px 0 0;
+    padding: 50px 0 60px;
+    overflow: hidden;
+  }
+
+  /* 배경 이미지 */
+  .compare-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      url("../../img/Iease-img/차뒷배경.png") center center / cover no-repeat;
+  }
+
+  /* 실제 콘텐츠 너비 353px */
+  .compare-inner {
+    position: relative;
+    z-index: 2;
+    width: 353px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .compare-title {
+    margin: 0 0 40px;
+  }
+
+  /* 비교 박스 */
+  .compare-box {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 25px 20px 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 1px 4px rgba(12, 12, 13, 0.05);
+  }
+
+  /* RENT / LEASE */
+  .compare-head {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 65px minmax(0, 1fr);
+    align-items: start;
+    margin-bottom: 20px;
+  }
+
+  .compare-type {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .compare-type:first-child {
+    grid-column: 1;
+  }
+
+  .compare-type:last-child {
+    grid-column: 3;
+  }
+
+  .compare-en {
+    margin-bottom: 15px;
+  }
+
+  .compare-type h3 {
+    display: none;
+  }
+
+  .compare-type p {
+    margin: 0;
+  }
+
+  /* 비교 내용 */
   .compare-row {
-    grid-template-columns: 1fr;
-    gap: 15px;
-
-    padding: 25px 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 65px minmax(0, 1fr);
+    align-items: center;
   }
 
+  .compare-row:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .compare-answer {
+    min-width: 0;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .compare-answer.left {
+    text-align: center;
+  }
+
+  .compare-answer.right {
+    text-align: center;
+  }
+
+  /* 가운데 보험 / 번호판 / 사고처리 / 신용영향 */
   .compare-line {
-    order: -1;
+    width: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .car-list {
-    grid-template-columns: repeat(2, 1fr);
+  .compare-line span {
+    display: none;
+  }
 
-    gap: 40px 20px;
+  .compare-line strong {
+    width: 65px;
+    min-width: 65px;
+    text-align: center;
+  }
+
+
+  /* ==================================================
+   인기 리스 차량
+================================================== */
+  .popular-lease {
+    width: 100%;
+    margin: 150px 0 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .popular-lease .inner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 제목 영역 */
+  .popular-title-row {
+    width: 353px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto 40px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* 인기 리스 차량 제목 */
+  .popular-title-row .section-title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+
+  /* 더보기 */
+  .more-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .more-btn span {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .more-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  /* ==================================================
+   차량 가로 스크롤
+   보이는 전체 영역 353px
+================================================== */
+  .car-list {
+    width: 353px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .car-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .car-list::before,
+  .car-list::after {
+    display: none;
+  }
+
+  /* 차량 카드 */
+  .car-card {
+    flex: 0 0 224px;
+    width: 224px;
+    min-width: 224px;
+    max-width: 224px;
+    height: 250px;
+  }
+
+  .car-card>a {
+    display: block;
+    width: 224px;
+    height: 250px;
+  }
+
+  /* 차량 이미지 */
+  .car-image {
+    width: 224px;
+    height: 155px;
+    margin: 0 0 15px;
+    overflow: hidden;
+  }
+
+  .car-image img {
+    width: 224px;
+    height: 155px;
+    object-fit: cover;
+  }
+
+  /* 차량 정보 */
+  .car-info {
+    width: 224px;
+    padding: 0;
+  }
+
+  /* 차명 - Medium 15px */
+  .car-info h3 {
+    min-height: 0;
+    margin: 0 0 5px;
+
+    overflow: hidden;
+
+    font-size: 15px;
+    line-height: 1.3;
+    font-weight: 500;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  /* 차량 상세 - Medium 12px */
+  .car-detail {
+    margin: 0 0 5px;
+
+    font-size: 12px;
+    line-height: 1.3;
+    font-weight: 500;
+
+    white-space: nowrap;
+  }
+
+  /* 가격 */
+  .car-price {
+    width: 100%;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+
+    gap: 10px;
+  }
+
+  /* 월 + 금액 + 만원 */
+  .price-month {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+  }
+
+  /* 월 / 금액 / 만원 - Medium 15px */
+  .price-month span,
+  .price-month strong {
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  /* 48개월 */
+  .car-price em {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* 개월 - Medium 13px */
+  .car-price em span {
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 500;
   }
 }
