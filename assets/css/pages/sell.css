@@ -493,20 +493,18 @@ img {
    후기 제목 영역
 ================================================== */
 
+/* 후기 제목 영역 */
 .review-head {
-  position: relative;
   width: 100%;
-  height: 95px;
-  margin: 0;
+  margin: 0 0 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* 실제 판매후기 제목 */
 .review-head h2 {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
   margin: 0;
 
   font-size: 32px;
@@ -518,10 +516,6 @@ img {
 
 /* 더보기 */
 .review-more {
-  position: absolute;
-  right: 0;
-  bottom: 10px;
-
   display: flex;
   align-items: center;
   gap: 8px;
@@ -535,7 +529,6 @@ img {
 .review-more img {
   width: 16px;
   height: 16px;
-
   object-fit: contain;
 }
 
