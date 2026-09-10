@@ -394,8 +394,6 @@ img {
 }
 
 /* 제목
-   Pretendard Medium 32px
-   제목 아래 50px
 */
 
 .sell-reason>h2 {
@@ -409,8 +407,6 @@ img {
 
 /* ==================================================
    장점 리스트
-   1440 × 263
-   아이템 사이 : 120px
 ================================================== */
 
 .reason-list {
@@ -425,8 +421,6 @@ img {
 
 /* ==================================================
    장점 아이템
-   192 × 263
-   좌우 padding 8px
 ================================================== */
 
 .reason-item {
@@ -445,7 +439,6 @@ img {
 
 
 /* 이미지
-   150 × 150
 */
 
 .reason-item img {
@@ -459,8 +452,6 @@ img {
 
 
 /* 장점 제목
-   Medium 18px
-   아래 설명과 26px
 */
 
 .reason-item strong {
@@ -475,8 +466,6 @@ img {
 
 
 /* 장점 설명
-   Regular 16px
-   #64748B
 */
 
 .reason-item p {
@@ -497,45 +486,50 @@ img {
 .sell-review {
   width: 1440px;
   margin: 0 auto;
-
   padding-bottom: 250px;
 }
 
-
 /* ==================================================
-   후기 제목
-   Medium 32px
-   아래 50px
+   후기 제목 영역
 ================================================== */
 
 .review-head {
+  position: relative;
   width: 100%;
-
-  margin-bottom: 50px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 95px;
+  margin: 0;
 }
 
+/* 실제 판매후기 제목 */
 .review-head h2 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
   margin: 0;
 
   font-size: 32px;
   font-weight: 500;
   line-height: 1.4;
+
+  white-space: nowrap;
 }
 
-
 /* 더보기 */
-
 .review-more {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+
   display: flex;
   align-items: center;
   gap: 8px;
 
   color: #64748b;
+
   font-size: 14px;
+  font-weight: 400;
 }
 
 .review-more img {
@@ -546,13 +540,92 @@ img {
 }
 
 /* ==================================================
+   후기 카드 리스트
+================================================== */
+
+.review-list {
+  width: 1440px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 60px;
+}
+
+/* ==================================================
+   후기 카드
+================================================== */
+
+.review-card {
+  width: 315px;
+  height: 378px;
+
+  flex-shrink: 0;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* ==================================================
+   차량 이미지
+================================================== */
+
+.review-car-img {
+  width: 315px;
+  height: 210px;
+
+  margin-bottom: 10px;
+
+  object-fit: cover;
+}
+
+/* ==================================================
+   날짜 / 아이디
+================================================== */
+
+.review-meta {
+  width: 100%;
+
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  line-height: 1;
+}
+
+/* 날짜 */
+.review-meta span:first-child {
+  font-size: 12px;
+  font-weight: 500;
+
+  color: #64748b;
+}
+
+/* 아이디 */
+.review-meta span:last-child {
+  font-size: 12px;
+  font-weight: 400;
+
+  color: #64748b;
+}
+
+/* ==================================================
    차량명
 ================================================== */
 
 .review-card h3 {
-  margin-bottom: 12px;
-  font-size: 14px;
+  width: 100%;
+
+  margin: 0 0 15px;
+
+  font-size: 16px;
   font-weight: 500;
+  line-height: 1.4;
+
+  text-align: center;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -563,18 +636,85 @@ img {
 ================================================== */
 
 .review-score {
-  margin-bottom: 18px;
+  margin: 0 0 20px;
+
   display: flex;
   align-items: center;
+
   gap: 10px;
-  color: #94a3b8;
-  font-size: 12px;
 }
 
-.review-score img {
-  width: auto;
+/* 별 5개 영역 */
+.review-stars {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+}
+
+/* 기본 별 */
+.review-stars>img {
+  width: 18px;
   height: 18px;
+
   object-fit: contain;
+}
+
+/* 마지막 0.8 별 */
+.partial-star {
+  position: relative;
+
+  width: 18px;
+  height: 18px;
+
+  display: block;
+  overflow: hidden;
+}
+
+/* 회색 바탕 별 */
+.partial-star .star-empty {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 18px;
+  height: 18px;
+
+  object-fit: contain;
+
+  filter: grayscale(1);
+  opacity: 0.25;
+}
+
+/* 80% 채워진 영역 */
+.partial-star .star-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 60%;
+  height: 18px;
+
+  overflow: hidden;
+}
+
+/* 주황색 별 */
+.partial-star .star-fill img {
+  width: 18px;
+  height: 18px;
+
+  max-width: none;
+
+  object-fit: contain;
+}
+
+/* 4.8 숫자 */
+.review-rating {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: #94a3b8;
 }
 
 /* ==================================================
@@ -582,8 +722,13 @@ img {
 ================================================== */
 
 .review-text {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.5;
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+
   text-align: center;
+
+  color: #0f172a;
 }
