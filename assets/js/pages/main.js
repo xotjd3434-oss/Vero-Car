@@ -143,3 +143,61 @@ searchButton.addEventListener(
     );
   }
 );
+
+
+/* ========================================
+   모바일 차량추천
+======================================== */
+
+const recommendList = document.querySelector('.recommend-list');
+const recommendCards = document.querySelectorAll('.recommend-card');
+const recommendDots = document.querySelectorAll('.recommend-pagination span');
+const recommendNext = document.querySelector('.recommend-next');
+
+if (
+  recommendList &&
+  recommendCards.length &&
+  recommendDots.length &&
+  recommendNext
+) {
+  let currentIndex = 0;
+  const gap = 20;
+
+  function updateDots() {
+    recommendDots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  function moveToCard() {
+    const cardWidth = recommendCards[0].offsetWidth;
+
+    recommendList.scrollTo({
+      left: currentIndex * (cardWidth + gap),
+      behavior: 'smooth'
+    });
+
+    updateDots();
+  }
+
+  /* > 버튼 */
+  recommendNext.addEventListener('click', function () {
+    currentIndex++;
+
+    if (currentIndex >= recommendCards.length) {
+      currentIndex = 0;
+    }
+
+    moveToCard();
+  });
+
+  /* 동그란 점 클릭 */
+  recommendDots.forEach((dot, index) => {
+    dot.addEventListener('click', function () {
+      currentIndex = index;
+      moveToCard();
+    });
+  });
+
+  updateDots();
+}
