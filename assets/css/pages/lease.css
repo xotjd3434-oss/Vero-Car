@@ -670,14 +670,22 @@ img {
 @media (max-width: 393px) {
 
   /* =========================
-     전체
+     가로 스크롤 방지
   ========================= */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   html,
   body {
     width: 100%;
+    min-width: 0;
     max-width: 100%;
     margin: 0;
-    overflow-x: hidden !important;
+    padding: 0;
+    overflow-x: clip !important;
   }
 
   body {
@@ -687,24 +695,45 @@ img {
 
   main {
     width: 100%;
+    min-width: 0;
     max-width: 100%;
     padding-top: 60px;
     padding-bottom: 200px;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   main>section {
     width: 100%;
+    min-width: 0;
     max-width: 100%;
-    overflow-x: hidden;
   }
 
   .inner {
     width: 100%;
+    min-width: 0;
     max-width: 100%;
     margin: 0;
     padding: 0 20px;
   }
+
+  /* 리스 페이지 내부 고정폭 방지 */
+  .lease-visual,
+  .lease-benefit,
+  .benefit-list,
+  .benefit-item,
+  .lease-compare,
+  .compare-inner,
+  .compare-box,
+  .compare-head,
+  .compare-row,
+  .popular-lease,
+  .popular-lease .inner,
+  .popular-title-row {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* 이하 기존 모바일 CSS 그대로 */
 
 
   /* =========================
@@ -960,10 +989,6 @@ img {
     grid-column: 3;
   }
 
-  .compare-en {
-    margin-bottom: 15px;
-  }
-
   .compare-type h3 {
     display: none;
   }
@@ -988,6 +1013,7 @@ img {
     min-width: 0;
     word-break: keep-all;
     overflow-wrap: break-word;
+    font-size: 16px;
   }
 
   .compare-answer.left {
@@ -1014,6 +1040,7 @@ img {
     width: 65px;
     min-width: 65px;
     text-align: center;
+    font-size: 14px;
   }
 
 
