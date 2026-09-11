@@ -52,85 +52,141 @@ compareArea.style.display = "none";
 // 4. 상단 메뉴 버튼
 // =====================================================
 
-wishlistBtns.forEach(function (btn, index) {
+// =====================================================
+// 4. 상단 메뉴 버튼
+// =====================================================
 
-    btn.addEventListener("click", function () {
+// 버튼 active 변경
+function setWishlistActive(index) {
+    wishlistBtns.forEach(function (button) {
+        button.classList.remove("active");
+    });
 
-        // 모든 버튼 active 제거
-        wishlistBtns.forEach(function (button) {
-            button.classList.remove("active");
-        });
+    wishlistBtns[index].classList.add("active");
 
-        // 클릭한 버튼 active
-        btn.classList.add("active");
+    wishlistBtnArea.style.setProperty(
+        "--slider-x",
+        `${index * 100}%`
+    );
+}
 
+// 모바일 스크롤
+function mobileScrollTo(target, duration = 1100) {
+    const header = document.querySelector(".header");
 
-        // 남색 배경 이동
-        wishlistBtnArea.style.setProperty(
-            "--slider-x",
-            `${index * 100}%`
+    const headerHeight =
+        header ? header.offsetHeight : 0;
+
+    const startY = window.scrollY;
+
+    const targetY =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight -
+        30;
+
+    const distance =
+        Math.max(0, targetY) - startY;
+
+    const startTime =
+        performance.now();
+
+    function scrollAnimation(currentTime) {
+        const elapsed =
+            currentTime - startTime;
+
+        const progress =
+            Math.min(elapsed / duration, 1);
+
+        const ease =
+            progress < 0.5
+                ? 2 * progress * progress
+                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+        window.scrollTo(
+            0,
+            startY + distance * ease
         );
 
+        if (progress < 1) {
+            requestAnimationFrame(scrollAnimation);
+        }
+    }
+
+    requestAnimationFrame(scrollAnimation);
+}
+
+wishlistBtns.forEach(function (btn, index) {
+    btn.addEventListener("click", function () {
 
         const target = btn.dataset.target;
 
+        const isMobile =
+            window.matchMedia(
+                "(max-width: 767px)"
+            ).matches;
 
-        // -----------------------------------------
-        // 관심 차량
-        // -----------------------------------------
+        // 클릭한 버튼만 active
+        setWishlistActive(index);
 
-        if (target === "saved") {
-
-            savedArea.style.display = "block";
-            recentArea.style.display = "block";
-            compareArea.style.display = "none";
-
-            isAutoScrolling = true;
-
-            smoothScrollTo(savedArea, 1400);
-
-            setTimeout(function () {
-                isAutoScrolling = false;
-            }, 1450);
-        }
-
-
-        // -----------------------------------------
-        // 최근 본 차량
-        // -----------------------------------------
-
-        if (target === "recent") {
-
-            savedArea.style.display = "block";
-            recentArea.style.display = "block";
-            compareArea.style.display = "none";
-
-            isAutoScrolling = true;
-
-            smoothScrollTo(recentArea, 1400);
-
-            setTimeout(function () {
-                isAutoScrolling = false;
-            }, 1450);
-        }
-
-
-        // -----------------------------------------
+        // ===============================
         // 비교하기
-        // -----------------------------------------
-
+        // ===============================
         if (target === "compare") {
-
             savedArea.style.display = "none";
             recentArea.style.display = "none";
-
             compareArea.style.display = "block";
 
-            // 비교하기는 스크롤 이동 없음
+            if (isMobile) {
+                requestAnimationFrame(function () {
+                    window.scrollTo(0, 0);
+                });
+            }
+
+            return;
         }
 
-    });
+        // 관심 차량 / 최근 본 차량
+        savedArea.style.display = "block";
+        recentArea.style.display = "block";
+        compareArea.style.display = "none";
 
+        // ===============================
+        // 모바일
+        // ===============================
+        if (isMobile) {
+            if (target === "saved") {
+                mobileScrollTo(
+                    document.getElementById("SavedTitle")
+                );
+            }
+
+            if (target === "recent") {
+                mobileScrollTo(
+                    document.getElementById("RecentTitle")
+                );
+            }
+
+            return;
+        }
+
+        // ===============================
+        // PC 기존 스크롤
+        // ===============================
+        isAutoScrolling = true;
+
+        if (target === "saved") {
+            smoothScrollTo(savedArea, 1400);
+        }
+
+        if (target === "recent") {
+            smoothScrollTo(recentArea, 1400);
+        }
+
+        setTimeout(function () {
+            isAutoScrolling = false;
+        }, 1450);
+    });
 });
 
 
@@ -187,6 +243,16 @@ function smoothScrollTo(target, duration = 1200) {
 // =====================================================
 
 window.addEventListener("scroll", function () {
+
+    // 모바일에서는 스크롤 위치로
+    // 하단 버튼 active를 변경하지 않음
+    if (
+        window.matchMedia(
+            "(max-width: 767px)"
+        ).matches
+    ) {
+        return;
+    }
 
     // 자동 스크롤 중이면 실행하지 않음
     if (isAutoScrolling) {
@@ -693,6 +759,14 @@ document.addEventListener(
 // 17. 비교 차량 최대 3대 선택
 // =====================================================
 
+function getCompareLimit() {
+    return window.matchMedia(
+        "(max-width: 767px)"
+    ).matches
+        ? 2
+        : 3;
+}
+
 document.addEventListener(
     "change",
     function (event) {
@@ -1044,7 +1118,7 @@ function renderCompareCars() {
 
         }
     );
-
+    renderMobileCompare();
 }
 
 
@@ -1061,36 +1135,247 @@ document.addEventListener(
                 ".delete-car"
             );
 
-
         if (!deleteBtn) {
             return;
         }
-
 
         const carId =
             Number(
                 deleteBtn.dataset.id
             );
 
-
-        // 선택 차량 제거
         compareCars =
             compareCars.filter(
                 function (car) {
-
-                    return (
-                        car.id !== carId
-                    );
-
+                    return car.id !== carId;
                 }
             );
 
-
-        // 화면 다시 그리기
         renderCompareCars();
-
     }
 );
+
+
+// =====================================================
+// 모바일 비교 화면
+// 사진 고정
+// 차량 정보만 가로 스크롤
+// =====================================================
+
+function renderMobileCompare() {
+    const imageArea =
+        document.getElementById(
+            "MobileCompareImages"
+        );
+
+    const infoArea =
+        document.getElementById(
+            "MobileCompareInfo"
+        );
+
+    if (!imageArea || !infoArea) {
+        return;
+    }
+
+    const mobileCars = [
+        compareCars[0] || null,
+        compareCars[1] || null
+    ];
+
+    // ===============================
+    // 차량 사진
+    // ===============================
+    imageArea.innerHTML =
+        mobileCars
+            .map(function (car) {
+
+                if (!car) {
+                    return `
+                        <div class="mobile-compare-image-slot empty">
+
+                            <button
+                                type="button"
+                                class="add-car"
+                            >
+                                <span>
+                                    <img
+                                        src="../../assets/img/wishlist-img/plus.png"
+                                        alt=""
+                                    >
+                                </span>
+
+                                <p>
+                                    비교할 차량을<br>
+                                    등록해주세요.
+                                </p>
+                            </button>
+
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="mobile-compare-image-slot">
+
+                        <button
+                            type="button"
+                            class="delete-car"
+                            data-id="${car.id}"
+                        >
+                            <img
+                                src="../../assets/img/wishlist-img/X.png"
+                                alt="삭제"
+                            >
+                        </button>
+
+                        <img
+                            src="${car.thumbnail}"
+                            alt="${car.modelName}"
+                            class="mobile-compare-car-img"
+                        >
+
+                    </div>
+                `;
+            })
+            .join("");
+
+    // ===============================
+    // 차량 정보
+    // ===============================
+    const rows = [
+        {
+            label: "차량명",
+            className: "car-name-value",
+            value: function (car) {
+                return car
+                    ? car.modelName
+                    : "-";
+            }
+        },
+        {
+            label: "차종",
+            value: function (car) {
+                return car
+                    ? car.bodyType || "-"
+                    : "-";
+            }
+        },
+        {
+            label: "가격",
+            value: function (car) {
+                return car
+                    ? `${car.price.toLocaleString()}만원`
+                    : "-";
+            }
+        },
+        {
+            label: "연식",
+            value: function (car) {
+                return car
+                    ? `${car.modelYear}년`
+                    : "-";
+            }
+        },
+        {
+            label: "주행거리",
+            value: function (car) {
+                return car
+                    ? `${car.mileage.toLocaleString()}km`
+                    : "-";
+            }
+        },
+        {
+            label: "연료/배기량",
+            value: function (car) {
+                if (!car) {
+                    return "-";
+                }
+
+                const fuel =
+                    car.fuel || "-";
+
+                const displacement =
+                    car.displacement
+                        ? ` / ${car.displacement.toLocaleString()}cc`
+                        : "";
+
+                return fuel + displacement;
+            }
+        },
+        {
+            label: "색상",
+            value: function (car) {
+                return car
+                    ? car.exteriorColor ||
+                    car.color ||
+                    "-"
+                    : "-";
+            }
+        },
+        {
+            label: "사고유무",
+            value: function (car) {
+                if (!car) {
+                    return "-";
+                }
+
+                if (car.accidentFree === true) {
+                    return "무사고";
+                }
+
+                if (car.accidentFree === false) {
+                    return "사고이력 있음";
+                }
+
+                return "-";
+            }
+        },
+        {
+            label: "판매위치",
+            value: function (car) {
+                return car
+                    ? car.region || "-"
+                    : "-";
+            }
+        }
+    ];
+
+    infoArea.innerHTML =
+        rows
+            .map(function (row) {
+                return `
+                <div class="mobile-info-label">
+                    ${row.label}
+                </div>
+
+                <div class="mobile-info-value ${row.className || ""}">
+                    ${mobileCars[0]
+                        ? row.value(mobileCars[0])
+                        : ""}
+                </div>
+
+                <div class="mobile-info-value ${row.className || ""}">
+                    ${mobileCars[1]
+                        ? row.value(mobileCars[1])
+                        : ""}
+                </div>
+            `;
+            })
+            .join("");
+
+    const infoScroll =
+        document.querySelector(
+            ".mobile-compare-info-scroll"
+        );
+
+    if (infoScroll) {
+        requestAnimationFrame(function () {
+            infoScroll.scrollLeft =
+                infoScroll.scrollWidth -
+                infoScroll.clientWidth;
+        });
+    }
+}
 
 
 // =====================================================

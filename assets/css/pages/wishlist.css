@@ -1147,46 +1147,1011 @@
     display: block;
 }
 
+.mobile-compare-top {
+    display: none;
+}
+
+.compare-mobile-title {
+    display: none;
+}
+
+@media screen and (max-width: 393px) {
+    .mobile-compare-top {
+        display: block;
+    }
+}
+
 
 /* =========================================================
-   1440px 이하 대응
+   관심목록 MOBILE
+   기준 디자인 : 393px
 ========================================================= */
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 393px) {
 
-    #main,
-    .content,
-    #CompareArea,
-    #CompareList,
-    #wishlistBtnArea {
+    /* =====================================================
+       전체
+    ===================================================== */
+    html,
+    body {
         width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+
+        overflow-x: hidden;
+    }
+
+    body {
+        padding-bottom: 50px;
+    }
+
+    /* 모바일에서는 퀵메뉴 숨김 */
+    .quick-menu {
+        display: none !important;
+    }
+
+    /* =====================================================
+       MAIN
+    ===================================================== */
+    #main {
+        width: 100%;
+        max-width: 393px;
+
+        margin: 90px auto 0;
+        padding: 0;
+
+        box-sizing: border-box;
+    }
+
+    .content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* PC 관심목록 h2 제거 */
+    #title {
+        display: none;
+    }
+
+    /* 비교하기 모바일 제목 */
+    .compare-mobile-title {
+        display: block;
+
+        width: 100%;
+
+        margin: 0 0 40px;
+
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1;
+        text-align: center;
+
+        color: #000;
+    }
+
+    /* 모바일 비교 영역 */
+    #CompareArea {
+        margin-top: 0;
+        margin-bottom: 200px;
+    }
+
+    /* =====================================================
+       하단 고정 버튼
+       관심 차량 / 최근 본 차량 / 비교하기
+    ===================================================== */
+    #wishlistBtnArea {
+        position: fixed;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100vw;
+        height: 50px;
+
+        margin: 0;
+
+        display: flex;
+
+        border: 1px solid #E2E8F0;
+        background: #fff;
+
+        z-index: 1900;
+
+        --slider-x: 0%;
+    }
+
+    #wishlistBtnArea::before {
+        width: calc(100% / 3);
+        height: 100%;
+
+        background: #1E293B;
     }
 
     .wishlistbtn {
-        width: 33.3333%;
+        width: calc(100% / 3);
+        height: 50px;
+
+        padding: 0;
+
+        font-size: 14px;
+        font-weight: 400;
+
+        white-space: nowrap;
     }
 
-    .compare-car {
-        width: 33.3333%;
+    .wishlistbtn.active {
+        color: #fff;
     }
 
-    .compare-image,
-    .car-info,
-    .option-area,
-    .empty-compare {
+    /* =====================================================
+       관심 차량
+    ===================================================== */
+    #SavedArea {
         width: 100%;
+        margin-top: 0;
     }
 
-    .info-row {
+    /* =====================================================
+       관심 차량 / 최근 본 차량 제목
+    ===================================================== */
+    #SavedTitle,
+    #RecentTitle {
+        width: calc(100% - 40px);
+
+        margin: 0 20px 40px;
+
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1;
+        text-align: center;
+
+        color: #000;
+    }
+
+    /* =====================================================
+       차량 카드 목록
+    ===================================================== */
+    #SavedCards,
+    #RecentCards {
+        width: 353px;
+
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: repeat(2, 171px);
+
+        column-gap: 11px;
+        row-gap: 25px;
+    }
+
+    /* =====================================================
+       차량 카드
+    ===================================================== */
+    #SavedCards .car-card,
+    #RecentCards .car-card {
+        position: relative;
+
+        width: 171px;
+        height: 220px;
+
+        margin: 0;
+        padding: 0;
+
+        box-sizing: border-box;
+    }
+
+    /* =====================================================
+       차량 이미지
+    ===================================================== */
+    #SavedCards .car-img,
+    #RecentCards .car-img {
+        display: block;
+
+        width: 171px;
+        height: 114px;
+
+        object-fit: contain;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    /* =====================================================
+       하트
+    ===================================================== */
+    #SavedCards .heart-btn,
+    #RecentCards .heart-btn {
+        position: absolute;
+
+        top: 5px;
+        right: 3px;
+
+        width: 28.8px;
+        height: 28.8px;
+
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 0;
+        background: transparent;
+
+        z-index: 10;
+    }
+
+    #SavedCards .heart-btn img,
+    #RecentCards .heart-btn img {
+        display: block;
+
+        width: 28.8px;
+        height: 28.8px;
+
+        object-fit: contain;
+    }
+
+    /* =====================================================
+       차량 텍스트
+       이미지 ↔ 텍스트 10px
+    ===================================================== */
+    #SavedCards .car-text,
+    #RecentCards .car-text {
+        width: 171px;
+
+        margin-top: 10px;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+
+        box-sizing: border-box;
+    }
+
+    /* =====================================================
+       차량명
+    ===================================================== */
+    #SavedCards .car-name-row,
+    #RecentCards .car-name-row {
+        display: block;
+
         width: 100%;
+        margin: 0;
     }
 
-    .option-tabs,
-    .option-list {
-        width: calc(100% - 120px);
-    }
-
-    .option-list li {
+    #SavedCards .car-name,
+    #RecentCards .car-name {
         width: 100%;
+
+        margin: 0;
+
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.25;
+
+        color: #000;
+
+        word-break: keep-all;
+    }
+
+    /* =====================================================
+       연식 / km / 지역
+    ===================================================== */
+    #SavedCards .car-detail,
+    #RecentCards .car-detail {
+        margin: 0;
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1;
+
+        color: #64748B;
+
+        white-space: nowrap;
+    }
+
+    /* =====================================================
+       가격
+    ===================================================== */
+    #SavedCards .car-price,
+    #RecentCards .car-price {
+        width: 100%;
+
+        margin: 0;
+
+        text-align: right;
+        line-height: 1;
+    }
+
+    #SavedCards .price-number,
+    #RecentCards .price-number {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    #SavedCards .price-unit,
+    #RecentCards .price-unit {
+        margin-left: 3px;
+
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    /* =====================================================
+       관심 차량 ↔ 최근 본 차량
+    ===================================================== */
+    #RecentArea {
+        width: 100%;
+
+        margin-top: 150px;
+        margin-bottom: 200px;
+    }
+
+    /* main 자체 여백 제거
+       최근 차량 → footer 200px은 RecentArea가 담당 */
+    #main {
+        margin-bottom: 0;
+    }
+
+    /* =====================================================
+       모바일 비교 상단
+    ===================================================== */
+    .mobile-compare-top {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* =====================================================
+       차량 사진
+    ===================================================== */
+    .mobile-compare-images {
+        width: 353px;
+
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: repeat(2, 171px);
+
+        column-gap: 11px;
+    }
+
+    .mobile-compare-image-slot {
+        position: relative;
+
+        width: 171px;
+        height: 114px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-sizing: border-box;
+    }
+
+    .mobile-compare-car-img {
+        display: block;
+
+        width: 171px;
+        height: 114px;
+
+        object-fit: contain;
+    }
+
+    /* X 버튼 */
+    .mobile-compare-image-slot .delete-car {
+        position: absolute;
+
+        top: 0;
+        right: 3px;
+
+        width: 20px;
+        height: 20px;
+
+        margin: 0;
+        padding: 0;
+
+        border: 0;
+        background: transparent;
+
+        z-index: 10;
+    }
+
+    .mobile-compare-image-slot .delete-car img {
+        display: block;
+
+        width: 20px;
+        height: 20px;
+
+        object-fit: contain;
+    }
+
+    /* =====================================================
+       빈 차량 등록 영역
+    ===================================================== */
+    .mobile-compare-image-slot .add-car {
+        width: 171px;
+        height: 114px;
+
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        border: 0;
+        background: transparent;
+    }
+
+    .mobile-compare-image-slot .add-car span {
+        width: 24px;
+        height: 24px;
+
+        margin-bottom: 6px;
+    }
+
+    .mobile-compare-image-slot .add-car span img {
+        width: 24px;
+        height: 24px;
+
+        object-fit: contain;
+    }
+
+    .mobile-compare-image-slot .add-car p {
+        margin: 0;
+
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.3;
+
+        text-align: center;
+    }
+
+    /* =====================================================
+       차량 정보만 가로 스크롤
+    ===================================================== */
+    .mobile-compare-info-scroll {
+        width: 353px;
+
+        margin: 20px auto 0;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-compare-info-grid {
+        width: 434px;
+
+        display: grid;
+        grid-template-columns: 70px 171px 171px;
+
+        column-gap: 11px;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 왼쪽 라벨 */
+    .mobile-info-label {
+        position: static;
+        left: auto;
+
+        width: 85px;
+        height: 40px;
+
+        padding-right: 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        box-sizing: border-box;
+
+        background: transparent;
+
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+
+        text-align: right;
+        white-space: nowrap;
+
+        color: #000;
+
+        z-index: auto;
+    }
+
+    /* 각 차량 값 */
+    .mobile-info-value {
+        width: 171px;
+        height: 40px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-sizing: border-box;
+
+        padding: 0 5px;
+
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.25;
+
+        text-align: center;
+
+        color: #000;
+
+        word-break: keep-all;
+    }
+
+    /* 차량명 값만 SemiBold */
+    .mobile-info-value.car-name-value {
+        font-weight: 600;
+    }
+
+    /* =====================================================
+       스크롤바
+    ===================================================== */
+    .mobile-compare-info-scroll::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .mobile-compare-info-scroll::-webkit-scrollbar-thumb {
+        background: #CBD5E1;
+        border-radius: 10px;
+    }
+
+    .mobile-compare-info-scroll::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* =====================================================
+       판매위치 → 선 30px
+    ===================================================== */
+    .mobile-compare-divider {
+        width: 353px;
+        height: 1px;
+
+        margin: 30px auto 0;
+
+        background: #F5F5F4;
+    }
+
+    /* =========================================
+       비교 옵션 전체
+    ========================================= */
+    #CompareList {
+        position: relative;
+
+        width: 353px;
+
+        margin: 40px auto 0;
+        padding: 60px 0 0;
+
+        display: grid;
+        grid-template-columns: repeat(2, 171px);
+
+        column-gap: 11px;
+
+        box-sizing: border-box;
+    }
+
+    /* =========================================
+       compare-labels는 grid 칸을 차지하면 안 됨
+    ========================================= */
+    #CompareList .compare-labels {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 353px;
+        height: 35px;
+        min-height: 0;
+
+        margin: 0;
+        padding: 0;
+
+        z-index: 20;
+    }
+
+    #CompareList .compare-labels::before {
+        display: none;
+    }
+
+    /* PC 정보 숨김 */
+    #CompareList .compare-label-image-space,
+    #CompareList .compare-label,
+    #CompareList .compare-image,
+    #CompareList .car-info,
+    #CompareList .empty-compare {
+        display: none !important;
+    }
+
+    /* PC 선 제거 */
+    #CompareList::after {
+        display: none;
+    }
+
+    /* =========================================
+       차량 옵션 위치
+    ========================================= */
+    #CompareList .compare-car[data-slot="0"] {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #CompareList .compare-car[data-slot="1"] {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    #CompareList .compare-car[data-slot="2"] {
+        display: none !important;
+    }
+
+    #CompareList .compare-car {
+        width: 171px;
+        min-height: 0;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    /* =========================================
+       주요 옵션 제목
+    ========================================= */
+    #CompareList .compare-option-title {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: auto;
+        height: 35px;
+
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+
+        font-size: 16px;
+        font-weight: 400;
+
+        white-space: nowrap;
+
+        color: #000;
+    }
+
+    /* 외관 / 내장 / 안전 / 편의 */
+    #CompareList .compare-option-tabs {
+        position: absolute;
+
+        top: 0;
+        left: 114px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 15px;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    #CompareList .compare-option-tabs button {
+        width: 50px;
+        height: 35px;
+
+        flex: 0 0 50px;
+
+        margin: 0;
+        padding: 0;
+
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    /* =========================================
+       옵션 영역
+    ========================================= */
+    #CompareList .option-area {
+        width: 171px;
+
+        margin: 0 !important;
+        padding: 0;
+    }
+
+    #CompareList .option-list {
+        width: 171px;
+
+        margin: 0;
+        padding: 0 5px;
+
+        box-sizing: border-box;
+    }
+
+    #CompareList .option-list li {
+        width: 100%;
+
+        margin: 0 0 25px;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    #CompareList .option-list li:last-child {
+        margin-bottom: 0;
+    }
+
+    #CompareList .option-list .check {
+        width: 20px;
+        height: 20px;
+
+        flex: 0 0 20px;
+    }
+
+    #CompareList .option-name {
+        font-size: 14px;
+        font-weight: 400;
+
+        white-space: nowrap;
+    }
+
+    /* =========================================
+   모바일 차량 선택 모달
+========================================= */
+
+    .modal-content {
+        width: 373px;
+        height: 650px;
+        max-height: calc(100vh - 40px);
+
+        padding: 25px 20px 20px;
+
+        display: flex;
+        flex-direction: column;
+
+        box-sizing: border-box;
+
+        background: #fff;
+
+        overflow: hidden;
+    }
+
+    /* =========================================
+   모달 상단
+========================================= */
+
+    .modal-header {
+        width: 100%;
+        height: 30px;
+
+        margin: 0 0 25px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        flex-shrink: 0;
+    }
+
+    .modal-header h3 {
+        margin: 0;
+
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1;
+
+        color: #000;
+    }
+
+    .modal-close {
+        width: 24px;
+        height: 24px;
+
+        padding: 0;
+
+        border: 0;
+        background: transparent;
+    }
+
+    .modal-close img {
+        display: block;
+
+        width: 20px;
+        height: 20px;
+    }
+
+    /* =========================================
+   차량 목록
+   한 줄에 차량 1대
+   세로 스크롤
+========================================= */
+
+    .modal-recent-car-list {
+        width: 100%;
+
+        flex: 1;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        column-gap: 15px;
+        row-gap: 25px;
+
+        margin: 0;
+        padding: 0 5px 25px 0;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        box-sizing: border-box;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* 스크롤바 */
+    .modal-recent-car-list::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .modal-recent-car-list::-webkit-scrollbar-thumb {
+        background: #CBD5E1;
+        border-radius: 10px;
+    }
+
+    .modal-recent-car-list::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* =========================================
+   차량 카드
+========================================= */
+
+    .modal-car-card {
+        position: relative;
+
+        width: 100%;
+        display: block;
+
+        margin: 0;
+        padding: 0;
+
+        box-sizing: border-box;
+    }
+
+    /* 체크박스 */
+    .modal-car-card .compare-check {
+        position: absolute;
+
+        top: 10px;
+        left: 10px;
+
+        width: 22px;
+        height: 22px;
+
+        margin: 0;
+
+        z-index: 5;
+    }
+
+    /* =========================================
+   차량 사진
+========================================= */
+
+    .modal-car-image {
+        width: 100%;
+        height: 110px;
+
+        background: #f7f7f7;
+
+        overflow: hidden;
+    }
+
+    .modal-car-image img {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+    }
+
+    /* =========================================
+   차량 설명
+   사진 바로 아래
+========================================= */
+
+    .modal-car-info {
+        width: 100%;
+
+        padding: 12px 5px 0;
+
+        box-sizing: border-box;
+    }
+
+    .modal-car-info h4 {
+        margin: 0 0 10px;
+
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.3;
+
+        color: #000;
+
+        word-break: keep-all;
+    }
+
+    .modal-car-info p {
+        margin: 0 0 10px;
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+
+        color: #64748B;
+    }
+
+    /* 가격 */
+    .modal-car-price {
+        width: 100%;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        gap: 3px;
+    }
+
+    .modal-car-price strong {
+        font-size: 20px;
+        font-weight: 700;
+
+        color: #000;
+    }
+
+    .modal-car-price span {
+        font-size: 12px;
+        font-weight: 500;
+
+        color: #000;
+    }
+
+    /* =========================================
+   비교하기 버튼
+========================================= */
+
+    .modal-compare-btn {
+        width: 100%;
+        height: 50px;
+
+        margin-top: 20px;
+
+        flex-shrink: 0;
+
+        border: 0;
+
+        background: #1E293B;
+
+        font-size: 15px;
+        font-weight: 600;
+
+        color: #fff;
     }
 }
