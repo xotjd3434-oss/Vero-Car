@@ -468,3 +468,486 @@
 
     color: #000;
 }
+
+/* ==================================================
+   MYPAGE MOBILE - 393px
+================================================== */
+@media (max-width: 393px) {
+
+    /* =========================
+       마이페이지 전체
+    ========================= */
+    #mypage {
+        width: 100%;
+        margin: 0;
+        padding: 90px 20px 0;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    /* =========================
+       페이지 제목
+    ========================= */
+    #mypage>#title {
+        order: 1;
+
+        width: 100%;
+        margin: 0 0 40px;
+
+        font-family: "Pretendard", sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+
+        color: #000;
+    }
+
+
+    /* =========================
+       PROFILE
+    ========================= */
+    #profile {
+        order: 2;
+
+        width: 353px;
+        height: 195px;
+
+        margin: 0;
+        padding: 15px;
+
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+
+        gap: 30px;
+
+        background: #F5F5F4;
+        border-radius: 0;
+    }
+
+
+    /* =========================
+       PROFILE LEFT
+    ========================= */
+    .profile-left {
+        width: 100%;
+        height: 80px;
+
+        padding: 0 10px;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+
+        gap: 24px;
+    }
+
+    .profile-left>img {
+        width: 80px;
+        height: 80px;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .profile-left .text {
+        margin: 0;
+
+        font-family: "Pretendard", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+
+        color: #000;
+    }
+
+
+    /* =========================
+       PROFILE RIGHT
+    ========================= */
+    .profile-right {
+        width: 100%;
+        height: 55px;
+
+        padding: 0 6px;
+        box-sizing: border-box;
+    }
+
+    .profile-right ul {
+        width: 100%;
+        height: 55px;
+
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+
+        gap: 15px;
+    }
+
+    .profile-right li {
+        position: relative;
+
+        flex: 1;
+        width: auto;
+        height: 55px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+    /* 항목 사이 세로선 */
+    .profile-right li:not(:last-child)::after {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        right: -8px;
+
+        width: 1px;
+        height: 40px;
+
+        transform: translateY(-50%);
+
+        background: #CBD5E1;
+    }
+
+    .profile-right .text {
+        margin: 0;
+
+        font-family: "Pretendard", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+
+        white-space: nowrap;
+
+        color: #000;
+    }
+
+    .profile-right .number {
+        margin: 0;
+
+        font-family: "Pretendard", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+
+        color: #000;
+    }
+
+
+    /* =========================
+       SIDE GNB
+    ========================= */
+    #side-gnb {
+        order: 3;
+
+        width: 100%;
+
+        margin: 35px 0 0;
+    }
+
+    #side-gnb ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+
+    /* =========================
+       SIDE GNB 공통
+    ========================= */
+    #side-gnb li {
+        width: 100%;
+        height: auto;
+
+        margin: 0;
+        padding: 0;
+
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        font-family: "Pretendard", sans-serif;
+
+        background: transparent;
+        color: #000;
+    }
+
+
+    /* =========================
+       나의 활동 목록 제목
+    ========================= */
+    #side-gnb .active-list-title {
+        margin-bottom: 40px;
+
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+
+    /* =========================
+       나의 활동 목록 메뉴
+    ========================= */
+    #side-gnb .active-list li:not(.active-list-title) {
+        position: relative;
+
+        font-family: "Pretendard", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+
+        color: #000;
+
+        cursor: pointer;
+    }
+
+    /* 관심 차량 */
+    #side-gnb .active-list .on {
+        font-size: 20px;
+        font-weight: 400;
+        color: #000;
+    }
+
+    /* 최근 본 차량 / 비교하기 / 이용후기 */
+    #side-gnb .active-list li:not(.active-list-title):not(.on) {
+        font-size: 20px;
+        font-weight: 400;
+        color: #000;
+    }
+
+    #side-gnb .active-list li:not(.active-list-title)+li:not(.active-list-title) {
+        margin-top: 30px;
+    }
+
+    /* 데스크톱 활성화 색 제거 */
+    #side-gnb .active-list .on {
+        font-size: 20px;
+        font-weight: 400;
+
+        color: #000;
+    }
+
+    #side-gnb .active-list li:not(.active-list-title):hover,
+    #side-gnb .active-list .on:hover {
+        background: transparent;
+    }
+
+
+    /* =========================
+       모바일 화살표
+    ========================= */
+
+    /* 기존 관심차량에 들어있는 img는 모바일에서 숨김 */
+    #side-gnb .active-list .on img {
+        display: none;
+    }
+
+    #side-gnb .active-list li:not(.active-list-title)::after,
+    #side-gnb .service li:not(.service-title)::after {
+        content: "";
+        display: block;
+
+        width: 24px;
+        height: 24px;
+
+        flex-shrink: 0;
+
+        background-image: url("../../img/mypage-img/sidegnbarrow.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 24px 24px;
+
+        filter: brightness(0) saturate(100%);
+    }
+
+
+    /* =========================
+       고객센터
+       활동목록과 고객센터
+    ========================= */
+    #side-gnb .service {
+        margin-top: 63px;
+    }
+
+
+    /* 고객센터 제목 */
+    #side-gnb .service-title {
+        margin-bottom: 40px;
+
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+
+    /* 고객센터 메뉴 */
+    #side-gnb .service li:not(.service-title) {
+        position: relative;
+
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+
+        color: #000;
+
+        cursor: pointer;
+    }
+
+    /* 메뉴끼리 30px */
+    #side-gnb .service li:not(.service-title)+li:not(.service-title) {
+        margin-top: 30px;
+    }
+
+    #side-gnb .service li:not(.service-title):hover {
+        background: transparent;
+    }
+
+
+    /* =========================
+       관심 차량 SECTION
+    ========================= */
+    #cars-list {
+        order: 4;
+
+        width: 100%;
+
+        margin: 150px 0 0;
+    }
+
+
+    /* =========================
+       관심 차량 제목
+    ========================= */
+    .list-title-area {
+        width: 100%;
+
+        margin: 0 0 40px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #list-title {
+        margin: 0;
+
+        font-family: "Pretendard", sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.2;
+
+        color: #000;
+    }
+
+    .list-title-etc {
+        gap: 5px;
+    }
+
+    .list-title-etc .more {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .list-title-etc img {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    /* =========================
+       관심 차량 카드
+       모바일 1열
+    ========================= */
+    .car-cards {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        column-gap: 0;
+        row-gap: 60px;
+    }
+
+    .mypage-car-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .mypage-car-image {
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 352 / 250;
+    }
+
+    .mypage-car-image .car-photo {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+    }
+
+    .mypage-car-text {
+        width: 100%;
+
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .mypage-car-name {
+        font-size: 16px;
+    }
+
+    .mypage-car-detail {
+        font-size: 14px;
+    }
+
+    .mypage-car-price strong {
+        font-size: 26px;
+    }
+
+    .mypage-car-price span {
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       마지막 섹션 ~ FOOTER
+       200px
+    ========================= */
+    .footer {
+        margin-top: 200px;
+    }
+
+
+    /* =========================
+       모바일에서는 숨김
+    ========================= */
+    .quick-menu {
+        display: none;
+    }
+
+    #cars-list {
+        display: none;
+    }
+}
