@@ -426,30 +426,39 @@
   align-items: baseline;
   justify-content: flex-end;
 
-  gap: 4px;
-
   text-align: right;
 }
 
+/* 웹 가격 */
+.price-web {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+
+  gap: 4px;
+}
+
 /* 일 */
-.popular-price span:first-child {
+.price-web span:first-child {
   font-size: 15.77px;
   font-weight: 400;
-  line-height: 1;
 }
 
 /* 숫자 */
-.popular-price strong {
+.price-web strong {
   font-size: 30px;
   font-weight: 700;
-  line-height: 1;
 }
 
 /* 만원 */
-.popular-price span:last-child {
+.price-web span:last-child {
   font-size: 16px;
   font-weight: 700;
-  line-height: 1;
+}
+
+/* 모바일 가격은 PC에서 숨김 */
+.price-mobile {
+  display: none;
 }
 
 /* =========================================
@@ -890,8 +899,8 @@
 }
 
 /* ==================================================
-   RENT MOBILE FINAL
-   FIGMA 기준 : 393px
+   RENT MOBILE
+   393px
 ================================================== */
 @media (max-width: 393px) {
 
@@ -906,44 +915,53 @@
     overflow-x: hidden;
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     font-family: "Pretendard", sans-serif;
   }
 
   .rent-page {
     width: 100%;
+    padding-top: 60px;
     overflow: hidden;
   }
 
-  /* 피그마 모바일 화면 기준 */
-  .header,
-  .mobile-menu,
-  .mobile-menu-dim,
   .quick-menu {
     display: none !important;
   }
 
   /* ==================================================
-     1. HERO
+     1. RENT VISUAL
   ================================================== */
   .rent-visual {
     position: relative;
-    width: 100%;
-    height: 160px;
+    width: 393px;
+    height: 150px;
+    margin: 0;
     overflow: hidden;
-    background:
-      url("../../img/Rent-img/렌트배너.png") center center / cover no-repeat;
   }
 
   .rent-video {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
   }
 
   .visual-dim {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.16);
+
+    background: rgba(0, 0, 0, 0.22);
   }
 
   .visual-text {
@@ -961,34 +979,30 @@
     transform: translate(-50%, -50%);
   }
 
-  /* LONG-TERM RENT
-     Pretendard Regular 14 */
+  /* LONG-TERM RENT */
   .visual-en {
     display: block;
-    margin: 0 0 6px;
+    margin: 0;
 
     color: #f59e0b;
 
     font-family: "Pretendard", sans-serif;
     font-size: 14px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.4;
   }
 
-  /* 렌트
-     Pretendard ExtraBold 20 */
+  /* 렌트 */
   .visual-title {
-    margin: 0 0 12px;
+    margin: 0 0 10px;
 
     color: #fff;
 
     font-size: 20px;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.4;
   }
 
-  /* 소유의 부담 없이...
-     Pretendard Regular 12 */
   .visual-text strong {
     display: block;
     margin: 0;
@@ -1000,29 +1014,29 @@
     line-height: 1.4;
   }
 
-  /* 긴 PC 설명은 모바일에서 숨김 */
+  /* 모바일에서는 긴 설명 X */
   .visual-text p {
     display: none;
   }
 
+  /* 검색 필터 모바일 숨김 */
   .rent-search {
     display: none;
   }
 
   /* ==================================================
-     CONTENT
-     HERO → 첫 제목 gap 100
-     좌우 margin 20
+     전체 콘텐츠
   ================================================== */
   .rent-inner {
     width: 100%;
     margin: 0;
-    padding: 100px 20px 0;
+    padding: 0 20px 200px;
   }
 
   /* ==================================================
      공통 섹션 제목
-     Pretendard Medium 20
+     Medium 20px
+     제목 → 내용 40px
   ================================================== */
   .section-title,
   .section-head h2,
@@ -1038,13 +1052,12 @@
 
   /* ==================================================
      더보기
-     Pretendard Medium 12
   ================================================== */
   .more-btn,
   .rent-review .review-more {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
 
     color: #64748b;
     text-decoration: none;
@@ -1059,26 +1072,26 @@
 
   .more-btn img,
   .rent-review .review-more img {
-    width: 12px;
-    height: 12px;
+    flex: none;
+
+    width: 19.2px;
+    height: 19.2px;
+
     display: block;
+
     object-fit: contain;
   }
 
   /* ==================================================
-     2. 상단 렌트 차량
+     2. 인기 렌트 차량
   ================================================== */
   .popular-rent {
     width: 100%;
-
-    /* 마지막 차량 → 다음 제목 gap 150 */
-    margin: 0 0 150px;
+    margin: 100px 0 150px;
   }
 
   .popular-rent .section-head {
     width: 100%;
-
-    /* 제목 → 첫 카드 */
     margin: 0 0 40px;
 
     display: flex;
@@ -1086,60 +1099,39 @@
     justify-content: space-between;
   }
 
-  /* 모바일 피그마 제목 */
-  .popular-rent .section-head h2 {
-    font-size: 0;
-  }
-
-  .popular-rent .section-head h2::after {
-    content: "렌트 후기";
-
-    font-family: "Pretendard", sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.4;
-  }
-
-  /* ==================================================
-     차량 리스트
-     카드 사이 gap 30
-  ================================================== */
   .popular-list {
     width: 100%;
 
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 
     gap: 30px;
   }
 
-  /* ==================================================
-     차량 카드
-  ================================================== */
   .popular-card {
-    width: 100%;
-    height: 120px;
-
     flex: none;
 
-    margin: 0;
-    padding: 0 16px;
+    width: 353px;
+    height: 115px;
 
-    display: grid;
-    grid-template-columns: 110px 1fr;
+    margin: 0;
+    padding: 0 20px;
+
+    display: flex;
     align-items: center;
 
-    column-gap: 15px;
+    gap: 15px;
 
     background: #fff;
 
-    box-shadow: 0 3px 5px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   .popular-img {
+    flex: none;
+
     width: 110px;
-    height: 80px;
+    height: 73px;
 
     margin: 0;
 
@@ -1147,8 +1139,8 @@
     align-items: center;
     justify-content: center;
 
+    overflow: hidden;
     background: transparent;
-    overflow: visible;
   }
 
   .popular-img img {
@@ -1161,23 +1153,11 @@
     object-position: center;
   }
 
-  /* 3번째 차량 쏘렌토 */
-  .popular-card:nth-child(3) .popular-img {
-    background:
-      url("../../img/cars-json-img/쏘렌토 흰색.png") center / contain no-repeat;
-  }
-
-  .popular-card:nth-child(3) .popular-img img {
-    display: none;
-  }
-
-  /* ==================================================
-     차량 정보
-     차량명 → 가격 gap 10
-  ================================================== */
   .popular-text {
-    width: 100%;
-    height: 100%;
+    flex: 1;
+
+    min-width: 0;
+    height: auto;
 
     display: flex;
     flex-direction: column;
@@ -1187,7 +1167,11 @@
     gap: 10px;
   }
 
-  /* Pretendard SemiBold 14 */
+  /* 모바일에서는 브랜드 / 연식 제거 */
+  .popular-meta {
+    display: none;
+  }
+
   .popular-text h3 {
     width: 100%;
     margin: 0;
@@ -1205,31 +1189,26 @@
     text-overflow: ellipsis;
   }
 
-  .popular-meta {
+  /* 웹 가격 숨김 */
+  .price-web {
     display: none;
   }
 
-  /* 가격 */
-  .popular-price {
-    width: 100%;
-
-    margin: 0;
-
+  /* 모바일 가격 */
+  .price-mobile {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: flex-end;
 
-    color: #4f46e5;
+    gap: 2px;
   }
 
-  .popular-price>* {
-    display: none;
-  }
-
-  .popular-price::after {
-    content: "월 120,000원";
-
-    color: #4f46e5;
+  /* 일 / 숫자 / 원 전부 동일 */
+  .popular-price .price-mobile span,
+  .popular-price .price-mobile strong,
+  .popular-price .price-mobile span:first-child,
+  .popular-price .price-mobile span:last-child {
+    color: #3730A3;
 
     font-size: 14px;
     font-weight: 600;
@@ -1241,12 +1220,9 @@
   ================================================== */
   .rent-reason {
     width: 100%;
-
-    /* 마지막 설명 → 렌트 절차 gap 150 */
     margin: 0 0 150px;
   }
 
-  /* 제목 → 첫 이미지 gap 40 */
   .rent-reason .section-title {
     margin: 0 0 40px;
 
@@ -1259,35 +1235,39 @@
 
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 
-    /* 이전 카드 설명 → 다음 이미지 */
     gap: 35px;
   }
 
   .reason-card {
-    width: 100%;
-    height: auto;
-
     flex: none;
+
+    width: 353px;
+    height: 186px;
 
     margin: 0;
     padding: 0;
 
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
     overflow: visible;
 
     background: transparent;
+
     border-radius: 0;
     box-shadow: none;
   }
 
-  /* 353 × 120 */
   .reason-card>img {
-    width: 100%;
+    flex: none;
+
+    width: 353px;
     height: 120px;
 
-    /* 이미지 → 제목 gap 20 */
-    margin: 0 0 20px;
+    margin: 0;
 
     display: block;
 
@@ -1304,14 +1284,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 
-    /* 제목 → 설명 gap 10 */
     gap: 10px;
 
     text-align: center;
   }
 
-  /* Pretendard SemiBold 16 */
   .reason-card h3 {
     margin: 0;
 
@@ -1319,10 +1298,9 @@
 
     font-size: 16px;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1;
   }
 
-  /* Pretendard Regular 14 */
   .reason-card p {
     margin: 0;
 
@@ -1330,7 +1308,7 @@
 
     font-size: 14px;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1;
   }
 
   /* ==================================================
@@ -1338,12 +1316,9 @@
   ================================================== */
   .rent-process {
     width: 100%;
-
-    /* 마지막 절차 카드 → 후기 제목 150 */
     margin: 0 0 150px;
   }
 
-  /* 제목 → 첫 카드 gap 40 */
   .rent-process .section-title {
     margin: 0 0 40px;
 
@@ -1352,65 +1327,58 @@
   }
 
   .process-list {
-    position: relative;
-
-    width: 100%;
-
+    width: 353px;
     margin: 0;
     padding: 0;
 
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 
-    /* 카드 사이 20 */
-    gap: 20px;
+    gap: 28px;
 
     counter-reset: rentStep;
   }
 
+  /* PC 화살표 제거 */
   .process-arrow {
     display: none;
   }
 
-  /* ==================================================
-     절차 카드
-     번호 24 + gap 28 + 카드 301 = 353
-  ================================================== */
+  /* 300 × 90 */
   .process-card {
     position: relative;
 
-    width: calc(100% - 52px);
-    height: 80px;
-
     flex: none;
 
+    width: 300px;
+    height: 90px;
+
     margin: 0 0 0 52px;
-    padding: 12px 18px;
+    padding: 0 20px;
 
     display: grid;
-    grid-template-columns: 48px 1fr;
+
+    grid-template-columns: 50px 1fr;
     grid-template-rows: auto auto;
+
     align-items: center;
 
-    /* 아이콘 → 텍스트 gap 40 */
     column-gap: 40px;
-
-    /* 제목 → 설명 gap 5 */
     row-gap: 5px;
 
     background: #fff;
 
     border-radius: 0;
 
-    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 4px 20px #e2e8f0;
 
     text-align: left;
 
     counter-increment: rentStep;
   }
 
-  /* 번호 */
+  /* 왼쪽 숫자 원
+  */
   .process-card::before {
     content: counter(rentStep);
 
@@ -1428,25 +1396,24 @@
 
     border-radius: 50%;
 
-    background: #0f172a;
+    background: #1e293b;
 
     color: #fff;
 
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
 
     transform: translateY(-50%);
   }
 
-  /* 번호 오른쪽 → 카드 gap 정확히 28 */
-  /* -52 + 24 = -28 */
-
+  /* 50 × 50 */
   .process-icon {
     grid-column: 1;
     grid-row: 1 / 3;
 
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
 
     margin: 0;
 
@@ -1454,21 +1421,20 @@
     align-items: center;
     justify-content: center;
 
-    background: #eef2ff;
+    background: transparent;
 
-    border-radius: 50%;
+    border-radius: 0;
   }
 
   .process-icon img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 
     display: block;
 
     object-fit: contain;
   }
 
-  /* Pretendard Medium 16 */
   .process-card h3 {
     grid-column: 2;
     grid-row: 1;
@@ -1484,7 +1450,6 @@
     line-height: 1.3;
   }
 
-  /* Pretendard Regular 12 */
   .process-card p {
     grid-column: 2;
     grid-row: 2;
@@ -1493,27 +1458,24 @@
 
     margin: 0;
 
-    color: #94a3b8;
+    color: #64748b;
 
     font-size: 12px;
     font-weight: 400;
-    line-height: 1.35;
+    line-height: 1.3;
   }
 
   /* ==================================================
      5. 렌트 후기
+     마지막 섹션 → footer 200px
   ================================================== */
   .rent-review {
     width: 100%;
-
-    /* 후기 내용 → footer 200 */
-    margin: 0 0 200px;
+    margin: 0;
   }
 
-  /* 제목 → 후기 카드 gap 40 */
   .rent-review .review-head {
     width: 100%;
-
     margin: 0 0 40px;
 
     display: flex;
@@ -1530,23 +1492,25 @@
   }
 
   /* ==================================================
-     후기 가로 슬라이드
-     카드 gap 20
+     후기 가로 스크롤
+     보이는 영역 353px
   ================================================== */
   .rent-review .review-list {
-    width: calc(100% + 20px);
+    width: 353px;
+
+    margin: 0;
+    padding: 0;
 
     display: flex;
     align-items: flex-start;
 
     gap: 20px;
 
-    padding-right: 20px;
-
     overflow-x: auto;
     overflow-y: hidden;
 
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -1556,11 +1520,12 @@
     display: none;
   }
 
+  /* 224 × 300 */
   .rent-review .review-card {
-    width: 225px;
-    height: auto;
+    flex: 0 0 224px;
 
-    flex: 0 0 225px;
+    width: 224px;
+    height: 300px;
 
     margin: 0;
     padding: 0;
@@ -1568,15 +1533,12 @@
     scroll-snap-align: start;
   }
 
-  /* ==================================================
-     후기 이미지
-  ================================================== */
+  /* 224 × 157 */
   .rent-review .review-car-img {
-    width: 225px;
-    height: 150px;
+    width: 224px;
+    height: 157px;
 
-    /* 이미지 → 날짜 gap 29 */
-    margin: 0 0 29px;
+    margin: 0 0 15px;
 
     display: block;
 
@@ -1584,34 +1546,34 @@
     object-position: center;
   }
 
-  /* ==================================================
-     날짜 / ID
-     Pretendard Medium 12
-  ================================================== */
+  /* 날짜 / ID */
   .rent-review .review-meta {
     width: 100%;
 
-    /* 날짜 → 차량명 gap 15 */
     margin: 0 0 15px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    line-height: 1;
   }
 
-  .rent-review .review-meta span {
+  .rent-review .review-meta span:first-child {
     color: #64748b;
 
     font-size: 12px;
     font-weight: 500;
-    line-height: 1;
   }
 
-  /* ==================================================
-     차량명
-     Pretendard Medium 15
-     차량명 → 별 gap 6
-  ================================================== */
+  .rent-review .review-meta span:last-child {
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  /* 차량명 */
   .rent-review .review-card h3 {
     width: 100%;
 
@@ -1621,19 +1583,16 @@
 
     font-size: 15px;
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.3;
 
-    text-align: center;
+    text-align: right;
 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  /* ==================================================
-     별점
-     별 → 후기 내용 gap 15
-  ================================================== */
+  /* 별점 */
   .rent-review .review-score {
     width: 100%;
 
@@ -1652,11 +1611,12 @@
     gap: 3px;
   }
 
+  /* 별 15 × 15 */
   .rent-review .review-stars>img {
-    width: 13px;
-    height: 13px;
-
     flex: none;
+
+    width: 15px;
+    height: 15px;
 
     object-fit: contain;
   }
@@ -1664,57 +1624,64 @@
   .rent-review .partial-star {
     position: relative;
 
-    width: 13px;
-    height: 13px;
-
     flex: none;
+
+    width: 15px;
+    height: 15px;
+
+    display: block;
 
     overflow: hidden;
   }
 
   .rent-review .partial-star .star-empty {
     position: absolute;
-
     top: 0;
     left: 0;
 
-    width: 13px;
-    height: 13px;
+    width: 15px;
+    height: 15px;
+
+    object-fit: contain;
 
     filter: grayscale(1);
     opacity: 0.25;
   }
 
+  /* 4.8점 → 마지막 별 80% */
   .rent-review .partial-star .star-fill {
     position: absolute;
-
     top: 0;
     left: 0;
 
-    width: 80%;
-    height: 13px;
+    width: 60%;
+    height: 15px;
 
+    display: block;
     overflow: hidden;
   }
 
   .rent-review .partial-star .star-fill img {
-    width: 13px;
-    height: 13px;
+    width: 15px;
+    height: 15px;
 
     max-width: none;
+
+    display: block;
+    object-fit: contain;
   }
 
   .rent-review .review-rating {
+    flex: none;
+
     color: #94a3b8;
 
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 400;
+    line-height: 1;
   }
 
-  /* ==================================================
-     후기 내용
-     Pretendard Medium 13
-  ================================================== */
+  /* 후기 내용 */
   .rent-review .review-text {
     width: 100%;
 
@@ -1724,171 +1691,8 @@
 
     font-size: 13px;
     font-weight: 500;
-    line-height: 1.45;
+    line-height: 1.4;
 
     text-align: center;
-  }
-
-  /* ==================================================
-     6. FOOTER
-  ================================================== */
-  .footer {
-    width: 100%;
-    height: auto;
-
-    margin: 0;
-
-    background: #f7f7f7;
-  }
-
-  .footer-inner {
-    width: 100%;
-
-    margin: 0;
-    padding: 40px 20px 35px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    gap: 24px;
-  }
-
-  .footer-left {
-    width: 100%;
-  }
-
-  .footer-logo {
-    margin: 0 0 20px;
-    padding: 0;
-  }
-
-  .footer-logo a {
-    display: block;
-
-    width: 50px;
-  }
-
-  .footer-logo img {
-    width: 50px;
-    height: auto;
-
-    display: block;
-
-    object-fit: contain;
-  }
-
-  .footer-menu {
-    margin: 0 0 16px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 15px;
-  }
-
-  .footer-menu a,
-  .footer-menu a.menu-privacy {
-    font-size: 10px;
-  }
-
-  .footer-desc {
-    width: 100%;
-    max-width: none;
-
-    margin: 0 0 16px;
-
-    color: #94a3b8;
-
-    font-size: 9px;
-    font-weight: 400;
-    line-height: 1.7;
-
-    word-break: keep-all;
-  }
-
-  .footer-info {
-    margin: 0 0 6px;
-
-    color: #94a3b8;
-
-    font-size: 9px;
-    line-height: 1.7;
-  }
-
-  .copyright {
-    margin: 0;
-
-    color: #94a3b8;
-
-    font-size: 9px;
-  }
-
-  .footer-right {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-customer {
-    width: 100%;
-    margin: 0;
-  }
-
-  .customer-title {
-    margin: 0 0 8px;
-  }
-
-  .customer-title span {
-    margin-right: 18px;
-
-    color: #1e293b;
-
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  .customer-title strong {
-    color: #1e293b;
-
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  .footer-customer p {
-    margin: 5px 0 0;
-
-    color: #94a3b8;
-
-    font-size: 10px;
-  }
-
-  .footer-sns {
-    margin: 20px 0 0;
-
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-  }
-
-  .footer-sns a {
-    width: 20px;
-    height: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer-sns img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: contain;
   }
 }
