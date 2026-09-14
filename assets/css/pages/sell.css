@@ -52,71 +52,71 @@ img {
 
 
 /* ==================================================
-   1. 메인 영역
+   1. 메인 비주얼
 ================================================== */
-
 .sell-hero {
+  position: relative;
   width: 1440px;
   height: 500px;
   margin: 80px auto 45px;
-  display: flex;
-  align-items: center;
+  overflow: hidden;
 }
 
-/* ==================================================
-   메인 왼쪽 텍스트
-================================================== */
-
-.sell-hero-text {
-  width: 700px;
+/* 배경 이미지 */
+.sell-hero-car {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
 }
 
-/* 제목
-*/
+.sell-hero-car img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 이미지 위 어두운 그라데이션 */
+.sell-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg,
+      rgba(5, 12, 22, 0.78) 0%,
+      rgba(5, 12, 22, 0.58) 30%,
+      rgba(5, 12, 22, 0.18) 58%,
+      rgba(5, 12, 22, 0) 78%);
+  pointer-events: none;
+}
+
+/* 텍스트 */
+.sell-hero-text {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  z-index: 2;
+  width: 520px;
+  height: auto;
+  transform: translateY(-50%);
+  color: #fff;
+}
 
 .sell-hero-text h2 {
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   font-size: 42px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
-/* 설명
-*/
-
 .sell-hero-text p {
-  margin: 0;
+  margin: 0 0 32px;
+  color: rgba(255, 255, 255, 0.88);
   font-size: 20px;
   font-weight: 400;
   line-height: 1.6;
 }
-
-/* ==================================================
-   메인 차량 이미지
-================================================== */
-
-.sell-hero-car {
-  width: 740px;
-  height: 500px;
-  margin-left: auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.sell-hero-car img {
-  width: 740px;
-  height: 500px;
-  object-position: right center;
-}
-
 
 /* ==================================================
    2. 판매 지표
@@ -506,11 +506,8 @@ img {
 /* 실제 판매후기 제목 */
 .review-head h2 {
   margin: 0;
-
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1.4;
-
+  font-size: 20px;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -522,7 +519,7 @@ img {
 
   color: #64748b;
 
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
 }
 
@@ -754,658 +751,520 @@ img {
      1. 메인 비주얼
   ================================================== */
   .sell-hero {
-    width: calc(100% - 58px);
-    height: auto;
-
+    position: relative;
+    width: 353px;
+    height: 106px;
     margin: 40px auto 30px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .sell-hero-text {
-    width: 100%;
-    height: auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-
-    text-align: left;
-  }
-
-  .sell-hero-text h2 {
-    margin: 0 0 15px;
-
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-
-  .sell-hero-text p {
-    margin: 0;
-
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.6;
-
-    color: #475569;
+    overflow: hidden;
   }
 
   .sell-hero-car {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
-
-    margin: 25px 0 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
+    margin: 0;
   }
 
   .sell-hero-car img {
     width: 100%;
-    height: auto;
-
+    height: 100%;
     object-fit: cover;
-    object-position: center;
+
+    /* 핵심 */
+    object-position: 72% center;
   }
 
+  .sell-hero-text {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 12px;
+    width: 175px;
+    transform: translateY(-50%);
+    color: #fff;
+  }
 
-  /* ==================================================
+  .sell-hero-text h2 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .sell-hero-text p {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, .9);
+  }
+}
+
+/* ==================================================
      2. 판매 지표
      피그마 : 4개 한 줄
   ================================================== */
-  .sell-stats {
-    width: calc(100% - 58px);
-    height: 95px;
+.sell-stats {
+  width: 353px;
+  height: 100px;
+  margin: 0 auto;
 
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 
-    display: flex;
-    align-items: center;
+  background: #1e293b;
+}
 
-    background: #1e293b;
-  }
+.stat-item {
+  flex: 1;
+  width: 79px;
+  height: 71px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #fff;
+  text-align: center;
+}
 
-  .stat-item {
-    width: 25%;
-    height: 95px;
+.stat-item img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+  object-fit: contain;
+}
 
-    flex-shrink: 0;
+.stat-item p {
+  margin: 0 0 5px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-
-    color: #fff;
-    text-align: center;
-  }
-
-  .stat-item:last-child {
-    border: none;
-  }
-
-  .stat-item img {
-    width: 28px;
-    height: 28px;
-
-    margin: 0 0 7px;
-
-    object-fit: contain;
-  }
-
-  .stat-item p {
-    margin: 0 0 7px;
-
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 1;
-
-    white-space: nowrap;
-  }
-
-  .stat-item strong {
-    margin: 0;
-
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1;
-
-    white-space: nowrap;
-  }
+.stat-item strong {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
 
 
-  /* ==================================================
+/* ==================================================
      3. 견적내기
   ================================================== */
-  .sell-estimate {
-    width: 100%;
+.sell-estimate {
+  width: 100%;
 
-    margin: 120px 0;
+  margin: 120px 0;
 
-    padding: 0 29px;
-  }
+  padding: 0 29px;
+}
 
-  .estimate-inner {
-    width: 100%;
+.estimate-inner {
+  width: 100%;
 
-    margin: 0 auto;
+  margin: 0 auto;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    gap: 20px;
+  gap: 20px;
 
-    text-align: center;
-  }
+  text-align: center;
+}
 
-  .estimate-inner h2 {
-    margin: 0;
+.estimate-inner h2 {
+  margin: 0;
 
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.4;
-  }
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+}
 
-  .estimate-inner>p {
-    width: 100%;
-
-    margin: 0;
-
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.6;
-
-    white-space: normal;
-
-    color: #475569;
-  }
+.estimate-inner>p {
+  width: 100%;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+}
 
 
-  /* ==================================================
+/* ==================================================
      차량번호 입력창
   ================================================== */
-  .car-number-box {
-    position: relative;
+.car-number-box {
+  position: relative;
+  width: 223px;
+  height: 43px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #94a3b8;
+  border-radius: 30px;
+  background: #fff;
+}
 
-    width: 100%;
-    height: 58px;
+.number-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
-    padding: 8px 20px;
+.number-input img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.car-number-box input {
+  width: 76px;
+  height: 28px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
 
-    border: 2px solid #94a3b8;
-    border-radius: 30px;
+  color: #94a3b8;
+  padding: 0;
+}
 
-    background: #fff;
-  }
+.car-number-box input::placeholder {
+  color: #94A3B8;
+  opacity: 1;
+}
 
-  .number-input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.number-circle {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+}
 
-    gap: 10px;
-  }
+.left-circle {
+  left: 20px;
+}
 
-  .search-icon {
-    position: relative;
+.right-circle {
+  right: 20px;
+}
 
-    width: 34px;
-    height: 34px;
-
-    flex-shrink: 0;
-  }
-
-  .search-icon::before {
-    content: "";
-
-    position: absolute;
-
-    top: 4px;
-    left: 4px;
-
-    width: 19px;
-    height: 19px;
-
-    border: 3px solid #94a3b8;
-    border-radius: 50%;
-  }
-
-  .search-icon::after {
-    content: "";
-
-    position: absolute;
-
-    right: 3px;
-    bottom: 5px;
-
-    width: 13px;
-    height: 3px;
-
-    border-radius: 3px;
-
-    background: #94a3b8;
-
-    transform: rotate(45deg);
-  }
-
-  .car-number-box input {
-    width: 145px;
-    height: 40px;
-
-    border: none;
-    outline: none;
-
-    background: transparent;
-
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 1;
-
-    color: #94a3b8;
-  }
-
-  .car-number-box input::placeholder {
-    color: #94a3b8;
-    opacity: 1;
-  }
-
-  .number-circle {
-    position: absolute;
-
-    top: 50%;
-
-    width: 22px;
-    height: 22px;
-
-    border-radius: 50%;
-
-    background: #fff;
-
-    transform: translateY(-50%);
-
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  .left-circle {
-    left: 20px;
-  }
-
-  .right-circle {
-    right: 20px;
-  }
-
-
-  /* ==================================================
+/* ==================================================
      견적 버튼
   ================================================== */
-  .estimate-btn {
-    width: 100%;
-    height: 50px;
-
-    border: none;
-    border-radius: 10px;
-
-    background: #f5f5f4;
-    color: #111;
-
-    font-size: 18px;
-    font-weight: 400;
-
-    cursor: pointer;
-  }
+.estimate-btn {
+  width: 243px;
+  height: 26px;
+  border: none;
+  border-radius: 10px;
+  background: #f5f5f4;
+  color: #111;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+}
 
 
-  /* ==================================================
+/* ==================================================
      4. 왜 베로카에서 팔아야 할까요?
      피그마 : 위 3개 / 아래 2개
   ================================================== */
-  .sell-reason {
-    width: 100%;
+.sell-reason {
+  width: 100%;
+  margin: 0 auto 120px;
+  padding: 0 29px;
+}
 
-    margin: 0 auto 120px;
+.sell-reason>h2 {
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
 
-    padding: 0 29px;
-  }
+.reason-list {
+  width: 100%;
+  height: auto;
+  display: grid;
 
-  .sell-reason>h2 {
-    margin: 0 0 45px;
+  /* 6칸으로 나눠 3개/2개 정렬 */
+  grid-template-columns: repeat(6, 1fr);
 
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.4;
+  column-gap: 0;
+  row-gap: 42px;
+  align-items: start;
+}
 
-    text-align: center;
-  }
+/* 위쪽 3개 */
+.reason-item:nth-child(1) {
+  grid-column: 1 / 3;
+}
 
-  .reason-list {
-    width: 100%;
-    height: auto;
+.reason-item:nth-child(2) {
+  grid-column: 3 / 5;
+}
 
-    display: grid;
+.reason-item:nth-child(3) {
+  grid-column: 5 / 7;
+}
 
-    /* 6칸으로 나눠 3개/2개 정렬 */
-    grid-template-columns: repeat(6, 1fr);
+/* 아래쪽 2개 */
+.reason-item:nth-child(4) {
+  grid-column: 2 / 4;
+}
 
-    column-gap: 0;
-    row-gap: 42px;
+.reason-item:nth-child(5) {
+  grid-column: 4 / 6;
+}
 
-    align-items: start;
-  }
+.reason-item {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-  /* 위쪽 3개 */
-  .reason-item:nth-child(1) {
-    grid-column: 1 / 3;
-  }
+.reason-item img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 5px;
+  object-fit: contain;
+}
 
-  .reason-item:nth-child(2) {
-    grid-column: 3 / 5;
-  }
+.reason-item strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
 
-  .reason-item:nth-child(3) {
-    grid-column: 5 / 7;
-  }
-
-  /* 아래쪽 2개 */
-  .reason-item:nth-child(4) {
-    grid-column: 2 / 4;
-  }
-
-  .reason-item:nth-child(5) {
-    grid-column: 4 / 6;
-  }
-
-  .reason-item {
-    width: 100%;
-    height: auto;
-
-    padding: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    text-align: center;
-  }
-
-  .reason-item img {
-    width: 70px;
-    height: 70px;
-
-    margin: 0 0 10px;
-
-    object-fit: contain;
-  }
-
-  .reason-item strong {
-    display: block;
-
-    margin: 0 0 8px;
-
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.2;
-
-    white-space: nowrap;
-  }
-
-  .reason-item p {
-    margin: 0;
-
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 1.4;
-
-    color: #111;
-
-    white-space: nowrap;
-  }
+.reason-item p {
+  font-size: 12px;
+  font-weight: 400;
+}
 
 
-  /* ==================================================
+/* ==================================================
      5. 실제 판매후기
   ================================================== */
-  .sell-review {
-    width: 100%;
+.sell-review {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 29px 120px;
+}
 
-    margin: 0 auto;
+.review-head {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    padding: 0 29px 120px;
-  }
+.review-head h2 {
+  position: static;
+  margin: 0;
+  transform: none;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
 
-  .review-head {
-    position: relative;
+.review-more {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+}
 
-    width: 100%;
-    height: auto;
-
-    margin: 0 0 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .review-head h2 {
-    position: static;
-
-    margin: 0;
-
-    transform: none;
-
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.4;
-
-    white-space: nowrap;
-  }
-
-  .review-more {
-    position: static;
-
-    display: flex;
-    align-items: center;
-
-    gap: 5px;
-
-    font-size: 12px;
-    font-weight: 400;
-
-    color: #64748b;
-  }
-
-  .review-more img {
-    width: 14px;
-    height: 14px;
-
-    object-fit: contain;
-  }
+.review-more img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
 
 
-  /* ==================================================
+/* ==================================================
      후기 리스트
   ================================================== */
-  .review-list {
-    width: calc(100% + 29px);
+.review-list {
+  width: calc(100% + 29px);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-right: 29px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 
-    display: flex;
-    align-items: flex-start;
+.review-list::-webkit-scrollbar {
+  display: none;
+}
 
-    gap: 20px;
+/* ==================================================
+   후기 카드
+================================================== */
+.review-card {
+  width: 224px;
+  height: 281px;
+  flex: 0 0 224px;
+  margin: 0;
+  padding: 0;
+  scroll-snap-align: start;
+}
 
-    overflow-x: auto;
-    overflow-y: hidden;
+/* 차량 이미지 */
+.review-car-img {
+  width: 224px;
+  height: 157px;
+  margin-bottom: 9px;
+  object-fit: cover;
+}
 
-    padding-right: 29px;
+/* 날짜 / 아이디 */
+.review-meta {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    scroll-snap-type: x mandatory;
+.review-meta span:first-child {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
 
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
+.review-meta span:last-child {
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+}
 
-  .review-list::-webkit-scrollbar {
-    display: none;
-  }
+/* 차량명 */
+.review-card h3 {
+  width: 100%;
+  height: 18px;
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+/* ==================================================
+   별점
+================================================== */
+.review-score {
+  width: 100%;
+  margin: 0 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-  /* ==================================================
-     후기 카드
-  ================================================== */
-  .review-card {
-    width: 280px;
-    height: auto;
+  gap: 7px;
+}
 
-    flex: 0 0 280px;
+.review-stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
 
-    margin: 0;
-    padding: 0;
+.review-stars>img {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+}
 
-    scroll-snap-align: start;
-  }
+.partial-star {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  display: block;
+  overflow: hidden;
+  flex-shrink: 0;
+}
 
-  .review-car-img {
-    width: 280px;
-    height: 187px;
+.partial-star .star-empty {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.25;
+}
 
-    margin-bottom: 10px;
+.partial-star .star-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 15px;
+  overflow: hidden;
+}
 
-    object-fit: cover;
-  }
+.partial-star .star-fill img {
+  width: 15px;
+  height: 15px;
+  max-width: none;
+  object-fit: contain;
+}
 
-  .review-meta {
-    width: 100%;
+.review-rating {
+  font-size: 11px;
+  font-weight: 400;
+  color: #94a3b8;
+}
 
-    margin-bottom: 10px;
+/* 후기 내용 */
+.review-text {
+  width: 100%;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  color: #0f172a;
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .review-meta span:first-child {
-    font-size: 11px;
-    font-weight: 500;
-
-    color: #64748b;
-  }
-
-  .review-meta span:last-child {
-    font-size: 11px;
-    font-weight: 400;
-
-    color: #64748b;
-  }
-
-  .review-card h3 {
-    width: 100%;
-
-    margin: 0 0 12px;
-
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.4;
-
-    text-align: center;
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-
-  /* ==================================================
-     후기 별점
-  ================================================== */
-  .review-score {
-    margin: 0 0 15px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 7px;
-  }
-
-  .review-score>img {
-    width: auto;
-    height: 16px;
-
-    object-fit: contain;
-  }
-
-  .review-stars {
-    display: flex;
-    align-items: center;
-
-    gap: 3px;
-  }
-
-  .review-stars>img {
-    width: 16px;
-    height: 16px;
-
-    object-fit: contain;
-  }
-
-  .partial-star {
-    position: relative;
-
-    width: 16px;
-    height: 16px;
-
-    display: block;
-
-    overflow: hidden;
-  }
-
-  .partial-star .star-empty {
-    width: 16px;
-    height: 16px;
-  }
-
-  .partial-star .star-fill {
-    height: 16px;
-  }
-
-  .partial-star .star-fill img {
-    width: 16px;
-    height: 16px;
-  }
-
-  .review-rating,
-  .review-score span {
-    font-size: 11px;
-  }
-
-  .review-text {
-    margin: 0;
-
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.5;
-
-    text-align: center;
-
-    color: #0f172a;
-  }
-
-
-  /* ==================================================
+/* ==================================================
      QUICK MENU
      모바일에서는 숨김
   ================================================== */
-  .quick-menu {
-    display: none;
-  }
+.quick-menu {
+  display: none;
 }
