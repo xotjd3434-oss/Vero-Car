@@ -352,6 +352,7 @@ body {
     border: 1px solid #cbd5e1;
     color: #0F172A;
     z-index: 3;
+    box-sizing: border-box;
 }
 
 .quick-recent img {
@@ -472,11 +473,17 @@ body {
     width: 98px;
     height: 36px;
     padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background: #fff;
     border: 1px solid #0F172A;
     color: #0F172A;
     font-family: inherit;
     font-size: 10px;
+    text-align: center;
     cursor: pointer;
     transition:
         background 0.2s ease,
