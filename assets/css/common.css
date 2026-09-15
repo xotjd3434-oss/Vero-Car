@@ -412,10 +412,12 @@ body {
 
 /* 차량 카드 */
 .recent-car-card {
+    display: block;
     width: 118px;
     padding-bottom: 6px;
     background: #fff;
     border: 1px solid #0F172A;
+    box-sizing: border-box;
 }
 
 .recent-car-card img {
@@ -466,7 +468,7 @@ body {
     gap: 10px;
 }
 
-.recent-buttons button {
+.recent-buttons a {
     width: 98px;
     height: 36px;
     padding: 0;
@@ -481,7 +483,7 @@ body {
         color 0.2s ease;
 }
 
-.recent-buttons button:hover {
+.recent-buttons a:hover {
     background: #0F172A;
     color: #fff;
 }
