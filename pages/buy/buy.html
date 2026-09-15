@@ -15,9 +15,8 @@
 <body>
     <header class="header">
         <div class="header-inner">
-
             <h1 class="logo">
-                <a href="#">
+                <a href="../main/main.html">
                     <img src="../../assets/img/header-img/logo.png" alt="VERO CAR">
                 </a>
             </h1>
@@ -25,39 +24,56 @@
             <nav class="gnb">
                 <ul class="gnb-list">
                     <li class="gnb-item">
-                        <a href="#" class="gnb-link">내차사기</a>
+                        <a href="../buy/buy.html" class="gnb-link">내차사기</a>
                     </li>
 
                     <li class="gnb-item">
-                        <a href="#" class="gnb-link">내차팔기</a>
+                        <a href="../sell/sell.html" class="gnb-link">내차팔기</a>
                     </li>
 
                     <li class="gnb-item">
-                        <a href="#" class="gnb-link">렌트</a>
+                        <a href="../rent/rent.html" class="gnb-link">렌트</a>
                     </li>
 
                     <li class="gnb-item">
-                        <a href="#" class="gnb-link">리스</a>
+                        <a href="../lease/lease.html" class="gnb-link">리스</a>
                     </li>
 
                     <li class="gnb-item">
-                        <a href="#" class="gnb-link">이벤트</a>
+                        <a href="../event/event.html" class="gnb-link">이벤트</a>
                     </li>
                 </ul>
             </nav>
 
             <div class="header-util">
-                <a href="#" class="util-link" aria-label="마이페이지">
+                <a href="../mypage/mypage.html" class="util-link" aria-label="마이페이지">
                     <img src="../../assets/img/header-img/User.png" alt="">
                 </a>
 
-                <a href="#" class="util-link" aria-label="관심차량">
+                <a href="../wishlist/wishlist.html" class="util-link" aria-label="관심차량">
                     <img src="../../assets/img/header-img/Heart.png" alt="">
                 </a>
             </div>
 
+            <button class="mobile-menu-btn" type="button" aria-label="메뉴 열기">
+                <img src="../../assets/img/header-img/List-m.png" alt="">
+            </button>
         </div>
+
+        <nav class="mobile-menu">
+            <ul class="mobile-menu-list">
+                <li><a href="../buy/buy.html">내차사기</a></li>
+                <li><a href="../sell/sell.html">내차팔기</a></li>
+                <li><a href="../rent/rent.html">렌트</a></li>
+                <li><a href="../lease/lease.html">리스</a></li>
+                <li><a href="../event/event.html">이벤트</a></li>
+                <li><a href="../mypage/mypage.html">마이페이지</a></li>
+                <li><a href="../wishlist/wishlist.html">관심목록</a></li>
+            </ul>
+        </nav>
     </header>
+    <div class="mobile-menu-dim"></div>
+
     <aside class="quick-menu">
 
         <div class="recent-wrap">
@@ -94,18 +110,23 @@
 
                 <!-- 왼쪽 아래 버튼 -->
                 <div class="recent-buttons">
-                    <button type="button">AI차량추천</button>
-                    <button type="button">비교하기</button>
+                    <a href="../AI analysis/AI analysis.html" class="quick-ai-btn">
+                        AI차량추천
+                    </a>
+
+                    <a href="../wishlist/wishlist.html?tab=compare" class="quick-compare-btn">
+                        비교하기
+                    </a>
                 </div>
 
             </div>
 
 
             <!-- 최근 본 차량 버튼 -->
-            <button type="button" class="quick-recent">
+            <a href="../wishlist/wishlist.html?tab=recent" class="quick-recent">
                 <img src="../../assets/img/quick-menu-img/최근본차량아이콘.png" alt="">
                 <span>최근 본 차량</span>
-            </button>
+            </a>
 
         </div>
 
@@ -146,20 +167,6 @@
 
         </section>
 
-        <div class="mobile-buy-content">
-            <section class="mobile-section">
-                <h2>베로카 PICK</h2>
-                <div class="mobile-car-grid" id="mobilePickGrid"></div>
-            </section>
-            <section class="mobile-section mobile-kia-section">
-                <h2>KIA 인기 차종</h2>
-                <div class="mobile-car-grid" id="mobileKiaGrid"></div>
-            </section>
-            <section class="mobile-section mobile-popular-section">
-                <h2>베로카 인기 구매 차량</h2>
-                <div id="mobilePopularGrid"></div>
-            </section>
-        </div>
 
         <!-- =========================
              필터 + 차량목록
@@ -552,12 +559,13 @@
         </div>
 
     </main>
+
     <footer class="footer">
         <div class="footer-inner">
 
             <div class="footer-left">
                 <h2 class="footer-logo">
-                    <a href="#"><img src="../../assets/img/footer-img/베로카로고.png" alt=""></a>
+                    <a href="../main/main.html"><img src="../../assets/img/footer-img/베로카로고.png" alt=""></a>
                 </h2>
 
                 <ul class="footer-menu">
