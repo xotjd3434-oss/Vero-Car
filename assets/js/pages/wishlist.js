@@ -47,11 +47,6 @@ savedArea.style.display = "block";
 recentArea.style.display = "block";
 compareArea.style.display = "none";
 
-
-// =====================================================
-// 4. 상단 메뉴 버튼
-// =====================================================
-
 // =====================================================
 // 4. 상단 메뉴 버튼
 // =====================================================
@@ -1487,4 +1482,14 @@ function createCompareOptions(car) {
         })
         .join("");
 
+}
+
+// =====================================================
+// 퀵메뉴 누르면 이동
+// =====================================================
+const params = new URLSearchParams(window.location.search);
+const tab = params.get('tab');
+
+if (tab) {
+    document.querySelector(`.wishlistbtn[data-target="${tab}"]`)?.click();
 }
