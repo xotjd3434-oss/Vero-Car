@@ -1,119 +1,181 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>VERO CAR - 내차사기</title>
 
     <link rel="stylesheet" href="../../assets/css/reset.css">
+
     <link rel="stylesheet" href="../../assets/css/fonts.css">
+
     <link rel="stylesheet" href="../../assets/css/common.css">
-    <link rel="stylesheet" href="../../assets/css/pages/buy.css">
+
+    <link rel="stylesheet" href="../../assets/css/pages/buy.css?v=20260915-2">
+
 </head>
 
 <body>
+
     <header class="header">
+
         <div class="header-inner">
 
             <h1 class="logo">
+
                 <a href="#">
+
                     <img src="../../assets/img/header-img/logo.png" alt="VERO CAR">
+
                 </a>
+
             </h1>
 
             <nav class="gnb">
+
                 <ul class="gnb-list">
+
                     <li class="gnb-item">
+
                         <a href="#" class="gnb-link">내차사기</a>
+
                     </li>
 
                     <li class="gnb-item">
+
                         <a href="#" class="gnb-link">내차팔기</a>
+
                     </li>
 
                     <li class="gnb-item">
+
                         <a href="#" class="gnb-link">렌트</a>
+
                     </li>
 
                     <li class="gnb-item">
+
                         <a href="#" class="gnb-link">리스</a>
+
                     </li>
 
                     <li class="gnb-item">
+
                         <a href="#" class="gnb-link">이벤트</a>
+
                     </li>
+
                 </ul>
+
             </nav>
 
             <div class="header-util">
+
                 <a href="#" class="util-link" aria-label="마이페이지">
+
                     <img src="../../assets/img/header-img/User.png" alt="">
+
                 </a>
 
                 <a href="#" class="util-link" aria-label="관심차량">
+
                     <img src="../../assets/img/header-img/Heart.png" alt="">
+
                 </a>
+
             </div>
 
         </div>
+
     </header>
+
     <aside class="quick-menu">
 
         <div class="recent-wrap">
 
             <!-- 호버 시 나타나는 전체 영역 -->
+
             <div class="recent-hover-box">
 
                 <!-- 차량 목록 -->
+
                 <div class="recent-car-list">
 
                     <div class="recent-car-card">
+
                         <img src="../../assets/img/quick-menu-img/벤츠.png" alt="벤츠 E클래스">
+
                         <strong>벤츠 E클래스 E350 AMG</strong>
+
                         <span>22년식 / 12,367km</span>
+
                         <b>6,700만원</b>
+
                     </div>
 
                     <div class="recent-car-card">
+
                         <img src="../../assets/img/quick-menu-img/제네시스.png" alt="제네시스 G80">
+
                         <strong>제네시스 G80 2.5 터보</strong>
+
                         <span>22년식 / 10,215km</span>
+
                         <b>5,240만원</b>
+
                     </div>
 
                     <div class="recent-car-card">
+
                         <img src="../../assets/img/quick-menu-img/아우디.png" alt="아우디 Q5">
+
                         <strong>아우디 Q5 45</strong>
+
                         <span>22년식 / 12,914km</span>
+
                         <b>5,120만원</b>
+
                     </div>
 
                 </div>
 
-
                 <!-- 왼쪽 아래 버튼 -->
+
                 <div class="recent-buttons">
+
                     <button type="button">AI차량추천</button>
+
                     <button type="button">비교하기</button>
+
                 </div>
 
             </div>
 
-
             <!-- 최근 본 차량 버튼 -->
+
             <button type="button" class="quick-recent">
+
                 <img src="../../assets/img/quick-menu-img/최근본차량아이콘.png" alt="">
+
                 <span>최근 본 차량</span>
+
             </button>
 
         </div>
 
-
         <!-- TOP 버튼 -->
+
         <button type="button" class="quick-top">
+
             <span class="top-icon">↑</span>
+
             <span>TOP</span>
+
         </button>
 
     </aside>
@@ -121,61 +183,109 @@
     <main class="buy-page">
 
         <!-- =========================
+
              검색창
+
         ========================== -->
+
         <div class="buy-search">
 
             <input type="text" id="carSearch" placeholder="'그랜저'를 검색해보세요">
 
             <button type="button" id="searchBtn" aria-label="검색">
+
                 <img src="../../assets/img/buy-img/돋보기.png" alt="">
+
             </button>
 
         </div>
 
-
         <!-- =========================
+
              내차사기 배너
+
         ========================== -->
+
         <section class="buy-hero">
 
             <!-- 실제 배너 이미지 파일명으로 변경 -->
+
             <img src="../../assets/img/buy-img/인트로배경.png" alt="" class="buy-hero-img">
 
             <h2>내차사기</h2>
 
         </section>
 
+        <div class="mobile-buy-content">
+
+            <section class="mobile-section">
+
+                <h2>베로카 PICK</h2>
+
+                <div class="mobile-car-grid" id="mobilePickGrid"></div>
+
+            </section>
+
+            <section class="mobile-section mobile-kia-section">
+
+                <h2>KIA 인기 차종</h2>
+
+                <div class="mobile-car-grid" id="mobileKiaGrid"></div>
+
+            </section>
+
+            <section class="mobile-section mobile-popular-section">
+
+                <h2>베로카 인기 구매 차량</h2>
+
+                <div id="mobilePopularGrid"></div>
+
+            </section>
+
+        </div>
 
         <!-- =========================
+
              필터 + 차량목록
+
         ========================== -->
+
         <div class="buy-content">
 
             <!-- =========================
+
                  왼쪽 필터
+
             ========================== -->
+
             <aside class="filter-panel">
 
                 <!-- 전체 / 국산 / 수입 -->
+
                 <div class="filter-tabs">
 
                     <button type="button" class="origin-tab active" data-origin="all">
+
                         전체
+
                     </button>
 
                     <button type="button" class="origin-tab" data-origin="국산">
+
                         국산
+
                     </button>
 
                     <button type="button" class="origin-tab" data-origin="수입">
+
                         수입
+
                     </button>
 
                 </div>
 
-
                 <!-- 차량 수 -->
+
                 <div class="filter-count">
 
                     <strong id="carCount">100</strong>
@@ -184,8 +294,8 @@
 
                 </div>
 
-
                 <!-- 초기화 -->
+
                 <button type="button" class="filter-reset" id="filterReset">
 
                     <span class="reset-icon">↻</span>
@@ -194,21 +304,26 @@
 
                 </button>
 
-
                 <!-- =========================
+
                      차종
+
                 ========================== -->
+
                 <div class="filter-group">
 
                     <button type="button" class="filter-title" aria-expanded="false">
+
                         <span>차종</span>
 
                         <span class="filter-arrow"></span>
+
                     </button>
 
                     <div class="filter-dropdown">
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="경차" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -216,9 +331,11 @@
                             <span class="check-name">경차</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="소형" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -226,9 +343,11 @@
                             <span class="check-name">소형</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="중형차" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -236,9 +355,11 @@
                             <span class="check-name">중형차</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="대형차" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -246,9 +367,11 @@
                             <span class="check-name">대형차</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="전기차" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -256,9 +379,11 @@
                             <span class="check-name">전기차</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="스포츠카" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -266,9 +391,11 @@
                             <span class="check-name">스포츠카</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="RV" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -276,9 +403,11 @@
                             <span class="check-name">RV</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="SUV" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -286,9 +415,11 @@
                             <span class="check-name">SUV</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="승합차" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -296,9 +427,11 @@
                             <span class="check-name">승합차</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="화물차" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -306,9 +439,11 @@
                             <span class="check-name">화물차</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="bodyType" value="버스" data-filter="bodyType">
 
                             <span class="fake-check"></span>
@@ -316,221 +451,329 @@
                             <span class="check-name">버스</span>
 
                             <span class="check-count">0대</span>
+
                         </label>
 
                     </div>
 
                 </div>
 
-
                 <!-- =========================
+
                      제조사 / 모델
+
                 ========================== -->
+
                 <div class="filter-group">
 
                     <button type="button" class="filter-title" aria-expanded="false">
+
                         <span>제조사/모델</span>
 
                         <span class="filter-arrow"></span>
-                    </button>
 
+                    </button>
 
                     <div class="filter-dropdown">
 
                         <div class="filter-brand-title">
+
                             국산차
+
                         </div>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="현대" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">현대</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="기아" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">기아</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="KG모빌리티" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">KG모빌리티</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="제네시스" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">제네시스</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
-                            <input type="checkbox" name="brand" value="르노코리아" data-filter="brand">
-                            <span class="fake-check"></span>
-                            <span class="check-name">르노코리아</span>
-                            <span class="check-count">0대</span>
-                        </label>
 
+                            <input type="checkbox" name="brand" value="르노코리아" data-filter="brand">
+
+                            <span class="fake-check"></span>
+
+                            <span class="check-name">르노코리아</span>
+
+                            <span class="check-count">0대</span>
+
+                        </label>
 
                         <div class="filter-brand-title">
+
                             수입차
+
                         </div>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="BMW" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">BMW</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="벤츠" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">벤츠</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="아우디" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">아우디</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="랜드로버" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">랜드로버</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="미니" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">미니</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="폭스바겐" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">폭스바겐</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="포르쉐" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">포르쉐</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                         <label class="check-row">
+
                             <input type="checkbox" name="brand" value="지프" data-filter="brand">
+
                             <span class="fake-check"></span>
+
                             <span class="check-name">지프</span>
+
                             <span class="check-count">0대</span>
+
                         </label>
 
                     </div>
 
                 </div>
 
-
                 <!-- =========================
+
                      주행거리
+
                 ========================== -->
+
                 <div class="filter-group">
 
                     <button type="button" class="filter-title" aria-expanded="false">
+
                         <span>주행거리</span>
 
                         <span class="filter-arrow"></span>
+
                     </button>
 
                     <div class="filter-dropdown range-dropdown">
+
                         <div class="range-box">
+
                             <span class="range-label">최소</span>
+
                             <input type="number" id="yearMin" placeholder="최소">
+
                         </div>
 
                         <span class="range-wave">~</span>
 
                         <div class="range-box">
+
                             <span class="range-label">최대</span>
+
                             <input type="number" id="yearMax" placeholder="최대">
+
                         </div>
+
                     </div>
 
                 </div>
 
-
                 <!-- =========================
+
                      연식
+
                 ========================== -->
+
                 <div class="filter-group">
 
                     <button type="button" class="filter-title" aria-expanded="false">
+
                         <span>연식</span>
 
                         <span class="filter-arrow"></span>
+
                     </button>
 
                     <div class="filter-dropdown range-dropdown">
+
                         <div class="range-box">
+
                             <span class="range-label">최소</span>
+
                             <input type="number" id="mileageMin" placeholder="입력">
+
                         </div>
 
                         <span class="range-wave">~</span>
 
                         <div class="range-box">
+
                             <span class="range-label">최대</span>
+
                             <input type="number" id="mileageMax" placeholder="입력">
+
                         </div>
+
                     </div>
+
                 </div>
 
             </aside>
 
-
             <!-- =========================
+
                  오른쪽 차량목록
+
             ========================== -->
+
             <section class="car-result">
 
                 <!-- 정렬 -->
+
                 <div class="sort-bar">
 
                     <button type="button" class="sort-btn active" data-sort="date">
+
                         등록일
+
                     </button>
 
                     <button type="button" class="sort-btn" data-sort="price">
+
                         가격
+
                     </button>
 
                     <button type="button" class="sort-btn" data-sort="mileage">
+
                         주행거리
+
                     </button>
 
                     <button type="button" class="sort-btn" data-sort="year">
+
                         연식
+
                     </button>
 
                 </div>
 
-
                 <!-- 차량 카드 -->
+
                 <div class="car-grid" id="carGrid"></div>
 
-
                 <!-- 페이지 -->
+
                 <nav class="pagination" id="pagination" aria-label="페이지 이동"></nav>
 
             </section>
@@ -538,70 +781,117 @@
         </div>
 
     </main>
+
     <footer class="footer">
+
         <div class="footer-inner">
 
             <div class="footer-left">
+
                 <h2 class="footer-logo">
+
                     <a href="#"><img src="../../assets/img/footer-img/베로카로고.png" alt=""></a>
+
                 </h2>
 
                 <ul class="footer-menu">
+
                     <li><a href="#">이용약관</a></li>
+
                     <li><a href="#" class="menu-privacy">개인정보처리방침</a></li>
+
                 </ul>
 
                 <p class="footer-desc">
+
                     VERO CAR가 제공하는 서비스는 온라인 거래정보 및 기타 부가정보 제공에 한하며,
+
                     실제 거래의 모든 책임은 판매자와 구매자에게 있음을 안내드립니다.
+
                     <br>
+
                     본 사이트/앱 상의 모든 정보, 콘텐츠, UI 등에 대한 무단 복제, 배포,
+
                     스크래핑 등의 행위는 법에 의하여 엄격히 금지됩니다.
+
                 </p>
 
                 <address class="footer-info">
+
                     주소: 서울특별시 강남구 테헤란로 123, 10층<br>
+
                     대표이사: 김베로<br>
+
                     사업자등록번호: 123-45-67890
+
                 </address>
 
                 <p class="copyright">
+
                     COPYRIGHT VEROCAR. ALL RIGHTS RESERVED.
+
                 </p>
+
             </div>
 
             <div class="footer-right">
 
                 <div class="footer-customer">
+
                     <div class="customer-title">
+
                         <span>고객센터</span>
+
                         <strong>1544-0000</strong>
+
                     </div>
 
                     <p>주말 및 공휴일 휴무</p>
+
                     <p>평일 09:00 - 18:00 | 점심 12:00 - 13:00</p>
+
                 </div>
 
                 <ul class="footer-sns">
+
                     <li>
+
                         <a href="#" aria-label="인스타그램">
+
                             <img src="../../assets/img/footer-img/Instagram.png" alt="">
+
                         </a>
+
                     </li>
+
                     <li>
+
                         <a href="#" aria-label="카카오톡">
+
                             <img src="../../assets/img/footer-img/Kakaokalk.png" alt="">
+
                         </a>
+
                     </li>
+
                     <li>
+
                         <a href="#" aria-label="유튜브">
+
                             <img src="../../assets/img/footer-img/Youtube.png" alt="">
+
                         </a>
+
                     </li>
+
                     <li>
+
                         <a href="#" aria-label="페이스북">
+
                             <img src="../../assets/img/footer-img/Facebook.png" alt="">
+
                         </a>
+
                     </li>
 
                 </ul>
@@ -609,12 +899,13 @@
             </div>
 
         </div>
+
     </footer>
+
     <script src="../../assets/js/common.js" defer></script>
-    <script src="../../assets/js/pages/buy.js" defer></script>
+
+    <script src="../../assets/js/pages/buy.js?v=20260915-2" defer></script>
+
 </body>
-
-</html>
-
 
 </html>
