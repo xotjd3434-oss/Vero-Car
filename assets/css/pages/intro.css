@@ -1681,6 +1681,146 @@ body {
   line-height: 1.5;
 }
 
+/* 스크롤은 유지하고 브라우저 스크롤바만 숨김 */
+html.intro-document {
+  scrollbar-width: none;
+  scrollbar-gutter: auto;
+  scroll-behavior: auto;
+}
+
+html.intro-document::-webkit-scrollbar,
+body.intro-page::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body.intro-page {
+  margin: 0;
+  padding-top: 0;
+  overflow-x: clip;
+  scrollbar-width: none;
+}
+
+/* sticky 요소의 부모에서 스크롤을 막지 않음 */
+.intro-page .intro {
+  width: 100%;
+  overflow: visible;
+}
+
+.intro-opening {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+/* 1번: 제자리에 고정되는 영상 */
+.intro-opening .hero-section {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.intro-opening .hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 고정 px 대신 화면 높이에 맞춰 버튼 배치 */
+.intro-opening .hero-content {
+  top: auto;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 2번: 고정된 1번 영상 위로 올라오는 화면 */
+.intro-opening .slogan-section {
+  position: relative;
+  width: 100%;
+  height: 240vh;
+  height: 240svh;
+  margin: 0;
+  background: #020817;
+  z-index: 2;
+}
+
+.intro-opening .slogan-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: #020817;
+}
+
+.intro-opening .slogan-scene {
+  transform-origin: 52.5% 84%;
+  will-change: transform;
+  transition: none;
+}
+
+.intro-opening .slogan-content {
+  will-change: opacity, transform;
+  transition: none;
+}
+
+/* 확대가 끝나기 전에 3번이 덮는 기존 음수 여백 해제 */
+.intro-page .story-section {
+  margin-top: 0;
+}
+
+/* 위로 스크롤할 때 내려오는 공통 헤더 */
+.intro-page .header.intro-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 2000;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(170, 170, 170, 0.85) 55%,
+      rgba(60, 60, 60, 0.95) 100%);
+  color: #0f172a;
+  transform: translateY(-110%);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.45s;
+  will-change: transform;
+}
+
+.intro-page .header.intro-header.is-visible {
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s;
+}
+
+/* 기존 ending의 translateZ에 원근감 적용 */
+.intro-page .ending-stage {
+  perspective: 1200px;
+}
+
+/* 운영체제의 동작 줄이기 설정 반영 */
+@media (prefers-reduced-motion: reduce) {
+
+  .intro-page .header.intro-header,
+  .intro-page .header.intro-header.is-visible {
+    transition: none;
+  }
+}
+
 @media (max-width: 768px) {
   .ending-section {
     height: 260vh;

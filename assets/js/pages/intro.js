@@ -49,32 +49,52 @@
     }
 
     /* ==================================================
-       02. SLOGAN
-    ================================================== */
+   02. SLOGAN
+================================================== */
     const sloganSection = document.querySelector('.slogan-section');
+    const sloganSticky = document.querySelector('.slogan-sticky');
     const sloganScene = document.querySelector('.slogan-scene');
     const sloganContent = document.querySelector('.slogan-content');
+    const motionPreference = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
 
     function updateSlogan() {
-      if (!sloganSection || !sloganScene || !sloganContent) return;
+      if (
+        !sloganSection ||
+        !sloganSticky ||
+        !sloganScene ||
+        !sloganContent
+      ) return;
 
       const rect = sloganSection.getBoundingClientRect();
-      const scrollRange = sloganSection.offsetHeight - window.innerHeight;
+      const scrollRange =
+        sloganSection.offsetHeight - sloganSticky.offsetHeight;
 
-      if (scrollRange <= 0) return;
+      const progress = scrollRange > 0
+        ? clamp(-rect.top / scrollRange, 0, 1)
+        : 0;
 
-      const progress = clamp(-rect.top / scrollRange, 0, 1);
-      const scale = 1 + progress * 3.2;
-      const moveX = progress * -2.5;
-      const moveY = progress * -34;
-      const textOpacity = clamp(1 - progress * 3, 0, 1);
+      /* 시작과 끝을 완만하게 연결 */
+      const eased = progress * progress * (3 - 2 * progress);
+      const reduceMotion = motionPreference.matches;
+
+      const scale = reduceMotion ? 1 : 1 + eased * 2;
+      const moveX = reduceMotion ? 0 : eased * -1.5;
+      const moveY = reduceMotion ? 0 : eased * -20;
+      const textMove = reduceMotion ? 0 : eased * 25;
+
+      /* 초반에는 문구 유지, 확대되면서 서서히 사라짐 */
+      const textProgress = clamp((progress - 0.05) / 0.35, 0, 1);
+      const textEase =
+        textProgress * textProgress * (3 - 2 * textProgress);
 
       sloganScene.style.transform =
-        `translate(${moveX}vw, ${moveY}vh) scale(${scale})`;
+        `translate3d(${moveX}vw, ${moveY}vh, 0) scale(${scale})`;
 
-      sloganContent.style.opacity = textOpacity;
+      sloganContent.style.opacity = String(1 - textEase);
       sloganContent.style.transform =
-        `translate(-50%, calc(-63% - ${progress * 40}px))`;
+        `translate(-50%, calc(-63% - ${textMove}px))`;
     }
 
     /* ==================================================
@@ -281,41 +301,6 @@
     }
 
     /* ==================================================
-       04 → 05
-       기존 휠 이동 기능 유지
-    ================================================== */
-    const brandSection = document.querySelector('.brand-section');
-    let sectionSnapLock = false;
-
-    window.addEventListener('wheel', function (event) {
-      if (
-        !whySection ||
-        !brandSection ||
-        sectionSnapLock ||
-        event.ctrlKey
-      ) {
-        return;
-      }
-
-      const rect = whySection.getBoundingClientRect();
-      const isWhyFull = Math.abs(rect.top) < 40;
-
-      if (isWhyFull && event.deltaY > 0) {
-        event.preventDefault();
-        sectionSnapLock = true;
-
-        brandSection.scrollIntoView({
-          behavior: 'auto',
-          block: 'start'
-        });
-
-        window.setTimeout(function () {
-          sectionSnapLock = false;
-        }, 400);
-      }
-    }, { passive: false });
-
-    /* ==================================================
        06. DRIVE SLIDER
     ================================================== */
     const driveSlider = document.querySelector('.drive-slider');
@@ -496,13 +481,206 @@
 
 
     /* ==================================================
+   HEADER
+================================================== */
+    const introHeader = document.querySelector('.intro-header');
+    const heroSection = document.querySelector('.hero-section');
+
+    let previousScrollY = Math.max(0, window.scrollY);
+    let headerVisible = false;
+
+    function setHeaderVisible(visible) {
+      if (!introHeader) return;
+
+      headerVisible = visible;
+      introHeader.classList.toggle('is-visible', visible);
+      introHeader.setAttribute('aria-hidden', String(!visible));
+      introHeader.inert = !visible;
+    }
+
+    function updateHeader() {
+      if (!introHeader || !heroSection) return;
+
+      const currentY = Math.max(0, window.scrollY);
+
+      /* 첫 화면 높이의 60% */
+      const showThreshold = heroSection.offsetHeight * 0.6;
+
+      /* 처음 60% 구간에서는 항상 숨김 */
+      if (currentY < showThreshold) {
+        if (headerVisible) setHeaderVisible(false);
+        previousScrollY = currentY;
+        return;
+      }
+
+      const difference = currentY - previousScrollY;
+
+      /* 작은 움직임으로 헤더가 깜빡이는 현상 방지 */
+      if (Math.abs(difference) < 8) return;
+
+      const scrollingUp = difference < 0;
+
+      if (scrollingUp !== headerVisible) {
+        setHeaderVisible(scrollingUp);
+      }
+
+      previousScrollY = currentY;
+    }
+
+    setHeaderVisible(false);
+
+    /* ==================================================
+   부드러운 스크롤
+================================================== */
+    let introLenis = null;
+    let sectionMoving = false;
+    let wheelQuietUntil = 0;
+
+    if (typeof window.Lenis === 'function') {
+      introLenis = new window.Lenis({
+        autoRaf: true,
+        smoothWheel: true,
+        lerp: 0.14,
+        wheelMultiplier: 1,
+        syncTouch: false,
+        anchors: true,
+        prevent: (node) => node.classList.contains('mobile-menu'),
+
+        /* 3번의 느린 선 진행은 유지 */
+        virtualScroll: function (data) {
+          if (!storySection) return;
+
+          const rect = storySection.getBoundingClientRect();
+          const focusY = window.innerHeight * 0.6;
+
+          if (rect.top <= focusY && rect.bottom > focusY) {
+            data.deltaY *= 0.45;
+          }
+        }
+      });
+    }
+
+    function blockWheel(event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+
+    /* 진행 중인 자동 이동 취소 */
+    function cancelSectionMove() {
+      if (introLenis && sectionMoving) {
+        introLenis.stop();
+        introLenis.start();
+      }
+
+      sectionMoving = false;
+      wheelQuietUntil = 0;
+    }
+
+    /* 엔딩 전환: 일정한 속도로 진행률 이동 */
+    function moveToEnding(targetY) {
+      if (!introLenis) return;
+
+      sectionMoving = true;
+
+      introLenis.scrollTo(targetY, {
+        duration: 2.8,
+        lerp: 0,
+        easing: (value) => value,
+        lock: true,
+        immediate: motionPreference.matches,
+        onComplete: function () {
+          sectionMoving = false;
+
+          /* 대기 시간을 추가 입력으로 연장하지 않음 */
+          wheelQuietUntil = performance.now() + 160;
+          requestUpdate();
+        }
+      });
+    }
+
+    /* ==================================================
+       휠 제어: 마지막 엔딩에만 적용
+    ================================================== */
+    window.addEventListener('wheel', function (event) {
+      if (!introLenis || event.defaultPrevented) return;
+
+      if (
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey ||
+        event.deltaY === 0 ||
+        Math.abs(event.deltaX) > Math.abs(event.deltaY)
+      ) return;
+
+      if (
+        event.target instanceof Element &&
+        event.target.closest(
+          '.mobile-menu, [data-lenis-prevent], ' +
+          '[data-lenis-prevent-wheel], textarea, select, ' +
+          '[contenteditable="true"]'
+        )
+      ) return;
+
+      /* 위로 올리면 잠금부터 취소하고 입력을 통과시킴 */
+      if (event.deltaY < 0) {
+        cancelSectionMove();
+        return;
+      }
+
+      /* 아래 방향 중복 입력만 차단 */
+      if (
+        sectionMoving ||
+        performance.now() < wheelQuietUntil
+      ) {
+        blockWheel(event);
+        return;
+      }
+
+      /*
+        2번은 강제 단계 이동 없이 일반 스크롤 사용.
+        CSS에서 확대 구간을 짧게 설정.
+      */
+
+      if (!endingSection || !endingSticky) return;
+
+      const currentY = window.scrollY;
+      const startY =
+        currentY + endingSection.getBoundingClientRect().top;
+      const range =
+        endingSection.offsetHeight - endingSticky.offsetHeight;
+
+      /* 첫 엔딩 카드 구간에서 아래로 한 번 굴리면 전환 */
+      if (
+        range > 0 &&
+        currentY >= startY - 2 &&
+        currentY < startY + range * 0.82 - 2
+      ) {
+        blockWheel(event);
+        moveToEnding(startY + range * 0.86);
+      }
+    }, { passive: false, capture: true });
+
+    /* 화면 크기가 바뀌면 이전 위치로 향하던 이동 취소 */
+    window.addEventListener('resize', cancelSectionMove);
+
+    /* ==================================================
        공통 스크롤 / 리사이즈 / 초기 실행
     ================================================== */
     let scrollTicking = false;
 
     function updateAll() {
+      updateHeader();
       updateSlogan();
-      updateStory();
+
+      /* 화면 밖에서는 복잡한 SVG 선 계산 생략 */
+      if (storySection) {
+        const rect = storySection.getBoundingClientRect();
+
+        if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
+          updateStory();
+        }
+      }
+
       updateWhySection();
       updateEnding();
     }
@@ -521,13 +699,14 @@
     window.addEventListener('resize', requestUpdate);
     window.addEventListener('load', requestUpdate);
     window.addEventListener('pageshow', requestUpdate);
+    motionPreference.addEventListener('change', requestUpdate);
 
     updateAll();
-  }
+  } // initIntro 함수 끝
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initIntro, { once: true });
   } else {
     initIntro();
   }
-})();
+})(); 

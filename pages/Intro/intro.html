@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="intro-document">
 
 <head>
   <meta charset="UTF-8">
@@ -7,111 +7,153 @@
   <title>VERO CAR</title>
 
   <link rel="stylesheet" href="../../assets/css/reset.css">
-  <link rel="stylesheet" href="../../assets/css/pages/intro.css">
   <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+  <link rel="stylesheet" href="../../assets/css/pages/intro.css">
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+KR:wght@500&display=swap">
 
+  <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="../../assets/js/pages/intro.js" defer></script>
 </head>
 
-<body>
+<body class="intro-page">
+  <header class="header intro-header" aria-hidden="true" inert>
+    <div class="header-inner">
+      <h1 class="logo">
+        <a href="../main/main.html">
+          <img src="../../assets/img/header-img/logo.png" alt="VERO CAR">
+        </a>
+      </h1>
+
+      <nav class="gnb">
+        <ul class="gnb-list">
+          <li class="gnb-item">
+            <a href="../buy/buy.html" class="gnb-link">내차사기</a>
+          </li>
+
+          <li class="gnb-item">
+            <a href="../sell/sell.html" class="gnb-link">내차팔기</a>
+          </li>
+
+          <li class="gnb-item">
+            <a href="../rent/rent.html" class="gnb-link">렌트</a>
+          </li>
+
+          <li class="gnb-item">
+            <a href="../lease/lease.html" class="gnb-link">리스</a>
+          </li>
+
+          <li class="gnb-item">
+            <a href="../event/event.html" class="gnb-link">이벤트</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-util">
+        <a href="../mypage/mypage.html" class="util-link" aria-label="마이페이지">
+          <img src="../../assets/img/header-img/User.png" alt="">
+        </a>
+
+        <a href="../wishlist/wishlist.html" class="util-link" aria-label="관심차량">
+          <img src="../../assets/img/header-img/Heart.png" alt="">
+        </a>
+      </div>
+
+      <button class="mobile-menu-btn" type="button" aria-label="메뉴 열기">
+        <img src="../../assets/img/header-img/List-m.png" alt="">
+      </button>
+    </div>
+
+    <nav class="mobile-menu">
+      <ul class="mobile-menu-list">
+        <li><a href="../buy/buy.html">내차사기</a></li>
+        <li><a href="../sell/sell.html">내차팔기</a></li>
+        <li><a href="../rent/rent.html">렌트</a></li>
+        <li><a href="../lease/lease.html">리스</a></li>
+        <li><a href="../event/event.html">이벤트</a></li>
+        <li><a href="../mypage/mypage.html">마이페이지</a></li>
+        <li><a href="../wishlist/wishlist.html">관심목록</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="mobile-menu-dim"></div>
 
   <main class="intro">
 
-    <!-- ========================================
-     HERO INTRO VIDEO
-========================================= -->
-    <section class="hero-section">
-
-      <!-- 영상 -->
-      <video class="hero-video" autoplay muted loop playsinline poster="../../assets/img/intro-img/intro-car.png">
-        <source src="../../assets/img/intro-img/베로카 텍스트 입체.mp4" type="video/mp4">
-      </video>
-
-      <!-- 영상 위 어두운 효과 -->
-      <div class="hero-overlay"></div>
-
-      <!-- 상단 컨트롤 -->
-      <div class="hero-top">
-
-        <!-- 로고 -->
-        <a href="../main/main.html" class="intro-logo">
-          <img src="../../assets/img/header-img/logo.png" alt="VERO CAR">
-        </a>
-
-        <!-- 오른쪽 버튼 -->
-        <div class="intro-controls">
-
-          <button type="button" class="sound-btn" aria-label="소리 켜기">
-            <!-- 음소거 -->
-            <svg class="sound-icon sound-off" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M11 5L6 9H3v6h3l5 4V5Z"></path>
-              <path d="M16 9l5 5"></path>
-              <path d="M21 9l-5 5"></path>
-            </svg>
-
-            <!-- 소리 켜짐 -->
-            <svg class="sound-icon sound-on" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M11 5L6 9H3v6h3l5 4V5Z"></path>
-              <path d="M15 9.5c1.2 1.4 1.2 3.6 0 5"></path>
-              <path d="M18 7c2.7 2.8 2.7 7.2 0 10"></path>
-            </svg>
-          </button>
-
-          <!-- 닫기 -->
-          <a href="../main/main.html" class="intro-close-btn" aria-label="인트로 닫기">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6 6L18 18"></path>
-              <path d="M18 6L6 18"></path>
-            </svg>
+    <div class="intro-opening">
+      <!-- ========================================
+       HERO INTRO VIDEO
+      ========================================= -->
+      <section class="hero-section">
+        <!-- 영상 -->
+        <video class="hero-video" autoplay muted loop playsinline poster="../../assets/img/intro-img/intro-car.png">
+          <source src="../../assets/img/intro-img/베로카 텍스트 입체.mp4" type="video/mp4">
+        </video>
+        <!-- 영상 위 어두운 효과 -->
+        <div class="hero-overlay"></div>
+        <!-- 상단 컨트롤 -->
+        <div class="hero-top">
+          <!-- 로고 -->
+          <a href="../main/main.html" class="intro-logo">
+            <img src="../../assets/img/header-img/logo.png" alt="VERO CAR">
           </a>
-
+          <!-- 오른쪽 버튼 -->
+          <div class="intro-controls">
+            <button type="button" class="sound-btn" aria-label="소리 켜기">
+              <!-- 음소거 -->
+              <svg class="sound-icon sound-off" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M11 5L6 9H3v6h3l5 4V5Z"></path>
+                <path d="M16 9l5 5"></path>
+                <path d="M21 9l-5 5"></path>
+              </svg>
+              <!-- 소리 켜짐 -->
+              <svg class="sound-icon sound-on" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M11 5L6 9H3v6h3l5 4V5Z"></path>
+                <path d="M15 9.5c1.2 1.4 1.2 3.6 0 5"></path>
+                <path d="M18 7c2.7 2.8 2.7 7.2 0 10"></path>
+              </svg>
+            </button>
+            <!-- 닫기 -->
+            <a href="../main/main.html" class="intro-close-btn" aria-label="인트로 닫기">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6L18 18"></path>
+                <path d="M18 6L6 18"></path>
+              </svg>
+            </a>
+          </div>
         </div>
-      </div>
-
-      <!-- 시작 버튼 -->
-      <div class="hero-content">
-        <a href="../main/main.html" class="hero-start-btn">
-          지금 시작하기
-        </a>
-      </div>
-
-    </section>
-
-
-
-    <!-- ========================================
-     02. ONE PLACE
-========================================= -->
-    <section class="slogan-section">
-
-      <div class="slogan-sticky">
-
-        <!-- 자연 + 대시보드 -->
-        <div class="slogan-scene">
-
-          <img src="../../assets/img/intro-img/img-outSide 자연 (1).png" alt="" class="slogan-bg">
-
-          <img src="../../assets/img/intro-img/img-대시보드 (1).png" alt="" class="slogan-dashboard">
-
+        <!-- 시작 버튼 -->
+        <div class="hero-content">
+          <a href="../main/main.html" class="hero-start-btn">
+            지금 시작하기
+          </a>
         </div>
-
-        <!-- 문구 -->
-        <div class="slogan-content">
-          <h2>
-            ONE PLACE,<br>
-            EVERY WAY TO DRIVE.
-          </h2>
-
-          <p>소유의 방식을, 당신이 고릅니다.</p>
+      </section>
+      <!-- ========================================
+       02. ONE PLACE
+      ========================================= -->
+      <section class="slogan-section">
+        <div class="slogan-sticky">
+          <!-- 자연 + 대시보드 -->
+          <div class="slogan-scene">
+            <img src="../../assets/img/intro-img/img-outSide 자연 (1).png" alt="" class="slogan-bg">
+            <img src="../../assets/img/intro-img/img-대시보드 (1).png" alt="" class="slogan-dashboard">
+          </div>
+          <!-- 문구 -->
+          <div class="slogan-content">
+            <h2>
+              ONE PLACE,<br>
+              EVERY WAY TO DRIVE.
+            </h2>
+            <p>소유의 방식을, 당신이 고릅니다.</p>
+          </div>
         </div>
-
-      </div>
-
-    </section>
+      </section>
+    </div>
 
 
 
@@ -580,7 +622,7 @@
 
       <div class="footer-left">
         <h2 class="footer-logo">
-          <a href="#"><img src="../../assets/img/footer-img/베로카로고.png" alt=""></a>
+          <a href="../main/main.html"><img src="../../assets/img/footer-img/베로카로고.png" alt=""></a>
         </h2>
 
         <ul class="footer-menu">
@@ -637,9 +679,8 @@
           </li>
           <li>
             <a href="#" aria-label="페이스북">
-              <img src="../../assets/img/footer-img/Facebook" alt="">
+              <img src="../../assets/img/footer-img/Facebook.png" alt="">
             </a>
-
           </li>
 
         </ul>
