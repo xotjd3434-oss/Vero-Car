@@ -281,41 +281,6 @@
     }
 
     /* ==================================================
-       04 → 05
-       기존 휠 이동 기능 유지
-    ================================================== */
-    const brandSection = document.querySelector('.brand-section');
-    let sectionSnapLock = false;
-
-    window.addEventListener('wheel', function (event) {
-      if (
-        !whySection ||
-        !brandSection ||
-        sectionSnapLock ||
-        event.ctrlKey
-      ) {
-        return;
-      }
-
-      const rect = whySection.getBoundingClientRect();
-      const isWhyFull = Math.abs(rect.top) < 40;
-
-      if (isWhyFull && event.deltaY > 0) {
-        event.preventDefault();
-        sectionSnapLock = true;
-
-        brandSection.scrollIntoView({
-          behavior: 'auto',
-          block: 'start'
-        });
-
-        window.setTimeout(function () {
-          sectionSnapLock = false;
-        }, 400);
-      }
-    }, { passive: false });
-
-    /* ==================================================
        06. DRIVE SLIDER
     ================================================== */
     const driveSlider = document.querySelector('.drive-slider');
