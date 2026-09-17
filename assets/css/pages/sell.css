@@ -338,7 +338,6 @@ img {
   margin: 0 0 50px;
   font-size: 32px;
   font-weight: 500;
-  line-height: 1.4;
 }
 
 /* ==================================================
@@ -419,8 +418,8 @@ img {
 /* 실제 판매후기 제목 */
 .review-head h2 {
   margin: 0;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -430,13 +429,13 @@ img {
   align-items: center;
   gap: 8px;
   color: #64748b;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
 }
 
 .review-more img {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
