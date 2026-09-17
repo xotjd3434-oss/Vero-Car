@@ -1,377 +1,748 @@
 <!DOCTYPE html>
+
 <html lang="ko" class="intro-document">
 
+
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>VERO CAR</title>
 
+
+
   <link rel="stylesheet" href="../../assets/css/reset.css">
+
   <link rel="stylesheet" href="../../assets/css/common.css">
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+
+  <link rel="stylesheet" href="https\://unpkg.com/lenis@1.3.26/dist/lenis.css">
+
   <link rel="stylesheet" href="../../assets/css/pages/intro.css">
 
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+KR:wght@500&display=swap">
 
-  <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <link rel="stylesheet"
+    href="https\://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+KR:wght@500&display=swap">
+
+
+
+  <script src="https\://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
+
+  <script src="https\://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
   <script src="../../assets/js/pages/intro.js" defer></script>
+
 </head>
 
+
+
 <body class="intro-page">
+
   <header class="header intro-header" aria-hidden="true" inert>
+
     <div class="header-inner">
+
       <h1 class="logo">
+
         <a href="../main/main.html">
+
           <img src="../../assets/img/header-img/logo.png" alt="VERO CAR">
+
         </a>
+
       </h1>
 
+
+
       <nav class="gnb">
+
         <ul class="gnb-list">
+
           <li class="gnb-item">
+
             <a href="../buy/buy.html" class="gnb-link">내차사기</a>
+
           </li>
 
+
+
           <li class="gnb-item">
+
             <a href="../sell/sell.html" class="gnb-link">내차팔기</a>
+
           </li>
 
+
+
           <li class="gnb-item">
+
             <a href="../rent/rent.html" class="gnb-link">렌트</a>
+
           </li>
 
+
+
           <li class="gnb-item">
+
             <a href="../lease/lease.html" class="gnb-link">리스</a>
+
           </li>
 
+
+
           <li class="gnb-item">
+
             <a href="../event/event.html" class="gnb-link">이벤트</a>
+
           </li>
+
         </ul>
+
       </nav>
 
+
+
       <div class="header-util">
+
         <a href="../mypage/mypage.html" class="util-link" aria-label="마이페이지">
+
           <img src="../../assets/img/header-img/User.png" alt="">
+
         </a>
+
+
 
         <a href="../wishlist/wishlist.html" class="util-link" aria-label="관심차량">
+
           <img src="../../assets/img/header-img/Heart.png" alt="">
+
         </a>
+
       </div>
 
+
+
       <button class="mobile-menu-btn" type="button" aria-label="메뉴 열기">
+
         <img src="../../assets/img/header-img/List-m.png" alt="">
+
       </button>
+
     </div>
 
+
+
     <nav class="mobile-menu">
+
       <ul class="mobile-menu-list">
+
         <li><a href="../buy/buy.html">내차사기</a></li>
+
         <li><a href="../sell/sell.html">내차팔기</a></li>
+
         <li><a href="../rent/rent.html">렌트</a></li>
+
         <li><a href="../lease/lease.html">리스</a></li>
+
         <li><a href="../event/event.html">이벤트</a></li>
+
         <li><a href="../mypage/mypage.html">마이페이지</a></li>
+
         <li><a href="../wishlist/wishlist.html">관심목록</a></li>
+
       </ul>
+
     </nav>
+
   </header>
+
+
 
   <div class="mobile-menu-dim"></div>
 
+
+
   <main class="intro">
 
+
+
     <div class="intro-opening">
+
       <!-- ========================================
+
        HERO INTRO VIDEO
+
       ========================================= -->
+
       <section class="hero-section">
+
         <!-- 영상 -->
+
         <video class="hero-video" autoplay muted loop playsinline poster="../../assets/img/intro-img/intro-car.png">
+
           <source src="../../assets/img/intro-img/베로카 텍스트 입체.mp4" type="video/mp4">
+
         </video>
+
         <!-- 영상 위 어두운 효과 -->
+
         <div class="hero-overlay"></div>
+
         <!-- 상단 컨트롤 -->
+
         <div class="hero-top">
+
           <!-- 로고 -->
+
           <a href="../main/main.html" class="intro-logo">
+
             <img src="../../assets/img/header-img/logo.png" alt="VERO CAR">
+
           </a>
+
           <!-- 오른쪽 버튼 -->
+
           <div class="intro-controls">
+
             <button type="button" class="sound-btn" aria-label="소리 켜기">
+
               <!-- 음소거 -->
+
               <svg class="sound-icon sound-off" viewBox="0 0 24 24" aria-hidden="true">
+
                 <path d="M11 5L6 9H3v6h3l5 4V5Z"></path>
+
                 <path d="M16 9l5 5"></path>
+
                 <path d="M21 9l-5 5"></path>
+
               </svg>
+
               <!-- 소리 켜짐 -->
+
               <svg class="sound-icon sound-on" viewBox="0 0 24 24" aria-hidden="true">
+
                 <path d="M11 5L6 9H3v6h3l5 4V5Z"></path>
+
                 <path d="M15 9.5c1.2 1.4 1.2 3.6 0 5"></path>
+
                 <path d="M18 7c2.7 2.8 2.7 7.2 0 10"></path>
+
               </svg>
+
             </button>
+
             <!-- 닫기 -->
+
             <a href="../main/main.html" class="intro-close-btn" aria-label="인트로 닫기">
+
               <svg viewBox="0 0 24 24" aria-hidden="true">
+
                 <path d="M6 6L18 18"></path>
+
                 <path d="M18 6L6 18"></path>
+
               </svg>
+
             </a>
+
           </div>
+
         </div>
+
         <!-- 시작 버튼 -->
+
         <div class="hero-content">
+
           <a href="../main/main.html" class="hero-start-btn">
+
             <span>나만의 드라이브 찾기</span>
+
           </a>
+
         </div>
+
       </section>
+
       <!-- ========================================
+
        02. ONE PLACE
+
       ========================================= -->
+
       <section class="slogan-section">
+
         <div class="slogan-sticky">
+
           <!-- 자연 + 대시보드 -->
+
           <div class="slogan-scene">
+
             <img src="../../assets/img/intro-img/img-outSide 자연 (1).png" alt="" class="slogan-bg">
+
             <img src="../../assets/img/intro-img/img-대시보드 (1).png" alt="" class="slogan-dashboard">
+
           </div>
+
           <!-- 문구 -->
+
           <div class="slogan-content">
+
             <h2>
+
               ONE PLACE,<br>
+
               EVERY WAY TO DRIVE.
+
             </h2>
+
             <p>소유의 방식을, 당신이 고릅니다.</p>
+
           </div>
+
         </div>
+
       </section>
+
     </div>
+
+
+
+
+
+
 
 
 
 
 
     <!-- ========================================
+
      03. ORANGE ROAD STORY
-========================================= -->
+
+\========================================= -->
+
     <section class="story-section">
+
+
 
       <div class="story-bg"></div>
 
+
+
       <div class="story-inner">
 
+
+
         <!-- 주황색 빛의 길 -->
+
         <div class="story-line">
+
           <svg viewBox="0 0 1000 2200" preserveAspectRatio="none" aria-hidden="true">
+
             <defs>
+
               <!-- 기본 주황빛 -->
+
               <linearGradient id="storyOrangeGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="2200">
+
                 <stop offset="0%" stop-color="#ff8a24" />
+
                 <stop offset="30%" stop-color="#ff5900" />
+
                 <stop offset="60%" stop-color="#ff750a" />
+
                 <stop offset="100%" stop-color="#ff9a32" />
+
               </linearGradient>
+
+
 
               <!-- 특정 구간에만 강한 빛을 추가 -->
+
               <linearGradient id="storyHotspotGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="2200">
+
                 <stop offset="0%" stop-color="#ff9500" stop-opacity="0" />
 
+
+
                 <stop offset="18%" stop-color="#ff9500" stop-opacity="0" />
+
                 <stop offset="19.2%" stop-color="#fff0ba" stop-opacity="1" />
+
                 <stop offset="20.4%" stop-color="#ff9500" stop-opacity="0" />
 
+
+
                 <stop offset="29%" stop-color="#ff9500" stop-opacity="0" />
+
                 <stop offset="31%" stop-color="#fff5d6" stop-opacity="1" />
+
                 <stop offset="33%" stop-color="#ff9500" stop-opacity="0" />
 
+
+
                 <stop offset="46.5%" stop-color="#ff9500" stop-opacity="0" />
+
                 <stop offset="48.5%" stop-color="#fff5d6" stop-opacity="1" />
+
                 <stop offset="50.5%" stop-color="#ff9500" stop-opacity="0" />
 
+
+
                 <stop offset="60%" stop-color="#ff9500" stop-opacity="0" />
+
                 <stop offset="61.2%" stop-color="#fff0ba" stop-opacity="1" />
+
                 <stop offset="62.4%" stop-color="#ff9500" stop-opacity="0" />
 
+
+
                 <stop offset="68%" stop-color="#ff9500" stop-opacity="0" />
+
                 <stop offset="70%" stop-color="#fff5d6" stop-opacity="1" />
+
                 <stop offset="72%" stop-color="#ff9500" stop-opacity="0" />
 
+
+
                 <stop offset="83%" stop-color="#ff9500" stop-opacity="0" />
+
                 <stop offset="85%" stop-color="#fff5d6" stop-opacity="1" />
+
                 <stop offset="87%" stop-color="#ff9500" stop-opacity="0" />
 
+
+
                 <stop offset="100%" stop-color="#ff9500" stop-opacity="0" />
+
               </linearGradient>
 
+
+
               <!-- 넓은 주변 빛 -->
+
               <filter id="storyWideGlow" x="-30%" y="-10%" width="160%" height="120%"
                 color-interpolation-filters="sRGB">
+
                 <feGaussianBlur stdDeviation="12" />
+
               </filter>
+
+
 
               <!-- 선 가까이 퍼지는 빛 -->
+
               <filter id="storyTightGlow" x="-20%" y="-5%" width="140%" height="110%"
                 color-interpolation-filters="sRGB">
+
                 <feGaussianBlur stdDeviation="3" />
+
               </filter>
+
+
 
               <!-- 중간중간 강하게 빛나는 부분 -->
+
               <filter id="storyHotspotGlow" x="-30%" y="-10%" width="160%" height="120%"
                 color-interpolation-filters="sRGB">
+
                 <feGaussianBlur stdDeviation="6" result="softGlow" />
+
                 <feGaussianBlur stdDeviation="1.5" result="brightGlow" />
+
                 <feMerge>
+
                   <feMergeNode in="softGlow" />
+
                   <feMergeNode in="brightGlow" />
+
                 </feMerge>
+
               </filter>
+
             </defs>
 
+
+
             <!-- 넓은 빛 -->
+
             <path class="story-path story-path-halo" d="
+
       M420 0
+
       C180 160 230 340 590 470
+
       C900 590 850 820 480 940
+
       C180 1040 220 1260 650 1380
+
       C900 1460 850 1660 520 1760
+
       C260 1840 330 2040 560 2200
+
     " />
+
+
 
             <!-- 주황빛 번짐 -->
+
             <path class="story-path story-path-glow" d="
+
       M420 0
+
       C180 160 230 340 590 470
+
       C900 590 850 820 480 940
+
       C180 1040 220 1260 650 1380
+
       C900 1460 850 1660 520 1760
+
       C260 1840 330 2040 560 2200
+
     " />
+
+
 
             <!-- 중간중간 강한 빛 -->
+
             <path class="story-path story-path-hotspot" d="
+
       M420 0
+
       C180 160 230 340 590 470
+
       C900 590 850 820 480 940
+
       C180 1040 220 1260 650 1380
+
       C900 1460 850 1660 520 1760
+
       C260 1840 330 2040 560 2200
+
     " />
+
+
 
             <!-- 선명한 주황선 -->
+
             <path class="story-path story-path-main" d="
+
       M420 0
+
       C180 160 230 340 590 470
+
       C900 590 850 820 480 940
+
       C180 1040 220 1260 650 1380
+
       C900 1460 850 1660 520 1760
+
       C260 1840 330 2040 560 2200
+
     " />
+
+
 
             <!-- 가장 밝은 중심선 -->
+
             <path class="story-path story-path-core" d="
+
       M420 0
+
       C180 160 230 340 590 470
+
       C900 590 850 820 480 940
+
       C180 1040 220 1260 650 1380
+
       C900 1460 850 1660 520 1760
+
       C260 1840 330 2040 560 2200
+
     " />
+
           </svg>
+
         </div>
 
+
+
         <!-- 검증 -->
+
         <article class="story-item story-item01">
+
+
 
           <h3>검증</h3>
 
+
+
           <p>
+
             모든 차량은 사고이력·성능·권리<br>
+
             관계 확인을 거칩니다.
+
           </p>
 
+
+
         </article>
+
+
+
 
 
         <!-- 비교 -->
+
         <article class="story-item story-item02">
+
+
 
           <h3>비교</h3>
 
+
+
           <p>
+
             매매·리스·렌트의 총비용을<br>
+
             동일 기준으로 산출합니다.
+
           </p>
 
+
+
         </article>
+
+
+
 
 
         <!-- 결정 -->
+
         <article class="story-item story-item03">
+
+
 
           <h3>결정</h3>
 
+
+
           <p>
+
             데이터에 근거해 가장 합리적인<br>
+
             방식을 제안합니다.
+
           </p>
+
+
 
         </article>
 
 
+
+
+
         <!-- 하단 결과 -->
+
         <div class="story-result">
+
+
 
           <div class="story-result-text">
 
+
+
             <p>매매 · 리스 · 렌트를</p>
 
+
+
             <h2>
+
               하나의 기준으로 이어온<br>
+
               <span>VERO CAR</span>
+
             </h2>
 
+
+
             <small>
+
               복잡함을 덜어내고, 선택에만 집중할 수 있도록.
+
             </small>
 
+
+
           </div>
+
+
+
 
 
           <div class="story-result-data">
 
+
+
             <div class="result-count">
+
+
 
               <span>함께한 고객</span>
 
+
+
               <strong>
+
                 <span class="count-number" data-target="80000">0</span>+
+
               </strong>
 
+
+
             </div>
+
+
 
             <div class="result-count">
 
+
+
               <span>재선택률</span>
 
+
+
               <strong>
+
                 <span class="count-number" data-target="95">0</span>%
+
               </strong>
+
+
 
             </div>
 
+
+
           </div>
+
+
 
         </div>
 
+
+
       </div>
+
+
 
     </section>
 
@@ -380,57 +751,122 @@
 
 
 
+
+
+
+
+
+
+
     <!-- ========================================
+
      04. THE VERO WAY
-========================================= -->
+
+\========================================= -->
+
     <section class="intro-why-section">
+
+
 
       <div class="intro-why-sticky">
 
+
+
         <div class="intro-why-inner">
 
+
+
           <!-- 왼쪽 텍스트 -->
+
           <div class="intro-why-copy">
 
+
+
             <span class="intro-why-label">
+
               THE VERO WAY
+
             </span>
 
+
+
             <h2>
+
               베로카가<br>
+
               다른 이유
+
             </h2>
 
+
+
             <p class="intro-why-desc">
+
               매매, 리스, 렌트의 모든 선택을<br>
+
               하나의 기준으로 비교하세요.
+
             </p>
+
+
 
             <span class="intro-why-line"></span>
 
+
+
             <h3>
+
               하나의 기준으로<br>
+
               모든 선택을 비교합니다
+
             </h3>
 
+
+
             <p class="intro-why-body">
+
               복잡한 조건과 비용을 한눈에 비교하여,<br>
+
               가장 합리적인 선택을 도와드립니다.
+
             </p>
 
+
+
           </div>
+
+
+
 
 
           <!-- 오른쪽 이미지 -->
+
           <div class="intro-why-image">
+
             <img src="../../assets/img/intro-img/인트로4카드.png" alt="차량 선택 비교">
+
           </div>
+
+
 
         </div>
 
+
+
       </div>
 
+
+
     </section>
+
+
+
+
+
+
+
+
 
 
 
@@ -439,37 +875,78 @@
 
 
     <!-- ========================================
+
      05. ALL BRANDS
-========================================= -->
+
+\========================================= -->
+
     <section class="brand-section">
+
+
 
       <div class="brand-sticky">
 
+
+
         <!-- 브랜드 로고 영상 -->
+
         <div class="brand-video-area">
+
           <video class="brand-video" autoplay muted loop playsinline>
-            <source src="../../assets/img/intro-img/로고_투명웹_VP9.webm" type="video/webm">
+
+            <source src="../../assets/img/intro-img/로고\_투명웹\_VP9.webm" type="video/webm">
+
           </video>
+
         </div>
+
+
 
         <!-- 중앙 문구 -->
+
         <div class="brand-content">
 
+
+
           <h2 class="brand-title">
+
             <span>ALL BRANDS</span>
+
             <span>ONE PLACE 6</span>
+
           </h2>
 
+
+
           <p class="brand-desc">
+
             국내외 다양한 브랜드와 차종을 한곳에서 만나보세요.<br>
+
             원하는 방식과 라이프스타일에 맞는 차량을 쉽게 비교하고 선택할 수 있습니다.
+
           </p>
 
+
+
         </div>
+
+
 
       </div>
 
+
+
     </section>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -480,91 +957,184 @@
 
 
     <section class="drive-section">
+
       <div class="drive-sticky">
+
         <ul class="drive-slider">
+
           <!-- 01 매매 : 뒤쪽 배경 대기 -->
+
           <li class="drive-item" style="background-image: url('../../assets/img/intro-img/매매-bg.png');">
+
             <img src="../../assets/img/intro-img/매매.png" alt="매매" class="drive-thumb">
+
             <div class="drive-content">
+
               <h2 class="drive-title">매매</h2>
+
               <p class="drive-description">
+
                 내 차로 소유하는 가장 확실한 선택,<br>
+
                 검증된 차량을 합리적인 가격으로 비교하고 투명한 정보로 안심 구매하세요.
+
               </p>
+
             </div>
+
           </li>
+
+
 
           <!-- 02 렌트 : 처음 활성 화면 -->
+
           <li class="drive-item" style="background-image: url('../../assets/img/intro-img/렌트-bg.png');">
+
             <img src="../../assets/img/intro-img/렌트.png" alt="렌트" class="drive-thumb">
+
             <div class="drive-content">
+
               <h2 class="drive-title">렌트</h2>
+
               <p class="drive-description">
+
                 초기 비용 부담을 줄이고, 필요한 기간만큼 편리하게 이용하세요.<br>
+
                 보험·세금·차량 관리까지 포함되어 보다 간편하게 차량을 운용할 수 있습니다.
+
               </p>
+
             </div>
+
           </li>
+
+
 
           <!-- 03 리스 : 카드 1 -->
+
           <li class="drive-item" style="background-image: url('../../assets/img/intro-img/리스-bg.png');">
+
             <img src="../../assets/img/intro-img/리스.png" alt="리스" class="drive-thumb">
+
             <div class="drive-content">
+
               <h2 class="drive-title">리스</h2>
+
               <p class="drive-description">
+
                 원하는 차량을 합리적인 월 납입금으로 이용하고,<br>
+
                 계약 조건에 따라 인수 또는 반납까지 유연하게 선택할 수 있습니다.
+
               </p>
+
             </div>
+
           </li>
+
+
 
           <!-- 04 매매 : 카드 2 -->
+
           <li class="drive-item" style="background-image: url('../../assets/img/intro-img/매매-bg.png');">
+
             <img src="../../assets/img/intro-img/매매.png" alt="매매" class="drive-thumb">
+
             <div class="drive-content">
+
               <h2 class="drive-title">매매</h2>
+
               <p class="drive-description">
+
                 내 차로 소유하는 가장 확실한 선택,<br>
+
                 검증된 차량을 합리적인 가격으로 비교하고 투명한 정보로 안심 구매하세요.
+
               </p>
+
             </div>
+
           </li>
+
+
 
           <!-- 05 렌트 : 카드 3 -->
+
           <li class="drive-item" style="background-image: url('../../assets/img/intro-img/렌트-bg.png');">
+
             <img src="../../assets/img/intro-img/렌트.png" alt="렌트" class="drive-thumb">
+
             <div class="drive-content">
+
               <h2 class="drive-title">렌트</h2>
+
               <p class="drive-description">
+
                 초기 비용 부담을 줄이고, 필요한 기간만큼 편리하게 이용하세요.<br>
+
                 보험·세금·차량 관리까지 포함되어 보다 간편하게 차량을 운용할 수 있습니다.
+
               </p>
+
             </div>
+
           </li>
+
+
 
           <!-- 06 리스 : 화면 밖 대기 -->
+
           <li class="drive-item" style="background-image: url('../../assets/img/intro-img/리스-bg.png');">
+
             <img src="../../assets/img/intro-img/리스.png" alt="리스" class="drive-thumb">
+
             <div class="drive-content">
+
               <h2 class="drive-title">리스</h2>
+
               <p class="drive-description">
+
                 원하는 차량을 합리적인 월 납입금으로 이용하고,<br>
+
                 계약 조건에 따라 인수 또는 반납까지 유연하게 선택할 수 있습니다.
+
               </p>
+
             </div>
+
           </li>
+
         </ul>
 
+
+
         <nav class="drive-nav">
+
           <button type="button" class="drive-btn drive-prev" aria-label="이전">
+
             ←
+
           </button>
+
           <button type="button" class="drive-btn drive-next" aria-label="다음">
+
             →
+
           </button>
+
         </nav>
+
       </div>
+
     </section>
+
+
+
+
+
+
+
+
 
 
 
@@ -573,41 +1143,83 @@
 
 
     <!-- ========================================
+
      07. ENDING
-========================================= -->
+
+\========================================= -->
+
     <section class="ending-section">
+
       <div class="ending-sticky">
+
         <div class="ending-stage">
 
+
+
           <!-- 첫 번째 이미지 -->
+
           <article class="ending-card ending-card-01">
+
             <img src="../../assets/img/intro-img/end1.png" alt="자동차 선택의 기준" class="ending-image">
 
+
+
             <div class="ending-dim"></div>
+
+
 
             <h2 class="ending-message">
+
               당신에게 맞는 자동차 선택의 기준을 만듭니다.
+
             </h2>
+
           </article>
 
+
+
           <!-- 두 번째 이미지 -->
+
           <article class="ending-card ending-card-02">
+
             <img src="../../assets/img/intro-img/end2.png" alt="VERO CAR" class="ending-image">
+
+
 
             <div class="ending-dim"></div>
 
+
+
             <div class="ending-brand">
+
               <h2>VERO CAR</h2>
+
               <p>당신의 방식으로, 차를 선택하세요.</p>
+
               <a href="../main/main.html" class="ending-start-btn">
+
                 나만의 드라이브 찾기
+
               </a>
+
             </div>
+
           </article>
 
+
+
         </div>
+
       </div>
+
     </section>
+
+
+
+
+
+
+
 
 
 
@@ -617,79 +1229,157 @@
   </main>
 
 
+
+
+
   <footer class="footer">
+
     <div class="footer-inner">
 
+
+
       <div class="footer-left">
+
         <h2 class="footer-logo">
+
           <a href="../main/main.html"><img src="../../assets/img/footer-img/베로카로고.png" alt=""></a>
+
         </h2>
 
+
+
         <ul class="footer-menu">
+
           <li><a href="#">이용약관</a></li>
+
           <li><a href="#" class="menu-privacy">개인정보처리방침</a></li>
+
         </ul>
 
+
+
         <p class="footer-desc">
+
           VERO CAR가 제공하는 서비스는 온라인 거래정보 및 기타 부가정보 제공에 한하며,
+
           실제 거래의 모든 책임은 판매자와 구매자에게 있음을 안내드립니다.
+
           <br>
+
           본 사이트/앱 상의 모든 정보, 콘텐츠, UI 등에 대한 무단 복제, 배포,
+
           스크래핑 등의 행위는 법에 의하여 엄격히 금지됩니다.
+
         </p>
+
+
 
         <address class="footer-info">
+
           주소: 서울특별시 강남구 테헤란로 123, 10층<br>
+
           대표이사: 김베로<br>
+
           사업자등록번호: 123-45-67890
+
         </address>
 
+
+
         <p class="copyright">
+
           COPYRIGHT VEROCAR. ALL RIGHTS RESERVED.
+
         </p>
+
       </div>
+
+
 
       <div class="footer-right">
 
+
+
         <div class="footer-customer">
+
           <div class="customer-title">
+
             <span>고객센터</span>
+
             <strong>1544-0000</strong>
+
           </div>
 
+
+
           <p>주말 및 공휴일 휴무</p>
+
           <p>평일 09:00 - 18:00 | 점심 12:00 - 13:00</p>
+
         </div>
 
+
+
         <ul class="footer-sns">
+
           <li>
+
             <a href="#" aria-label="인스타그램">
+
               <img src="../../assets/img/footer-img/Instagram.png" alt="">
+
             </a>
+
           </li>
+
           <li>
+
             <a href="#" aria-label="카카오톡">
+
               <img src="../../assets/img/footer-img/Kakaokalk.png" alt="">
+
             </a>
+
           </li>
+
           <li>
+
             <a href="#" aria-label="유튜브">
+
               <img src="../../assets/img/footer-img/Youtube.png" alt="">
+
             </a>
+
           </li>
+
           <li>
+
             <a href="#" aria-label="페이스북">
+
               <img src="../../assets/img/footer-img/Facebook.png" alt="">
+
             </a>
+
           </li>
+
+
 
         </ul>
 
+
+
       </div>
 
+
+
     </div>
+
   </footer>
 
+
+
 </body>
+
+
 
 </html>

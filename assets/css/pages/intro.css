@@ -1,742 +1,1488 @@
 @charset "utf-8";
 
+
+
 body {
+
   background: #020817;
+
   color: #fff;
+
 }
+
+
 
 .intro {
+
   width: 100%;
+
   overflow-x: clip;
+
   overflow-y: visible;
+
 }
 
+
+
 /* =========================================
+
    HERO INTRO VIDEO
-========================================= */
+
+\========================================= */
+
+
 
 .hero-section {
+
   position: relative;
 
+
+
   width: 100%;
+
   height: 940px;
+
+
 
   background: #000;
 
+
+
   overflow: hidden;
+
 }
 
 
+
+
+
 /* =========================================
+
    VIDEO
-========================================= */
+
+\========================================= */
+
+
 
 .hero-video {
+
   position: absolute;
+
   top: 0;
+
   left: 0;
 
+
+
   width: 100%;
+
   height: 940px;
+
+
 
   display: block;
 
+
+
   object-fit: cover;
+
   object-position: center;
 
+
+
   z-index: 1;
+
 }
 
 
+
+
+
 /* =========================================
+
    OVERLAY
-========================================= */
+
+\========================================= */
+
+
 
 .hero-overlay {
+
   position: absolute;
+
   inset: 0;
+
+
 
   background: rgba(0, 0, 0, 0.05);
 
+
+
   pointer-events: none;
 
+
+
   z-index: 2;
+
 }
 
 
+
+
+
 /* =========================================
+
    TOP AREA
-========================================= */
+
+\========================================= */
+
+
 
 .hero-top {
+
   position: absolute;
 
+
+
   top: 0;
+
   left: 0;
+
+
 
   z-index: 5;
 
+
+
   width: 100%;
+
   height: 80px;
+
+
 
   padding: 0 40px;
 
+
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
+
+
   box-sizing: border-box;
+
 }
 
 
+
+
+
 /* =========================================
+
    LOGO
-========================================= */
+
+\========================================= */
+
+
 
 .intro-logo {
+
   display: block;
 
+
+
   width: 80px;
+
 }
+
+
 
 .intro-logo img {
+
   display: block;
 
+
+
   width: 80px;
+
   height: auto;
 
+
+
   object-fit: contain;
+
 }
+
+
+
 
 
 /* =========================================
+
    SOUND / CLOSE
-========================================= */
+
+\========================================= */
+
+
 
 .intro-controls {
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
+
 
   gap: 18px;
+
 }
 
+
+
 /* 두 버튼 완전히 동일한 크기 */
+
 .sound-btn,
+
 .intro-close-btn {
+
   width: 32px;
+
   height: 32px;
 
+
+
   margin: 0;
+
   padding: 0;
 
+
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
+
 
   flex-shrink: 0;
 
+
+
   border: 0;
+
   background: transparent;
 
+
+
   cursor: pointer;
+
   text-decoration: none;
+
 }
+
+
+
+
 
 
 
 /* X */
+
 .intro-close-btn svg {
+
   display: block;
 
+
+
   width: 20px;
+
   height: 20px;
 
+
+
   fill: none;
+
   stroke: #fff;
+
   stroke-width: 1.8;
+
   stroke-linecap: round;
+
 }
+
+
 
 /* 소리 아이콘 */
 
+
+
 .sound-btn {
+
   width: 32px;
+
   height: 32px;
+
+
 
   padding: 0;
 
+
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
+
+
   border: none;
+
   background: transparent;
 
+
+
   cursor: pointer;
+
 }
+
+
 
 /* 스피커 */
+
 .sound-icon {
+
   display: block;
+
+
 
   width: 20px;
+
   height: 20px;
 
+
+
   fill: none;
+
   stroke: #fff;
+
   stroke-width: 1.8;
+
   stroke-linecap: round;
+
   stroke-linejoin: round;
+
 }
+
+
 
 .sound-on {
+
   display: none;
+
 }
+
+
 
 .sound-btn.is-sound-on .sound-off {
+
   display: none;
+
 }
+
+
 
 .sound-btn.is-sound-on .sound-on {
+
   display: block;
+
 }
 
+
+
 .sound-btn:hover .sound-icon {
+
   opacity: 0.7;
+
 }
+
+
 
 /* X */
 
+
+
 .intro-close-btn {
+
   font-size: 32px;
+
   line-height: 1;
+
 }
 
 
+
+
+
 /* =========================================
+
    START BUTTON
-========================================= */
+
+\========================================= */
+
+
 
 .hero-content {
+
   position: absolute;
 
+
+
   top: 773px;
+
   left: 50%;
+
+
 
   z-index: 5;
 
+
+
   transform: translateX(-50%);
+
 }
 
+
+
 .hero-start-btn {
+
   width: 230px;
+
   height: 56px;
+
   padding: 0 28px;
+
   box-sizing: border-box;
 
+
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: 24px;
 
+
+
   border: 1px solid #cbd5e1;
+
   border-radius: 3px;
 
+
+
   background: rgba(30, 41, 59, 0.85);
+
   color: #fff;
+
+
+
 
 
   font-family: "Pretendard", sans-serif;
+
   font-size: 16px;
+
   font-weight: 500;
+
   letter-spacing: 0.02em;
+
+
 
   backdrop-filter: blur(8px);
 
+
+
   transition:
+
     background-color 0.3s ease,
+
     border-color 0.3s ease,
+
     color 0.3s ease;
+
 }
+
+
 
 /* 마우스를 올렸을 때 */
+
 .hero-start-btn:hover {
+
   background: #0f172a;
+
   border: #0f172a;
+
   color: #fff;
+
 }
+
+
 
 /* 키보드로 선택했을 때 */
+
 .hero-start-btn:focus-visible {
+
   outline: 2px solid #d3bf9d;
+
   outline-offset: 5px;
+
 }
 
 
 
 
+
+
+
+
+
 /* =========================================
+
    JOURNEY
+
    2번째 → 3번째 연결
-========================================= */
+
+\========================================= */
+
+
 
 .journey-section {
+
   position: relative;
 
+
+
   width: 100%;
+
+
 
   /*
+
     여기에서 전체 스크롤 시간을 결정
+
     한 화면은 계속 고정되고 내부 장면만 변화
+
   */
+
   height: 500vh;
 
+
+
   background: #020817;
+
 }
+
+
 
 .journey-sticky {
+
   position: sticky;
 
+
+
   top: 0;
+
   left: 0;
 
+
+
   width: 100%;
+
   height: 100vh;
+
+
 
   overflow: hidden;
 
+
+
   background: #020817;
+
 }
 
 
+
+
+
 /* =========================================
+
    SCENE COMMON
-========================================= */
+
+\========================================= */
+
+
 
 .journey-scene {
+
   position: absolute;
+
+
 
   inset: 0;
 
+
+
   width: 100%;
+
   height: 100%;
 
+
+
   overflow: hidden;
+
+
 
   will-change:
+
     opacity,
+
     transform;
+
 }
+
+
+
 
 
 /* =========================================
+
    SCENE 01
+
    자연 + 대시보드
-========================================= */
+
+\========================================= */
+
+
 
 .scene-dashboard {
+
   z-index: 1;
 
+
+
   opacity: 1;
+
 }
 
+
+
 .dashboard-visual {
+
   position: absolute;
+
+
 
   inset: 0;
 
+
+
   width: 100%;
+
   height: 100%;
+
+
 
   transform-origin: 52.5% 84%;
 
+
+
   will-change: transform;
+
 }
+
+
+
 
 
 /* 자연 */
+
 .journey-nature {
+
   position: absolute;
+
+
 
   inset: 0;
 
+
+
   width: 100%;
+
   height: 100%;
+
+
 
   display: block;
 
+
+
   object-fit: cover;
+
   object-position: center;
+
 }
+
+
+
 
 
 /* 대시보드 */
+
 .journey-dashboard {
+
   position: absolute;
+
+
 
   inset: 0;
 
+
+
   width: 100%;
+
   height: 100%;
+
+
 
   display: block;
 
+
+
   object-fit: cover;
+
   object-position: center;
 
+
+
   pointer-events: none;
+
 }
 
 
+
+
+
 /* =========================================
+
    02. SLOGAN
-========================================= */
+
+\========================================= */
+
 /* =========================================
+
    02. SLOGAN
-========================================= */
+
+\========================================= */
+
+
 
 .slogan-section {
+
   position: relative;
 
+
+
   width: 100%;
+
   height: 150vh;
 
+
+
   background: #020817;
+
 }
 
+
+
 .slogan-sticky {
+
   position: sticky;
+
   top: 0;
 
+
+
   width: 100%;
+
   height: 100vh;
+
+
 
   overflow: hidden;
 
+
+
   background: #020817;
+
 }
 
+
+
 .slogan-scene {
+
   position: absolute;
+
   inset: 0;
 
+
+
   width: 100%;
+
   height: 100%;
+
+
 
   z-index: 1;
 
+
+
   transform-origin: 52.5% 84%;
 
+
+
   will-change: transform;
+
 }
+
+
+
 
 
 /* 자연 */
+
 .slogan-bg {
+
   position: absolute;
+
   inset: 0;
 
+
+
   width: 100%;
+
   height: 100%;
+
+
 
   display: block;
 
+
+
   object-fit: cover;
+
   object-position: center;
+
 }
+
+
+
 
 
 /* 대시보드 */
+
 .slogan-dashboard {
+
   position: absolute;
+
   inset: 0;
 
+
+
   width: 100%;
+
   height: 100%;
+
+
 
   display: block;
 
+
+
   object-fit: cover;
+
   object-position: center;
+
+
 
   opacity: 1;
 
+
+
   pointer-events: none;
 
+
+
   z-index: 2;
+
 }
 
 
+
+
+
 /* =========================================
+
    TEXT
-========================================= */
+
+\========================================= */
+
+
 
 .slogan-content {
+
   position: absolute;
 
+
+
   top: 50%;
+
   left: 50%;
+
+
 
   z-index: 3;
 
+
+
   width: 100%;
+
+
 
   transform: translate(-50%, -63%);
 
+
+
   text-align: center;
 
+
+
   color: #fff;
+
+
 
   will-change: opacity, transform;
+
 }
+
+
 
 .slogan-content h2 {
+
   margin: 0;
 
+
+
   font-family: 'Cinzel', serif;
+
   font-size: 100px;
+
   font-weight: 700;
+
   line-height: 1.35;
+
 }
+
+
 
 .slogan-content p {
+
   margin: 45px 0 0;
 
+
+
   color: rgba(255, 255, 255, 0.8);
+
+
 
   font-family: 'Noto Sans KR', sans-serif;
+
   font-size: 48px;
+
   font-weight: 500;
+
 }
 
+
+
 /* =========================================
+
    03. STORY
-========================================= */
+
+\========================================= */
+
 .story-section {
+
   position: relative;
+
   width: 100%;
+
   height: 3000px;
+
   margin-top: -50vh;
+
   padding: 0;
+
   background: #020817;
+
   overflow: hidden;
+
   z-index: 3;
+
 }
+
+
 
 .story-bg {
+
   position: absolute;
+
   inset: 0;
+
   width: 100%;
+
   height: 100%;
+
   background:
+
     url('../../img/intro-img/배경3.png') center top / cover no-repeat;
+
   z-index: 1;
+
 }
 
+
+
 /* =========================================
+
    INNER
-========================================= */
+
+\========================================= */
+
 .story-inner {
+
   position: relative;
+
   z-index: 2;
+
   width: 100%;
+
   max-width: 1440px;
+
   height: 100%;
+
   margin: 0 auto;
+
 }
 
+
+
 /* =========================================
+
    ORANGE LIGHT
-========================================= */
+
+\========================================= */
+
 .story-line {
+
   position: absolute;
+
   top: 80px;
+
   left: 50%;
+
   width: 900px;
+
   height: 2200px;
+
   transform: translateX(-50%);
+
   pointer-events: none;
+
 }
+
+
 
 .story-line svg {
+
   display: block;
+
   width: 100%;
+
   height: 100%;
+
   overflow: visible;
+
 }
+
+
 
 .story-line .story-path {
+
   fill: none;
+
   stroke-linecap: round;
+
   stroke-linejoin: round;
+
 }
+
+
 
 /* 넓게 퍼지는 은은한 빛 */
+
 .story-line .story-path-halo {
+
   stroke: #ff5900;
+
   stroke-width: 22;
+
   opacity: 0.38;
+
   filter: url(#storyWideGlow);
+
 }
+
+
 
 /* 중심선 가까이 퍼지는 주황빛 */
+
 .story-line .story-path-glow {
+
   stroke: url(#storyOrangeGradient);
+
   stroke-width: 9;
+
   opacity: 0.9;
+
   filter: url(#storyTightGlow);
+
 }
+
+
 
 /* 중간과 곡선 부분에서 더 강하게 빛나는 효과 */
+
 .story-line .story-path-hotspot {
+
   stroke: url(#storyHotspotGradient);
+
   stroke-width: 12;
+
   opacity: 1;
+
   filter: url(#storyHotspotGlow);
+
 }
+
+
 
 /* 얇고 선명한 주황선 */
+
 .story-line .story-path-main {
+
   stroke: url(#storyOrangeGradient);
+
   stroke-width: 3.5;
+
   opacity: 1;
+
   filter: none;
+
 }
+
+
 
 /* 밝은 중심선 */
+
 .story-line .story-path-core {
+
   stroke: #fff3d6;
+
   stroke-width: 1.3;
+
   opacity: 1;
+
   filter: none;
+
 }
 
+
+
 /* =========================================
+
    STORY TEXT
-========================================= */
+
+\========================================= */
+
 .story-item {
+
   position: absolute;
+
   width: 300px;
+
   opacity: 0;
+
   transform: translateY(40px);
+
   transition:
+
     opacity 0.8s ease,
+
     transform 0.8s ease;
+
 }
+
+
 
 .story-item.active {
+
   opacity: 1;
+
   transform: translateY(0);
+
 }
+
+
 
 .story-item h3 {
+
   margin: 0 0 15px;
+
   color: #fff;
+
   font-size: 26px;
+
   font-weight: 700;
+
 }
+
+
 
 .story-item p {
+
   margin: 0;
+
   color: rgba(255, 255, 255, 0.7);
+
   font-size: 16px;
+
   font-weight: 400;
+
   line-height: 1.6;
+
 }
+
+
 
 /* 검증 */
+
 .story-item01 {
+
   top: 1050px;
+
   left: 170px;
+
 }
+
+
 
 /* 비교 */
+
 .story-item02 {
+
   top: 1410px;
+
   right: 170px;
+
 }
+
+
 
 /* 결정 */
+
 .story-item03 {
+
   top: 1770px;
+
   left: 250px;
+
 }
 
+
+
 /* =========================================
+
    하단 RESULT
-========================================= */
+
+\========================================= */
+
 .story-result {
+
   position: absolute;
+
   left: 50%;
+
   bottom: 180px;
+
   width: calc(100% - 200px);
+
   max-width: 1200px;
+
   display: flex;
+
   align-items: flex-end;
+
   justify-content: space-between;
+
   transform: translate(-50%, 60px);
+
   opacity: 0;
+
   transition:
+
     opacity 1s ease,
+
     transform 1s ease;
+
 }
+
+
 
 .story-result.active {
+
   opacity: 1;
+
   transform: translate(-50%, 0);
+
 }
+
+
 
 /* 왼쪽 문구 */
+
 .story-result-text>p {
+
   margin: 0 0 20px;
+
   color: #fff;
+
   font-size: 26px;
+
 }
+
+
 
 .story-result-text h2 {
+
   margin: 0;
+
   color: #fff;
+
   font-size: 42px;
+
   line-height: 1.45;
+
 }
+
+
 
 .story-result-text h2 span {
+
   color: #e86f00;
+
   font-family: 'Cinzel', serif;
+
 }
+
+
 
 .story-result-text small {
+
   display: block;
+
   margin-top: 35px;
+
   color: rgba(255, 255, 255, 0.65);
+
   font-size: 14px;
+
 }
+
+
 
 /* 오른쪽 숫자 */
+
 .story-result-data {
+
   display: flex;
+
   flex-direction: column;
+
   gap: 45px;
+
 }
+
+
 
 .result-count {
+
   display: flex;
+
   flex-direction: column;
+
   gap: 8px;
+
 }
+
+
 
 .result-count>span {
+
   color: rgba(255, 255, 255, 0.8);
+
   font-size: 14px;
+
 }
 
+
+
 .result-count strong {
+
   color: #fff;
+
   font-size: 54px;
+
   font-weight: 700;
+
   line-height: 1;
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -745,269 +1491,533 @@ body {
 
 
 /* =========================================
+
    04. THE VERO WAY
-========================================= */
+
+\========================================= */
+
+
 
 .intro-why-section {
+
   position: relative;
+
   width: 100%;
+
   height: 200vh;
+
   background: #111;
+
 }
 
+
+
 .intro-why-sticky {
+
   position: sticky;
+
   top: 0;
 
+
+
   width: 100%;
+
   height: 100vh;
+
+
 
   overflow: hidden;
 
+
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
+
+
   background: #111;
+
 }
 
 
+
+
+
 /* =========================================
+
    1920 × 1080 기준 영역
-========================================= */
+
+\========================================= */
+
+
 
 .intro-why-inner {
+
   position: relative;
 
+
+
   width: 1920px;
+
   height: 1080px;
+
+
 
   flex-shrink: 0;
 
+
+
   background:
+
     url('../../img/intro-img/인트로4.png') center / cover no-repeat;
 
+
+
   transform-origin: center center;
+
 }
 
+
+
 /* =========================================
+
    왼쪽 TEXT
-========================================= */
+
+\========================================= */
+
+
 
 .intro-why-copy {
+
   position: absolute;
 
+
+
   top: 248px;
+
   left: 240px;
+
+
 
   width: 430px;
 
+
+
   z-index: 3;
+
 }
+
+
+
 
 
 /* THE VERO WAY */
+
 .intro-why-label {
+
   display: block;
+
+
 
   margin-bottom: 25px;
 
+
+
   color: #B86616;
 
+
+
   font-family: 'HeirofLight', serif;
+
   font-size: 20px;
+
   font-weight: 700;
 
+
+
   opacity: 0;
+
+
 
   transform: translateY(30px);
 
+
+
   transition:
+
     opacity 0.7s ease,
+
     transform 0.7s ease;
+
 }
+
+
+
 
 
 /* 베로카가 다른 이유 */
+
 .intro-why-copy h2 {
+
   margin: 0 0 45px;
+
+
 
   color: #fff;
 
+
+
   font-family: 'Paperlogy', 'Pretendard', sans-serif;
+
   font-size: 50px;
+
   font-weight: 700;
+
+
 
   line-height: 1.25;
 
+
+
   opacity: 0;
+
+
 
   transform: translateY(35px);
 
+
+
   transition:
+
     opacity 0.8s ease 0.12s,
+
     transform 0.8s ease 0.12s;
+
 }
+
+
+
 
 
 /* 첫 번째 설명 */
+
 .intro-why-desc {
+
   margin: 0;
+
+
 
   color: rgba(255, 255, 255, 0.7);
 
+
+
   font-family: 'Pretendard', sans-serif;
+
   font-size: 24px;
+
   font-weight: 400;
+
+
 
   line-height: 1.6;
 
+
+
   opacity: 0;
+
+
 
   transform: translateY(35px);
 
+
+
   transition:
+
     opacity 0.8s ease 0.25s,
+
     transform 0.8s ease 0.25s;
+
 }
+
+
+
 
 
 /* 주황 구분선 */
+
 .intro-why-line {
+
   display: block;
 
+
+
   width: 300px;
+
   height: 1px;
+
+
 
   margin: 55px 0 55px;
 
+
+
   background: #B86616;
 
+
+
   transform: scaleX(0);
+
   transform-origin: left center;
 
+
+
   transition:
+
     transform 0.8s ease 0.42s;
+
 }
+
+
+
 
 
 /* 하나의 기준으로... */
+
 .intro-why-copy h3 {
+
   margin: 0 0 30px;
+
+
 
   color: rgba(255, 255, 255, 0.7);
 
+
+
   font-family: 'Pretendard', sans-serif;
+
   font-size: 24px;
+
   font-weight: 500;
+
+
 
   line-height: 1.6;
 
+
+
   opacity: 0;
+
+
 
   transform: translateY(35px);
 
+
+
   transition:
+
     opacity 0.8s ease 0.5s,
+
     transform 0.8s ease 0.5s;
+
 }
+
+
+
 
 
 /* 마지막 설명 */
+
 .intro-why-body {
+
   margin: 0;
+
+
 
   color: rgba(255, 255, 255, 0.7);
 
+
+
   font-family: 'Pretendard', sans-serif;
+
   font-size: 24px;
+
   font-weight: 500;
+
+
 
   line-height: 1.6;
 
+
+
   opacity: 0;
+
+
 
   transform: translateY(35px);
 
+
+
   transition:
+
     opacity 0.8s ease 0.65s,
+
     transform 0.8s ease 0.65s;
+
 }
 
 
+
+
+
 /* =========================================
+
    오른쪽 이미지
+
    최종 위치 880 / 140 / 800 × 800
-========================================= */
+
+\========================================= */
+
+
 
 .intro-why-image {
+
   position: absolute;
 
+
+
   top: 140px;
+
   left: 880px;
 
+
+
   width: 800px;
+
   height: 800px;
+
+
 
   overflow: hidden;
 
+
+
   border: 1px solid rgba(184, 102, 22, 0.75);
+
   border-radius: 24px;
+
+
 
   z-index: 2;
 
+
+
   /* 처음에는 오른쪽 위 바깥 */
+
   opacity: 0;
 
+
+
   transform:
+
     translate(650px, -500px) scale(0.92);
 
+
+
   transition:
+
     opacity 1s ease,
+
     transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 
+
+
   will-change:
+
     transform,
+
     opacity;
+
 }
+
+
 
 .intro-why-image img {
+
   display: block;
 
+
+
   width: 100%;
+
   height: 100%;
 
+
+
   object-fit: cover;
+
 }
+
+
+
 
 
 /* =========================================
+
    화면에 들어왔을 때
-========================================= */
+
+\========================================= */
+
+
 
 .intro-why-section.is-active .intro-why-label,
 
+
+
 .intro-why-section.is-active .intro-why-copy h2,
+
+
 
 .intro-why-section.is-active .intro-why-desc,
 
+
+
 .intro-why-section.is-active .intro-why-copy h3,
 
+
+
 .intro-why-section.is-active .intro-why-body {
+
   opacity: 1;
+
+
 
   transform: translateY(0);
+
 }
+
+
 
 .intro-why-section.is-active .intro-why-line {
+
   transform: scaleX(1);
+
 }
+
+
 
 .intro-why-section.is-active .intro-why-image {
+
   opacity: 1;
 
+
+
   transform:
+
     translate(0, 0) scale(1);
+
 }
 
 
@@ -1020,461 +2030,938 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================================
+
    05. ALL BRANDS
-========================================= */
+
+\========================================= */
+
+
 
 .brand-section {
+
   position: relative;
 
+
+
   width: 100%;
+
   height: 100vh;
+
+
 
   background: #fff;
 
+
+
   overflow: hidden;
+
 }
+
+
 
 .brand-sticky {
+
   position: sticky;
 
+
+
   top: 0;
 
+
+
   width: 100%;
+
   height: 100vh;
 
+
+
   overflow: hidden;
 
+
+
   background: #fff;
+
 }
 
 
+
+
+
 /* =========================================
+
    상단 브랜드 영상
-========================================= */
+
+\========================================= */
+
+
 
 .brand-video-area {
+
   position: absolute;
 
+
+
   top: 0;
+
   left: 0;
 
+
+
   width: 100%;
+
   height: 50%;
+
+
 
   overflow: hidden;
 
+
+
   background: #fff;
 
+
+
 }
+
+
 
 .brand-video {
+
   display: block;
 
+
+
   width: 100%;
+
   height: 100%;
 
+
+
   object-fit: cover;
+
   object-position: center;
 
+
+
   pointer-events: none;
+
 }
+
+
+
 
 
 /* =========================================
+
    중앙 텍스트
-========================================= */
+
+\========================================= */
+
+
 
 .brand-content {
+
   position: absolute;
 
+
+
   top: 61.94%;
+
   left: 50%;
 
+
+
   width: 100%;
+
+
 
   transform: translateX(-50%);
 
+
+
   text-align: center;
 
+
+
   color: #000;
+
 }
+
+
+
 
 
 /* ALL BRANDS / ONE PLACE 6 */
 
+
+
 .brand-title {
+
   margin: 0;
 
+
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
+
 
   gap: 10px;
 
+
+
   font-family: 'Pretendard', sans-serif;
 
+
+
   font-size: 50px;
+
   font-weight: 800;
+
   line-height: 1.2;
 
+
+
   color: #000;
+
 }
 
+
+
 .brand-title span {
+
   display: block;
+
 }
+
+
+
 
 
 /* 설명 */
 
+
+
 .brand-desc {
+
   margin: 70px 0 0;
+
+
 
   font-family: 'Pretendard', sans-serif;
 
+
+
   font-size: 30px;
+
   font-weight: 400;
+
   line-height: 1.2;
+
+
 
   color: #000;
 
+
+
   text-align: center;
+
 }
 
 
 
 
 
+
+
+
+
+
+
 /* ==================================================
+
    06. RENT / LEASE / BUY SLIDER
-================================================== */
+
+\================================================== */
+
+
 
 .drive-section {
+
   position: relative;
+
   width: 100%;
+
   height: 100vh;
+
   overflow: hidden;
+
   background: #111;
+
   color: #fff;
+
 }
 
+
+
 /* ==================================================
+
    SLIDER
-================================================== */
+
+\================================================== */
+
+
 
 .drive-slider {
+
   position: relative;
+
   width: 100%;
+
   height: 100%;
+
   margin: 0;
+
   padding: 0;
+
 }
 
+
+
 /* ==================================================
+
    ITEM 공통
-================================================== */
+
+\================================================== */
+
+
 
 .drive-item {
+
   position: absolute;
+
   top: 50%;
 
+
+
   width: 300px;
+
   height: 400px;
 
+
+
   list-style: none;
+
   overflow: hidden;
+
+
 
   transform: translateY(-50%);
 
+
+
   background-position: center;
+
   background-size: cover;
+
   background-repeat: no-repeat;
+
+
 
   border-radius: 20px;
 
+
+
   transition:
+
     left 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+
     top 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+
     width 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+
     height 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+
     transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+
     border-radius 0.75s ease,
+
     opacity 0.4s ease;
 
+
+
   z-index: 2;
+
 }
 
+
+
 /* ==================================================
+
    1, 2번째 = 전체 배경
-================================================== */
+
+\================================================== */
+
+
 
 .drive-item:nth-child(1),
+
 .drive-item:nth-child(2) {
+
   top: 0;
+
   left: 0;
 
+
+
   width: 100%;
+
   height: 100%;
+
+
 
   transform: none;
 
+
+
   border-radius: 0;
+
 }
+
+
 
 .drive-item:nth-child(1) {
+
   z-index: 0;
+
 }
+
+
 
 .drive-item:nth-child(2) {
+
   z-index: 1;
+
 }
 
+
+
 /* 현재 활성 배경 어둡게 */
+
 .drive-item:nth-child(2)::after {
+
   content: "";
 
+
+
   position: absolute;
+
   inset: 0;
 
+
+
   background: linear-gradient(90deg,
+
       rgba(0, 0, 0, 0.52) 0%,
+
       rgba(0, 0, 0, 0.35) 45%,
+
       rgba(0, 0, 0, 0.18) 100%);
+
+
 
   pointer-events: none;
 
+
+
   z-index: 1;
+
 }
 
+
+
 /* ==================================================
+
    세로 카드 3개
+
    Figma
+
    X 780
+
    Y 500
+
    W 300
+
    H 400
+
    GAP 30
-================================================== */
+
+\================================================== */
+
+
 
 .drive-item:nth-child(3),
+
 .drive-item:nth-child(4),
+
 .drive-item:nth-child(5) {
+
   top: 46.3%;
 
+
+
   width: 300px;
+
   height: 400px;
+
+
 
   transform: none;
 
+
+
   border-radius: 20px;
+
+
 
   cursor: pointer;
 
+
+
   z-index: 5;
+
 }
+
+
 
 /* 카드 1 : X 780 */
+
 .drive-item:nth-child(3) {
+
   left: calc(50% - 180px);
+
 }
+
+
 
 /* 카드 2 : X 1110 */
+
 .drive-item:nth-child(4) {
+
   left: calc(50% + 150px);
+
 }
+
+
 
 /* 카드 3 : X 1440 */
+
 .drive-item:nth-child(5) {
+
   left: calc(50% + 480px);
+
 }
 
+
+
 /* 다음 대기 카드 */
+
 .drive-item:nth-child(n + 6) {
+
   top: 46.3%;
+
+
 
   left: calc(50% + 810px);
 
+
+
   width: 300px;
+
   height: 400px;
+
+
 
   transform: none;
 
+
+
   opacity: 0;
 
+
+
   pointer-events: none;
+
 }
 
+
+
 /* ==================================================
+
    세로 카드 이미지
-================================================== */
+
+\================================================== */
+
+
 
 .drive-thumb {
+
   position: absolute;
+
   inset: 0;
+
+
 
   display: block;
 
+
+
   width: 100%;
+
   height: 100%;
+
+
 
   object-fit: cover;
 
+
+
   border-radius: inherit;
+
+
 
   z-index: 2;
 
+
+
   transition:
+
     opacity 0.35s ease,
+
     transform 0.5s ease;
+
 }
+
+
 
 /* 전체 배경이 된 아이템에서는 세로 썸네일 숨김 */
+
 .drive-item:nth-child(1) .drive-thumb,
+
 .drive-item:nth-child(2) .drive-thumb {
+
   opacity: 0;
+
 }
+
+
 
 .drive-item:nth-child(3):hover .drive-thumb,
+
 .drive-item:nth-child(4):hover .drive-thumb,
+
 .drive-item:nth-child(5):hover .drive-thumb {
+
   transform: scale(1.05);
+
 }
 
+
+
 /* ==================================================
+
    LEFT TEXT
-================================================== */
+
+\================================================== */
+
+
 
 .drive-content {
+
   position: absolute;
 
+
+
   top: 50%;
+
   left: 8.33%;
+
+
 
   width: 560px;
 
+
+
   display: none;
+
+
 
   opacity: 0;
 
+
+
   transform: translateY(calc(-50% + 60px));
+
+
 
   color: #fff;
 
+
+
   z-index: 4;
+
 }
+
+
 
 /* 현재 활성 슬라이드 텍스트만 표시 */
+
 .drive-item:nth-child(2) .drive-content {
+
   display: block;
 
+
+
   animation:
+
     driveContentShow 0.75s ease 0.25s forwards;
+
 }
 
+
+
 /* 제목 */
+
 .drive-title {
+
   margin: 0 0 50px;
+
+
 
   font-family: "Paperlogy", "Pretendard", sans-serif;
 
+
+
   font-size: 50px;
+
   font-weight: 800;
+
   line-height: 1;
+
+
 
   letter-spacing: -0.02em;
 
+
+
   color: #fff;
+
 }
 
+
+
 /* 설명 */
+
 .drive-description {
+
   margin: 0;
+
+
 
   font-family: "Paperlogy", "Pretendard", sans-serif;
 
+
+
   font-size: 30px;
+
   font-weight: 500;
+
   line-height: 1.6;
+
+
 
   letter-spacing: -0.01em;
 
+
+
   color: #fff;
+
 }
 
+
+
 /* ==================================================
+
    TEXT 등장 애니메이션
-================================================== */
+
+\================================================== */
+
+
 
 @keyframes driveContentShow {
+
   0% {
+
     opacity: 0;
+
+
 
     filter: blur(5px);
 
+
+
     transform: translateY(calc(-50% + 60px));
+
   }
 
+
+
   100% {
+
     opacity: 1;
+
+
 
     filter: blur(0);
 
+
+
     transform: translateY(-50%);
+
   }
+
 }
 
+
+
 /* ==================================================
+
    이전 / 다음 버튼
-================================================== */
+
+\================================================== */
+
+
 
 .drive-nav {
+
   position: absolute;
 
+
+
   top: 90%;
+
   left: calc(30% - 200px);
 
+
+
   display: flex;
+
   align-items: center;
+
+
 
   gap: 15px;
 
+
+
   z-index: 20;
+
 }
 
+
+
 .drive-btn {
+
   width: 56px;
+
   height: 56px;
+
+
 
   padding: 0;
 
+
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
+
+
   border: 1px solid rgba(255, 255, 255, 0.8);
+
   border-radius: 50%;
+
+
 
   background: rgba(255, 255, 255, 0.75);
 
+
+
   color: #111;
+
+
 
   font-size: 24px;
 
+
+
   cursor: pointer;
+
+
 
   backdrop-filter: blur(8px);
 
+
+
   transition:
+
     background 0.25s ease,
+
     transform 0.25s ease;
+
 }
+
+
 
 .drive-btn:hover {
+
   background: #fff;
 
+
+
   transform: translateY(-3px);
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1486,63 +2973,121 @@ body {
 
 
 /* =========================================
+
    CTA
-========================================= */
+
+\========================================= */
+
+
 
 .cta-section {
+
   padding: 160px 0;
+
   background: #fff;
+
 }
+
+
 
 .cta-card {
+
   position: relative;
+
   width: calc(100% - 400px);
+
   max-width: 1200px;
+
   height: 480px;
+
   margin: 0 auto;
+
   overflow: hidden;
+
 }
+
+
 
 .cta-card>img {
+
   width: 100%;
+
   height: 100%;
+
   display: block;
+
   object-fit: cover;
+
 }
+
+
 
 .cta-overlay {
+
   position: absolute;
+
   inset: 0;
+
   background: rgba(0, 0, 0, 0.35);
+
 }
+
+
 
 .cta-content {
+
   position: absolute;
+
   inset: 0;
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   justify-content: center;
+
 }
+
+
 
 .cta-content h2 {
+
   margin-bottom: 15px;
+
   font-size: 58px;
+
 }
+
+
 
 .cta-content p {
+
   margin-bottom: 30px;
+
   font-size: 17px;
+
 }
+
+
 
 .cta-content a {
+
   width: 160px;
+
   height: 45px;
+
   background: #fff;
+
   color: #111;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
 }
 
 
@@ -1554,381 +3099,1276 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /* ==================================================
+
    07. ENDING
-================================================== */
+
+\================================================== */
+
+
 
 .ending-section {
+
   position: relative;
+
   width: 100%;
+
   height: 300vh;
+
   background: #fff;
+
 }
+
+
 
 .ending-sticky {
+
   position: sticky;
+
   top: 0;
+
   width: 100%;
+
   height: 100vh;
+
   height: 100svh;
+
   overflow: hidden;
+
   background: #fff;
+
 }
+
+
 
 .ending-stage {
+
   position: relative;
+
   width: 100%;
+
   height: 100%;
+
 }
 
+
+
 /* ==================================================
+
    ENDING CARD
-================================================== */
+
+\================================================== */
+
+
 
 .ending-card {
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   width: min(72vw, 1380px);
+
   height: auto;
+
   aspect-ratio: 2048 / 877;
+
   overflow: hidden;
+
   background: #111;
+
   transform: translate(-50%, -50%);
+
   will-change: transform, opacity, filter;
+
 }
+
+
 
 .ending-image {
+
   position: absolute;
+
   inset: 0;
+
   display: block;
+
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
+
   object-position: center;
+
 }
+
+
 
 .ending-dim {
+
   position: absolute;
+
   inset: 0;
+
   z-index: 1;
+
   background: rgba(0, 0, 0, 0.2);
+
   pointer-events: none;
+
 }
+
+
 
 /* 첫 번째 이미지 */
+
 .ending-card-01 {
+
   z-index: 1;
+
   opacity: 1;
+
   visibility: visible;
+
   filter: blur(0);
+
   transform: translate(-50%, -50%) scale(1);
+
 }
+
+
 
 /* 두 번째 이미지 */
+
 .ending-card-02 {
+
   z-index: 2;
+
   opacity: 0;
+
   visibility: visible;
+
   transform: translate(-50%, -50%) scale(0.94);
+
 }
 
+
+
 /* ==================================================
+
    첫 번째 문구
-================================================== */
+
+\================================================== */
+
+
 
 .ending-message {
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   z-index: 5;
+
   width: 100%;
+
   margin: 0;
+
   padding: 0 30px;
+
   box-sizing: border-box;
+
   color: #fff;
+
   font-family: "Pretendard", sans-serif;
+
   font-size: 40px;
+
   font-weight: 700;
+
   line-height: 1.5;
+
   text-align: center;
+
   word-break: keep-all;
+
   opacity: 1;
+
   transform: translate(-50%, -50%);
+
   will-change: opacity, transform;
+
+}
+
+
+
+/* ==================================================
+
+   두 번째 문구
+
+\================================================== */
+
+
+
+.ending-brand {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  z-index: 5;
+
+  width: 100%;
+
+  padding: 0 30px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translate(-50%, -50%) scale(0.94);
+
+  will-change: opacity, transform;
+
+}
+
+
+
+.ending-brand h2 {
+
+  margin: 0;
+
+  color: #f8fafc;
+
+  font-family: "HeirofLightBold", "HeirofLight", serif;
+
+  font-size: 80px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+
+}
+
+
+
+.ending-brand p {
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-family: "Pretendard", sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+}
+
+
+
+/* 스크롤은 유지하고 브라우저 스크롤바만 숨김 */
+
+html.intro-document {
+
+  scrollbar-width: none;
+
+  scrollbar-gutter: auto;
+
+  scroll-behavior: auto;
+
+}
+
+
+
+html.intro-document::-webkit-scrollbar,
+
+body.intro-page::-webkit-scrollbar {
+
+  display: none;
+
+  width: 0;
+
+  height: 0;
+
+}
+
+
+
+body.intro-page {
+
+  margin: 0;
+
+  padding-top: 0;
+
+  overflow-x: clip;
+
+  scrollbar-width: none;
+
+}
+
+
+
+/* sticky 요소의 부모에서 스크롤을 막지 않음 */
+
+.intro-page .intro {
+
+  width: 100%;
+
+  overflow: visible;
+
+}
+
+
+
+.intro-opening {
+
+  position: relative;
+
+  width: 100%;
+
+  isolation: isolate;
+
+}
+
+
+
+/* 1번: 제자리에 고정되는 영상 */
+
+.intro-opening .hero-section {
+
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100vh;
+
+  height: 100svh;
+
+  overflow: hidden;
+
+  z-index: 1;
+
+}
+
+
+
+.intro-opening .hero-video {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+
+
+/* 고정 px 대신 화면 높이에 맞춰 버튼 배치 */
+
+.intro-opening .hero-content {
+
+  top: auto;
+
+  bottom: 12%;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+}
+
+
+
+/* 2번: 고정된 1번 영상 위로 올라오는 화면 */
+
+.intro-opening .slogan-section {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 240vh;
+
+  height: 240svh;
+
+  margin: 0;
+
+  background: #020817;
+
+  z-index: 2;
+
+}
+
+
+
+.intro-opening .slogan-sticky {
+
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100vh;
+
+  height: 100svh;
+
+  overflow: hidden;
+
+  background: #020817;
+
+}
+
+
+
+.intro-opening .slogan-scene {
+
+  transform-origin: 52.5% 84%;
+
+  will-change: transform;
+
+  transition: none;
+
+}
+
+
+
+.intro-opening .slogan-content {
+
+  will-change: opacity, transform;
+
+  transition: none;
+
+}
+
+
+
+/* 확대가 끝나기 전에 3번이 덮는 기존 음수 여백 해제 */
+
+.intro-page .story-section {
+
+  margin-top: 0;
+
+}
+
+
+
+/* 위로 스크롤할 때 내려오는 공통 헤더 */
+
+.intro-page .header.intro-header {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  margin: 0;
+
+  z-index: 2000;
+
+  background: linear-gradient(180deg,
+
+      rgba(255, 255, 255, 0.95) 0%,
+
+      rgba(170, 170, 170, 0.85) 55%,
+
+      rgba(60, 60, 60, 0.95) 100%);
+
+  color: #0f172a;
+
+  transform: translateY(-110%);
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+
+    visibility 0s linear 0.45s;
+
+  will-change: transform;
+
+}
+
+
+
+.intro-page .header.intro-header.is-visible {
+
+  transform: translateY(0);
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transition:
+
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+
+    visibility 0s;
+
+}
+
+
+
+/* 기존 ending의 translateZ에 원근감 적용 */
+
+.intro-page .ending-stage {
+
+  perspective: 1200px;
+
+}
+
+
+
+/* 운영체제의 동작 줄이기 설정 반영 */
+
+@media (prefers-reduced-motion: reduce) {
+
+
+
+  .intro-page .header.intro-header,
+
+  .intro-page .header.intro-header.is-visible {
+
+    transition: none;
+
+  }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+  .ending-section {
+
+    height: 260vh;
+
+  }
+
+
+
+  .ending-card {
+
+    width: calc(100% - 40px);
+
+    max-height: calc(100svh - 80px);
+
+    aspect-ratio: 4 / 5;
+
+  }
+
+
+
+  .ending-message {
+
+    padding: 0 24px;
+
+    font-size: 25px;
+
+    line-height: 1.45;
+
+  }
+
+
+
+  .ending-brand {
+
+    padding: 0 24px;
+
+  }
+
+
+
+  .ending-brand h2 {
+
+    font-size: 48px;
+
+  }
+
+
+
+  .ending-brand p {
+
+    margin-top: 4px;
+
+    font-size: 16px;
+
+  }
+
+}
+
+
+
+.ending-start-btn {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 300px;
+
+  height: 50px;
+
+  margin: 30px auto 0;
+
+  box-sizing: border-box;
+
+  border: 1px solid #cbd5e1;
+
+  background: rgba(30, 41, 59, 0.85);
+
+  color: #fff;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+
+    background-color 0.3s ease,
+
+    border-color 0.3s ease,
+
+    color 0.3s ease;
+
+}
+
+
+
+.ending-start-btn:hover {
+
+  background: #0f172a;
+
+  color: #fff;
+
+}
+
+
+
+.ending-start-btn:focus-visible {
+
+  outline: 3px solid #fff;
+
+  outline-offset: 5px;
+
+}
+
+
+
+/* 투명하게 숨겨진 동안 클릭되지 않도록 처리 */
+
+.ending-card-02 {
+
+  pointer-events: none;
+
+}
+
+
+
+.ending-card-02.is-ready {
+
+  pointer-events: auto;
+
+}
+
+
+
+/* ==================================================
+
+   05 / 06. 스크롤 고정
+
+\================================================== */
+
+.brand-section,
+
+.drive-section {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 200vh;
+
+  overflow: visible;
+
+}
+
+
+
+.brand-sticky,
+
+.drive-sticky {
+
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100vh;
+
+  overflow: hidden;
+
+}
+
+
+
+.brand-sticky {
+
+  background: #fff;
+
+}
+
+
+
+.drive-sticky {
+
+  background: #111;
+
 }
 
 /* ==================================================
-   두 번째 문구
+   INTRO MOBILE
+   393px 기준 / PC 스타일은 유지
 ================================================== */
-
-.ending-brand {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 5;
-  width: 100%;
-  padding: 0 30px;
-  box-sizing: border-box;
-  text-align: center;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.94);
-  will-change: opacity, transform;
-}
-
-.ending-brand h2 {
-  margin: 0;
-  color: #f8fafc;
-  font-family: "HeirofLightBold", "HeirofLight", serif;
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.ending-brand p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.8);
-  font-family: "Pretendard", sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-/* 스크롤은 유지하고 브라우저 스크롤바만 숨김 */
-html.intro-document {
-  scrollbar-width: none;
-  scrollbar-gutter: auto;
-  scroll-behavior: auto;
-}
-
-html.intro-document::-webkit-scrollbar,
-body.intro-page::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-body.intro-page {
-  margin: 0;
-  padding-top: 0;
-  overflow-x: clip;
-  scrollbar-width: none;
-}
-
-/* sticky 요소의 부모에서 스크롤을 막지 않음 */
-.intro-page .intro {
-  width: 100%;
-  overflow: visible;
-}
-
-.intro-opening {
-  position: relative;
-  width: 100%;
-  isolation: isolate;
-}
-
-/* 1번: 제자리에 고정되는 영상 */
-.intro-opening .hero-section {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100svh;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.intro-opening .hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 고정 px 대신 화면 높이에 맞춰 버튼 배치 */
-.intro-opening .hero-content {
-  top: auto;
-  bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* 2번: 고정된 1번 영상 위로 올라오는 화면 */
-.intro-opening .slogan-section {
-  position: relative;
-  width: 100%;
-  height: 240vh;
-  height: 240svh;
-  margin: 0;
-  background: #020817;
-  z-index: 2;
-}
-
-.intro-opening .slogan-sticky {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100svh;
-  overflow: hidden;
-  background: #020817;
-}
-
-.intro-opening .slogan-scene {
-  transform-origin: 52.5% 84%;
-  will-change: transform;
-  transition: none;
-}
-
-.intro-opening .slogan-content {
-  will-change: opacity, transform;
-  transition: none;
-}
-
-/* 확대가 끝나기 전에 3번이 덮는 기존 음수 여백 해제 */
-.intro-page .story-section {
-  margin-top: 0;
-}
-
-/* 위로 스크롤할 때 내려오는 공통 헤더 */
-.intro-page .header.intro-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  z-index: 2000;
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(170, 170, 170, 0.85) 55%,
-      rgba(60, 60, 60, 0.95) 100%);
-  color: #0f172a;
-  transform: translateY(-110%);
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s linear 0.45s;
-  will-change: transform;
-}
-
-.intro-page .header.intro-header.is-visible {
-  transform: translateY(0);
-  visibility: visible;
-  pointer-events: auto;
-  transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s;
-}
-
-/* 기존 ending의 translateZ에 원근감 적용 */
-.intro-page .ending-stage {
-  perspective: 1200px;
-}
-
-/* 운영체제의 동작 줄이기 설정 반영 */
-@media (prefers-reduced-motion: reduce) {
-
-  .intro-page .header.intro-header,
-  .intro-page .header.intro-header.is-visible {
-    transition: none;
-  }
-}
-
 @media (max-width: 768px) {
+
+  /* COMMON */
+  html.intro-document,
+  body.intro-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .intro-page .intro {
+    width: 100%;
+    overflow: visible;
+  }
+
+  /* 01. HERO */
+  .intro-opening .hero-section {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+  }
+
+  .intro-opening .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero-top {
+    height: 60px;
+    padding: 0 20px;
+  }
+
+  .intro-logo,
+  .intro-logo img {
+    width: 64px;
+  }
+
+  .intro-controls {
+    gap: 10px;
+  }
+
+  .sound-btn,
+  .intro-close-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sound-icon,
+  .intro-close-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .intro-opening .hero-content {
+    top: auto;
+    bottom: 8svh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero-start-btn {
+    width: 210px;
+    height: 48px;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 3px;
+  }
+
+  /* 02. ONE PLACE */
+  .intro-opening .slogan-section {
+    width: 100%;
+    height: 190vh;
+    height: 190svh;
+    margin: 0;
+  }
+
+  .intro-opening .slogan-sticky {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+  }
+
+  .slogan-bg,
+  .slogan-dashboard {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .slogan-content {
+    width: calc(100% - 40px);
+  }
+
+  .slogan-content h2 {
+    font-size: clamp(32px, 9vw, 38px);
+    line-height: 1.25;
+  }
+
+  .slogan-content p {
+    margin-top: 24px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  /* 03. ORANGE ROAD STORY */
+  .intro-page .story-section {
+    width: 100%;
+    height: 2400px;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+  .story-bg {
+    background-position: center top;
+  }
+
+  .story-inner {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+  }
+
+  .story-line {
+    top: 70px;
+    left: 50%;
+    width: 560px;
+    height: 1900px;
+    transform: translateX(-50%);
+  }
+
+  .story-item {
+    width: calc(100% - 48px);
+    left: 24px;
+    right: auto;
+    transform: translateY(30px);
+  }
+
+  .story-item h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .story-item p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .story-item01 {
+    top: 720px;
+    left: 24px;
+  }
+
+  .story-item02 {
+    top: 1080px;
+    left: 24px;
+    right: auto;
+  }
+
+  .story-item03 {
+    top: 1450px;
+    left: 24px;
+  }
+
+  .story-result {
+    left: 20px;
+    bottom: 100px;
+    width: calc(100% - 40px);
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 35px;
+    transform: translateY(40px);
+  }
+
+  .story-result.active {
+    transform: translateY(0);
+  }
+
+  .story-result-text>p {
+    margin-bottom: 14px;
+    font-size: 16px;
+  }
+
+  .story-result-text h2 {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .story-result-text small {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .story-result-data {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 50px;
+  }
+
+  .result-count>span {
+    font-size: 12px;
+  }
+
+  .result-count strong {
+    font-size: 36px;
+  }
+
+  /* 04. THE VERO WAY */
+  .intro-why-section {
+    width: 100%;
+    height: 160vh;
+    height: 160svh;
+  }
+
+  .intro-why-sticky {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    display: block;
+  }
+
+  .intro-why-inner {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .intro-why-copy {
+    top: 10%;
+    left: 24px;
+    width: calc(100% - 48px);
+  }
+
+  .intro-why-label {
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+
+  .intro-why-copy h2 {
+    margin-bottom: 18px;
+    font-size: 30px;
+    line-height: 1.25;
+  }
+
+  .intro-why-desc {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .intro-why-line {
+    width: 120px;
+    margin: 24px 0;
+  }
+
+  .intro-why-copy h3 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .intro-why-body {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .intro-why-image {
+    top: auto;
+    bottom: 7%;
+    left: 50%;
+    width: calc(100% - 48px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    transform: translate(-50%, 70px) scale(0.96);
+  }
+
+  .intro-why-section.is-active .intro-why-image {
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  /* 05. ALL BRANDS */
+  .brand-section {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .brand-sticky {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .brand-video-area {
+    width: 100%;
+    height: 45%;
+  }
+
+  .brand-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .brand-content {
+    top: 55%;
+    left: 50%;
+    width: calc(100% - 40px);
+    transform: translateX(-50%);
+  }
+
+  .brand-title {
+    gap: 5px;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .brand-desc {
+    margin-top: 30px;
+    padding: 0 4px;
+    font-size: 14px;
+    line-height: 1.65;
+    word-break: keep-all;
+  }
+
+  /* 06. RENT / LEASE / BUY */
+  .drive-section {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .drive-sticky {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .drive-item:nth-child(1),
+  .drive-item:nth-child(2) {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+  }
+
+  .drive-item:nth-child(2)::after {
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.30) 45%,
+        rgba(0, 0, 0, 0.55) 100%);
+  }
+
+  .drive-content {
+    top: 16%;
+    left: 24px;
+    width: calc(100% - 48px);
+    transform: none;
+  }
+
+  .drive-item:nth-child(2) .drive-content {
+    animation: driveContentShowMobile 0.7s ease 0.2s forwards;
+  }
+
+  .drive-title {
+    margin-bottom: 20px;
+    font-size: 32px;
+  }
+
+  .drive-description {
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+
+  .drive-description br {
+    display: none;
+  }
+
+  .drive-item:nth-child(3),
+  .drive-item:nth-child(4),
+  .drive-item:nth-child(5) {
+    top: 61%;
+    width: 110px;
+    height: 155px;
+    border-radius: 12px;
+  }
+
+  .drive-item:nth-child(3) {
+    left: 20px;
+  }
+
+  .drive-item:nth-child(4) {
+    left: 141px;
+  }
+
+  .drive-item:nth-child(5) {
+    left: 262px;
+  }
+
+  .drive-item:nth-child(n + 6) {
+    top: 61%;
+    left: calc(100% + 20px);
+    width: 110px;
+    height: 155px;
+  }
+
+  .drive-nav {
+    top: auto;
+    bottom: 28px;
+    left: 24px;
+    gap: 10px;
+  }
+
+  .drive-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* 07. ENDING */
   .ending-section {
-    height: 260vh;
+    height: 230vh;
+    height: 230svh;
+  }
+
+  .ending-sticky {
+    height: 100vh;
+    height: 100svh;
   }
 
   .ending-card {
-    width: calc(100% - 40px);
-    max-height: calc(100svh - 80px);
+    width: calc(100% - 32px);
+    height: auto;
+    max-height: 78svh;
     aspect-ratio: 4 / 5;
+    border-radius: 10px;
+  }
+
+  .ending-image {
+    object-fit: cover;
+    object-position: center;
   }
 
   .ending-message {
-    padding: 0 24px;
-    font-size: 25px;
-    line-height: 1.45;
+    padding: 0 25px;
+    font-size: 21px;
+    line-height: 1.5;
   }
 
   .ending-brand {
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
   .ending-brand h2 {
-    font-size: 48px;
+    font-size: 42px;
+    line-height: 1.2;
   }
 
   .ending-brand p {
-    margin-top: 4px;
-    font-size: 16px;
+    margin-top: 6px;
+    font-size: 14px;
+  }
+
+  .ending-start-btn {
+    width: 210px;
+    height: 48px;
+    margin-top: 24px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+
+  /* MOBILE HEADER */
+  .intro-page .header.intro-header {
+    width: 100%;
   }
 }
 
-.ending-start-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 50px;
-  margin: 30px auto 0;
-  box-sizing: border-box;
-  border: 1px solid #cbd5e1;
-  background: rgba(30, 41, 59, 0.85);
-  color: #fff;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease;
-}
+@keyframes driveContentShowMobile {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(25px);
+  }
 
-.ending-start-btn:hover {
-  background: #0f172a;
-  color: #fff;
-}
-
-.ending-start-btn:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 5px;
-}
-
-/* 투명하게 숨겨진 동안 클릭되지 않도록 처리 */
-.ending-card-02 {
-  pointer-events: none;
-}
-
-.ending-card-02.is-ready {
-  pointer-events: auto;
-}
-
-/* ==================================================
-   05 / 06. 스크롤 고정
-================================================== */
-.brand-section,
-.drive-section {
-  position: relative;
-  width: 100%;
-  height: 200vh;
-  overflow: visible;
-}
-
-.brand-sticky,
-.drive-sticky {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.brand-sticky {
-  background: #fff;
-}
-
-.drive-sticky {
-  background: #111;
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
 }
