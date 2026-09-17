@@ -114,6 +114,19 @@ filterMenuButtons.forEach((menuButton) => {
     }
   );
 });
+/* =========================================
+   차량 카테고리 → 내차사기 페이지 이동
+========================================= */
+
+const categoryButtons = document.querySelectorAll('.car-category-btn');
+
+categoryButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const category = button.dataset.category;
+
+    window.location.href = `../buy/buy.html?category=${category}`;
+  });
+});
 
 /* ========================================
    바깥 클릭하면 닫기
