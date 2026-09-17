@@ -540,7 +540,7 @@
       introLenis = new window.Lenis({
         autoRaf: true,
         smoothWheel: true,
-        lerp: 0.14,
+        lerp: 0.05,
         wheelMultiplier: 1,
         syncTouch: false,
         anchors: true,
@@ -554,7 +554,7 @@
           const focusY = window.innerHeight * 0.6;
 
           if (rect.top <= focusY && rect.bottom > focusY) {
-            data.deltaY *= 0.45;
+            data.deltaY *= 0.28;
           }
         }
       });
