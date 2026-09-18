@@ -214,3 +214,13 @@ if (
 
   updateDots();
 }
+
+window.addEventListener('pageshow', function () {
+  // 뒤로가기 / 앞으로가기로 페이지가 복원될 때
+  document.querySelectorAll('a').forEach(function (link) {
+    link.blur();
+  });
+
+  // 모바일에서 남아있는 터치 상태 초기화
+  document.body.classList.remove('touch-active');
+});
