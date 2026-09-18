@@ -215,11 +215,12 @@ textarea {
   height: 16px;
   object-fit: contain;
   margin-left: auto;
+  transform: rotate(180deg);
 }
 
-/* 메뉴가 열렸을 때 아래 방향 */
+/* 메뉴가 열렸을 때 위 방향 */
 .filter-btn[aria-expanded="true"] .arrow-icon {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 
 /* =========================================
