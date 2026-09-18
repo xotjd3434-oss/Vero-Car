@@ -21,7 +21,39 @@ const searchBtn = document.querySelector('#searchBtn');
 ================================================== */
 let cars = [];
 let filteredCars = [];
-let selectedOrigin = 'all';
+const mainCategoryParam = new URLSearchParams(window.location.search).get('category');
+let mainCategory = ['domestic', 'import', 'electric', 'large', 'small', 'truck']
+  .includes(mainCategoryParam) ? mainCategoryParam : '';
+let selectedOrigin = mainCategory === 'domestic' ? '국산'
+  : mainCategory === 'import' ? '수입' : 'all';
+// 국산/수입은 기존 탭 상태로 관리하여 탭 변경 시 조건이 겹치지 않게 합니다.
+if (mainCategory === 'domestic' || mainCategory === 'import') mainCategory = '';
+
+function updateCategoryURL(category) {
+  const url = new URL(window.location.href);
+  if (category) url.searchParams.set('category', category);
+  else url.searchParams.delete('category');
+  window.history.replaceState(window.history.state, '', url);
+}
+
+function matchesMainCategory(car) {
+  const size = String(car.sizeClass || '').trim();
+  const body = String(car.bodyType || '').trim();
+  switch (mainCategory) {
+    case 'electric':
+      return /^(전기|전기차|전기자동차|전기\s*\(EV\)|EV|BEV)$/i.test(car.fuel);
+    case 'large':
+      return size ? size === '대형' || size === '대형차'
+        : /^대형(?:$|차|\s|SUV|세단)/i.test(body);
+    case 'small':
+      return size ? size === '소형' || size === '소형차'
+        : /^소형(?:$|차|\s|SUV|세단)/i.test(body);
+    case 'truck':
+      return /화물|트럭|픽업|truck|pickup/i.test(body);
+    default:
+      return true;
+  }
+}
 let currentPage = 1;
 const pageSize = 10;
 let sortState = {
@@ -41,7 +73,6 @@ function loadCars() {
     })
     .then(data => {
       cars = data.map(normalizeCar);
-      renderMobileCars();
       updateFilterCounts(cars);
       applyFilters();
     })
@@ -72,7 +103,9 @@ function loadCars() {
 function normalizeCar(car) {
   return {
     id: car.id,
-    origin: String(car.origin || '국산').trim(),
+    origin: normalizeOrigin(car.origin || '국산'),
+    fuel: String(car.fuel || '').trim(),
+    sizeClass: String(car.sizeClass || '').trim(),
     brand: car.brand || '',
     modelName:
       car.modelName ||
@@ -308,7 +341,7 @@ function getTagColor(color) {
    필터
 ================================================== */
 function applyFilters() {
-  filteredCars = [...cars];
+  filteredCars = cars.filter(matchesMainCategory);
   /* 국산 / 수입 */
   if (selectedOrigin !== 'all') {
     filteredCars = filteredCars.filter(car => {
@@ -375,6 +408,7 @@ function applyFilters() {
   currentPage = 1;
   renderCars();
   renderPagination();
+  renderMobileCars(filteredCars);
 }
 
 /* ==================================================
@@ -442,6 +476,8 @@ originTabs.forEach(tab => {
     tab.classList.add('active');
     selectedOrigin =
       normalizeOrigin(tab.dataset.origin);
+    updateCategoryURL(mainCategory || (selectedOrigin === '국산' ? 'domestic'
+      : selectedOrigin === '수입' ? 'import' : ''));
     /* 국산 → 수입 변경 시 기존 브랜드 선택 해제 */
     document
       .querySelectorAll('input[name="brand"]')
@@ -655,11 +691,13 @@ function sortCars() {
    FILTER RESET
 ================================================== */
 filterReset.addEventListener('click', () => {
+  mainCategory = '';
+  updateCategoryURL('');
   selectedOrigin = 'all';
   originTabs.forEach(tab => {
     tab.classList.toggle(
       'active',
-      tab.dataset.origin === 'all'
+      normalizeOrigin(tab.dataset.origin) === 'all'
     );
   });
   filterChecks.forEach(input => {
@@ -867,11 +905,11 @@ function renderMobileTag(tag) {
     </span>
   `;
 }
-function renderMobileCars() {
+function renderMobileCars(sourceCars = filteredCars) {
   const pickGrid = document.querySelector('#mobilePickGrid');
   const kiaGrid = document.querySelector('#mobileKiaGrid');
   const popularGrid = document.querySelector('#mobilePopularGrid');
-  if (!pickGrid || !kiaGrid || !popularGrid || !Array.isArray(cars)) return;
+  if (!pickGrid || !kiaGrid || !popularGrid || !Array.isArray(sourceCars)) return;
   const makeSmallCard = car => `
     <article class="mobile-car-card">
       <a href="../Car%20Detail%20Page/cardetailpage.html?id=${car.id}">
@@ -916,23 +954,23 @@ function renderMobileCars() {
         </div>
       </a>
     </article>`;
-  const pickCars = cars.slice(0, 4);
-  const kiaCars = cars.filter(car => car.brand === '기아').slice(0, 4);
+  const pickCars = sourceCars.slice(0, 4);
+  const kiaCars = sourceCars.filter(car => car.brand === '기아').slice(0, 4);
   const wantedPopular = [
     car => /S클래스|S400/i.test(car.modelName),
     car => /그랜저/i.test(car.modelName),
     car => /폴로|Polo/i.test(car.modelName)
   ];
   const popularCars = wantedPopular
-    .map(findCar => cars.find(findCar))
+    .map(findCar => sourceCars.find(findCar))
     .filter(Boolean);
   if (popularCars.length < 3) {
-    cars.forEach(car => {
+    sourceCars.forEach(car => {
       if (popularCars.length < 3 && !popularCars.some(item => item.id === car.id)) popularCars.push(car);
     });
   }
   pickGrid.innerHTML = pickCars.map(makeSmallCard).join('');
-  kiaGrid.innerHTML = (kiaCars.length ? kiaCars : cars.slice(4, 8)).map(makeSmallCard).join('');
+  kiaGrid.innerHTML = (kiaCars.length ? kiaCars : sourceCars.slice(4, 8)).map(makeSmallCard).join('');
   popularGrid.innerHTML = popularCars.slice(0, 3).map(makePopularCard).join('');
   document.querySelectorAll('.mobile-heart').forEach(button => {
     button.addEventListener('click', event => {
@@ -948,4 +986,7 @@ function renderMobileCars() {
     });
   });
 }
+originTabs.forEach(tab => {
+  tab.classList.toggle('active', normalizeOrigin(tab.dataset.origin) === selectedOrigin);
+});
 loadCars();

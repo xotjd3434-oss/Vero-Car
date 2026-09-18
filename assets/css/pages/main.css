@@ -579,6 +579,7 @@ textarea {
   line-height: 1.6;
   font-weight: 400;
   color: #fff;
+  opacity: 0.8;
 }
 
 /* =========================================
@@ -886,10 +887,11 @@ textarea {
 }
 
 .why-title p {
-  font-family: h;
+  font-family: 'Pretendard', sans-serif;
   color: #111;
   font-size: 20px;
   line-height: 1.6;
+  word-break: break-all;
 }
 
 /* =========================================
@@ -980,6 +982,10 @@ textarea {
 /* ==================================================
    MOBILE - 393px 기준
 ================================================== */
+
+.recommend-next {
+  display: none;
+}
 
 @media (max-width: 393px) {
   * {
@@ -1351,6 +1357,7 @@ textarea {
     margin: 0;
     font-size: 13px;
     line-height: 1.4;
+    opacity: 0.8;
   }
 
   .service-desc {
@@ -1781,15 +1788,20 @@ textarea {
     width: 176px;
     height: 150px;
     margin: 0;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
   }
 
   .why-content h3 {
+    width: 100%;
+
     font-weight: 700;
     font-size: 16px;
+
     line-height: 1.4;
     margin-top: 0;
     margin-bottom: 10px;
@@ -1800,6 +1812,7 @@ textarea {
     font-weight: 400;
     font-size: 12px;
     line-height: 1.6;
+    opacity: 0.6;
   }
 
   /* ==================================================

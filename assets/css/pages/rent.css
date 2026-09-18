@@ -151,34 +151,16 @@
   white-space: nowrap;
 }
 
-/* 화살표 15 x 15 */
-.arrow {
-  position: relative;
-  flex: none;
-
-  width: 15px;
-  height: 15px;
+/* 화살표 */
+.rent-search .arrow {
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
 }
 
-.arrow::before {
-  content: "";
-
-  position: absolute;
-  top: 2px;
-  left: 3px;
-
-  width: 7px;
-  height: 7px;
-
-  border-right: 1px solid #111;
-  border-bottom: 1px solid #111;
-
-  transform: rotate(45deg);
-}
-
-.search-filter.active .arrow::before {
-  top: 6px;
-  transform: rotate(225deg);
+/* 필터가 열렸을 때 180도 회전 */
+.rent-search .search-filter.active .arrow {
+  transform: rotate(0deg);
 }
 
 /* 드롭다운 */
