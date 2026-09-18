@@ -64,6 +64,14 @@ body {
 
 
 
+.hero-video-bg {
+
+  display: none;
+
+}
+
+
+
 .hero-video {
 
   position: absolute;
@@ -2751,25 +2759,11 @@ body {
 .drive-title {
 
   margin: 0 0 50px;
-
-
-
-  font-family: "Paperlogy", "Pretendard", sans-serif;
-
-
-
+  font-family: 'Paperozi', 'Pretendard', sans-serif;
   font-size: 50px;
-
   font-weight: 800;
-
   line-height: 1;
-
-
-
   letter-spacing: -0.02em;
-
-
-
   color: #fff;
 
 }
@@ -2781,18 +2775,11 @@ body {
 .drive-description {
 
   margin: 0;
-
-
-
-  font-family: "Paperlogy", "Pretendard", sans-serif;
-
-
-
-  font-size: 30px;
-
-  font-weight: 500;
-
+  font-family: 'Paperlogy', sans-serif;
+  font-family: 'Paperozi', 'Pretendard', sans-serif;
+  font-weight: 400;
   line-height: 1.6;
+  font-size: 30px;
 
 
 
@@ -3089,26 +3076,6 @@ body {
   justify-content: center;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ==================================================
 
@@ -3890,13 +3857,51 @@ body.intro-page {
     width: 100%;
     height: 100vh;
     height: 100svh;
+    overflow: hidden;
+    background: #020817;
   }
 
-  .intro-opening .hero-video {
-    width: 100%;
-    height: 100%;
+  /*
+    세로 화면의 빈 영역을 채우는 배경 영상.
+    같은 영상을 크게 깔고 블러 처리해서 가로 영상 특유의 여백을 자연스럽게 처리합니다.
+  */
+  .intro-opening .hero-video-bg {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
     object-fit: cover;
     object-position: center center;
+    transform: translate(-50%, -50%) scale(1.04);
+    filter: blur(24px) brightness(0.62);
+    opacity: 0.72;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /*
+    실제 영상은 contain으로 보여줘 좌우가 과하게 잘리지 않도록 합니다.
+    PC의 cover 설정은 이 모바일 미디어쿼리 밖에서 그대로 유지됩니다.
+  */
+  .intro-opening .hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .intro-opening .hero-overlay {
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.08);
   }
 
   .hero-top {
@@ -3941,18 +3946,28 @@ body.intro-page {
     border-radius: 3px;
   }
 
-  /* 02. ONE PLACE */
+  /* ==================================================
+     02. ONE PLACE
+     PC와 같은 방식으로 화면에 고정된 상태에서 진행
+  ================================================== */
   .intro-opening .slogan-section {
+    position: relative;
     width: 100%;
     height: 190vh;
     height: 190svh;
     margin: 0;
+    background: #020817;
+    z-index: 2;
   }
 
   .intro-opening .slogan-sticky {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 100vh;
     height: 100svh;
+    overflow: hidden;
+    background: #020817;
   }
 
   .slogan-bg,
@@ -3978,12 +3993,17 @@ body.intro-page {
     line-height: 1.5;
   }
 
-  /* 03. ORANGE ROAD STORY */
+  /* ==================================================
+     03. ORANGE ROAD STORY
+     2번 섹션이 끝나기 전에 위로 겹쳐 올라와 빈 공간 제거
+  ================================================== */
   .intro-page .story-section {
+    position: relative;
     width: 100%;
     height: 2400px;
-    margin-top: 0;
+    margin-top: -35svh;
     overflow: hidden;
+    z-index: 3;
   }
 
   .story-bg {
@@ -4085,18 +4105,28 @@ body.intro-page {
     font-size: 36px;
   }
 
-  /* 04. THE VERO WAY */
+  /* ==================================================
+     04. THE VERO WAY
+     화면 상단에 닿으면 PC처럼 딱 고정
+  ================================================== */
   .intro-why-section {
+    position: relative;
     width: 100%;
-    height: 160vh;
-    height: 160svh;
+    height: 180vh;
+    height: 180svh;
+    background: #111;
+    overflow: visible;
   }
 
   .intro-why-sticky {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 100vh;
     height: 100svh;
+    overflow: hidden;
     display: block;
+    background: #111;
   }
 
   .intro-why-inner {
@@ -4159,18 +4189,27 @@ body.intro-page {
     transform: translate(-50%, 0) scale(1);
   }
 
-  /* 05. ALL BRANDS */
+  /* ==================================================
+     05. ALL BRANDS
+     모바일에서도 PC와 동일하게 sticky 고정
+  ================================================== */
   .brand-section {
+    position: relative;
+    width: 100%;
+    height: 200vh;
+    height: 200svh;
+    overflow: visible;
+    background: #fff;
+  }
+
+  .brand-sticky {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 100vh;
     height: 100svh;
     overflow: hidden;
-  }
-
-  .brand-sticky {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    background: #fff;
   }
 
   .brand-video-area {
@@ -4206,19 +4245,27 @@ body.intro-page {
     word-break: keep-all;
   }
 
-  /* 06. RENT / LEASE / BUY */
+  /* ==================================================
+     06. RENT / LEASE / BUY
+     모바일에서도 PC와 동일하게 sticky 고정
+  ================================================== */
   .drive-section {
+    position: relative;
+    width: 100%;
+    height: 200vh;
+    height: 200svh;
+    overflow: visible;
+    background: #111;
+  }
+
+  .drive-sticky {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 100vh;
     height: 100svh;
     overflow: hidden;
-  }
-
-  .drive-sticky {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    background: #111;
   }
 
   .drive-item:nth-child(1),
@@ -4301,15 +4348,24 @@ body.intro-page {
     height: 44px;
   }
 
-  /* 07. ENDING */
+  /* ==================================================
+     07. ENDING
+     화면 상단에 닿으면 고정된 상태에서 전환
+  ================================================== */
   .ending-section {
+    position: relative;
+    width: 100%;
     height: 230vh;
     height: 230svh;
   }
 
   .ending-sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
     height: 100vh;
     height: 100svh;
+    overflow: hidden;
   }
 
   .ending-card {
@@ -4370,5 +4426,118 @@ body.intro-page {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
+  }
+}
+
+/* ==================================================
+   MOBILE TIGHT SECTION FLOW
+   393px 기준: 섹션 사이 긴 체류 구간 제거
+   PC 스타일에는 영향 없음
+================================================== */
+@media (max-width: 768px) {
+
+  /* 모든 주요 섹션 사이 여백 제거 */
+  .intro-opening,
+  .intro-opening .slogan-section,
+  .intro-page .story-section,
+  .intro-why-section,
+  .brand-section,
+  .drive-section,
+  .ending-section {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  /* 02. ONE PLACE
+     확대 애니메이션에 필요한 최소 스크롤만 남김 */
+  .intro-opening .slogan-section {
+    height: 135svh;
+  }
+
+  .intro-opening .slogan-sticky {
+    height: 100svh;
+  }
+
+  /* 03. STORY
+     2번과 겹쳐 올라오면서 전체 길이도 축소 */
+  .intro-page .story-section {
+    height: 1800px;
+    margin-top: -35svh;
+  }
+
+  .story-line {
+    top: 45px;
+    width: 500px;
+    height: 1420px;
+  }
+
+  .story-item01 {
+    top: 470px;
+  }
+
+  .story-item02 {
+    top: 760px;
+  }
+
+  .story-item03 {
+    top: 1050px;
+  }
+
+  .story-result {
+    bottom: 65px;
+  }
+
+  /* 04. THE VERO WAY
+     한 화면 + 아주 짧은 sticky 구간만 유지 */
+  .intro-why-section {
+    height: 100svh;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .intro-why-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+  }
+
+  /* 05. ALL BRANDS */
+  .brand-section {
+    height: 100svh;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .brand-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+  }
+
+  /* 06. BUY / RENT / LEASE */
+  .drive-section {
+    height: 100svh;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .drive-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+  }
+
+  /* 07. ENDING
+     두 카드 전환을 위해 25svh만 추가 확보 */
+  .ending-section {
+    height: 125svh;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .ending-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
   }
 }
